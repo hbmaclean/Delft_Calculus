@@ -1,0 +1,1518 @@
+---
+title: "Polynomials"
+format: html
+editor: visual
+---
+
+# Polynomials
+
+The simplest polynomials are those with degree 0, which can be written as $f(x) = ax^0$. Since $x^0$ is 1, these are constant, linear functions, which when graphed are horizontal lines.
+
+Polynomials with degree 1 have the form, $f(x) = ax + b$. These are also linear, with $a$ measuring the slope and $b$ the y-intercept.
+
+Polynomials with degree 2 have the form, $f(x) = ax^2 + bx + c$. These are called quadratic, and form a parabola when graphed.
+
+## Quadratic Representations
+
+Quadratic formulas are commonly represented in three forms - standard, factorized, and complete-square.
+
++------------------------+------------------------+--------------------------------------------+------------------------------------------------------------------------------------------------+
+| Form                   | Representation         | Example                                    | Description                                                                                    |
++========================+========================+============================================+================================================================================================+
+| Standard               | $f(x) = ax^2 + bx + c$ | $f(x) = \frac{1}{2}x^2 - 3x + \frac{5}{2}$ | $a$ measures direction (positive, up; negative, down) and width (widest near zero) of parabola |
+|                        |                        |                                            |                                                                                                |
+|                        |                        |                                            | $-b/2a$ is the x-coordinate of the vertex                                                      |
++------------------------+------------------------+--------------------------------------------+------------------------------------------------------------------------------------------------+
+| Factorized\            | $f(x) = a(x-p)(x-q)$   | $f(x) = \frac{1}{2}(x-1)(x-5)$             | $a$ still measures direction and width                                                         |
+| (Not always possible!) |                        |                                            |                                                                                                |
+|                        |                        |                                            | $p$ and $q$ are the x-coordinates of intersection with x-axis                                  |
+|                        |                        |                                            |                                                                                                |
+|                        |                        |                                            | Factorized form makes it easy to find the zeros - when $x = p$ and $x = q$.                    |
++------------------------+------------------------+--------------------------------------------+------------------------------------------------------------------------------------------------+
+| Complete Square        | $f(x) = a(x-r)^2 + s$  | $f(x) = \frac{1}{2}(x-3)^2 -2$             | $a$ still measures direction and width                                                         |
+|                        |                        |                                            |                                                                                                |
+|                        |                        |                                            | $r$ and $s$ are the x/y coordinates of the vertex                                              |
++------------------------+------------------------+--------------------------------------------+------------------------------------------------------------------------------------------------+
+
+### More on Complete Square Form
+
+Given the standard form, $f(x) = ax^2 + bx + c$, and for simplicity we consider the case where $a = 1$, we can visualize an $x$-by-$x$ square, an $x$-by-$b$ rectangle, and a scrap $c$.
+
+![](images/clipboard-3921172509.png)
+
+We can then split the rectangle along $b$ and glue the halves to the square:
+
+![](images/clipboard-3498327512.png)
+
+And then complete the square with a $(1/2b)(1/2b)$ piece of $c$:
+
+![](images/clipboard-2653620642.png)
+
+Since area is unchanged, we obtain:
+
+$$
+x2 + bx + c = (x + \frac{1}{2}b)^2 + c - \frac{1}{4}b^2
+$$
+
+Note that the right-hand side is the complete square form $a(x-r)^2 + s$, with $a = 1$, $r = -\frac{1}{2}b$ (note the minus sign), and $s = c - \frac{1}{4}b^2$.
+
+**Exercises**
+
+Given a quadratic formula in standard form, show the equivalent complete-square form and its $a$, $r$, and $s$ values.
+
+| Given Standard Form | Complete Square Form | $a$ | $r$ | $s$ |
+|---------------------|----------------------|-----|-----|-----|
+| $x^2 + 6x + 13$     | $(x+3)^2+4$          | 1   | -3  | 4   |
+| $x^2 + 10x + 7$     | $(x + 5)^2 - 18$     | 1   | -5  | -18 |
+| $3x^2 - 12x + 9$    | $3(x - 2)^2 -3$      | 3   | 2   | -3  |
+
+### More on the Factorized Form
+
+In general, converting standard form, $ax^2 + bx + c$ to factored form, $a(x - p)(x - q)$, amounts to solving two equations: $p + q = - \frac{b}{a}$ and $p * q = \frac{c}{a}$.
+
+In some cases, this can be done easily enough by inspection. But again, not every quadratic polynomial can be factored. Consider $x^2 - 2x + 2$. When graphed, the parabola does not intersect the x-axis - there are no zeros:
+
+![](images/clipboard-27038792.png)
+
+**Exercises**
+
++------------------+----------------------------------------+---------+---------+---------+
+| Given Polynomial | Can Be Factored as $a(x-p)(x-q)$       | $a$     | $p$     | $q$     |
++==================+========================================+=========+=========+=========+
+| $5x^2 - 20$      | $5(x - 2)(x + 2)$                      | 5       | -2      | 2       |
++------------------+----------------------------------------+---------+---------+---------+
+| $x^2 - 4x + 7$   | no                                     |         |         |         |
++------------------+----------------------------------------+---------+---------+---------+
+| $3x^2 + 9x - 30$ | $3(x^2 + 3x - 10)$ = $3(x - 2)(x + 5)$ | 3       | -2      | 5       |
++------------------+----------------------------------------+---------+---------+---------+
+
+After using UI to adjust line between points A (1, 3) and B (9/2, 3/2), give the exact equation for the line.
+
+Note, for this, I had to research on the side, from [MATHisFUN](https://www.mathsisfun.com/algebra/line-equation-2points.html).
+
+Calculate Slope:
+
+$a = (y_2 - y_1) / (x_2 - x_1)$
+
+$a = (3/2 - 3) / (9/2 - 1)$
+
+$a = -\frac{3}{2} / \frac{7}{2}$
+
+$a = -\frac{3}{2}* \frac{2}{7}$
+
+$a = -\frac{6}{14}$
+
+Point-slope Formula:
+
+$y - y_1 = a(x - x_1)$
+
+$y - 3 = -\frac{6}{14}(x - 1)$
+
+$y - 3 = -\frac{3x}{7} + \frac{3}{7}$
+
+$y = -\frac{3x}{7} + \frac{24}{7}$
+
+Exercise 8
+
+Given vertex and x-intercepts, determine $ax^2 + bx +c$
+
+vertex at 1,2 - thus: $a(x-1)^2 + 2$
+
+x-intercepts at -1 and 3 - thus: $a(x+1)(x-3)$
+
+Therefore: $a(x-1)^2 + 2$ = $a(x+1)(x-3)$
+
+Expanded: $a(x^2 -2x +1) + 2$ = $a(x^2 -2x -3)$
+
+Further: $ax^2 - 2ax + 1a +2 = ax^2 - 2ax -3a$
+
+Solve for $a$:
+
+$1a+2 = -3a$
+
+$2 = -4a$
+
+$\frac{2}{-4} = a = -\frac{1}{2}$
+
+Standard Form: $\frac{-1}{2}x^2 + 1x + \frac{3}{2}$
+
+# Rational Functions
+
+A rational function is the quotient, or *ratio*, of two polynomials.
+
+An example is for a commute comprised of 3km that takes a constant 6 minutes (1/10hr) and 20km that depends on highway traffic. Average speed is therefore $23/(\frac{1}{10} + 20v)$. Multiplying numerator and denominator by $v$ gives $23v/(\frac{1}{10}v + 20)$, which is a quotient of two linear polynomials.
+
+In general, rational functions can be written as $P/Q$, where both are polynomials constructed of a variable, numbers, addition and multiplication (and therefore subtraction and division.)
+
+$Q$ cannot be a constant zero.
+
+Otherwise, constant functions are also polynomials - and so taking the denominator $Q=1$, we see that any polynomial is also a rational function.
+
+Rational functions provide cases we could not define earlier, even simple cases where the numerator is constant or the denominator is a power of $x$.
+
+Rational functions cannot be defined at a point $x$ where the denominator is zero. We say that the zeros of the denominator are not in the "domain" of the function.
+
+Rational functions can be calculated like ordinary fractions. To sum two rational functions, put both terms over a common denominator. For example, to add $\frac{1}{(x-2)}$ and $\frac{1}{(x^2+2)}$, use the product of the two denominators as a common unit: $\frac{(x-2)+(x^2+2)}{(x-2)(x^2+2)}$, or simplified, $\frac{(x^2+x)}{(x-2)(x^2+2)}$
+
+Tip: Typically factored expressions are easiest to work with, so refrain from expanding the denominator if possible.
+
+## Graphing Rational Functions
+
+It is generally difficult to draw the graph of a rational function.
+
+One characteristic of such a graph are lines that approach the curve but do not meet it at any finite distance; i.e., the distance between the line and the curve approaches zero as one or both of the x/y coordinates tends to infinity. These are asymptotes.
+
+### Horizontal Asymptotes
+
+For example, $\frac{(2x^2 + 2x - 1)}{(x^2 + x + 1)}$ has a horizontal asymptote for $x$ to infinity; meaning that for very large $x$, positive or negative, the graph approaches a horizontal line very closely. In this case, the line is at $y = 2$.
+
+A rational function has a horizontal asymptote if the degree of the numerator is at most the degree of the denominator.
+
+The location of the horizontal asymptote can be determined by dividing both numerator and denominator by the largest power of $x$ in the denominator. For the example above, divide top and bottom by $x^2$ to get $\frac{2 + 2\frac{1}{x} - \frac{1}{x^2}}{1+\frac{1}{x}+\frac{1}{x^2}}$
+
+For very large $x$, the terms $\frac{1}{x}$, $\frac{1}{x^2}$, $2\frac{1}{x}$, etc. tend to zero, leading to constant $\frac{2}{1}$, i.e. $y = 2$.
+
+### Vertical Asymptotes
+
+Consider $f(x) = \frac{1}{(x-2)}$. For $x = 2$, the denominator is zero and the function is not defined. For $x$ slightly greater or less than 2, $\frac{1}{x}$ is very large. Therefore the graph has a vertical asymptote at $x=2$.
+
+A rational function can only have vertical asymptotes at zeros of the denominator.
+
+But - there is no vertical asymptote if the numerator also vanishes when the denominator is zero. For example, for $\frac{x-1}{(x-1)(x-2)}$, top and bottom are zero for $x = 1$. When graphing, we denote that 1 is not in the function domain by adding an open circle at $x = 1$.
+
+### Oblique Asymptotes
+
+Consider $f(x) = x + 2 + \frac{1}{x+1}$. For very large values, positive and negative, $\frac{1}{x+1}$ becomes very small. Thus, $x + 2$ becomes near constant, and there is a line at $y = x + 2$.
+
+### Zeros of Rational Functions
+
+A rational function can only intersect the x-axis if the numerator is zero, and the denominator is NOT zero:
+
+$\frac{P(x)}{Q(x)} = 0$ whenever $P(x) = 0$ and $Q(x) \neq 0$
+
+## Exercises: Rational Functions
+
+1.  Where is the horizontal asymptote of $f(x) = \frac{x^2 + 3x + 1}{2x^2 + 6x -2}$
+
+    Divide both by largest degree of $x$ in denominator, \$x\^2\$: $\frac{ \frac{x^2}{x^2} + \frac{3x}{x^2} + \frac{1}{x^2} }{ \frac{2x^2}{x^2} + \frac{6x}{x^2} - \frac{2}{x^2}  }$
+
+    That approaches $\frac{1}{2}$ with large enough $x$, all other terms approaching zero
+
+2.  What is the zero of $f(x) = \frac{1}{x-2} - \frac{x}{x ^2 + 3}$
+
+    $\frac{1}{x-2}(\frac{x^2+3}{x^2+3}) - \frac{x}{x^2+3}(\frac{x-2}{x-2})$
+
+    $\frac{x^2+3}{(x-2)(x^2+3)} - \frac{x^2 -2x}{(x-2)(x^2+3)}$
+
+    $\frac{(x^2+3)-(x^2-2x)}{(x-2)(x^2+3)}$
+
+    $\frac{2x+3}{(x-2)(x^2+3)}$
+
+    $2x + 3 = 0$
+
+    $2x = -3$
+
+    $x = \frac{-3}{2}$
+
+3.  Match formulas:
+
+    +---------------------------------+--------------------------+------------+------------+
+    | Formula                         | Horizontal\              | Vertical\  | Graph      |
+    |                                 | Asymptote?               | Asymptote? |            |
+    +=================================+==========================+============+============+
+    | $\frac{(x-1)(x-7)}{(x-2)(x-6)}$ | $\frac{x^2}{x^2}, y=1$   | $(2,6)$    | 1,3        |
+    +---------------------------------+--------------------------+------------+------------+
+    | $\frac{(x-3)(x-5)}{(x-2)(x-6)}$ | $\frac{x^2}{x^2}, y = 1$ | $(2,6)$    | 2,2        |
+    +---------------------------------+--------------------------+------------+------------+
+    | $\frac{3}{x-3}$                 | $\frac{0}{x}, y = 0$     | $(3)$      | 2,1        |
+    +---------------------------------+--------------------------+------------+------------+
+    | $\frac{(x-4)(x-7)}{2(x-3)}$     | no, $Deg(P) > Deg(Q)$    | $(3)$      | 1,1        |
+    +---------------------------------+--------------------------+------------+------------+
+    | $\frac{5(x-1)}{x^2+1}$          | $\frac{x}{x^2}, y=0$     | no         | 2,3        |
+    +---------------------------------+--------------------------+------------+------------+
+    | $\frac{20}{(x-1)^2+5}$          | $\frac{0}{x^2}, y=0$     | no         | 1,2        |
+    +---------------------------------+--------------------------+------------+------------+
+
+    To graphs:
+
+    ![](images/clipboard-890518719.png)
+
+# Power Functions
+
+A power function is a function of the form $f(x) - x^a$, where the exponent $a$ is a constant.
+
+Examples include:
+
+-   area of a circle, given radius $r$: $f(x) = \pi r^2$
+-   edge of a cube, given volume $v$: $f(x) = v^\frac{1}{3}$
+-   gravitational force on a satellite with distance $r$ from the center of the earth: $f(x) = r^{-2}$
+
+Properties of such a function depend strongly on whether the exponent is positive or negative, and integer or not.
+
+## Positive Integer Exponents
+
+When the exponent is an integer larger than zero, the power function is a special case of polynomial of degree $a$. It is also called a monomial and can be seen as a repeated product.
+
+When the exponent is zero, the power function is just the constant 1.
+
+With positive integer exponents, there are some calculation rules:
+
+-   $x^a * x^b$ is a product of $a$ plus $b$ x's, and is therefore $x^{a+b}$
+-   $(x^a) ^b$ is a product of $b$ factors of $x^a$, and is therefore $x^{a*b}$
+-   $(xy)^a$ is a product of $a$ factors of $x*y$
+
+## Negative Integer Exponents
+
+From the calculation rules above, we know that $x^{-3} * x ^3 = x ^{-3+3} = x ^0 = 1$, which implies that $x^{-3} = \frac{1}{x^3}$. Therefore, we can deduce another calculation rule:
+
+-   $\frac{x^a}{x^b} = x^{a-b}$
+
+## Graphing Power Functions
+
+$f(x) = x^0$ is a constant one, and thus a horizontal line.
+
+$f(x) = x^1$ is just $x$, and so a diagonal line.
+
+$f(x) = x^2$ is a parabola.
+
+$f(x) = x^3$ is a double curve
+
+Subsequent, even exponents closely resemble the parabola of $x^2$. These are called even functions; and for them, $f(-x)$ = $f(x)$ for all $x$. Graphs for even functions are symmetric in the vertical axis.
+
+Subsequent, odd exponents closely resemble the curve of $x^3$. These are called odd functions; and for them, $f(-x)$ = $-f(x)$ for all $x$. Graphs for odd functions are "point symmetric" in the origin - one half-rotation is identical.
+
+$f(x) = x^{-1}$ is a hyperbola, with two arcs in the upper right and lower left quadrants, bending toward $(0,0)$.
+
+$f(x) = x^{-2}$ has two arcs in the upper quadrants, bending toward $(0,0)$.
+
+Again, subsequent exponents resemble the two cases above; all having a horizontal asymptote at $y = 0$ and vertical at $x = 0$. And again, negative even functions are symmetric on the vertical axis and the negative odd functions are point-symmetric in the origin.
+
+## Exercises - Is Exponent Even/Odd, Pos/Neg?
+
+For the following graphs, indicate whether exponent is even or odd, and positive or negative.
+
+![](images/clipboard-1222026863.png)
+
+-   A: even, negative
+-   B: even, positive
+-   C: odd, positive
+-   D: odd, negative
+
+## Non-Integer Exponents
+
+For negative non-integer exponents, power functions are only possible in exceptional cases, to be discussed later.
+
+For positive non-integer exponents, we can use the known calculation rules. For example, for $x ^{\frac{1}{4}}$, we know that $(x^{\frac{1}{4}}) ^4 = x^1 = x$. Therefore, $x^{\frac{1}{4}} = \root 4\of x$, and generally for positive integer $n$, $x^{\frac{1}{n}} = \root n \of x$.
+
+For even values of $n$, resulting graphs resemble the following. They are only defined for non-negative values of $x$ (intuitively, since negatives have no even root.) We say the domain is $[0, \infty]$.
+
+![](images/clipboard-585532644.png){width="350"}
+
+For odd values of $n$, resulting graphs resemble the following, for domain $[\infty, \infty]$. These are again point-symmetric in the origin; and we again note that $f(-x) = -f(x)$.
+
+![](images/clipboard-1921778727.png){width="349"}
+
+For fractional exponents with a numerator other than 1:
+
+-   positive example: $x^{\frac{2}{3}} = (x ^2) ^\frac{1}{3} = \root 3 \of {x^2}$; and also, $x^\frac{2}{3} = (x ^\frac{1}{3}) ^2 = (\root 3 \of x)^2$
+-   negative example: $x^\frac{-5}{2} = (\frac{1}{x ^5})^\frac{1}{2} = \frac{1}{\sqrt{x^5}}$; and also $x^{-\frac{5}{2}} = (\sqrt{x})^{-5} = \frac{1}{(\sqrt{x})^5}$
+
+And so generally,
+
+-   for positive integers $p$ and $q$, $x^\frac{p}{q} = \root q \of {x^p} = (\root q \of x) ^p$
+-   and for negative integers, $x^{-\frac{p}{q}} = \frac{1}{\root q \of {x^p}} = \frac{1}{(\root q \of x)^p}$
+
+## General Properties
+
+For which values of $x$ is $x^a$ defined?
+
++---------------------------------------+------------+------------+
+|                                       | $a \ge 0$  | $a < 0$    |
++=======================================+============+============+
+| In general                            | $x \ge 0$  | $x > 0$    |
++---------------------------------------+------------+------------+
+| Integer $a$                           | all $x$    | $x \ne 0$  |
+|                                       |            |            |
+| ... or $a = \frac{p}{q}$ with odd $q$ |            |            |
++---------------------------------------+------------+------------+
+
+When exponent $a$ is positive, $x^a$ increases with $x$:
+
+![](images/clipboard-1442867714.png){width="297"}
+
+When $a$ is negative, $x^a$ decreases with $x$; and there are asymptotes at $x=0$ and $y=0$:
+
+![](images/clipboard-642347523.png){width="300" height="322"}
+
+And if defined for $x < 0$, there is either line symmetry along y-axis:
+
+![](images/clipboard-3172173621.png){width="323"}
+
+Or point-symmetry at origin:
+
+![](images/clipboard-1559235920.png){width="329"}
+
+Now, consider a graph of $f(x) = x^2$ and $f(x) = x^3$:
+
+![](images/clipboard-1637137005.png)
+
+Note that if $x > 1$ and $a < b$, then $x^a < x ^b$. By example, if $f(x) = x^2$ and $g(x) = x^3$, then $g(x) = x * f(x)$; and since $x > 1$ and both functions are positive, $g(x)$ is clearly larger. In the graph above, $y$ increases faster with $f(x) = x^3$ for $x > 1$.
+
+This inequality reverses for $0 < x < 1$. By the same logic, $g(x) = x * f(x)$, and since $x$ is fractional, the result is smaller. This is visible in the graph above, with the lines crossing at $(1,1)$.
+
+## Exercise - Match Graphs and Formulas
+
+Match the following formulas to the graphs below.
+
+![](images/clipboard-3647059616.png)
+
+Note cases of symmetry, on y-axis for even exponents and origin for odd exponents.
+
+## Exercises - Rewriting Power Function Expressions
+
+$\root 3 \of x = x^a$ for $a$: 1/3
+
+$\frac{1}{\root 5 \of x} = x^a$ for $a$: -1/5
+
+$\frac{1}{\sqrt{x^3}} = x^a$ for $a$: -3/2
+
+Given $\frac{x^{\frac{3}{2}}} {x^{\frac{1}{2}} * \root 3 \of {x^{10}*x^2}   } = x^a$, for which $a$ does the formula hold, assuming $x > 0$?
+
+Cube-root portion: $\root 3 \of {x^{10}*x ^2}$ = $(x^{10} * x ^2) ^{\frac{1}{3}}$ = $(x^{12}) ^{\frac{1}{3}}$ = $x^4$
+
+Thus denominator: $x^{\frac{1}{2}} * x ^4$ = $x^{\frac{9}{2}}$
+
+Therefore: $\frac{ x^{\frac{3}{2}}  }{ x ^{\frac{9}{2}} } = \frac{1}{x ^3} = x^a$
+
+Multiply both by $x^3$: $1 = x^3 * x ^a = x ^{3+a}$
+
+And, $a = -3$
+
+Given $\sqrt{\frac{(x^2*y)^{-3}}{y^{-1}*x}} = x^a * y ^b$, for which $a$ and $b$ does the formula hold, assuming $x > 0$ and $y > 0$?
+
+Square both sides: $\frac{(x^2*y) ^{-3}}{x*y^{-1}} = (x^a * y ^b) ^2$
+
+Simplify left side: $\frac{ \frac{1}{(x^2*y)^{3}} } {x*\frac{1}{y}}$ = $\frac{1}{(x^2*y)^3} * \frac{y}{x}$ = $\frac{y}{x* x^6 * y ^3}$ = $\frac{y}{x^7*y^3}$
+
+$\frac{y}{x^7*y^3} = (x^a * y^b)^2$
+
+$y = (x^a * y ^b) ^2 * x ^7 y ^3$
+
+$y = x^{2a+7}y ^{2b+3}$
+
+$1 = \frac{x^{2a+7}y ^{2b+3}}{y}$ = $x^{2a+7} y ^{2b+2}$
+
+Therefore, $a = -7/2$ and $b = -1$ (because they make the exponents zero, the only way to get a product of 1)
+
+Note: The given solution was different:
+
+1.  Rewrite fraction within $\sqrt{}$: $\frac{(x^2*y) ^{-3}}{y ^{-1}*x} = \frac{(x ^2)^{-3}*y ^{-3}}{y ^{-1}*x} = x ^{-6} * y ^{-3} * y ^1 * x ^{-1} = x ^{-7} * y ^{-2}$
+2.  Then it follows that: $\sqrt{  \frac{(x ^2*y)^{-3}}{y ^{-1}*x} } = \sqrt{x ^{-7}y ^{-2}} = (x ^{-7} * y ^ {-2}) ^{\frac{1}{2}} = x ^{-\frac{7}{2}} * y ^{-1}$
+
+# Catch the Error!
+
+$$
+\begin{align}
+\sqrt{x^2} &= \sqrt{x*x} \\
+&= (x*x)^{\frac{1}{2}} \\
+&= x^{\frac{1}{2}} * x^{\frac{1}{2}} \\
+&= x^{(\frac{1}{2} + \frac{1}{2})} \\
+&= x
+\end{align}
+$$
+
+But... that says $\sqrt{-1^2} = 1$.
+
+The problem is, rules of calculation for power functions are not always true for negative and/or fractional exponents.
+
+# Domain, Codomain, and Range
+
+The **domain** of a function is the set of possible inputs. The function $f(x) = 2 + \sqrt{(x-3)}$ is defined for all $x > 3$. Thus, the maximal domain is $[3, \infty]$.
+
+But, while the function $f(x) = x^3$ is defined for all $x$, in the context of calculating volume of a cube, negative $x$ makes no sense - and so we would define the domain of the function as numbers greater than or equal to zero.
+
+**Codomain** *contains* the set of possible outputs (and may be a superset). Since every function we consider produces real numbers, we can just take the set of real numbers (${\rm I\!R}$) as the domain.
+
+**Range** is the set of possible outputs - the set of all $y$ values for which $f(x) = y$ has a solution.
+
+In general, determining the maximal domain and range involves solving equations and inequalities, which can be difficult.
+
+## Exercise - Natural Domain
+
+Given a 40m rope to delimit a rectangle, if one side has length $x$, the total area is $f(x) = x * (20 - x)$.
+
+The function is defined for all $x$ in ${\rm I\!R}$, but given the context what is the natural domain for the function?
+
+Natural domain $[a,b]$ is, $a = 0$ and $b = 20$.
+
+Range $[c,d]$ is, $c = 0$ and $d = 100$.
+
+Explanation: The edges of the rectangle cannot be negative. So we must have $x \ge 0$ and $x \le 20$ (we include here the possibility of edges of zero length, since, in principle, this is possible to achieve). For all values of $x$ that meet these requirements, we can create a corresponding rectangle. So the natural domain for the function is the interval $[0,20]$.
+
+What is the range? Note that the function is a quadratic polynomial. The graph is a parabola which intersects the x-axis at $x = 0$ and $x = 20$ (the boundaries of the natural domain). The x-coordinate of the vertex lies exactly in between at $x = 10$. The y-coordinate equals $f(10) = 100$. Since the vertex is the highest point, it follows that the range is $[0,100]$.
+
+# Continuity
+
+Imagine a film of a bouncing basketball. The higher the frame rate, the more fluid the motion - because distance traveled is a *continuous* function of time.
+
+For a continuous function, if we take any two close points $x_1$ and $x_2$, then the results $f(x_1)$ and $f(x_2)$ will be close: A small change on the x-axis results in a small change on the y-axis.
+
+A function that is continuous at any point in its domain is called a continuous function.
+
+Now imagine a bank account balance: This would be associated with a discontinuous function - different formulas at different intervals. This is known as piecewise-defined.
+
+Another piecewise-defined example is the absolute value function, which gives $-x$ for negative values and $x$ for non-negative values. This is also continuous, as the results for any two near points will be near.
+
+Continuous functions have an "intermediate value" property, which says that if $f(x)$ is continuous on a *closed* interval $[a,b]$, then it attains all values between $f(a)$ and $f(b)$. Thus, one could draw the associated graph without removing pen from paper.
+
+The intermediate value property guarantees, for example, that $x^5 - x ^2 + 1 = 0$ has at least one solution on the interval $[-1,0]$ - even though we cannot calculate it exactly. This is because the function is continuous and attains positive and negative values on $[-1,0]$, so it must be zero at some point.
+
+We can visualize all of this with a graph of the function - that there is a $p$ in $[-1,0]$ such that $f(p) = 0$.
+
+![](images/clipboard-3305732893.png)
+
+Most functions we've seen so far are continuous. Polynomials, rational functions, and power functions are continuous on every point of their domains. Even though $f(x) = \frac{1}{x}$ has a domain of ${\rm I\!R}$ except 0, it is continuous on its domain.
+
+If we construct a new function by adding/multiplying two continuous functions, the result is continuous. For example, $f(x) = \sqrt{x}/(x-1)$ is continuous on its domain, which is numbers larger than 0 except 1.
+
+This does not necessarily hold for piecewise-defined functions. For example, a function which is $x$ for $x < 0$ and 1 for $x \ge 0$ comprises two continuous functions, but is itself discontinuous because there is a jump at $x = 0$.
+
+## Exercises - Continuous or Discontinuous?
+
+Is $f(x)$ continuous or discontinuous?
+
+$$
+f(x) =     \begin{cases}    2-x^2  & \text{if}\ x \leq  1 \\ \\    \sqrt{2x+2} & \text{if} \ x>1    \end{cases}
+$$
+
+I got this wrong (continuous) b/c I plotted it as follows (without 'color', and for just -5:5) and, duh, the line was continuous:
+
+```{r warning = FALSE}
+data.frame(
+    x = seq(-5,5,.01)
+) |>
+    ggplot(aes(x, ifelse(x > 1, sqrt(x*2 + 2), 2-x^2), color = factor(x>1))) +
+    geom_line() +
+    geom_point()
+```
+
+Thinking it through afterward, if $x = 1$, $f(x) = 2 - 1^2 = 1$, while if $x = 1.000000001$, $f(x) \approx 2$.
+
+Is $g(x)$ continuous?
+
+$$
+g(x) = 
+    \begin{cases}
+    2-x^2  & \text{if}\ x \leq  1 \\ \\
+    \sqrt{2x-1} & \text{if} \ x>1
+    \end{cases}
+$$
+
+```{r warning = FALSE}
+data.frame( x = seq(-5,5,.01) ) |>
+    ggplot(aes(x, ifelse(x > 1, sqrt(x*2 - 1), 2-x^2), color = factor(x>1))) +
+    geom_line() +
+    geom_point()
+```
+
+On its maximal domain, is $h(x) = \frac{1}{x}$ continuous?
+
+I said discontinuous, thinking "maximal" included zero...
+
+# Training Sequence
+
+## Exercise 1 - Expanding a Polynomial
+
+Rewrite given formula in standard form, $ax^2 + bx +c$:
+
+| Given                 | Standard                                   |
+|-----------------------|--------------------------------------------|
+| $y(x) = -7(x-2)(x+6)$ | $-7( x^2 -2x + 6x -12) = -7x ^2 -28x + 84$ |
+| $y(x) = 2(x-9)(x+7)$  | $2(x^2 -9x +7x -63) = 2x ^2 -4x -126$      |
+| $y(x) = 8(x-7)(x+5)$  | $8(x^2 -7x + 5x -35) = 8x ^2 -16x -280)$   |
+
+## Exercise 2 - Polynomials in Standard Form
+
++---------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+| Given                                                         | Standard                                                                                        |
++===============================================================+=================================================================================================+
+| $3(x+6)(1-x)-4(2x-5) = ax^2 + bx +c$                          | $3(-x^2 + x -6x + 6) - 8x + 20$ = $-3x^2 -15x + 18 -8x + 20$ =\                                 |
+|                                                               | $-3x^2 -23x + 38$                                                                               |
++---------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+| $(x^2 + 3x + 5)(x+1) + x ^4 = ax ^4 + bx ^3 + cx ^2 + dx + e$ | $(x^3 + x ^2 + 3x ^2 + 3x + 5x + 5) + x ^4$ =\                                                  |
+|                                                               | $x^4 + x ^3 + 4x ^2 + 8x + 5$                                                                   |
++---------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+| $(x+1)(2x+3)(1-x)-2(3x-2) = ax ^3 + bx ^2 + cx + d$           | $(2x^2 + 5x +3)(1-x) - 6x + 4$ = $2x^2 -2x ^3 + 5x -5x^2 +3 -3x -6x +4$ =$-2x^3 -3x ^2 -4x + 7$ |
++---------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+| $(x+1)(x-1)-(x+1)^2 = ax^2 + bx +c$                           | $(x^2 +0x -1) - (x ^2 +2x +1)$ =\                                                               |
+|                                                               | $0x^2 -2x -2$                                                                                   |
++---------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+| $(x^2 -6) ^2 + x(3-4x ^2) = ax ^4 + bx ^3 + cx ^3 + dx + e$   | $x^4 -12x ^2 +36 + 3x - 4x ^3$ =\                                                               |
+|                                                               | $x^4 -4x ^3 -12x ^2 + 3x + 36$                                                                  |
++---------------------------------------------------------------+-------------------------------------------------------------------------------------------------+
+
+## Exercise 3 - Rewrite Power Functions
+
+Rewrite given expressions as $a * x^b * y ^c$, with the assumptions that $x > 0$ and $y > 0$:
+
++---------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
+| Given                                                         | $a * x^b * y ^c$                                                                                                               |
++===============================================================+================================================================================================================================+
+| $$                                                            | $$                                                                                                                             |
+| \left(\dfrac{3x^{\frac{3}{2}}y^4}{\sqrt{4x^3y^{-2}}}\right)^3 | \begin{align}                                                                                                                  |
+| $$                                                            | \left(                                                                                                                         |
+|                                                               | \frac{                                                                                                                         |
+|                                                               |     3*x^\frac{3}{2}*y^4                                                                                                        |
+|                                                               | }{                                                                                                                             |
+|                                                               |     \sqrt{4 * x * x^2} * \sqrt{\frac{1}{y^2}}                                                                                  |
+|                                                               | }                                                                                                                              |
+|                                                               | \right)^3 &= \\                                                                                                                |
+|                                                               | \left(                                                                                                                         |
+|                                                               | \frac{                                                                                                                         |
+|                                                               |     3 * x^\frac{3}{2} * y^{4}                                                                                                  |
+|                                                               | }{                                                                                                                             |
+|                                                               |     2x * \sqrt{x} * \frac{1}{y}                                                                                                |
+|                                                               | }                                                                                                                              |
+|                                                               | \right)^3 &= \\                                                                                                                |
+|                                                               | \left(                                                                                                                         |
+|                                                               | \frac{                                                                                                                         |
+|                                                               |     27 * x^\frac{9}{2} * y^{12}                                                                                                |
+|                                                               | }{                                                                                                                             |
+|                                                               |     8x^3 * \sqrt{x}^3 * \frac{1}{y^3}                                                                                          |
+|                                                               | }                                                                                                                              |
+|                                                               | \right) &= \\                                                                                                                  |
+|                                                               | \left(                                                                                                                         |
+|                                                               | \frac{                                                                                                                         |
+|                                                               |     27 * x^\frac{9}{2} * y^{12}                                                                                                |
+|                                                               | }{                                                                                                                             |
+|                                                               |     8 *x^3 * x*x^\frac{1}{2} * \frac{1}{y^3}                                                                                   |
+|                                                               | }                                                                                                                              |
+|                                                               | \right) &= \\                                                                                                                  |
+|                                                               | \left(                                                                                                                         |
+|                                                               | \frac{27}{8} *x^\frac{9}{2} * y^{12} * x^{-3} * x^{-1} * x^{-\frac{1}{2}} * y^3                                                |
+|                                                               | \right) &= \\                                                                                                                  |
+|                                                               | \left(                                                                                                                         |
+|                                                               |     \frac{27}{8} * x^0 * y^{15}                                                                                                |
+|                                                               | \right)                                                                                                                        |
+|                                                               | \end{align}                                                                                                                    |
+|                                                               | $$                                                                                                                             |
+|                                                               |                                                                                                                                |
+|                                                               | I made two initial mistakes: $(x^{\frac{3}{2}}) ^3 \ne \frac{27}{8}$, rather $\frac{9}{2}$. And, I brought 8 up as $8^{-1}$... |
++---------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
+| $$                                                            | $$                                                                                                                             |
+| \dfrac{x^{\frac{1}{3}}y^{-1}}{x\sqrt{16xy^3}}                 | \begin{align}                                                                                                                  |
+| $$                                                            | \frac{                                                                                                                         |
+|                                                               |     x^{\frac{1}{3}} * y^{-1}                                                                                                   |
+|                                                               | }{                                                                                                                             |
+|                                                               |    4 * x * x^{\frac{1}{2}} * y * y^{\frac{1}{2}}                                                                               |
+|                                                               | } &= \\                                                                                                                        |
+|                                                               | \frac{1}{4} * x^{-1} * x^{-\frac{1}{2}} * x^{\frac{1}{3}} * y^{-1} * y^{-1} * y^{-\frac{1}{2}} &= \\                           |
+|                                                               | \frac{1}{4} * x^{-\frac{7}{6}} * y^{-\frac{5}{2}}                                                                              |
+|                                                               | \end{align}                                                                                                                    |
+|                                                               | $$                                                                                                                             |
++---------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
+| $$                                                            | $$                                                                                                                             |
+| \dfrac{ 2x^2 \sqrt{y}}{(3xy)^2}                               | \begin{align}                                                                                                                  |
+| $$                                                            | \frac{                                                                                                                         |
+|                                                               |     2 * x^2 * y^{\frac{1}{2}}                                                                                                  |
+|                                                               | }{                                                                                                                             |
+|                                                               |     9 * x^2 * y^2                                                                                                              |
+|                                                               | } &= \\                                                                                                                        |
+|                                                               | \frac{2}{9} * x^2 * x^{-2} * y^{\frac{1}{2}} * y^{-2} &= \\                                                                    |
+|                                                               | \frac{2}{9} * 0x^2 * y^{-\frac{3}{2}}                                                                                          |
+|                                                               | \end{align}                                                                                                                    |
+|                                                               | $$                                                                                                                             |
++---------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
+| $$                                                            | $$                                                                                                                             |
+| \dfrac{\sqrt[3]{x^3y/8}}{(4y^3)^2 x^{-7}}                     | \begin{align}                                                                                                                  |
+| $$                                                            | \frac{                                                                                                                         |
+|                                                               |     x * \sqrt[3]{y / 8}                                                                                                        |
+|                                                               | }{                                                                                                                             |
+|                                                               |     16 * y^6 * x^{-7}                                                                                                          |
+|                                                               | } &= \\                                                                                                                        |
+|                                                               | \frac{                                                                                                                         |
+|                                                               |     x * \frac{y^{\frac{1}{3}}}{2}                                                                                              |
+|                                                               | }{                                                                                                                             |
+|                                                               |     16 * y^6 * x^{-7}                                                                                                          |
+|                                                               | } &= \\                                                                                                                        |
+|                                                               | \frac{1}{16} * x^8 * y^{-6} * \frac{y^{\frac{1}{3}}}{2} &= \\                                                                  |
+|                                                               | \frac{1}{32} * x^8 * y^{-\frac{17}{3}}                                                                                         |
+|                                                               | \end{align}                                                                                                                    |
+|                                                               | $$                                                                                                                             |
++---------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
+| $$                                                            | $$                                                                                                                             |
+| \dfrac{5\sqrt{4x^9y^{-1/2}}}{x\sqrt[4]{81x^{-1}y^8}}          | \begin{align}                                                                                                                  |
+| $$                                                            | \frac{                                                                                                                         |
+|                                                               |     5 * \sqrt{4 * x^9 * y^{-\frac{1}{2}}}                                                                                      |
+|                                                               | }{                                                                                                                             |
+|                                                               |     x * \sqrt[4]{81 * x^{-1} * y^8}                                                                                            |
+|                                                               | } &= \\                                                                                                                        |
+|                                                               | \frac{                                                                                                                         |
+|                                                               |     5 * 2 * \sqrt{x^8} *\sqrt{x} * \sqrt{y^{-\frac{1}{2}}}                                                                     |
+|                                                               | }{                                                                                                                             |
+|                                                               |     x * 3 * \sqrt[4]{\frac{1}{x}} * y^2                                                                                        |
+|                                                               | } &= \\                                                                                                                        |
+|                                                               | \frac{                                                                                                                         |
+|                                                               |     10 * x^4 * x^{\frac{1}{2}} * \frac{1}{\sqrt[4]{y}}                                                                         |
+|                                                               | }{                                                                                                                             |
+|                                                               |     3 * x * y^2 * \sqrt[4]{\frac{1}{x}}                                                                                        |
+|                                                               | } &= \\                                                                                                                        |
+|                                                               | \frac{                                                                                                                         |
+|                                                               |     10 * x^4 * x^\frac{1}{2} * \frac{1}{y^\frac{1}{4}}                                                                         |
+|                                                               | }{                                                                                                                             |
+|                                                               |     3 * x * y^2 * \frac{1}{x^\frac{1}{4}}                                                                                      |
+|                                                               | }                                                                                                                              |
+|                                                               | \end{align}                                                                                                                    |
+|                                                               | $$                                                                                                                             |
+|                                                               |                                                                                                                                |
+|                                                               | Oof, I got this in 4/5, educated guess on $c$. Their explanation:                                                              |
+|                                                               |                                                                                                                                |
+|                                                               | First write square roots as a power:                                                                                           |
+|                                                               |                                                                                                                                |
+|                                                               | $\frac{10x^\frac{9}{2}y^{-\frac{1}{4}}}{x*3x ^{-\frac{1}{4}} * y ^2}$                                                          |
+|                                                               |                                                                                                                                |
+|                                                               | Replace all numbers in the denominator by a negative power:                                                                    |
+|                                                               |                                                                                                                                |
+|                                                               | $\frac{10}{3}x^\frac{9}{2}y ^{-\frac{1}{4}}x ^{-1}x ^\frac{1}{4}y ^{-2}$                                                       |
+|                                                               |                                                                                                                                |
+|                                                               | Add the powers to get the final answer:                                                                                        |
+|                                                               |                                                                                                                                |
+|                                                               | $\frac{10}{3}x^{\frac{15}{4}}y ^{-\frac{9}{4}}$                                                                                |
++---------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
+
+## Exercise 4 - Rules of Calculation
+
+Is given statement true for all values of $p$ and $q$?
+
++------------------------------------------------------------+------------------------------------------+
+| $(p + q)^2 = p ^2 + q ^2$                                  | No                                       |
++------------------------------------------------------------+------------------------------------------+
+| $(p+q)(p-q) = p^2 - q ^2$                                  | Yes                                      |
++------------------------------------------------------------+------------------------------------------+
+| $\frac{p + q}{p -q} = 1 + \frac{2q}{p-q}$ (with $p \ne q$) | Yes (by experiment...)                   |
+|                                                            |                                          |
+|                                                            | Explanation:                             |
+|                                                            |                                          |
+|                                                            | $$                                       |
+|                                                            | \begin{align}                            |
+|                                                            | \frac{p+q}{p-q} &= 1 + \frac{2q}{p-q} \\ |
+|                                                            | &= \frac{p-q}{p-q} + \frac{2q}{p-q} \\   |
+|                                                            | &= \frac{p -q + 2q}{p-q} \\              |
+|                                                            | &= \frac{p +q}{p-q}                      |
+|                                                            | \end{align}                              |
+|                                                            | $$                                       |
++------------------------------------------------------------+------------------------------------------+
+| $(p+q)^3 = p ^3 + 3p ^2q + 3pq ^2 + q ^3$                  | Yes                                      |
++------------------------------------------------------------+------------------------------------------+
+| $\frac{1}{p+q} = \frac{1}{p} + \frac{1}{q}$                | No                                       |
++------------------------------------------------------------+------------------------------------------+
+| $p+q = \sqrt{p^2 + q ^2}$                                  | No (just consider negative numbers)      |
++------------------------------------------------------------+------------------------------------------+
+
+## Exercise 5 - Standard Form of Rational Functions
+
+Rewrite given rational function as a fraction of polynomials in standard form, $\frac{p(x)}{q(x)}$.
+
++------------------------------------------+----------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+| Given Formula                            | Domain, Details                                                                        | $\frac{p(x)}{q(x)}$                                                                                                                    |
++==========================================+========================================================================================+========================================================================================================================================+
+| $2 + \frac{3}{x-1} + \frac{x^2}{x+1}$    | $x \ne \pm 1$                                                                          | $$                                                                                                                                     |
+|                                          |                                                                                        | \begin{align}                                                                                                                          |
+|                                          | $q(x)$ has degree 2, and coefficient of highest degree term of $q(x)$ equals 1         | 2 + \frac{3}{x-1} + \frac{x^2}{x+1} &= \\                                                                                              |
+|                                          |                                                                                        | 2 + \left(\frac{3}{x-1}\right)\left(\frac{x+1}{x+1}\right) + \left(\frac{x^2}{x+1}\right)\left(\frac{x-1}{x-1}\right)                  |
+|                                          |                                                                                        |  &= \\                                                                                                                                 |
+|                                          |                                                                                        | 2 + \frac{3x +3 + x^3 -x^2}{x^2-1} &= \\                                                                                               |
+|                                          |                                                                                        | 2 + \frac{x^3 -x^2 + 3x + 3}{x^2 -1} &= \\                                                                                             |
+|                                          |                                                                                        | \frac{2x^2 -2 + x^3 -x^2 +3x +3}{x^2 -1} &= \\                                                                                         |
+|                                          |                                                                                        | \frac{x^3 + x^2 + 3x + 1}{x^2 -1}                                                                                                      |
+|                                          |                                                                                        | \end{align}                                                                                                                            |
+|                                          |                                                                                        | $$                                                                                                                                     |
++------------------------------------------+----------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+| $1 + \frac{4}{x} + \frac{-3x}{x+1}$      | $x \ne 0, -1$                                                                          | $$                                                                                                                                     |
+|                                          |                                                                                        | \begin{align}                                                                                                                          |
+|                                          | $q(x)$ has degree 2, and the coefficient of highest degree term of $q(x)$ equals 1     | 1 + \left(\frac{4}{x}\right)\left(\frac{x+1}{x+1}\right) + \left(\frac{-3x}{x+1}\right)\left(\frac{x}{x}\right) &= \\                  |
+|                                          |                                                                                        | 1 + \frac{4x + 4 -3x^2}{x^2 + x} &= \\                                                                                                 |
+|                                          |                                                                                        | \frac{x^2 + x + 4x + 4 - 3x^2}{x^2 + x} &= \\                                                                                          |
+|                                          |                                                                                        | \frac{-2x^2 + 5x + 4}{x^2 + x}                                                                                                         |
+|                                          |                                                                                        | \end{align}                                                                                                                            |
+|                                          |                                                                                        | $$                                                                                                                                     |
++------------------------------------------+----------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+| $\frac{x}{x+1} + \frac{x}{x^3}$          | $x \ne 0, -1$                                                                          | $$                                                                                                                                     |
+|                                          |                                                                                        | \begin{align}                                                                                                                          |
+|                                          | \$q(x) has degree 3, and the coefficient of the highest degree term of $q(x)$ equals 1 | \left(\frac{x}{x+1}\right)\left(\frac{x^3}{x^3}\right) + \left(\frac{x}{x^3}\right)\left(\frac{x+1}{x+1}\right) &= \\                  |
+|                                          |                                                                                        | \frac{x^4 + x^2 + x}{x^4 + x^3} &= \\                                                                                                  |
+|                                          |                                                                                        | \frac{x * (x^3 + x + 1)}{x * (x^3 + x^2)} &= \\                                                                                        |
+|                                          |                                                                                        | \frac{x^3 + x + 1}{x^3 + x^2}                                                                                                          |
+|                                          |                                                                                        | \end{align}                                                                                                                            |
+|                                          |                                                                                        | $$                                                                                                                                     |
+|                                          |                                                                                        |                                                                                                                                        |
+|                                          |                                                                                        | (Took two tries - second to factor out extra $x$)                                                                                      |
++------------------------------------------+----------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+| $-6 + \frac{2}{x^2-1} + \frac{x}{x^2+1}$ | $x \ne \pm 1$                                                                          | $$                                                                                                                                     |
+|                                          |                                                                                        | \begin{align}                                                                                                                          |
+|                                          | $q(x)$ has degree 4, and the coefficient of the highest degree term of $q(x)$ equals 1 | -6 + \left(\frac{2}{x^2-1}\right)\left(\frac{x^2+1}{x^2+1}\right) + \left(\frac{x}{x^2+1}\right)\left(\frac{x^2-1}{x^2-1}\right) &= \\ |
+|                                          |                                                                                        | -6 + \frac{2x^2 + 2 + x^3 -x}{x^4 -1} &= \\                                                                                            |
+|                                          |                                                                                        | \frac{2x^2 + 2 + x^3 -x -6x^4 + 6}{x^4 -1} &= \\                                                                                       |
+|                                          |                                                                                        | \frac{-6x^4 + x^3 + 2x^2 -x + 8}{x^4 -1}                                                                                               |
+|                                          |                                                                                        | \end{align}                                                                                                                            |
+|                                          |                                                                                        | $$                                                                                                                                     |
++------------------------------------------+----------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+| $\frac{x+1}{2x^2} - \frac{x}{x+1}$       | $x \ne 0, -1$                                                                          | $$                                                                                                                                     |
+|                                          |                                                                                        | \begin{align}                                                                                                                          |
+|                                          | $q(x)$ has degree 3, and the coefficient of the highest degree term of $q(x)$ equals 2 | \left(\frac{x+1}{2x^2}\right)\left(\frac{x+1}{x+1}\right) -                                                                            |
+|                                          |                                                                                        | \left(\frac{x}{x+1}\right)\left(\frac{2x^2}{2x^2}\right) &= \\                                                                         |
+|                                          |                                                                                        | \frac{x^2 +2x +1 -2x^3}{2x^3 + 2x^2}                                                                                                   |
+|                                          |                                                                                        | \end{align}                                                                                                                            |
+|                                          |                                                                                        | $$                                                                                                                                     |
++------------------------------------------+----------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+
+## Exercise 6 - Find the Function
+
+1.  $f(x)$ is the linear function whose graph has slope $\frac{1}{2}$ and passes through point $(4,1)$. Find $a$ and $b$ such that $f(x) = ax + b$.
+
+    Slope: $a = (y_2 - y_1) / (x_2 - x_1)$
+
+    So, $\frac{1}{2} = \frac{y_2 - 1}{x_2 - 4}$
+
+    I just figured, if it hits $x=4, y=1$ and rise-over-run is $\frac{1}{2}$, then it'll hit $(6,2), (8,3), (10,4), ...$, a pattern of $\frac{1}{2}x - 1$.
+
+    The given explanation is, if $f(x) = ax + b$, then $a$ is the slope of the graph and $b$ is the y-intercept - i.e., $f(0)$. Given the formula, the one point, and the slope, we know that $f(4) = \frac{1}{2}4 + b = 1$, so $b = -1$.
+
+2.  $f(x)$ is a linear function such that $f(2) = 1$ and $f(6) = -2$. Find $a$ and $b$ such that $f(x) = ax + b$.
+
+    This gives two points, $(2,1)$ and $(6, -2)$.
+
+    Therefore slope is $(-2 - 1)/(6 -2) = -\frac{3}{4}$, and therefore we know that $f(6) = -\frac{3}{4}6 + b = -2$, thus $b = \frac{5}{2}$.
+
+    If so, $f(2) = -\frac{3}{4}2 + \frac{5}{2} = 1$, yep!
+
+3.  A cart is attached to a wall by a spring. $x$ is the position of the cart in centimeters. The spring force is a linear function of $x$, positive if it points right, negative to the left. Length of spring at equilibrium is 20cm. If we *push* the cart 5cm from its equilibrium (i.e., length is compressed to 15), the exerted force is 10N. Find $a$ and $b$ such that $f(x) = ax + b$, measured in N(ewton).
+
+    This is linear, so $a$ is slope and $b$ is y-intercept. Given two points, $(15,10)$ and $(20,0)$, slope is $(10-0)/(15-20) = -2$, so:
+
+    $$
+    \begin{align}
+    f(15) &= -2(15) + 40 = 10 \\
+    f(20) &= -2(20) + 40 = 0 \\
+    f(25) &= -2(25) + 40 = -10 \\
+    \end{align}
+    $$
+
+4.  $f(x)$ is a quadratic function whose graph intersects the x-axis at -1 and 3; and intersects the y-axis at 12.
+
+    a.  Find $a$, $p$, and $q$ such that $f(x) = a(x-p)(x-q)$ with $p < q$.
+
+        In this form, $p$ and $q$ are the x-intercepts; so we have $f(x) = a(x + 1)(x - 3)$.
+
+        Therefore we know $f(-1) = 0$ and $f(3) = 0$. We are also given the y-intercept $(0,12)$ and so $f(0) = a(x+1)(x-3) = a(1)(-3) = 12$.
+
+        Logically, the vertex must be midway between the two x-intercepts; and higher than the y-intercept since the parabola is right of center, so $(1, 12+)$.
+
+        Knowing the y-intercept, we have $f(0) = a(0^2 -20 -3) = 12$, thus $a = -4$, and $p$ and $q$ were given as x-intercepts.
+
+    b.  Find $a$, $b$, and $c$ such that $f(x) = ax^2 + bx + c$
+
+        Knowing $a$, $p$, and $q$, we have:
+
+        $$
+        \begin{align}
+        f(x) &= a(x+1)(x-3) \\
+        &= a(x^2 -2x -3) \\
+        &= ax^2 -2ax -3a \\
+        &= -4x^2 + 8x + 12
+        \end{align}
+        $$
+
+5.  Given a suspension bridge with pillars 20m apart; and cables attached to pillars 5m above the deck; and sagging lowest to 1m above deck - find height $h$ in meters of the main cable above the deck as a function of the distance $x$ from the left pillar, in the form $h(x) = a(x-r)^2 + s$.
+
+    I think we can say the low point, $(0,1)$, is the y-intercept; and thus we'd also have points $(\pm10,5)$ where cables are attached.
+
+    In complete-square form, $r$ and $s$ are the x/y of the vertex, so we start with $a(x - 0)^2 + 1$, or $ax^2 + 1$.
+
+    And we have
+
+    $$
+    \begin{align}
+    h(10) &= 5 \\
+    &= a10^2 +1 \\
+    &= 1/25 * 10^2 + 1
+    \end{align}
+    $$
+
+    Ah, I was wrong to assume that the vertex was $(0,1)$ - evidently the left pillar is the y-axis. Reading again, I note, "function of the distance $x$ *from the left pillar*".
+
+## Exercise 7 - Asymptotes
+
+Remember:
+
+-   Verticals occur at denominator zeros - unless numerator is also zero.
+-   Horizontals occur if degree of numerator is no larger than that of denominator; and can be found by dividing top and bottom by largest-degree $x$ in denominator
+-   Obliques occur if a portion of the function becomes constant with very large/small $x$
+
++--------------------------------------+-------------------------------------------------------------------------------------+
+| Rational Function                    | Aymptote Questions                                                                  |
++======================================+=====================================================================================+
+| $f(x)=\frac{x^2+2x+3}{(x-1)(x-4)}$   | Vertical? If so, at? $(1,4)$                                                        |
+|                                      |                                                                                     |
+|                                      | Horizontal? If so, at?                                                              |
+|                                      |                                                                                     |
+|                                      | $$                                                                                  |
+|                                      | \frac{                                                                              |
+|                                      |     \frac{x^2 + 2x + 3}{x^2}                                                        |
+|                                      | }{                                                                                  |
+|                                      |     \frac{x^2 -5x +4}{x^2}                                                          |
+|                                      | } =                                                                                 |
+|                                      | \frac{                                                                              |
+|                                      |     1 + \frac{2}{x} + \frac{3}{x^2}                                                 |
+|                                      | }{                                                                                  |
+|                                      |     1 - \frac{5}{x} + \frac{4}{x^2}                                                 |
+|                                      | }                                                                                   |
+|                                      | $$                                                                                  |
+|                                      |                                                                                     |
+|                                      | $\frac{1}{1}$ as all other elements approach zero                                   |
++--------------------------------------+-------------------------------------------------------------------------------------+
+| $f(x)=\frac{3}{x-2} + \frac{5}{x+1}$ | Vertical? If so, at? $(-1, 2)$                                                      |
+|                                      |                                                                                     |
+| $$                                   | Horizontal? If so, at?                                                              |
+| \begin{align}                        |                                                                                     |
+| &=                                   | $$                                                                                  |
+| \left(\frac{3}{x-2}\right)           | \frac{                                                                              |
+| \left(\frac{x+1}{x+1}\right) +       |     \frac{8x -7}{x^2}                                                               |
+| \left(\frac{5}{x+1}\right)           | }{                                                                                  |
+| \left(\frac{x-2}{x-2}\right) \\      |     \frac{x^2 -x -2}{x^2}                                                           |
+| &=                                   | } =                                                                                 |
+| \frac{3x + 3}{x^2 -x -2} +           | \frac{                                                                              |
+| \frac{5x -10}{x^2 -x -2} \\          |     \frac{8}{x} - \frac{7}{x^2}                                                     |
+| &=                                   | }{                                                                                  |
+| \frac{8x -7}{x^2 -x - 2}             |     1 - x - \frac{2}{x^2}                                                           |
+| \end{align}                          | }                                                                                   |
+| $$                                   | $$                                                                                  |
+|                                      |                                                                                     |
+|                                      | $\frac{0}{1}$ as all other elements approach zero                                   |
++--------------------------------------+-------------------------------------------------------------------------------------+
+| $f(x)=\frac{3x^2+5x-2}{x^2+1}$       | Vertical? If so, at? **No, denominator cannot be zero**                             |
+|                                      |                                                                                     |
+|                                      | Horizontal? if so, at?                                                              |
+|                                      |                                                                                     |
+|                                      | $$                                                                                  |
+|                                      | \frac{                                                                              |
+|                                      |     \frac{3x^2 + 5x - 2}{x^2}                                                       |
+|                                      | }{                                                                                  |
+|                                      |     \frac{x^2 + 1}{x^2}                                                             |
+|                                      | } =                                                                                 |
+|                                      | \frac{                                                                              |
+|                                      |    3 + \frac{5}{x} -\frac{2}{x^2}                                                   |
+|                                      | }{                                                                                  |
+|                                      |     1 + \frac{1}{x^2}                                                               |
+|                                      | }                                                                                   |
+|                                      | $$                                                                                  |
+|                                      |                                                                                     |
+|                                      | $\frac{3}{1}$                                                                       |
++--------------------------------------+-------------------------------------------------------------------------------------+
+| $f(x)=\frac{5x^3-4x}{x^2+2x+1}$      | Vertical? If so, at? $(-1)$                                                         |
+|                                      |                                                                                     |
+|                                      | Horizontal? If so, at? **No, degree of numerator exceeds that of denominator**      |
++--------------------------------------+-------------------------------------------------------------------------------------+
+| $f(x)=\frac{x^2-x}{x^2-1}$           | Vertical? If so, at? $(-1, 1)$ - but, numerator becomes zero with 1, so just $(-1)$ |
+|                                      |                                                                                     |
+|                                      | Horizontal? If so, at?                                                              |
+|                                      |                                                                                     |
+|                                      | $$                                                                                  |
+|                                      | \frac{                                                                              |
+|                                      |     \frac{x^2 -x}{x^2}                                                              |
+|                                      | }{                                                                                  |
+|                                      |     \frac{x^2 -1}{x^2}                                                              |
+|                                      | } =                                                                                 |
+|                                      | \frac{                                                                              |
+|                                      |     1 - \frac{1}{x}                                                                 |
+|                                      | }{                                                                                  |
+|                                      |     1 - \frac{1}{x^2}                                                               |
+|                                      | }                                                                                   |
+|                                      | $$                                                                                  |
+|                                      |                                                                                     |
+|                                      | $\frac{1}{1}$                                                                       |
++--------------------------------------+-------------------------------------------------------------------------------------+
+| $f(x)= 2x+1 + \frac{1}{x-3}$         | Determine equation for its oblique asymptote: $2x +1$, as the fraction nears zero   |
++--------------------------------------+-------------------------------------------------------------------------------------+
+
+## Exercise 8 - Domain and Range
+
++-------------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------+
+| Formula                             | Maximal Domain  | Range                        | Thoughts                                                                                    |
++=====================================+=================+==============================+=============================================================================================+
+| $f(x) = (x-3)^4 + 5$                | $\rm I\!R$      | $y \ge 5$                    | Fourth power will always give positive (or zero), so sum must be at least 5                 |
++-------------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------+
+| $f(x) = 3 + \frac{1}{x-5}$          | $x \ne 5$       | $\rm I\!R$                   | The fraction can become anything with huge, tiny, positive, negative $x$ values             |
++-------------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------+
+| $f(x) = 2 + \frac{1}{x^2}$          | $x \ne 0$       | $\rm I\!R$                   | Again, the fraction can become anything                                                     |
++-------------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------+
+| $f(x) = \frac{x+3}{x^2+1}$          | $\rm I\!R$      | Was not asked, but $y \le 3$ | Minimal denominator is 1, thus 3; in all other cases the denominator eclipses the numerator |
++-------------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------+
+| $f(x) = \frac{x}{x-3}$              | $x \ne 3$       | $y \le 4$                    | $x>4$ gives a positive fraction; $x < 3$ gives a negative                                   |
++-------------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------+
+| $$                                  | $\rm I\!R$      | $-2 \le y \le 2$             |                                                                                             |
+| f(x)= \left\{                       |                 |                              |                                                                                             |
+| \begin{array}{cl}                   |                 |                              |                                                                                             |
+| 0 & \text{ for } x\lt -1\\          |                 |                              |                                                                                             |
+| 2x & \text{ for } -1\leq x\leq 1 \\ |                 |                              |                                                                                             |
+| 0 & \text{ for } x\gt 1             |                 |                              |                                                                                             |
+| \end{array}                         |                 |                              |                                                                                             |
+| \right.                             |                 |                              |                                                                                             |
+| $$                                  |                 |                              |                                                                                             |
++-------------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------+
+
+## Exercise 9 - Continuity
+
++-------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Functions                                             | Continuous?                                                                                                                                                                                                                                                      |
++=======================================================+==================================================================================================================================================================================================================================================================+
+| $$                                                    | For which $p$ is $f_p(1)$ continuous?                                                                                                                                                                                                                            |
+| f_p(x) =                                              |                                                                                                                                                                                                                                                                  |
+|   \begin{cases}                                       | $1^3 +2 = 3 = 1\sqrt{1 + 8}$                                                                                                                                                                                                                                     |
+|   x^3+2 & x < 1\\[2.5mm]                              |                                                                                                                                                                                                                                                                  |
+|   x\sqrt{x+p} & x \geq 1                              |                                                                                                                                                                                                                                                                  |
+|   \end{cases}                                         |                                                                                                                                                                                                                                                                  |
+| $$                                                    |                                                                                                                                                                                                                                                                  |
++-------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| $$                                                    | For which $q$ is $g_q(1)$ continuous?                                                                                                                                                                                                                            |
+| g_q(x) =                                              |                                                                                                                                                                                                                                                                  |
+|   \begin{cases}                                       | $1 - 3*1^2 = -2 = |1-2q|$                                                                                                                                                                                                                                        |
+|   |x-2q| & x < 1\\[2.5mm]                             |                                                                                                                                                                                                                                                                  |
+|   1-3x^2 & x \geq 1                                   | On inspection, no - absolute value is always positive                                                                                                                                                                                                            |
+|   \end{cases}                                         |                                                                                                                                                                                                                                                                  |
+| $$                                                    |                                                                                                                                                                                                                                                                  |
++-------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| $$                                                    | For which $r$ is $h_r(1)$ continuous?                                                                                                                                                                                                                            |
+| h_r(x) =                                              |                                                                                                                                                                                                                                                                  |
+|   \begin{cases}                                       | $\frac{1\pm+1}{1\pm^2-1}$                                                                                                                                                                                                                                        |
+|   \dfrac{ x+1}{x^2-1} & x \neq 1,\ x \neq -1\\[2.5mm] |                                                                                                                                                                                                                                                                  |
+|   r & x = 1 \ \textsf{or} \ x=-1                      | On inspection, as $x$ approaches $\pm1$ the numerator approaches 2 and the denominator approaches a very small positive or negative difference from 1, and thus a large positive/negative result - whereas the result is precisely 1 or -1 for those $x$ values. |
+|   \end{cases}                                         |                                                                                                                                                                                                                                                                  |
+| $$                                                    | Given explanation:                                                                                                                                                                                                                                               |
+|                                                       |                                                                                                                                                                                                                                                                  |
+|                                                       | For $x \ne \pm 1$, we can simplify to $\frac{1}{x-1}$ and thus there is a vertical asymptote at $x=1$ - so $h_r()$ will never be continuous at 1.                                                                                                                |
++-------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| $$                                                    | For which $u$ is $l_u((0,3))$ continuous?                                                                                                                                                                                                                        |
+| l_u(x) =                                              |                                                                                                                                                                                                                                                                  |
+|   \begin{cases}                                       | On inspection: $|xu|$ provides $(0,|u|)$, or $(0,\infty)$; $2-x$ provides *almost* $(0,1)$; and $(2u-x)(u-2)$ can provide 0 for $u=2$ or any $\frac{x}{2}$; and any positive $\rm I\!R$, or $(0,\infty)$.                                                        |
+|   |xu| & 0\leq x\leq 1\\[2.5mm]                       |                                                                                                                                                                                                                                                                  |
+|   2-x & 1 \lt x \lt 2 \\[2.5mm]                       | Given $(0,\infty)$, $(0,1)$, and $(0,\infty)$, I thought yes, continuous for all $u$. Wrong.                                                                                                                                                                     |
+|   (2u-x)(u-2) & 2 \leq x \leq 3                       |                                                                                                                                                                                                                                                                  |
+|   \end{cases}                                         | Then guessed none, Wrong.                                                                                                                                                                                                                                        |
+| $$                                                    |                                                                                                                                                                                                                                                                  |
+|                                                       | Then guessed 0, then 2, Wrong.                                                                                                                                                                                                                                   |
+|                                                       |                                                                                                                                                                                                                                                                  |
+|                                                       | Finally, 1 - Correct...                                                                                                                                                                                                                                          |
+|                                                       |                                                                                                                                                                                                                                                                  |
+|                                                       | Explanation:                                                                                                                                                                                                                                                     |
+|                                                       |                                                                                                                                                                                                                                                                  |
+|                                                       | Must check function at two points, $x=1$ and $x=2$. (Why?)                                                                                                                                                                                                       |
+|                                                       |                                                                                                                                                                                                                                                                  |
+|                                                       | At $x=1$, the following must hold: $|1*u| = 2 -1$, therefore $|u| = 1$                                                                                                                                                                                           |
+|                                                       |                                                                                                                                                                                                                                                                  |
+|                                                       | At $x=2$, the following must hold: $(2u -2)(u-2) = 2-2$, therefore $2u-2=0$ or $u-2 = 0$                                                                                                                                                                         |
+|                                                       |                                                                                                                                                                                                                                                                  |
+|                                                       | Only $x=1$ holds for both.                                                                                                                                                                                                                                       |
++-------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+## Exercise 10 - Applications of Rational Functions
+
+### A. Average Costs
+
+Suppose fixed costs for a factory are 1M euros/year and cost per toy manufacturing is 3 euros. What is the average total cost per toy if the number of toys produced per year is $T$?
+
+$(3 * T + 1000000)/T$
+
+### B. Boat Trip
+
+Boat travels 30km downstream then 30km back. The water flows at 8km/h. The boat travels at speed $v$ (km/hr) *with respect to the water*.
+
+What is the downstream travel time, $T_{down}(v)$? $30/(v+8)$
+
+What is the upstream travel time, $T_{up}(v)$? $30/(v-8)$
+
+The total travel time, $T(v) = T_{down}(v) + T_{up}(v)$ can be written as $T(v) = \frac{P(v)}{Q(v)}$ where $P(v)$ and $Q(v)$ are polynomials. Find $T(v)$ (in hours) in this form. Make sure that $Q(v)$ has degree 2 and the coefficient of $v^2$ equals 1.
+
+$$
+\begin{align}
+T(v) &= \frac{30}{v+8} + \frac{30}{v-8} \\
+&= \left(\frac{30}{v+8}\right)\left(\frac{v-8}{v-8}\right) +
+\left(\frac{30}{v-8}\right)\left(\frac{v+8}{v+8}\right) \\
+&= \frac{30v - 240}{v^2 - 64} + \frac{30v + 240}{v^2 -64} \\
+&= \frac{60v}{v^2 - 64}
+\end{align}
+$$
+
+Given the context, what is the natural domain of $T(v)$? $v > 8$
+
+## Exercise 11 - Application of Power Functions (Zipf's Law)
+
+Zipf's Law is an empirical law that states that in many contexts, a function that relates rank to size can be approximated by a power function, $P(r) \approx C * r^a$, for some constants $C$ and $a$.
+
+Below is a graph of the 150 largest cities in the Netherlands in 2014. Blue is actual, red is the $P(r) \approx C * r^a$ that best fits the points.
+
+![](images/clipboard-682144877.png){width="670"}
+
+Based on the above, what would best describe $a$?
+
+-   $a \le -1$
+-   $-1 < a < 0$ \<---- intuitively, it must be negative such that smaller rank is larger multiplier
+-   $a = 0$
+-   $0 < a < 1$
+-   $a \ge 1$
+
+Assuming the power function fits the following data perfectly, what is the estimated population of Rheden, rounded to the thousands?
+
+| City       | Population | Rank |
+|------------|------------|------|
+| Leeuwarden | 107687     | 25   |
+| Gouda      | 71018      | 50   |
+| Rheden     | ?          | 100  |
+
+I got this wrong. I tried to determine $C$ by trying $C * 25^{-.63}$, plugging that in for 50, and iterating around $a$ to find a value that worked well for both.
+
+Easier, $a = 71018/107687$, and thus Rheden is $71018 * \frac{71018}{107687}$.
+
+# Summary of Week 1
+
+Function is a machine that takes a set of inputs (domain) and produces output that ends up in a set (codomain). Once domain is chosen, the set of values that can be produced is the range, which may be smaller than the codomain.
+
+Functions can be described by formula, graph, table, and words.
+
+## Polynomial Functions
+
+Polynomial functions can be constructed from a variable, set of numbers, and addition and multiplication. Polynomials can be put in standard form, with no brackets; every power occurring once; and terms ordered in descending power. The highest power is the degree. The higher the degree, the more complicated the behavior and resulting graph. Polynomials with degree 0 are constant, and a horizontal line when graphed. Polynomials with degree 1 have the standard form $ax + b$, and are diagonal lines when graphed - with slope $a$ and y-intercept $b$. Polynomials with degree 2 are quadratic, of the form $ax^2 + bx + c$, and are parabolas when graphed.
+
+![](images/clipboard-844619978.png)
+
+There are three representations for quadratic functions:
+
+-   Standard: $ax^2 + bx + c$
+
+-   Factorized: $a(x-p)(x-q)$
+
+-   Complete Square: $a(x-r)^2 + s$
+
+    Where $p$ and $q$ are the x-intercepts; and $(r,s)$ are the coordinates of the vertex
+
+## Rational Functions
+
+Rational functions are constructed from a variable and a set of numbers using addition, multiplication, and division, and can be written as the quotient (or ratio) of two polynomials.
+
+Rational functions may have asymptotes - straight lines that are approached by the graph. Vertical asymptotes, where the function grows to $\pm\infty$, can occur at $x$ values where the denominator is zero - but not if the numerator is also zero. Horizontal asymptotes can occur if the function tends to a constant at $x$ values much larger or smaller than zero. Horizontals can be identified by dividing top and bottom by largest degree $x$ of the denominator, and observing which elements will approach zero with large/small $x$.
+
+## Power Functions
+
+Power functions are of the form $x^a$. Domain issues:
+
+-   $x>0$ : defined for all $a$
+-   $x=0$ : defined for $a>0$ (because $0^{-a} = \infty$, and apparently in Calculus, $0^0$ is indeterminate)
+-   $x<0$ : defined for all integer $a$, and some fractional $a$ such as $\frac{1}{3}$, $\frac{1}{5}$, ... (because nothing *squared* can be negative, but *cubed* can, etc.)
+
+For $a>0$, the graph increases for positive $x$, and more sharply for larger $a$. For $a <0$, the reverse - the smaller the $a$, the closer to zero large $x$ becomes.
+
+For integer $a$, graphs are symmetric in the y-axis if $a$ is even and symmetric in the origin if $a$ is odd.
+
++-----------------------------------------------------------------------+
+| Calculation Rules                                                     |
++=======================================================================+
+| $$                                                                    |
+|    \begin{align}                                                      |
+|    x^{a}x^{b} &= x ^{a+b} \\                                          |
+|    \frac{x^a}{x ^b} &= x ^{a-b}\\                                     |
+|    (x^a)^b &= x^{a*b}\\                                               |
+|    (xy)^a &= x^a y^a                                                  |
+|    \end{align}                                                        |
+|    $$                                                                 |
++-----------------------------------------------------------------------+
+
+These rules hold for all $a$ and $b$ if $x$ and $y$ are positive - otherwise be careful!
+
+## Continuous
+
+All these functions are continuous on their maximal domain, meaning: Function values cannot jump; small changes to $x$ will affect small changes to $f(x)$. The results of summing, multiplying, and dividing two continuous functions is also continuous.
+
+If a continuous function is defined on an interval $(a,b)$, then it will attain all values between $f(a)$ and $f(b)$. This is the intermediate value property, and implies that the graph has no gaps.
+
+Graphs with gaps require piecewise functions - different formulas for different intervals. (Though, piecewise functions can be continuous.)
+
+# Homework Week 1
+
+## Identify the Polynomial
+
++----------------------------------------------+---------------------------------------------------------------+
+| Formula                                      | Polynomial? Degree?                                           |
++==============================================+===============================================================+
+| $f(x) = \frac{1}{2}x^2 - \frac{3}{2}x^3 + 5$ | Yes, 3                                                        |
++----------------------------------------------+---------------------------------------------------------------+
+| $g(x) = 2^{2x} + 3*2 ^x + 7$                 | No.                                                           |
+|                                              |                                                               |
+|                                              | Explanation - variable occurs in the exponent                 |
++----------------------------------------------+---------------------------------------------------------------+
+| $h(x) = \frac{x^2 + 3x + 5}{x}$              | $x + 3 + \frac{5}{x}$                                         |
+|                                              |                                                               |
+|                                              | No, this is a rational function - quotient of two polynomials |
++----------------------------------------------+---------------------------------------------------------------+
+| $k(x) = 6x + 4 - 2(x+2x)$                    | $6x + 4 -6x = 4$                                              |
+|                                              |                                                               |
+|                                              | Yes, 0                                                        |
++----------------------------------------------+---------------------------------------------------------------+
+| $m(x) = (3 + \sqrt{x})^2$                    | $9 + x$                                                       |
+|                                              |                                                               |
+|                                              | Yes, 1 (wrong)                                                |
+|                                              |                                                               |
+|                                              | $(3 + \sqrt{x})(3 + \sqrt{x}) = 9 + 6\sqrt{x} + x$            |
+|                                              |                                                               |
+|                                              | Not polynomial due to square root...                          |
++----------------------------------------------+---------------------------------------------------------------+
+
+## Match the Graphs
+
+![](images/clipboard-2580270010.png){width="424"}
+
+![](images/clipboard-4114932548.png){width="426"}
+
+![](images/clipboard-1082217643.png){width="427"}
+
++-----------------------------------+------------------------------------------------------------------------+
+| Given                             | Asymptotes                                                             |
++===================================+========================================================================+
+| $y = \frac{x+1}{x-2}$             | vertical at $x=2$\                                                     |
+|                                   | horizontal at $y=1$                                                    |
++-----------------------------------+------------------------------------------------------------------------+
+| $y = \frac{1-x}{x-2}$             | vertical at $x=2$\                                                     |
+|                                   | horizontal at $y=-1$                                                   |
++-----------------------------------+------------------------------------------------------------------------+
+| $y=\frac{x+3}{x+2}$               | vertical at $x=-2$\                                                    |
+|                                   | horizontal at $y=1$                                                    |
++-----------------------------------+------------------------------------------------------------------------+
+| $y=\frac{(x+2)(x-2)}{(x+3)(x-4)}$ | vertical at $x=-3,4$\                                                  |
+|                                   | horizontal at $y=1$                                                    |
++-----------------------------------+------------------------------------------------------------------------+
+| $y=\frac{x+1}{x+2}$               | vertical at $x=-2$\                                                    |
+|                                   | horizontal at $y=1$                                                    |
++-----------------------------------+------------------------------------------------------------------------+
+| $y = \frac{x^2-x+1}{x}$           | vertical at $x=0$\                                                     |
+|                                   | no horizontal\                                                         |
+|                                   | simplified to $x - 1 + \frac{1}{x}$, there is an oblique at $y = x -1$ |
++-----------------------------------+------------------------------------------------------------------------+
+| $y = \frac{1-x}{x+2}$             | vertical at $x=-2$\                                                    |
+|                                   | horizontal at $y=-1$                                                   |
++-----------------------------------+------------------------------------------------------------------------+
+| $y=\frac{(x+1)(x+2)}{x+2}$        | no vertical (numerator disappears)\                                    |
+|                                   | no horizontal ( $deg(P) > deg(Q)$ )                                    |
+|                                   |                                                                        |
+|                                   | simplified to $x+1$, it is linear                                      |
++-----------------------------------+------------------------------------------------------------------------+
+
+For these, I used something like:
+
+```{r}
+data.frame(x = seq(-3,3,.1)) |>
+    ggplot(aes(x, 1-x^2)) +
+    geom_line() +
+    scale_y_continuous(limits = c(-3,3)) +
+    scale_x_continuous(limits = c(-3,3))
+```
+
+At the moment, I am mystified why `aes(x, x^(1/3))` does not work - the lower left quadrant is not plotted. And because of that, it was indistinguishable from $\sqrt{x}$. Is this an R bug? $-3^{(1/3)}$ works, but that is probably negating after power.
+
+Along with `ggplot`, I noted:
+
+-   symmetry - which, if around origin must have odd exponent; and if around y-axis must have even exponent
+-   only one linear function of the form $ax + b$
+-   asymptotes - horizontal and vertical are very clear for $\frac{1}{x}$ and $\frac{1}{1-x^2}$
+
+## Find the Functions
+
++----------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+| Description                                                                                                                      | Formula                                                                                                        |
++==================================================================================================================================+================================================================================================================+
+| $f(x)$ is a linear function such that $f(-1) = 6$ and $f(3) = -2$.                                                               | Two known points $(-1,6)$, $(3, -2)$                                                                           |
+|                                                                                                                                  |                                                                                                                |
+| Find $a$ and $b$ such that $f(x) = ax + b$.                                                                                      | Slope, $a$, is then $(-2-6)/(3--1) = \frac{-8}{4} = -2$                                                        |
+|                                                                                                                                  |                                                                                                                |
+|                                                                                                                                  | Thus, $-2*-1 + b = 6$, and y-intercept, $b$, is 4.                                                             |
+|                                                                                                                                  |                                                                                                                |
+|                                                                                                                                  | Thus, $f(x) = -2x + 4$                                                                                         |
++----------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+| $f(x)$ is a linear function, whose graph has slope $\frac{1}{3}$ and passes through $(2,0)$.                                     | Slope, $a$, is given, so $f(x) = \frac{1}{3}x + b$.                                                            |
+|                                                                                                                                  |                                                                                                                |
+| Find $a$ and $b$ such that $f(x) = ax + b$.                                                                                      | With known point $(2,0)$, $f(2) = \frac{1}{3}2 + b = 0$, thus y-intercept, $b$, is $-\frac{2}{3}$.             |
+|                                                                                                                                  |                                                                                                                |
+|                                                                                                                                  | Thus, $f(x) = \frac{1}{3}x - \frac{2}{3}$.                                                                     |
++----------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+| $h(x)$ is a quadratic function, whose graph intersects the x-axis at $x=-2$ and $x=3$, and the y-axis at $y=3$.                  | Given x-intercepts, we have $h(x) = a(x+2)(x-3)$                                                               |
+|                                                                                                                                  |                                                                                                                |
+| Find $a$, $b$, and $c$ such that $h(x) = ax^2 + bx + c$.                                                                         | Plugging in the known y-intercept $(0,3)$, $h(0) = a(2)(-3) = 3$, so $a = -\frac{1}{2}$.                       |
+|                                                                                                                                  |                                                                                                                |
+| (Hint - write in another form first.)                                                                                            | Thus, $h(x) = -\frac{1}{2}(x+2)(x-3)$                                                                          |
+|                                                                                                                                  |                                                                                                                |
+|                                                                                                                                  | In standard form, $h(x) = -\frac{1}{2}x^2 + \frac{1}{2}x + 3$                                                  |
++----------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+| Jet fountain shoots a parabolic arc of water. Nozzle is fixed at height 0; highest point is 1m above ground, at .5m from nozzle. | Nozzle, $(0,0)$                                                                                                |
+|                                                                                                                                  |                                                                                                                |
+| Find $a$, $b$, and $c$ such that $h(x) = ax^2 + bx + c$.                                                                         | Vertex is $(\frac{1}{2}, 1)$                                                                                   |
+|                                                                                                                                  |                                                                                                                |
+|                                                                                                                                  | Logically water must hit at $(1,0)$, twice the distance of the vertex                                          |
+|                                                                                                                                  |                                                                                                                |
+|                                                                                                                                  | We then have $h(x) = a(x - 0)(x - 1)$                                                                          |
+|                                                                                                                                  |                                                                                                                |
+|                                                                                                                                  | Plugging in the known vertex, we have $h(\frac{1}{2}) = a(\frac{1}{2}-0)(\frac{1}{2}-1) = 1$, and so $a = -4$. |
+|                                                                                                                                  |                                                                                                                |
+|                                                                                                                                  | In standard form, $h(x) = -4(x^2 -x) = -4x^2 +4x$                                                              |
++----------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+
+## Rewriting Expressions
+
++---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Given                                             | Rewritten                                                                                                                                                                                                  |
++===================================================+============================================================================================================================================================================================================+
+| $p(x) = (x-1)^3$                                  | ... in standard form                                                                                                                                                                                       |
+|                                                   |                                                                                                                                                                                                            |
+|                                                   | $$                                                                                                                                                                                                         |
+|                                                   | \begin{align}                                                                                                                                                                                              |
+|                                                   | &= (x-1)(x-1)(x-1) \\                                                                                                                                                                                      |
+|                                                   | &= (x^2 -2x +1)(x-1) \\                                                                                                                                                                                    |
+|                                                   | &= x^3 -2x^2 + x -x^2 +2x -1 \\                                                                                                                                                                            |
+|                                                   | &= x^3 -3x^2 +3x -1                                                                                                                                                                                        |
+|                                                   | \end{align}                                                                                                                                                                                                |
+|                                                   | $$                                                                                                                                                                                                         |
++---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| $q(x) = 3(x-2)^2 - (x-1)(x+3)$                    | ... in standard form                                                                                                                                                                                       |
+|                                                   |                                                                                                                                                                                                            |
+|                                                   | $$                                                                                                                                                                                                         |
+|                                                   | \begin{align}                                                                                                                                                                                              |
+|                                                   | &= 3(x-2)(x-2) - x^2 -2x +3 \\                                                                                                                                                                             |
+|                                                   | &= 3(x^2 -4x +4) - x^2 -2x +3 \\                                                                                                                                                                           |
+|                                                   | &= 3x^2 -12x +12 -x^2 -2x +3 \\                                                                                                                                                                            |
+|                                                   | &= 2x^2 -14x +15                                                                                                                                                                                           |
+|                                                   | \end{align}                                                                                                                                                                                                |
+|                                                   | $$                                                                                                                                                                                                         |
++---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| $f(x) = 2x^2 -10x -28$                            | ... in factorized form, if possible                                                                                                                                                                        |
+|                                                   |                                                                                                                                                                                                            |
+|                                                   | $2(x-7)(x+2)$                                                                                                                                                                                              |
+|                                                   |                                                                                                                                                                                                            |
+|                                                   | Correct, BUT MIND YOUR Ps AND Qs! Here $p=7$ and $q=-2$, so the course expects $2(x+2)(x-7)$                                                                                                               |
++---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| $f(x) = \frac{1}{1 + \frac{1}{1+x}}$              | ... as $\frac{P(x)}{Q(x)}$ where $P$ is of degree 1 and $P(0) = 1$                                                                                                                                         |
+|                                                   |                                                                                                                                                                                                            |
+|                                                   | $$                                                                                                                                                                                                         |
+|                                                   | \begin{align}                                                                                                                                                                                              |
+|                                                   | &= \frac{                                                                                                                                                                                                  |
+|                                                   |     1                                                                                                                                                                                                      |
+|                                                   | }{                                                                                                                                                                                                         |
+|                                                   |     \left(\frac{1}{1}\right)                                                                                                                                                                               |
+|                                                   |     \left(\frac{1+x}{1+x}\right) +                                                                                                                                                                         |
+|                                                   |     \left(\frac{1}{1+x}\right)                                                                                                                                                                             |
+|                                                   |     \left(\frac{1}{1}\right)                                                                                                                                                                               |
+|                                                   | } \\                                                                                                                                                                                                       |
+|                                                   | &= \frac{1}{\frac{2+x}{1+x}} \\                                                                                                                                                                            |
+|                                                   | &= \frac{1+x}{2+x}                                                                                                                                                                                         |
+|                                                   | \end{align}                                                                                                                                                                                                |
+|                                                   | $$                                                                                                                                                                                                         |
++---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| $g(x) = x + \frac{x}{x+2} + \frac{2x}{x-2}$       | ... as $\frac{P(x)}{Q(x)}$ where $Q$ is of degree 2 with constant term -4                                                                                                                                  |
+|                                                   |                                                                                                                                                                                                            |
+|                                                   | $$                                                                                                                                                                                                         |
+|                                                   | \begin{align}                                                                                                                                                                                              |
+|                                                   | &= \frac{x}{1} +                                                                                                                                                                                           |
+|                                                   | \left(\frac{x}{x+2}\right)                                                                                                                                                                                 |
+|                                                   | \left(\frac{x-2}{x-2}\right) +                                                                                                                                                                             |
+|                                                   | \left(\frac{2x}{x-2}\right)                                                                                                                                                                                |
+|                                                   | \left(\frac{x+2}{x+2}\right) \\                                                                                                                                                                            |
+|                                                   | &= \frac{x}{1} + \frac{x^2 -2x + 2x^2 + 4x}{x^2-4} \\                                                                                                                                                      |
+|                                                   | &= \left(\frac{x}{1}\right)                                                                                                                                                                                |
+|                                                   | \left(\frac{x^2-4}{x^2-4}\right) +                                                                                                                                                                         |
+|                                                   | \frac{x^2 -2x + 2x^2 + 4x}{x^2-4} \\                                                                                                                                                                       |
+|                                                   | &= \frac{x^3 - 4x + x^2 -2x + 2x^2 + 4x}{x^2-4} \\                                                                                                                                                         |
+|                                                   | &= \frac{x^3 + 3x^2 -2x}{x^2-4}                                                                                                                                                                            |
+|                                                   | \end{align}                                                                                                                                                                                                |
+|                                                   | $$                                                                                                                                                                                                         |
++---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Find $a$, $b$, and $c$ such that                  | $$                                                                                                                                                                                                         |
+|                                                   | \begin{align}                                                                                                                                                                                              |
+| $$                                                | &= \frac{                                                                                                                                                                                                  |
+| \frac{x^{-2}\sqrt[3]{27y^2}}{2\sqrt{x}} = ax^by^c |     x^{-2}*3*y^\frac{2}{3}                                                                                                                                                                                 |
+| $$                                                | }{                                                                                                                                                                                                         |
+|                                                   |     2x^{\frac{1}{2}}                                                                                                                                                                                       |
+| With the assumption that $x>0$ and $y>0$          | } \\                                                                                                                                                                                                       |
+|                                                   | &= \frac{3}{2}x^{-\frac{3}{2}}y^{\frac{2}{3}}                                                                                                                                                              |
+|                                                   | \end{align}                                                                                                                                                                                                |
+|                                                   | $$                                                                                                                                                                                                         |
+|                                                   |                                                                                                                                                                                                            |
+|                                                   | Remember, $\frac{x^a}{x ^b} = x ^{a-b}$                                                                                                                                                                    |
+|                                                   |                                                                                                                                                                                                            |
+|                                                   | Arg, I did not subtract! $\frac{x^{-2}}{x ^\frac{1}{2}} = x^{(-\frac{4}{2}-\frac{1}{2})} = x^{-\frac{5}{2}}$                                                                                               |
+|                                                   |                                                                                                                                                                                                            |
+|                                                   | And yet, original and this seemed to work, for arbitrary $x/y$ values $(5,3)$ and $(9,7)$.                                                                                                                 |
+|                                                   |                                                                                                                                                                                                            |
+|                                                   | Given solution:                                                                                                                                                                                            |
+|                                                   |                                                                                                                                                                                                            |
+|                                                   | 1.  Rewrite roots as powers and divisor as power -1:                                                                                                                                                       |
+|                                                   |                                                                                                                                                                                                            |
+|                                                   |     $\frac{ x^{-2}\sqrt[3]{27y^2}}{2\sqrt{x}} = \frac{x^{-2}(27y^2)^\frac{1}{3}}{2x^\frac{1}{2}} = x ^{-2}(27y ^2) ^\frac{1}{3}\left(2x ^\frac{1}{2}\right) ^{-1}$                                         |
+|                                                   |                                                                                                                                                                                                            |
+|                                                   | 2.  Expand brackets:                                                                                                                                                                                       |
+|                                                   |                                                                                                                                                                                                            |
+|                                                   |     $x^{-2}(27y ^2) ^\frac{1}{3}\left(2x ^\frac{1}{2}\right) ^{-1} = x^{-2} * 27^\frac{1}{3} * y^\frac{2}{3} * 2^{-1} * x^{-\frac{1}{2}}$                                                                  |
+|                                                   |                                                                                                                                                                                                            |
+|                                                   | 3.  Gather:                                                                                                                                                                                                |
+|                                                   |                                                                                                                                                                                                            |
+|                                                   |     $x^{-2} * 27^\frac{1}{3} * y^\frac{2}{3} * 2^{-1} * x^{-\frac{1}{2}} = 27 ^\frac{1}{3} * y ^\frac{2}{3} * 2 ^{-1} * x ^-\frac{5}{2} * y ^\frac{2}{3} = \frac{3}{2} * x ^-\frac{5}{2} * y ^\frac{2}{3}$ |
++---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+## Asymptotes
+
++-------------------------------------------------+------------------------------------------------------------------------------+
+| Formula                                         | Asymptotes?                                                                  |
++=================================================+==============================================================================+
+| $f(x) = \frac{3x+1}{2x+4}$                      | Vertical at $x=-2$\                                                          |
+|                                                 | Horizontal at $y=\frac{3}{2}$                                                |
++-------------------------------------------------+------------------------------------------------------------------------------+
+| $g(x) = \frac{x^4 + 2x^2 + 7}{2x^4 + 3x^2 + 7}$ | Vertical, no - even powers cannot be negative\                               |
+|                                                 | Horizontal at $y = \frac{1}{2}$                                              |
++-------------------------------------------------+------------------------------------------------------------------------------+
+| $h(x) = \frac{3x^2 + 5x + 7}{x}$                | This has an oblique asymptote, given by $y = ax+b$. What are $a$ and $b$?    |
+|                                                 |                                                                              |
+|                                                 | $\frac{3x^2+5x+7}{x} = 3x+5+\frac{7}{x}$                                     |
+|                                                 |                                                                              |
+|                                                 | Thus, $y = 3x +5$ as $\frac{7}{x}$ approaches zero                           |
++-------------------------------------------------+------------------------------------------------------------------------------+
+| $f_a(x) = \frac{x^2+3x+a}{(x-3)(x-2)}$          | For this one, what two values of $a$ yield exactly one vertical asymptote?   |
+|                                                 |                                                                              |
+|                                                 | There would be TWO vertical asymptotes unless numerator also disappears, so: |
+|                                                 |                                                                              |
+|                                                 | $3^2 + 3*3 + a = 0$                                                          |
+|                                                 |                                                                              |
+|                                                 | $2^2 + 3*2 + a = 0$                                                          |
+|                                                 |                                                                              |
+|                                                 | $a = (-18, -10)$                                                             |
++-------------------------------------------------+------------------------------------------------------------------------------+
+
+## Domain and Range
+
++-----------------------------------+---------------------------------------------------------------------------+
+| Function                          | Domain (possible inputs)/Range (possible $y$)                             |
++===================================+===========================================================================+
+| $f(x) = \sqrt{3-x}$               | Domain, $x \le 3$                                                         |
++-----------------------------------+---------------------------------------------------------------------------+
+| $g(x) = \frac{1}{(x-3)^2 + 1}$    | Domain, $\rm I\!R$ since square is inherently positive                    |
++-----------------------------------+---------------------------------------------------------------------------+
+| $h(x) = (x+5)^{-\frac{1}{3}}$     | Domain, $x \ne -5$ since formula is essentially $\frac{1}{\sqrt[3]{x+5}}$ |
++-----------------------------------+---------------------------------------------------------------------------+
+| $f(x) = 2(x+1)^2 + 3$             | Range, $y \ge 3$                                                          |
++-----------------------------------+---------------------------------------------------------------------------+
+| $g(x) = x^5$                      | Range, $\rm I\!R$ since odd exponent allows negatives                     |
++-----------------------------------+---------------------------------------------------------------------------+
+| $h(x) = 1 + \frac{1}{x-4}$        | Range, $y \ne 1$                                                          |
++-----------------------------------+---------------------------------------------------------------------------+
+
+## Continuity
+
+Which of the following are continuous?
+
++------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Function                                                                                                         | Continuous?                                                                                                                                                       |
++==================================================================================================================+===================================================================================================================================================================+
+| $f(x) = |x|$                                                                                                     | Domain is $\rm I\!R$, range is $y\ge0$                                                                                                                            |
+|                                                                                                                  |                                                                                                                                                                   |
+|                                                                                                                  | We learned that this IS continuous; though there's a gap in my understanding of the intermediate value property, as the function cannot attain all of its domain. |
+|                                                                                                                  |                                                                                                                                                                   |
+|                                                                                                                  | I'll say yes - no need to lift pen.                                                                                                                               |
++------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| $g(x) = \left\{\begin{array}{cl} \frac{x}{|x|}& \text{ for } x\neq 0\\ 1 & \text{ for } x=0 \end{array} \right.$ | Domain is $\rm I\!R$, range is $y = \pm1$                                                                                                                         |
+|                                                                                                                  |                                                                                                                                                                   |
+|                                                                                                                  | I'm conflicted here as well - is it a jump from -1 to 1, given only those two values?                                                                             |
+|                                                                                                                  |                                                                                                                                                                   |
+|                                                                                                                  | I'll say no, it is a jump.                                                                                                                                        |
++------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| $h(x) = \dfrac{x}{|x|}$ for $x > 0$                                                                              | Domain is $x>0$, range is $y=1$                                                                                                                                   |
+|                                                                                                                  |                                                                                                                                                                   |
+|                                                                                                                  | I'll say yes, one pen movement.                                                                                                                                   |
++------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| $j(x)=\left\{\begin{array}{cl} x^2& \text{ for } x\lt 2\\ x & \text{ for } x\geq 2 \end{array} \right.$          | Domain is $\rm I\!R$, range is $y \ge 0$                                                                                                                          |
+|                                                                                                                  |                                                                                                                                                                   |
+|                                                                                                                  | I'll say no, there's a jump at $x \approx 2$, with $1.99999^2 \approx 4$ and $2=2$                                                                                |
++------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| $k(x)=\left\{\begin{array}{cl} x^2& \text{ for } x\lt 1\\ x & \text{ for } x\geq 1 \end{array} \right.$          | Domain is $\rm I\!R$, range is $y\ge0$                                                                                                                            |
+|                                                                                                                  |                                                                                                                                                                   |
+|                                                                                                                  | The range is smooth though, as $k(.999999) \approx 1$                                                                                                             |
+|                                                                                                                  |                                                                                                                                                                   |
+|                                                                                                                  | Explanation: Both parts ARE continuous; and they COINCIDE at $x=1$.                                                                                               |
++------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+For what values of $p$ and $q$ is the following function continuous?
+
+$f_{p,q}(x)=\left\{\begin{array}{cl} x+p& \text{ for } x\leq 0\\ x^2+q & \text{ for } 0\lt x\lt 5 \\ 6x+5 & \text{ for } x\geq 5 \end{array} \right.$
+
+From an earlier exercise, I think I need to check the boundaries, $x = 0$ and $x = 5$.
+
+Then, for $x=0$, these must hold: $0+p$ and $0^2+q$
+
+For $x=5$, these must hold: $5^2 +q$ and $6*5 + 5$
+
+The latter gives 35, thus $q=10$?
+
+```{r}
+data.frame(x = seq(-10,10,.01)) |>
+    ggplot(
+        aes(
+            x,
+            case_when(
+                x<=0 ~ x+10,
+                x>5  ~ 6*x + 5,
+                x > 0 & x < 5 ~ x^2 + 10
+            ),
+            color = case_when(
+                x<=0 ~ 'red',
+                x>5 ~ 'blue',
+                x > 0 & x < 5 ~ 'green'
+            )
+        )) + geom_line() + geom_point() + theme(legend.position = 'none')
+```
+
+# Taylor Polynomials
+
+Imagine here we want to calculate $y$ at $x=0.6$, that is the square root of 1.6:
+
+![](images/clipboard-3721458695.png){width="231"}
+
+A simple approximation would be to say that 0.6 is close to 0, and thus the value of the function at $x=0.6$ is approximately equal to that at $x=0$, which is 1. In essence, we draw a horizontal line at height 1:
+
+![](images/clipboard-2833574130.png){width="338"}
+
+A closer approximation is a line tangent to the graph at $x=0$:
+
+![](images/clipboard-1755532383.png){width="334"}
+
+That gives an estimate of 1.3, better than 1.
+
+But the tangent line ($y=1+\frac{x}{2}$) is a polynomial of degree 1. We can do better with a degree-2 polynomial. $1+\frac{x}{2}-\frac{x^2}{8}$ is an example of a Taylor polynomial, and it tracks the graph quite well:
+
+![](images/clipboard-2567416109.png)
+
++----------------------+------------------------------------------------------------------------------+----------------------+
+| Degree               | Polynomial                                                                   | Approximation        |
++======================+==============================================================================+======================+
+| 0                    | 1                                                                            | 1                    |
++----------------------+------------------------------------------------------------------------------+----------------------+
+| 1                    | $1 + \frac{1}{2}x$                                                           | 1.3                  |
++----------------------+------------------------------------------------------------------------------+----------------------+
+| 2                    | $1 + \frac{1}{2}x - \frac{1}{8}x^2$                                          | 1.255                |
++----------------------+------------------------------------------------------------------------------+----------------------+
+| 3                    | $1 + \frac{1}{2}x - \frac{1}{8}x^2 + \frac{1}{16}x^3$                        | 1.2685               |
++----------------------+------------------------------------------------------------------------------+----------------------+
+| ...                  | ...                                                                          | ...                  |
++----------------------+------------------------------------------------------------------------------+----------------------+
+| 32                   | $1 + \frac{1}{2}x^2 ... \frac{14544636039226909}{9223372036854775808}x^{32}$ | 1.2649110640         |
++----------------------+------------------------------------------------------------------------------+----------------------+
+
+Polynomials are among the easiest formulas, and high-degree ones are simple for calculators. This is how they approximate imaginary numbers to the desired length.
+
+Evidently, in this context, [derivative](https://en.wikipedia.org/wiki/Derivative) is a tool that quantifies the sensitivity to change of a function's output with respect to its input. The derivative of a function of a single variable at a chosen input value, when it exists, is the slope of the tangent line to the graph at that point.
+
+![](images/clipboard-667580719.png){width="172"}
+
+Second derivative is the rate of change of the first derivative, indicating the curvature or concavity of a function's graph. It is found by taking the derivative of the derivative, with notation like $f"(x)$ or $d^2y/dx ^2$. A positive second derivative indicates an upward-facing parabola; negative down.

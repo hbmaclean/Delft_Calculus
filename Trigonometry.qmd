@@ -1,0 +1,158 @@
+---
+title: "Trigonometric Functions"
+format: html
+editor: visual
+---
+
+## 
+
+Trigonometric functions arise in periodic events such as acoustic and water waves and circular motions like Ferris wheels. When built in 2000, the London Eye was the largest Ferris wheel - with 32 closed cabins, 135 meters tall, and a thirty-minute rotation.
+
+Trig functions are usually defined as the ratio of two sides of a triangle. Given an acute ange $\theta$:
+
+-   its sine is the length of the opposite side divided by the length of the hypotenuse
+-   its cosine is the length of the adjacent side divided by the length of the hypotenuse
+-   its tangent is the length of the opposite side divided by the length of the adjacent side, or $sin(\theta)/cos(\theta)$
+
+Mnemonics: Sign makes a number its opposite. Cosigning is side-by-side.
+
+A complete rotation contains 360 degrees, equal to $2\pi*r$. Therefore, $1r = \left(\frac{180}{\pi}\right)^\circ$ and $1^\circ = \frac{\pi}{180r}$.
+
+For a sector of a circle, the length of its arc is $s = \frac{\theta}{2\pi}*2\pi r = r * \theta$
+
+![](images/clipboard-2551319047.png){width="487"}
+
+A circle with $r=1$ is called the unit circle. A triangle within the circle with the radius as hypotenuse, then $\sin(\theta)$ can be found at the vertical axis and $cos(\theta)$ at the horizontal axis, and $tan(\theta)$ is the height of a vertical line tangent to the circle to the extended hypotenuse.
+
+![](images/clipboard-3246932481.png){width="484"}
+
+![](images/clipboard-481782650.png){width="485"}
+
+Thus we can calculate common angles easily with a quarter unit circle, from $0\pi$ to $\frac{1}{2}\pi$:
+
+![](images/clipboard-2277221334.png){width="714"}
+
+Ah, ok. We know $1^\circ = \frac{\pi}{180}$, and thus for above, $30^\circ = \frac{30\pi}{180} = \frac{1}{6}\pi$. And knowing hypotenuse is 1, $\sin(\frac{1}{6}\pi) = \frac{opp}{1}$
+
+Above has $\frac{1}{3}\pi = 60^\circ$, here is $\frac{2}{3}\pi$ - note that cosine is negative on the x-axis:
+
+![](images/clipboard-1126986067.png){width="512"}
+
+Another example, for $\frac{5}{6}\pi$ we make a *counterclockwise* turn with an angle of $\frac{5}{6}\pi$
+
+![](images/clipboard-1757014157.png)
+
+And for $-\frac{2}{3}\pi$, we rotate clockwise on the unit circle
+
+![](images/clipboard-1057413089.png){width="510"}
+
+Visualizing $cos$, $sin$, and $tan$:
+
+![](images/clipboard-3342596686.png){width="511"}
+
+Since the tangent is the quotient of sine and cosine, it is defined for all values for which the cosine is non-zero; and its graph has vertical asymptotes at the zeros.
+
+## Exercises
+
+### Definitions
+
+Suppose elevation of a London Eye cabin is a function of $h(t) = a + b * cos(c*t)$, with $a$, $b$, and $c$ constants ($c$ in radians) and $t$ a measure of time in minutes. **What are the constant values?**
+
+We know, full rotation is $360^\circ$ and takes $t=30$, so rotation is $t * 12^\circ$.
+
+As radians, we know $1^\circ = \frac{\pi}{180}$ and so $c = \frac{12\pi}{180} = \frac{\pi}{15}$ - rotation is $t*\frac{\pi}{15}$.
+
+So we have:
+
+$$
+\begin{align}
+h(0) &= 0\\
+&= a + b * cos(\frac{\pi}{15}*0)\\
+&= a + b * cos(0)\\
+&= a + b * 1\\
+&= a + b
+\end{align}
+$$
+
+And logically,
+
+$$
+\begin{align}
+h(15) &= 135\\
+&= a + b * cos(\frac{\pi}{15} * 15)\\
+&= a + b * cos(\pi)\\
+&= a - b
+\end{align}
+$$
+
+$a + b = 0$, and $a-b = 135$
+
+It seems $\frac{135}{2} + -\frac{135}{2} * cos(\frac{\pi}{15} * t)$
+
+**What is the speed of a cabin, in meters per second?**
+
+Height of the Eye is 135 meters, which is $2r$ meters. Total distance is the circumference, or $2\pi r$, or $135\pi$ meters. So speed is $135\pi/30*60$.
+
+### Sine and Cosine
+
+In the following diagram, $h$ can be written as both $h = h_\alpha \sin(\alpha)$ and $h = h_\beta \sin(\beta)$
+
+![](images/clipboard-912192002.png){width="333"}
+
+**Given that, what are** $h_\alpha$ and $h_\beta$?
+
+$sin(\alpha) = \frac{h}{b}$, thus $h = b * sin(\alpha)$
+
+$sin(\beta) = \frac{h}{a}$, thus $h = a * sin(\beta)$
+
+I thought $h_a$ syntax was a function, thus I first said $h_a = b * sin(\alpha)$ and $h_b = a * sin(\beta)$
+
+With that wrong, I deduced correctly that $h_a = b$ and $h_b = a$.
+
+**This leads to the sine rule given by** $\frac{a}{\sin(\alpha)} = ?$
+
+$\frac{a}{sin(\alpha)} = \frac{b}{sin(\beta)}$
+
+Recall Pythagorean theorem, $a^2 + b ^2 = c ^2$. In addition to calculating $h$, we can also derive the lengths of adjacent sides - the two portions of $c$: $b*cos(\alpha)$ and $a*cos(\beta)$, whose sum equals $c$.
+
+![](images/clipboard-3103284203.png)
+
+Given that, express $a^2$ in terms of $b$, $c$, and the angle $\alpha$.
+
+$a^2 = (c - b*cos(\alpha)) ^2 + (b*sin(\alpha)) ^2$
+
+# Rules of Calculation
+
+Looking back to a right triangle within a unit circle, with hypotenuse of 1, we can see that the sum of squares of its sides is 1. This holds for all real $\theta$.
+
+![](images/clipboard-2456798100.png){width="443"}
+
+From the unit circle it is clear that sine and cosine are periodic functions. If we rotate through the circle, we will encounter the same $\theta$.
+
+![](images/clipboard-1258920616.png){width="445"}
+
+Thus, sine and cosine have a period of $2\pi$! This can be seen in their graphs as well:
+
+![](images/clipboard-743393864.png){width="576"}
+
+Back to that triangle within a unit circle. The angle opposite $\theta$ is $\frac{\pi}{2} - \theta$, and for this angle the opposite- and adjacent sides are reversed, which shows that the cosine of one is equal to the sine of the other.
+
+![](images/clipboard-3214103630.png){width="506"}
+
+Now if we reflect that triangle along the x-axis, we can see that cosine of an angle and its reflection are equal ( $cos(-\theta) = cos(\theta)$ ); while sine of an angle and its reflection are opposite ( $-sin(\theta) = sin(-\theta)$ ).
+
+![](images/clipboard-791406037.png){width="508"}
+
+Graphs show that cosine is line-symmetric, and thus again even; and sine is point-symmetric in the origin, and thus odd:
+
+![](images/clipboard-2816040854.png)
+
+## Addition Formula
+
+Here we start again with a right triangle with hypotenuse of 1:
+
+![](images/clipboard-3885289211.png)
+
+Now we add an angle $\beta$ and two adjacent triangles:
+
+![](images/clipboard-526833364.png)
