@@ -1,0 +1,244 @@
+---
+title: "Week6 - Integration"
+format: html
+editor: visual
+---
+
+# Integration
+
+An example of a need for integration is the determination of energy consumption of a home. If it were static, we could say $nKw/hr$; but that is not the case, with inconsistent usage and even solar supply.
+
+Integration is the process of taking the limit of sums for increasingly smaller intervals. The sums are "Riemann sums" named after Bernhard Riemann.
+
+![](images/clipboard-631430527.png){width="218"}
+
+1.  Break up interval into subintervals of size $\Delta x$
+
+2.  Choose sample points $x_1, x_2, ...$
+
+3.  Calculate Riemann sum
+
+    $$
+    \sum_{i=1}^Nf(x_i) * \Delta x
+    $$
+
+4.  Repeat, for an increasing number of subintervals and decreasing length of $\Delta x$
+
+    $$
+    \left\{
+        \begin{array}{}
+            \begin{align}
+                \Delta x &\rightarrow 0 \\
+                N &\rightarrow \infty
+            \end{align}
+        \end{array}
+    \right.
+    $$
+
+The limit of the sums, as the size of $\Delta$ goes to zero is called the integral of the function on the given interval. We denote that as follows - the integral of $P(t)$ for $t$ ranging from $a$ to $b$, with $dt$ the limit of $\Delta t$:
+
+$$
+\int_a^b P(t)dt
+$$
+
+Interactive exercise showed curve with sliders to control number of subintervals and position of sample points (left/right/center of intervals). The integral to one decimal place was 5.7 with 100 subintervals; and could be approximated within .05 with just 5 subintervals when sample points are centered; and required 73 subintervals when sample points were on the left or right edge.
+
+## Exercises
+
+1.  Consider Riemann sums $\sum_{i=1}^Nf(x_i)\Delta x$ corresponding to integral $\int_0^{10}(10-\frac{1}{10}x^2)dx$, with the interval divided into $N=5$ intervals, $\Delta x = 2$.
+    i.  Calculate sum $S$ with all $x_i$ in the middle of their subintervals.
+
+        ```{r}
+        sum(sapply(seq(1,9,2), function(x) { h <- 10 - (1/10)*x^2; 2*h}))
+        ```
+
+    ii. Find the largest possible sum, $S_{max}$.
+
+        ```{r}
+        sum(sapply(seq(1,9,2), function(x) { h <- 10 - (1/10)*(x-1)^2; 2*h}))
+        ```
+
+    iii. Find the smallest possible sum, $S_{min}$.
+
+         ```{r}
+         sum(sapply(seq(1,9,2), function(x) { h <- 10 - (1/10)*(x+1)^2; 2*h}))
+         ```
+
+# What Does Integral Mean?
+
+While we can often think of an integral as an area - the area below a graph, above the x-axis. But when the function is negative, the area *above* the negative curve is subtracted. The resulting Riemann sum gives the *signed* area. This does not help determine how much paint would be needed, but is appropriate for energy consumption - where green energy may result in negative consumption.
+
+![](images/clipboard-2605936815.png){width="291"}
+
+So, the proper definition of integral is the signed area of the region enclosed by the graph, the x-axis, and the lines $x=a$ and $x=b$.
+
+## Exercises
+
+Determine the following integrals geometrically:
+
+1.  $\int_0^3 2xdx \Rightarrow \frac{1}{2}(3*2*3) = 9$
+2.  $\int_1^4 3-x dx \Rightarrow \frac{1}{2}((2*2) - (1*1) = 1.5$
+3.  $\int_{-\pi}^\pi sin(x)dx \Rightarrow 0$
+4.  $\int_{-2}^2\sqrt{4-x^2}dx \Rightarrow \frac{1}{2}(\pi*2^2)$
+
+# Fundamental Theorem of Calculus
+
+Riemann sum rarely produces the exact value of an integral. Moreover, it can become a tedious calculation.
+
+The Fundamental Theorem of Calculus holds that, given a function $f$ defined on $[a,b]$; and a function $F$ such that $f(x)$ is the derivative of $F(x)$, the following holds:
+
+$$
+\int_a^bf(x)dx = F(b) - F(a)
+$$
+
+In this case, $F$ is called a primitive function, or antiderivative of $f$. By this theorem, integration comes down to finding a primitive function $F$ and evaluating it at the boundaries.
+
+For example:
+
+$$
+\begin{align}
+f(x) &= x^2 \\
+F(x) &= \frac{1}{3}x^3 \\ 
+\int_1^2x^2dx &= F(2) - F(1) \\
+&= \frac{1}{3}2^3 - \frac{1}{3}1^3 \\
+&= \frac{8}{3} - \frac{1}{3} = \frac{7}{3}
+\end{align}
+$$
+
+And, an infinite number of primitives can be found, simply by adding a constant - which disappears from the derivative.
+
+## Exercises
+
+1.  In the example above, the fundamental theorem gave $\frac{7}{3}$. What is the geometric estimate, if we replace the curve of the integral with a straight line $PQ$?
+
+    ![](images/clipboard-422593603.png){width="192"}
+
+    Well, 1x1 square and 1x3 triangle, so $1*1 + \frac{1}{2}(1*3) = 2.5$
+
+2.  Associate the following functions with their antiderivatives:
+
+    i.  $x^5 \Rightarrow \frac{1}{6}x^6$
+    ii. $sin(x) \Rightarrow -cos(x)$
+    iii. $2^x \Rightarrow \frac{1}{ln(2)}2^x$
+    iv. $\frac{1}{x} \Rightarrow ln|x|$
+    v.  $e^x \Rightarrow e^x$
+    vi. $\frac{1}{\sqrt{x}} \Rightarrow 2\sqrt{x}$
+    vii. $cos(x) \Rightarrow sin(x)$
+
+3.  Select anti-derivatives of $f(x) = 4x^3 + 4x$.
+
+    i.  $F_1(x) = 4x^3 + 4x \Rightarrow F_1'(x) = 12x^2 + 4$
+    ii. $F_2(x) = x^4 + 2x^2 - 10 \Rightarrow F_2'(x) = 4x^3 + 4x \Longleftarrow$
+    iii. $F_3(x) = (x^2 + 1)^2 F_3'(x) = 4x^3 + 4x  \Longleftarrow$
+    iv. $F_4(x) = 12x^2 + 4 \Rightarrow F_4'(x) = 24x$\$
+    v.  $F_5(x) = x^4 + 2x^2 \Rightarrow F_5'(x) = 4x^3 + 4x  \Longleftarrow$
+
+4.  Find $\int_1^2(4x3 + 4x)dx$
+
+    $(2^4 + 2*2^2) - (1^4 + 2*1^2) = 24-3 = 21$
+
+5.  Given $f(x) = 2^x$, for what $A$ is $F(x) = A * 2^x$ primitive for $f$?
+
+    $A = \frac{1}{ln(2)}$
+
+6.  Solve $\int_0^32^xdx$
+
+    $\frac{1}{ln(2)}2^3 - \frac{1}{ln(2)}2^0 = \frac{7}{ln(2)}$
+
+# Proof of the Fundamental Theorem
+
+The Fundamental Theorem roughly says that integration and differentiation are inverse operations.
+
+Given a function and a signed area $S$ for an integral $[a,t]$, if we extend the integral by say $\Delta t$, the claim is that $S' = f$.
+
+![](images/clipboard-4268992696.png)
+
+If we zoom in on $\Delta S$, we can see that nearly a rectangle of width $\Delta t$ and height $f(t)$. We can make the approximation better by taking a smaller $\Delta t$. Thus it follows that $\Delta s \approx f(t) * \Delta t$ and $\frac{\Delta S}{\Delta t} \approx f(t)$. And these become exact if we let $\Delta t$ tend to 0: $\lim_{\Delta t \to 0} \frac{\Delta s}{\Delta t} = f(t)$.
+
+![](images/clipboard-1146987744.png){width="226"}
+
+The quotient $\frac{\Delta S}{\Delta t}$ is a difference quotient for the function $S$, and the limit of the difference quotient is exactly the derivative of $S$ at $t$. Thus the derivative of $S$ is precisely $f$.
+
+Equivalently we can say that $S$ is a primitive function of $f$.
+
+Also note, if upper and lower bounds of an integral coincide the integral is 0. Thus:
+
+$$
+\begin{align}
+S(a) &= \int_a^a f(x)dx = 0 \\
+S(b) &= \int_a^b f(x)dx = S(b) - S(a)
+\end{align}
+$$
+
+And that is the Fundamental Theorem - identify a primitive function and evaluate it at the bounds.
+
+# Rules of Calculation
+
+To understand calculation rules, it is good to have an illustrative example. Speed is the derivative of distance over time. From the Fundamental Theorem, it follows that distance is the integral of speed as a function of time.
+
+## Multiplying by Constant
+
+Now, if we travel at twice the speed, the distance covered also doubles. Indeed, if we multiply our speed by a constant $C$, the distance is also multiplied by $C$. Thus we obtain the rule that the integral of a constant $C$ times $f$ equals $C$ times the integral of $f$.
+
+$$
+\int Cf(x)dx = C\int f(x)dx
+$$
+
+Visually we see that the height of the area under the graph is multiplied by $C$, so the total area is also multiplied by $C$. Note that if the constant is negative, the area remains the same but is considered negative.
+
+## Adding Two Functions
+
+Imagine walking on a moving train. Your distance traveled equals the distance traveled by the train plus the distance you've covered in the train. If $f$ represents the speed of the train and $g$ represents your walking speed, the integral of the sum of the functions equals the sum of the integrals:
+
+$$
+\int f(x) + g(x)dx = \int f(x)dx + \int g(x)dx
+$$
+
+Visually, the original area under $g$ is deformed atop the area under $f$:
+
+![](images/clipboard-454085678.png){width="120"}
+
+## Working Example
+
+x
+
+$$
+\begin{align}
+\int_1^2 4x^3 - 3x^2 dx &= \int_1^2 4x^3dx + \int_1^2-3x^2dx \\
+&= 4\int_1^2dx - 3\int_1^2x^dx \\
+\text{Knowing that } \int x^n &= \frac{1}{n+1}x^{n+1} \text{, we have:} \\
+&= 4\left[\frac{1}{4}x^4\right]_1^2 - 3\left[\frac{1}{3}x^3\right]_1^2 \\
+\text{Evaluating both at boundaries:}\\
+&= 4(\frac{16}{4}-\frac{1}{4}) - 3(\frac{8}{3}-\frac{1}{3}) \\
+&= 15 - 7 = 8 \\
+\text{Which could be written directly as:}\\
+\int 4x^3-3x^2 dx = x^4-x^3 + C
+\end{align}
+$$
+
+## Exercises
+
+1.  Evaluate $\int_1^3(2x-3)dx$
+
+    $$
+    \text{Primitive:}\\
+    x^2 - 3x \\
+    \text{Evaluated at boundaries:}\\
+    (3^2 - 3*3) - (1^2 -3*1) = 2
+    $$
+
+    Correct; and geometrically, this is a 2x4 triangle. Given solution:
+
+    $$
+    \begin{align}
+    \int_1^3(2x-3)dx &= 2\int_1^3xdx - 3\int_1^31dx \\\\
+    &= 2\left[\frac{1}{2}x^2\right]_1^3 - 3\left[x\right]_1^3 \\\\
+    &= 2\left(\frac{9}{2}-\frac{1}{2}\right) - 3(3-1) = 2
+    \end{align}
+    $$
+
+2.  Find antiderivative $F(x)$ of $f(x) = 3e^x + 5cos(x)$ such that $F(0) = 0$
+
+    $3e^x + 5sin(x)$
+
+3.  

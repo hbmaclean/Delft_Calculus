@@ -1,0 +1,1157 @@
+---
+title: "Week 4 - Equations II"
+format: html
+editor: visual
+---
+
+# Equations Involving Trig Functions
+
+Consider the angle $x$ satisfying $sin(x) = \frac{1}{2}$. Referring to the unit circle and table of common values, we see that $\frac{pi}{6}$, or $30^\circ$ is a solution. Since sine is periodic, there are infinite solutions!
+
+![](images/clipboard-432788909.png){width="500"}
+
+The graph remains the same if we shift it $2\pi$ horizontally. The red points of intersection with the dotted line ($y = \frac{1}{2}$) add multiples of $\pm \frac{pi}{2}$ to $\frac{\pi}{6}$. The green points of intersection are reflections of the red points, knowing that $sin(x) = sin(\pi - x)$ - e.g. $\left(\pi - \frac{\pi}{6}\right) = \left(\frac{6\pi}{6} - \frac{1\pi}{6}\right) = \frac{5\pi}{6}$.
+
+We can button that up with the formulas, $x = \left(\frac{\pi}{6}\right) + 2\pi k$ and $x = \left(\frac{5\pi}{6}\right) + 2\pi k$, where $k$ is an integer, positive or negative.
+
+The same works for cosine. The method is to find one solution, via table or calculator; and use symmetries to obtain other solutions. And for the first solution, we often must simplify the equation.
+
+## Simplifying with Substitution
+
+One method for simplification is substitution. For example, given $cos(x)^2 - cos(x) = \frac{3}{4}$, we can replace $cos(x)$ with $p$, simplifying to $p^2 - p = \frac{3}{4}$ , which can be factored as $(x + \frac{1}{2})(x - \frac{3}{2})$, giving possible solutions $(-\frac{1}{2}, \frac{3}{2})$, only the first of which is valid as cosine is always between -1 and 1.
+
+We can look up $cos(\frac{\pi}{3}) = \frac{1}{2}$, implying that $cos(\pi - \frac{\pi}{3}) = -\frac{1}{2}$, giving our first solution.
+
+![](images/clipboard-3983603695.png){width="510"}
+
+We can again reflect the first solution to get $x = -\frac{2\pi}{3}$. The remaining solutions are $2\pi$ shifts of $\pm \frac{2\pi}{3}$, and can be expressed as $x = \pm \frac{2\pi}{3} + 2\pi k$ for integer $k$.
+
+When substituting, it is important that no $x$ remains in the equation.
+
+## Simplifying with Trigonometric Identities
+
+Consider $cos(x)sin(x) = \frac{1}{4}$. Since $sin(2x) = 2cos(x)sin(x)$, we can say $sin(2x) = \frac{1}{2}$.
+
+We've already solved $sin(\frac{\pi}{6}) = \frac{1}{2}$ and $sin(\frac{5\pi}{6}) = -\frac{1}{2}$; dividing those by two solve for $2x$: $x = \left(\frac{\pi}{12}, \frac{5\pi}{12}\right)$, and thus can be expressed as $x = \frac{\pi}{12} + \pi k$ or $\frac{5\pi}{12} + \pi k$.
+
+## Exercises - Equations with Trig Functions
+
+$cos(\theta)^2 + sin(\theta)^2 = 1$
+
+$cos(\frac{\pi}{2} - \theta) = sin(\theta)$
+
+$sin(\frac{\pi}{2} - \theta) = cos(\theta)$
+
+$sin(-\theta) = -sin(\theta)$
+
+$tan(\theta \pm \pi) = tan(\theta)$
+
+1.  Find all solutions to $sin(x) = -\frac{1}{2}\sqrt{3}$, with $-\pi \le x \le \pi$.
+
+    From the unit circle, we know $sin(\frac{1}{2}\sqrt{3}) = 60^\circ = \frac{\pi}{3}$, so $sin(-\frac{\pi}{3}) = -\frac{1}{2}\sqrt{3}$. Thus, $(-\frac{2\pi}{3}, -\frac{\pi}{3})$.
+
+2.  Suppose $tan(x) = c$ has a solution, $c = tan(\frac{1}{9}\pi)$. What others are correct?
+
+    $tan$ has periodicity of $\pi$, so $\frac{\pi}{9} \pm \left(\frac{9\pi}{9}\right)k$, or $(-\frac{8}{9}\pi, \frac{10}{9}\pi, \frac{19}{9}\pi)$.
+
+    i.  $-\frac{8}{9}\pi$
+    ii. $-\frac{1}{9}\pi$
+    iii. $\frac{5}{9}\pi$
+    iv. $\frac{8}{9}\pi$
+    v.  $\frac{10}{9}\pi$
+    vi. $\frac{17}{9}\pi$
+    vii. $\frac{19}{9}\pi$
+
+# Equations Involving Exponentials and Logs
+
+Earlier we had an example of a bank account earning 3%/yr, and wondering how many years to double the savings. That question takes the form, $1.03^x = 2$, and it can be answered with $log_{1.03}(2)$.
+
+To solve more complicated equations involving exponentials, the goal is to reduce to a simple equation of the form $a^p = a^q$, which implies that $p=q$. There are two main techniques to simplify: Changing all terms to a common base; and substitution.
+
+For $4^x = 2^{x^2}$, we can use $4 = 2^2$, so $4^x = (2^2)^x = 2^{x^2}$. Since $(a^p)^q = a^{pq}$, we can simplify further to $2^{2x} = 2^{x^2}$. With that, we need only solve for $2x = x^2$, which can be $x=0, x=2$. Plugging in, we get 1=1 and 16=16, so both are valid solutions.
+
+For $2^x + 4^x = 6$, we first change to a common base, $2^x + 2^{2x} = 6$. Now we substitute $y = 2^x$ and get $y + y^2 = 6$. That can be factored as $(y+3)(y-2) = 0$, with possible solutions $(-3,2)$. Circling back to $x$, we want to solve $2^x = -3$ and $2^x = 2$. The former has no solution as exponentials are always positive. The latter has the solution, $x=1$.
+
+Logarithms are similar: Look to change all terms to the same log base; possibly make a substitution; and reduce to the form, $log_a(p) = log_a(q)$, again implying that $p=q$.
+
+Consider $ln(x) + ln(2x-3) = ln(2)$. All terms are already in the same log base. The equation can be reduced to $ln(x(2x-3)) = ln(2)$, thus we need to solve $(x(2x-3) = 2$. This can be expanded and factored to $2x^2 -3x - 2 = 0 \Longleftrightarrow (2x+1)(x-2) = 0$. So potential solutions are $(-\frac{1}{2}, 2)$. But checking, only 2 is valid.
+
+## Exercises - Equations with Exponentials and Logs
+
+1.  Solve $16^x + 4^{x+1} = 12$
+
+    Noting, $x^{a+b} = x^a x^b$
+
+    I was on the right track, changing $16^x$ to $4^{2x}$, and $4^{x+1}$ to $4^x 4^1$, but I wasn't sure how to treat the latter. I then figured $x$ had to be fractional to equal 12; and just happened upon the solution, $\frac{1}{2}$.
+
+    The given explanation: With $4^{2x} + 4^x * 4^1$, we substitute $y = 4^x$ and get $y^2 + 4y = 12$. (Evidently, $4^1$, having no $x$, is taken literally.) Factored as $(y+6)(y-2) = 0$, the possible solutions are $log_4(-6)$ and $log_4(2)$, the latter giving $\frac{1}{2}$.
+
+2.  Solve $log_2(x^2-x) - log_2(x-1) = 1$
+
+    $x^2 - 2x  = 0 \Longleftrightarrow x=2 \text{ (by simple inspection...)}$
+
+# Catch the Error
+
+Video showed the following formula and solution:
+
+$$
+\begin{align}
+log_2((x+1)^2) &= 6 \\
+2*log_2(x_1) &= 6 \\
+log_2(x+2) &= 3 \\
+x+1 &= 2^3 \\
+x &= 8 - 1 = 7
+\end{align}
+$$
+
+And indeed, $log_2((7 + 1)^2) = 6$.
+
+The mistake was clear - the initial $(x + 1)^2$ could have been $(-9 + 1)^2$ - so -9 is also a solution.
+
+# Inequalities
+
+An example of why we might care about inequalities is a plane's flight pattern, and duration at unsafe altitudes/G-force.
+
+A formula example is $x \le \frac{4}{x}$.
+
+First, we solve for equality: $x = \frac{4}{x} \Longleftrightarrow x^2 = 4 \Longleftrightarrow x = (-2,2)$
+
+Then we check for domain problems. Here, the function is not defined for $x = 0$.
+
+Thus we have divided the domain into four intervals with these three points. We can check one point in each interval to see if the inequality holds.
+
+For $x \le -2$, we find that, for example, $-4 \le \frac{4}{-4}$.
+
+For $-2 < x < 0$, we find that, for example, $-1 > \frac{4}{-1}$ - it does NOT hold.
+
+For $0 < x \le 2$, we find that, for example, $1 \le \frac{4}{1}$.
+
+For $2 < x$, we find that, for example, $4 > \frac{4}{4}$ - it does NOT hold.
+
+We gather these into the solution set. In words, the inequality holds for $x$ less than or equal to -2; or greater than zero and less than or equal to 2. In notation, either:
+
+$$
+\text{Satisfied for:}\\
+x \le -2 \quad \text{ or }\\
+0 < x \le 2 \\
+\\
+\text{Solution set:} \\
+(-\infty, -2] \cup (0,2]
+$$
+
+In terms of the set notation, typically round bracket implies boundary exclusion; square bracket inclusion.
+
+Note that when handling inequality cases, applying the same operation on both sides can flip the sign. If you apply an *increasing* function, the condition holds. This includes:
+
+-   $f(x) = x + c$ (addition of a constant)
+-   $fx) = x * c$ (multiplication by a positive constant)
+-   $f(x) = a^x$ (with $a > 1$)
+-   $f(x) = log_a(x)$ (with $a > 1$)
+-   $f(x) = x^a$ (with $a > 0$ and $x > 0$)
+-   compositions of these
+
+Conversely, applying a *decreasing* function reverses the condition:
+
+-   $f(x) = x * c$ (with $c < 0$)
+-   $f(x) = a^x$ (with $0 < a < 1$)
+-   $f(x) = log_a(x)$ (with $0 < a < 1$)
+-   $f(x) = x^a$ (with $a<0$ and $x>0$)
+
+If a function is neutral, it can be hard to tell what happens.
+
+## Exercises
+
+1.  $3-x^2 < 2x$
+
+    $x^2 + 2x - 3 = 0 \Longleftrightarrow (x+3)(x-1) = 0 \Longleftrightarrow (-3,1)$
+
+    Three intervals:
+
+    -   $x < -3$ (inequality holds, e.g. $3 - (-5)^2 < -5*2$)
+    -   $x > 1$ (inequality holds, e.g. $3-5^2 < 5 * 2$)
+    -   $-3 < x < 1$ (inequality fails, e.g. $3 - (-1)^2 > -1 * 2$)
+
+2.  $\frac{2}{x} + x \le 0$
+
+    $\frac{2}{x} + x = 0 \Longleftrightarrow \left(\frac{2}{x}\right)(1x) = \left(\frac{-x}{1}\right)(1x) \Longleftrightarrow 2 = -x^2$
+
+    Well, on inspection, 0 is undefined; anything greater fails; anything less than works: $[-\infty, 0)$
+
+3.  $f(x) \ge \sqrt{x+1}$, where $f(x) = -1 \quad \text{ for } x \le 0, \quad 2 \text{ for } x > 0$
+
+    $x = \sqrt{x+1} \Longleftrightarrow x^2 = x + 1 \Longleftrightarrow x^2 -x - 1 = 0$
+
+    On inspection: $(0, 3]$ holds; $(3,\infty]$ fails; $[-\infty,0]$ fails
+
+4.  Increasing or decreasing?
+
+    i.  $f(x) = x^3$ INCREASING
+
+    ii. $g(x) = x^2$ NEITHER (b/c $-2 > -4 \Longleftrightarrow -2^2 < -4 ^2$
+
+    iii. $h(x) = x^2$ with $x \le 0$ DECREASING
+
+    iv. $k(x) = \frac{1}{x}$ NEITHER (b/c $-8 > -9 \Longleftrightarrow 1/-8 < 1/-9$)
+
+    v.  $m(x) = \frac{1}{x}$ with $x > 0$ DECREASING
+
+    vi. $p(x) = -3 * \left(\frac{1}{2}\right)^x$ INCREASING
+
+5.  Suppose $p > q$, positive or negative. Which of the following are certainly correct?
+
+    i.  $2 - 3p < 2 - 3q$ YES: $(2-3(-1))  = 5 < 2-3(-2) = 8$ - double-negative makes this essentially a composition of positive multiplication and addition
+
+    ii. $\frac{1}{p} < \frac{1}{q}$ (where $p \ne 0, q \ne 0$) NO: The *fraction* for $p$ is always smaller; but when negative means it is larger
+
+    iii. $p2 > q^2$ NO: $-1 > -9; -1^2 < -9^2$ - squaring is always positive; thus closer-to-zero negative has smaller square
+
+    iv. $p^3 > q^3$ : YES: $-1 > -9; -1^3 > -9^3$ - cubing respects sign
+
+    v.  $\sqrt{p} > \sqrt{q}$ (where $p \ge 0, q \ge 0$) YES
+
+    vi. $\frac{p}{q} > 1$ (where $q \ne 0$) NO: $\frac{-1}{-4} = 0.25$
+
+    vii. $p - q > 0$ YES: $-1 -(-2) = 1$, always positive remainder
+
+## Catch the Error
+
+This one was obvious - omitted domain issues (divide-by-zero). I almost glossed over, but the visual solution is worthwhile:
+
+![](images/clipboard-2023558431.png)
+
+First, the formula is solved for equality:
+
+$\frac{1}{x^2-1} = 1 \Longleftrightarrow x^2 -1 = 1 \Longleftrightarrow x^2 = 2 \Longleftrightarrow x = \pm \sqrt{2}$
+
+Then by inspection, $x = \pm 1$ is problematic.
+
+Those 4 points then divide the number line into 5 intervals; and we find (and can see in the graph) that the condition holds for the intervals $(-\sqrt{2}, -1)\cup(1,\sqrt{2})$, where the boundaries are excluded - leading to 1 and $\infty$.
+
+# Systems of Equations
+
+Imagine a circle with radius 5, centered at the origin; with a line $y = x+1$ crossing through - and we want to find the two points of intersection of the line with the circle.
+
+Knowing the radius, we know that for any point $(x,y)$ on the circle, we have $x^2 + y^2 = 5^2$.
+
+Therefore, we know that the two intersecting points of the line have $y = y + 1$ and $x^2 + y^2 = 25$.
+
+![](images/clipboard-314698352.png){width="448"}
+
+We call this a system of equations. To solve, we substitute the first into the second, thus reducing variables to one; and then solve in typical fashion:
+
+$$
+\begin{align}
+x^2 + (x+1)^2 &= 25 \\
+x^2 + (x^2 + 2x + 1) &= 25\\
+2x^2 + 2x - 24 &= 0 \\
+x^2 + x = 12 &= 0 \\
+(x-3)(x+4) &= 0 \Longleftrightarrow (-4, 3)
+\end{align}
+$$
+
+Plugging those values in to the line formula, we get $y = (-4,3) + 1 = (-3, 4)$. So we have identified the two points of intersection: $(-4,-3), (3,4)$.
+
+For another example, say we have a stack of coins 8cm high, consisting of .3cm silver coins and .2cm gold coins. We then have $.3x + .2y = 8$, which for appearance we might write as $3x + 2y = 80$. We also know that a silver coin weighs 20 grams and the gold 10 grams; and the stack weighs 450 grams. So we have $20x + 10y = 450$, which for appearance we write as $2x + y = 45$.
+
+Similar to before, we can determine that by weight, $y = 45 - 2x$ and plug that in to the height formula, $3x + 2(45 - 2x) = 80 \Longleftrightarrow 90 - x = 80 \Longleftrightarrow x = 10$. Plugging that into the weight formula gives $y = 45 - 2*10 \Longleftrightarrow y = 25$. So we have 10 gold and 25 silver coins.
+
+Visually, we found the intersection between the two equations:
+
+![](images/clipboard-3515753514.png){width="463"}
+
+For a third example, consider $xy = 2x$ and $x^2 + y^2 = 1$.
+
+We might solve the first equation as $\frac{xy}{x} = \frac{2x}{x} \Longleftrightarrow y = 2$; but plugging that in yields $x^2 = -3$, so we might assume no solution. But by removing $x$ through division, we overlooked the case of $x = 0$ - which leads to $y = \pm 1$.
+
+## Exercises - Systems of Equations
+
+1.  Find the intersection point $(x,y)$ of the lines $4x + 2y = 3$ and $x - 3y = -1$.
+
+    $$
+    \begin{align}1&) \quad x -3y = -1 \Longleftrightarrow x = 3y - 1 \\
+    2&) \quad 4(3y - 1) + 2y = 3 \Longleftrightarrow 14y - 4 = 3 \Longleftrightarrow 14y = 7 \Longleftrightarrow y = \frac{1}{2} \\
+    3&) \quad x - \frac{3}{2} = -1 \Longleftrightarrow x = -\frac{2}{2}+\frac{3}{2} = \frac{1}{2}
+    \end{align}
+    $$
+
+2.  Find the intersection points $(x_1, y_1), (x_2, y_2)$ of the circle $x^2 + y^2 = 9$ and the line $2x + y = 6$ (with $x_1 < x_2$).
+
+    $$
+    \begin{align}
+    1&) \quad y = 6 - 2x \\
+    2&) \quad x^2 + (6-2x)(6-2x) = 9 \Longleftrightarrow x^2 + 36 - 24x + 4x^2 = 9 \Longleftrightarrow 5x^2 -24x + 27 = 0 \Longleftrightarrow (5x-9)(x-3) = 0 \Longleftrightarrow (3, \frac{9}{5}) \\
+    3&) \quad y = 6 - 2*3 = 0; y = 6 - 2*\frac{9}{5} \Longleftrightarrow
+    \left((3,0),\left(\frac{9}{5}, 2.4\right)\right)
+    \end{align}
+    $$
+
+# Elimination Method
+
+Another method to solve a system of equations, to manipulate them to eliminate one variable, uses the facts that a solution will not change if:
+
+-   we multiply by a nonzero constant
+-   we replace an equation by the sum (or difference) of that equation with one of the other equations
+
+**Example:**
+
+Given $2x + 5y = 6$ and $4x - 4y = 5$, we want to find the $(x,y)$ that is the intersection of the two.
+
+1.  Multiply such that both functions have the same coefficient for $x$:
+
+    $4x + 10y = 12$
+
+2.  Subtract one from the other:
+
+    $$
+    (4x + 10y = 12) -(4x - 4y = 5) = 14y = 7 \Longleftrightarrow y = \frac{1}{2}
+    $$
+
+3.  Plugging in $\frac{1}{2}$, we get
+
+    $4x + 5 = 12 \Longleftrightarrow x = 7/4$
+
+    Thus, we have $(\frac{7}{4}, \frac{1}{2})$
+
+## Exercise - Elimination Method
+
+1.  Find the intersection point for $2x + 4y = 6$ and $3x - 2y = 1$.
+
+    $$
+    6x + 12y = 18 - \\
+    6x - 4y = 2 \\
+    16y = 16 \Longleftrightarrow y = 1 \\\\
+    2x + 4 = 6 \Longleftrightarrow x = 1 \\
+    (1,1)
+    $$
+
+    Check: $2*1 + 4*1 = 6$ and $3*1 - 2*1 = 1$
+
+# Training Sequence
+
+## Trig Functions
+
+Notes:
+
+-   $tan(\theta) = \frac{sin(\theta)}{cos(\theta)}$
+-   $sin(\theta)^2 + cos(\theta)^2 = 1$
+-   $cos(\theta \pm 2\pi) = cos(\theta)$
+-   $sin(\theta \pm 2\pi) = sin(\theta)$
+-   $tan(\theta \pm \pi) = tan(\theta)$
+-   $sin(\theta) = -sin(\theta - \pi)$
+-   $cos(\theta) = cos(-\theta)$
+-   $sin(\theta) = -sin(-\theta)$
+-   $cos(\frac{\pi}{2} - \theta) = sin(\theta)$
+-   $sin(\frac{\pi}{2} - \theta) = cos(\theta)$
+-   $sin(\theta + \beta) = cos(\theta)sin(\beta) + sin(\theta)cos(\beta)$
+-   $cos(\theta + \beta) = cos(\theta)cos(\beta) - sin(\theta)sin(\beta)$
+-   $sin(\theta - \beta) = sin(\theta)cos(\beta) - cos(\theta)sin(\beta)$
+-   $cos(\theta - \beta) = cos(\theta)cos(\beta) + sin(\theta)sin(\beta)$
+-   $sin(2\theta) = 2sin(\theta)cos(\theta)$
+-   $cos(2\theta) = 2cos^2(\theta) - sin^2(\theta) \quad = 2cos^2(\theta) - 1 \quad = 1 - 2sin^2(\theta)$
+-   $tan(2\theta) = \frac{2tan(\theta)}{1 - tan^2(\theta)}$
+
+1.  Solve $sin(x) = -\frac{1}{2}$ with $-\pi \le x \le \pi$
+
+    From the unit circle, $sin(\frac{\pi}{6}) = \frac{1}{2}$, so $-\frac{\pi}{6}$. Then, periodicity is $2\pi$, so $(..., -\frac{13\pi}{6}, \frac{11\pi}{6}, ...)$, but those are both outside the domain... Hmm, we also know $sin(x) = -sin(x - \pi)$, so $\frac{\pi}{6} - \pi$.
+
+2.  Given a triangle with hypotenuse 5, opposite side 1, and angle $\theta$, determine $\theta$
+
+    $sin(\theta) = \frac{1}{5} \Longleftrightarrow asin(\frac{1}{5}) = 0.2013579$
+
+3.  Solve $2(sin(x))^2 - cos(x) - 1 = 0$, for $0 \le x \le \pi$
+
+    Let's see. We know $sin(x)^2 + cos(x)^2 = 1$ (and twice each equals 2).
+
+    And $cos(2θ)=cos^2(θ)−sin^2(θ)$
+
+    And $cos(2\theta) = 2cos^2(\theta) -1$
+
+    And $cos(2\theta) = 1 - 2sin^2(\theta)$
+
+    And $cos(-\theta) = cos(\theta)$
+
+    Moving first and last terms to the RHS gives:
+
+    $-cos(x) = 1 - 2sin^2(x) \quad = cos(2x) \Longleftrightarrow cos(2x) + cos(x) = 0$
+
+    Thus:
+
+    $-cos(x) = cos(2x)$
+
+    $cos(x + x) + cos(x) = 0 \Longleftrightarrow cos^2(x) - sin ^2(x) + cos(x) = 0$
+
+    EXPERIMENTALLY, I got $\pi$, and then $\pi/3$. Given explanation:
+
+    Using identity $sin^2(x) = 1 - cos^2(x)$, we can write the original as $1 - 2(cos^2(x)) - cos(x) = 0$. (NOTE: I don't understand why this doesn't become $2 - 2(cos^2(x)$?!) Then it can be substituted and factored as $(2p-1)(p+1) = 0$, etc.
+
+4.  Solve $(sin(x))^2 + \frac{3}{2}sin(x) = 1$, for $\frac{\pi}{2} \le x \le \frac{3\pi}{2}$
+
+    Whoa, I just got lucky, noticing that the formula worked for $\frac{\pi}{6}$, which is out of range, but equivalent to $\pi - \frac{\pi}{6}$
+
+    Given explanation: Substitute $p$ for $sin(x)$, giving $p^2 + \frac{3p}{2} = 1 \Longleftrightarrow p^2 + \frac{3p}{2} - 1 = 0$. That can be factored as $(p + 2)(p - \frac{1}{2})$, implying $(-2, \frac{1}{2})$. Resubstituting, $sin(x) = -2$ has no solutions and $sin(x) = \frac{1}{2}$ has solutions $\frac{\pi}{6} \pm 2k\pi$ and $\frac{5\pi}{6} \pm 2k\pi$. Of that, only $\frac{5\pi}{6}$ is in range.
+
+5.  Solve $\frac{sin(x) - \frac{1}{2}}{tan(x)-1} = \frac{1}{2}$, for $-\frac{\pi}{2} \le x \le \frac{\pi}{2}$
+
+    $$
+    2sin(x)-1 = tan(x)-1 \\
+    2sin(x) = tan(x) \\
+    2sin(x) = \frac{sin(x)}{cos(x)}
+    $$
+
+    Whoa, got lucky again. Discovered $\frac{\pi}{3}$ by chance; then somewhat obviously $-\frac{\pi}{3}$. Those weren't enough, so I figured the third must be in the middle - zero.
+
+    Given explanation:
+
+    Use $tan(x) = \frac{sin(x)}{cos(x)}$ to rewrite as $\frac{sin(x) - \frac{1}{2}}{\frac{sin(x)}{cos(x)} - 1} = \frac{1}{2} => sin(x) - \frac{1}{2} = \frac{sin(x)}{2cos(x)} - \frac{1}{2}$. (I again do not understand this translation; it seems it should be $2sin(x)-1 = \frac{sin(x)}{cos(x)} - 1$.) Anyhow, it then cancels the $-\frac{1}{2}$ on both sides and multiplies by $cos(x)$ to get $sin(x)cos(x) = \frac{1}{2}sin(x)$, at which point we know $sin(x)=0$ or $cos(x) = \frac{1}{2}$.
+
+6.  Rewrite the function $sin(x) + cos(x)$ as the following, after determining $R$ and $\varphi$:
+
+    i.  $Rsin(x + \varphi)$
+
+    ii. $Rcos(x + \varphi)$
+
+        I believe we know that $Rsin(x + \varphi)$ can be written as $Asin(x) + Bcos(x)$ and here $A=B=1$ (I think). So I think, $sin(x + \varphi) = \frac{1sin(x) + 1cos(x)}{R}$
+
+        I stared at this dumbly for hours without a clue, and finally guessed nothing five times to see the answer:
+
+        $Rsin(x + \varphi) = Rcos(\varphi)sin(x) + Rsin(\varphi)cos(x)$
+
+        Which implies(?) that $sin(x) + cos(x) = Rsin(x + \varphi)$ is equal to:
+
+        $$
+        Rcos(\varphi) = 1 \\
+        Rsin(\varphi) = 1 \\
+        \text{And therefore(?!)} \\
+        sin(\varphi) = cos(\varphi) => \varphi = \frac{\pi}{4}
+        $$
+
+        And since $cos(\frac{\pi}{4}) = \frac{1}{\sqrt{2}} = sin(\frac{\pi}{4})$, we conclude that $R = \sqrt{2}$.
+
+        Similar for cosine, we have that:
+
+        $Rcos(x + \varphi) = Rcos(\varphi)cos(x) - Rsin(\varphi)sin(x)$
+
+        Which implies(?) that $sin(x) + cos(x) = Rcos(x + \varphi)$ is equal to:
+
+        $$
+        Rcos(\varphi) = 1 \\
+        Rsin(\varphi) = 1 \\
+        \text{And therefore(?!)} \\
+        sin(\varphi) = -cos(\varphi) => \varphi = -\frac{\pi}{4}
+        $$
+
+        And since $cos(-\frac{\pi}{4}) = \frac{1}{\sqrt{2}}$ and $sin(-\frac{\pi}{4}) = -\frac{1}{\sqrt{2}}$ we conclude that $R = \sqrt{2}$.
+
+7.  Take $\alpha = \frac{\pi}{12}$ and $\beta = \frac{\pi}{4}$ in the addition formulas to find the exact values of:
+
+    i.  $sin(\frac{\pi}{12}) = sin(\frac{\pi}{12} + \frac{\pi}{4}) = cos(\frac{\pi}{12})(sin(\frac{\pi}{4})+sin(\frac{\pi}{12})cos(\frac{\pi}{4})$
+
+    ii. $cos(\frac{\pi}{12}) = cos(\frac{\pi}{12})cos(\frac{\pi}{4}) - sin(\frac{\pi}{12})sin(\frac{\pi}{4})$
+
+        Whoa. The explanation:
+
+        $\alpha + \beta = \frac{\pi}{12} + \frac{\pi}{4} = \frac{\pi}{12} + \frac{3\pi}{12} = \frac{4\pi}{12} = \frac{\pi}{3}$. So:
+
+        $1) \quad cos(\frac{\pi}{12})sin(\frac{\pi}{4}) + sin(\frac{\pi}{12})cos(\frac{\pi}{4}) = sin(\frac{\pi}{3})$
+
+        $2) \quad cos(\frac{\pi}{12})cos(\frac{\pi}{4}) - sin(\frac{\pi}{12})sin(\frac{\pi}{4}) = cos(\frac{\pi}{3})$
+
+        Which are equivalent to the following:
+
+        $3) \quad \frac{1}{2}\sqrt{2}cos(\frac{\pi}{12}) + \frac{1}{2}\sqrt{2}sin(\frac{\pi}{12}) = \frac{1}{2}\sqrt{3}$
+
+        $4) \quad \frac{1}{2}\sqrt{2}cos(\frac{\pi}{12}) - \frac{1}{2}\sqrt{2}sin(\frac{\pi}{12}) = \frac{1}{2}$
+
+        Or without the halves:
+
+        $5) \quad \sqrt{2}cos(\frac{\pi}{12}) + \sqrt{2}sin(\frac{\pi}{12}) = \sqrt{3}$
+
+        $6) \quad \sqrt{2}cos(\frac{\pi}{12}) - \sqrt{2}sin(\frac{\pi}{12}) = 1$
+
+        Adding those together, and subtracting one from the other, gives:
+
+        $7) \quad 2\sqrt{2}cos(\frac{\pi}{12}) = \sqrt{3}+1$
+
+        $8) \quad 2\sqrt{2}sin(\frac{\pi}{12}) = \sqrt{3} - 1$
+
+## Exponential Functions
+
+1.  If $e^{3x -1} = e^{-2x+10}$, then $x = ?$
+
+    $$
+    3x -1 = -2x + 10 \\
+    5x = 11 \\
+    x = \frac{11}{5}
+    $$
+
+2.  If $\sqrt{e^x - 2} = 0$, then $x = ?$
+
+    $$
+    e^x = 2 \\
+    log(2)
+    $$
+
+3.  If $2^6 * 4^x = 4^{6-x}$, then $x = ?$
+
+    $$
+    2^6 * 4^x = 4^{3 + x} \\
+    4^{3+x} = 4^{6-x} \\
+    3 + x = 6 - x\\
+    2x = 3 \\
+    x = \frac{3}{2}
+    $$
+
+4.  If $2^{x+1} = 3^x$, then $x = ?$
+
+    Ugh, clerical error! Initially had $2x + 1$, and thus $x=0$.
+
+    Must be fractional and/or negative, otherwise $2^?$ is even and $3^?$ is odd.
+
+    $2*2^x = 3^x => 2^x = \left(\frac{3}{2}\right)^x \Longleftrightarrow 2 = \frac{3}{2} ?!$
+
+    $$
+    log_2(2^{x+1}) = log_2(3^x) \\
+    log_2(2^{x+1}) - log_2(3^x) = 0 \\
+    $$
+
+    I had to look this up...
+
+    Take logarithm of both sides: $x+1 = log_2(3^x) = x*log_2(3)$
+
+    Rearrange: $x = x*log_2(3) -1 => x = \frac{1}{log_2(3) - 1}$
+
+    OR: $log_3(2^{x+1}) = x \Longleftrightarrow (x+1)log_3(2) = x \Longleftrightarrow log_3(2) = (1-log_3(2))x \Longleftrightarrow x = \frac{log_3(2)}{1 - log_3(2)}$
+
+5.  If $\frac{1}{2^x} = \frac{5}{8^{x+3}}$, then $x = ?$
+
+    I again think $x$ must be fractional and/or negative, else LHS is necessarily odd and RHS even.
+
+    $$
+    8^{x+3} = 5(2^x) \\
+    8^x8^3 = 5(2^x) \\
+    (2^x)^3 *8^3 = 5(2^x) \\
+    p^3 * 8^3 - 5p = 0 \\
+    8p^3 - 5p = 0
+    $$
+
+    I used data.frame/dplyr to hone in on -3.339036...
+
+    The given explanation:
+
+    First write both sides as an exponential function in base 2:
+
+    $2^{-x} = 2^{log_2(5)}(2^3)^{-(x+3)} \Longleftrightarrow 2^{-x} = 2^{log_2(5)-3x-9}$
+
+    This gives a linear equation:
+
+    $-x = log_2(5) - 3x - 9 \Longleftrightarrow 2x = log_2(5) - 9$
+
+    So the solution is $x = \frac{log_2(5)-9}{2}$
+
+## Logarithms
+
+Remember:
+
+$log(AB) = log(A) + log(B)$
+
+$log(\frac{A}{B}) = log(A) - log(B)$
+
+$log(A^K) = Klog(A)$
+
+1.  If $log_3(4x) = 2$, then $x = \frac{9}{4}$
+
+2.  If $ln(x) + 2 = ln(x + 3)$, then $x = ?$
+
+    $ln(x) + ln(e^2) = ln(x+3) \Longleftrightarrow ln(xe^2) = ln(x+3)$
+
+    $xe^2 = x + 3 \Longleftrightarrow x = \frac{3}{e ^2-1}$
+
+3.  Solve $log_4(x+4) - 2log_4(x+1) = \frac{1}{2}$
+
+    $$
+    \begin{align}
+    log_4(x+4) - 2log_4(x+1) &= log_4(2) \\
+    x + 4 - 2x - 2 &= 2 \\
+    -x + 2 &= 2 \Longleftrightarrow x = 0 \quad \text{Check fails...}\\
+    \end{align}
+    $$
+
+    $$
+    \begin{align}
+    log_4(x+4) - log_4((x+1)^2) = log_4(2) \\
+    x + 4 - (x+1)^2 = 2 \\
+    x + 4 - (x^2 + 2x + 1) = 2 \\
+    x + 4 - x^2 - 2x -1 = 2 \\
+    -(x^2) - x + 3 = 2 \\
+    x^2 + x - 1 = 0 \\
+    \text{No obvious factoring; quadratic?}\\
+    a=1, b=1, c=-1 \\
+    \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} &= \frac{-1 \pm \sqrt{1^2 + 4}}{2} \Longleftrightarrow (0.618, -1.095) \text{ Both fail}\\
+    \end{align}
+    $$
+
+    $$
+    \begin{align}
+    log_4(x+4) - log_4((x+1)^2) &= log_4(2) \\
+    log_4\left(\frac{x+4}{(x+1)^2}\right) &= log_4(2) \\
+    \frac{x+4}{(x+1)^2} &= 2 \\
+    x + 4 &= 2(x+1)^2 \\
+    x + 4 &= 2(x^2 + 2x + 1) \\
+    x + 4 &= 2x^2 + 4x + 2 \\
+    0 &= 2x^2 + 3x - 2 \\
+    0 &= (2x-1)(x+2) \Longleftrightarrow (-2, \frac{1}{2}) \text{ -2 fails}
+    \end{align}
+    $$
+
+4.  Solve $2log_3(x) + log_9(x) = 10$
+
+    $$
+    \begin{align}
+    2log_3(x) + \frac{1}{2}log_3(x) &= 2log_3(3^5) \\
+    \frac{5}{2}x &= 2*3^5 \\
+    x &= \frac{2*2*3^5}{5} = 194.4 \quad \text{Plugged in gives 11.99221...}
+    \end{align}
+    $$
+
+    $$
+    \begin{align}
+    log_3(x^2) + log_3(x ^{1/2}) &= log_3(3 ^{10}) \\
+    log_3(x^\frac{3}{2}) &= log_3(3^{10}) \\
+    x^\frac{3}{2} &= 3^{10} \quad \text{<---- This was my mistake - 5/2 not 3/2!}\\
+    \sqrt[2]{x^3} &= 3 ^{10} \\
+    x^3 &= 3 ^{20} \\
+    x &= \sqrt[3]{3^{20}} \quad \text{Plugged in gives 16.66666...}
+    \end{align}
+    $$
+
+    Meh. 194 was close, so I manually honed in on 81. Given explanation:
+
+    $$
+    \begin{align}
+    2log_3(x) + log_9(x) &= log_3(x^2) + \frac{log_3(x)}{log_3(9)} \\
+    &= log_3(x^2) + \frac{1}{2}log_3(x) \\
+    &= log_3(x^2) + log_3(x^\frac{1}{2}) \\
+    &= log_3(x^2 * x^\frac{1}{2}) \\
+    &= log_3(x^\frac{5}{2}) \\
+    \text{Thus:}\\
+    log_3(x^\frac{5}{2}) &= log_3(3^{10}) \Longleftrightarrow x^\frac{5}{2} = 3^{10} \\
+    \text{And since } x^\frac{5}{2} = \sqrt{x^5} \text{ we have:}\\
+    \sqrt{x^5} &= 3^{10}\\
+    x^5 &= 3^{20} \\
+    x &= (3^{20})^\frac{1}{5} = 3^4 = 81
+    \end{align}
+    $$
+
+5.  Solve $log_2(x) + 2 = log_2(x-1)$
+
+    $log_2(x) + log_2(4) = log_2(x-1) \Longleftrightarrow log_2(4x) = log_2(x-1)$
+
+    $3x = -1 \Longleftrightarrow x = -\frac{1}{3} \Longleftrightarrow \text{No solutions!}$
+
+6.  Solve $log_4(x) + log_4(3-x) = \frac{1}{2}$
+
+    $log_4(3x -x^2) = log_4(4 ^\frac{1}{2})$
+
+    $3x - x^2 = 4 ^\frac{1}{2} \Longleftrightarrow -x^2 + 3x - 2 = 0$
+
+    $(-x + 1)(x - 2) = 0 \Longleftrightarrow (1, 2)$
+
+    INITIALLY, I goofed and had $(-1, 2)$ overlooking negated $x$
+
+7.  Solve $ln(ln(x)) = 1$, then $x = exp(1)^{exp(1)} \quad \text{ or } (e^e)$
+
+8.  Solve for $y$, $3ln(y) = x^2 + ln(8)$
+
+    $$
+    \begin{align}
+    3ln(y) - ln(8) &= x^2 \\
+    3ln(y) - ln(8) &= ln(e^{x^2}) \\
+    3y - 8 &= e^{x^2} \\
+    y &= \frac{8 + e^{x^2}}{3} \Longleftrightarrow \text{ Check fails...}\\
+    ln(y^3) &= ln(8) + ln(e^{x^2}) \\
+    y^3 &= 8 + e^{x^2} \\
+    y &= \sqrt[3]{8 + e^{x^2}} \Longleftrightarrow \text{ Check fails...}\\
+    \end{align}
+    $$
+
+## Inequalities
+
+1.  Solve inequality for $x^4 \ge 25x^2$
+
+    $$
+    x^4 = 25x^2 \Longleftrightarrow x = 0, \pm 5 \\
+    [-\infty, -5]\cup[0]\cup[5,\infty]
+    $$
+
+2.  And for $\frac{1}{x^3} \le 32x^2$
+
+    By observation, cannot be 0; can be anything positive as the LHS shrinks (and faster) while RHS grows. (Whoop, not quite - $\frac{1}{2}$ gives equality; smaller fractions flip it.) Negative too - because it becomes positive on the RHS. So, $[-\infty, 0)\cup[\frac{1}{2},\infty]$
+
+3.  And for $\frac{2x+1}{x-3} > 9$
+
+    $$
+    \frac{2x+1}{x-3} = 9 \\
+    2x + 1 = 9x - 27 \\
+    7x - 28 = 0 \Longleftrightarrow x = 4
+    $$
+
+    4 gives equality; 3 is invalid. Whoa, seems $(3,4)$, e.g. $\frac{2*3.1 + 1}{3.1 - 3} = 72$
+
+4.  And for $2x^2 + 6x - 17 \ge x^2 + 2x + 4$
+
+    $$
+    2x^2 + 6x - 17 = x^2 + 2x + 4 \\
+    x^2 + 4x -21 = 0 \\
+    (x+7)(x-3) = 0 \Longleftrightarrow (-7, 3)
+    $$
+
+    So, $[-\infty, -7]\cup[3,\infty]$
+
+5.  And for $\frac{x2 + 6x + 14}{x2 + 4x -5} \ge 2$
+
+    $$
+    x^2 + 6x + 14 = 2x^2 + 8x -10 \\
+    0 = x^2 + 2x -24 \\
+    0 = (x+6)(x-4) \Longleftrightarrow (-6, 4) \\
+    \text{Can denominator equal zero?}\\
+    x^2 + 4x - 5 = 0 \\
+    (x+5)(x-1) = 0 \Longleftrightarrow (-5, 1) \\
+    $$
+
+    So, $[-6,-5)\cup(1,4]$
+
+6.  And for $ln(2x -3) \ge ln(7-2x)$
+
+    $$
+    2x - 3 = 7 - 2x \\
+    4x -10 = 0 \Longleftrightarrow x = \frac{5}{2} \quad \text{(Equality, holds)}\\
+    2x = 3, x = \frac{3}{2}; 2x=7, x = \frac{7}{2} \quad \text{(Domain problems)}
+    $$
+
+    So, $[2.5, 3.5)$
+
+7.  And for $e^{cos(\pi x)+1} \le 1$ for $-5 \le x \le 5$
+
+    Oof, I just tested the endpoints, then experimented in between. The formula EQUALS 1 for $\pm 1,2,3,4,5$, else it is greater than 1.
+
+8.  If $3f(x) > g(x)$, then also:
+
+    i.  $f(x) > g(x)/3$ \<----- surely, divide both sides by 3
+    ii. $\frac{f(x)}{g(x)} > \frac{1}{3}$ \<----- $g(x)$ could be zero... ah, or negative
+    iii. $3f(x) - g(x) > 0$ \<---- tautology? A\>B, A-B\>0
+    iv. $g(x) - 3f(x) > 0$ \<---- certainly not, lesser minus greater \< 0
+
+9.  If $x > 3$, then $\left(\frac{1}{2}\right)^x$ is $[>, \ge, =, <, \le]$ $\frac{1}{8}$
+
+    Less than: $\left(\frac{1}{2}\right)^3 = \frac{1}{8}$, and as $x$ increases, LHS shrinks
+
+## Domain
+
+1.  Determine maximal domain of $\sqrt{x^4 - 2x^3 - 3x^2}$
+
+    $$
+    \text{Domain, } x^4-2x^3-3x^2 \ge 0 \\
+    x^4 -2x^3 - 3x^2 = 0 \\
+    \text{By experimentation/observation, } x = 3 => 0, x = - 1 => 0, x = 0 => 0\\
+    [-\infty, -1]\cup[0]\cup[3,\infty]
+    $$
+
+2.  Domain of $ln(x^2 - x - 2) - ln(x^2 -9x + 18)$
+
+    $$
+    \text{When can either be <= 0?} \\
+    x^2 -x -2 = 0 => (x-2)(x+1) => x = -1,2\\
+    x^2 -9x + 18 = 0 => (x-6)(x-3) => x = 3,6 \\
+    -\infty ...-1...2...3...6...\infty  \\
+    [-\infty,-1)\cup(2,3)\cup(6,\infty]
+    $$
+
+## Applications
+
+Age of an organic object can be determined with radiocarbon dating. Living matter contains two isotopes of carbon in a fixed ratio - $^{12}C$ which is stable, and $^{14}C$ which is radioactive and decays exponentially after death with a half-life of 5700 years - so the mass of $^{14}C$ in an object is described by:
+
+$$
+m(t) = m_0\left(\frac{1}{2}\right)^{\frac{t}{5700}}
+$$
+
+Where $t$ is the time in years and $m_0$ is the mass at time of death.
+
+1.  Base $e$ is often used instead of $\frac{1}{2}$: $m(t) = m_0 e^{-kt}$. Determine the value of $k$.
+
+    I think this means, $e^{-kt} = \left(\frac{1}{2}\right)^{\frac{t}{5700}}$. First I'll pick known values from the next question:
+
+    $$
+    \begin{align}
+    .5^{\frac{2365.714}{5700}} &= .75 \\
+    .5^{\frac{2096.071}{5700}} &= .775 \\
+    e^{2365.714} &= \infty \\
+    e^{2365.714*-.000121} &= .751 \\
+    e^{2096.071*-.000121} &= 0.775
+    \end{align}
+    $$
+
+    Given explanation:
+
+    After 5700 years, mass must be half the original, so $m(5700) = m_0 e^{-5700k} = \frac{1}{2}m_0$.
+
+    Solve for $k$ by taking a logarithm: $e^{-5700k} = \frac{1}{2} \Longleftrightarrow -5700k = ln(\frac{1}{2})$.
+
+    Then, since $ln(\frac{1}{2}) = ln(2^{-1}) = -ln(2)$, we have: $k = \frac{ln(\frac{1}{2})}{5700} = \frac{ln(2)}{5700}$.
+
+2.  Between 1946 and 56 many papyrus scrolls were found in caves near the Dead Sea. The age of one scroll was determined in 1994, with measurements showing $^{14}C$ was between 75.4% and 77.5%. How old was the scroll at the time of dating?
+
+    $.5^{((log_{.5}(.754) * 5700)/5700)} \text{ and } .5^{((log_{.5}(.775) * 5700)/5700)}$, or 2096 - 2321 years.
+
+3.  Imagine a book of mass $m$ lies on a shelf at an angle $\alpha$:
+
+    ![](images/clipboard-446079552.png)
+
+    The following forces act on the book:
+
+    -   Gravitational force of magnitude $F_g = mg$, where $g$ is gravitational acceleration. The force has two components: Parallel to the shelf, of magnitude $F_{g,\parallel} = |m*g*sin(\alpha)|$; and perpendicular to the shelf, of magnitude $F_{g,\perp} =|m*g*cos(\alpha)|$. Clearly, both components depend on $\alpha$.
+    -   Normal force of the shelf on the book. This is opposite to the perpendicular component of gravitational force, and equal in magnitude - $F_N = |m*g*cos(\alpha)|$.
+    -   Frictional force, whose magnitude is maximally equal to $F_{s,max} = \mu F_N$, where $\mu$ is the **coefficient of static friction** which depends on the material and smoothness of book and shelf.
+
+    The book will remain at rest as $\alpha$ is such that $F_{g,\parallel} \le F_{s,max}$.
+
+    Suppose $\mu = 0.3$. Find all values of $\alpha$ in the interval $[-\frac{\pi}{2}, \frac{\pi}{2}]$ for which the book will remain at rest.
+
+    For my own sanity:
+
+    $GPAR = |m * g * sin(\alpha)|$
+
+    $GPERP = |m * g * cos(\alpha)|$
+
+    $NORM = |m*g*cos(\alpha)|$
+
+    $FRIC = \mu * NORM$
+
+    And from the description, I think we are only concerned about $GPAR \le FRIC$, and specifically when $.3cos(\alpha) \ge sin(\alpha)$. Notably, $abs$ ensures both sides will be positive.
+
+    The question said to use a calculator; I used:
+
+    ```{r}
+    data.frame(x = seq(-1.57, 1.57, .01)) |>
+        mutate(
+            g = abs(sin(x)),
+            f = .3 * abs(cos(x)),
+            e = ifelse(g>f, '>', '<---------')
+        )
+    ```
+
+    Given explanation:
+
+    $m*g*sin(\alpha) = .03*m*g*cos(\alpha)$ can be written as $tan(\alpha) = 0.3$. Calculator can find $\approx 0.29$, and other solutions differ an integer multiple of $\pi$ from this. To counter $abs$, we also want $tan(\alpha) = -0.3$.
+
+## Systems of Equations
+
+1.  Solve $x$ and $y$ for $x + y = 3$ and $2x - y = 5$
+
+    $$
+    x + y = 3 \Longleftrightarrow y = 3 - x \\
+    2x - (3 - x) = 5 \Longleftrightarrow x = \frac{8}{3} \\
+    y = 3 - \frac{8}{3} = \frac{1}{3} \\
+    \text{Check:} \\
+    \frac{8}{3} + \frac{1}{3} = \frac{9}{3} = 3 \\
+    2\left(\frac{8}{3}\right) - \frac{1}{3} = \frac{15}{3} = 5
+    $$
+
+2.  Solve $x$ and $y$ for $2x + y = 8$ and $x^2 - 2xy + y2 = 4$ (two solutions)
+
+    $$
+    \begin{align}
+    2x + y &= 8 \Longleftrightarrow y = 8 - 2x \\
+    x^2 - 2x(8-2x) + (8-2x)^2 &= 4 \\
+    x^2 -16x + 4x^2 + 64 -32x + 4x^2 &= 4 \\
+    9x^2 -48x + 64 &= 4 \\
+    (3x-8)(3x-8) &= 4 \Longleftrightarrow x = (\frac{10}{3},2) \\
+    2\left(\frac{10}{3}\right) + y = 8 \Longleftrightarrow y = \frac{24}{3} - \frac{20}{3} = \frac{4}{3} \\
+    2*2 + y = 8 \Longleftrightarrow y = 4 \\
+    \text{Check:}\\
+    2\left(\frac{10}{3}\right) + \frac{4}{3} = \frac{24}{3} = 8 \\
+    2*2 + 4 = 8 \\
+    \left(\frac{10}{3}\right)^2 - 2\left(\frac{10}{3}\right)\left(\frac{4}{3}\right) + \left(\frac{4}{3}\right)^2 = 4 \\
+    2^2 - 2*2*4 + 4^2 = 4 \\
+    \text{Thus: }\\
+    \left(\frac{10}{3}, \frac{4}{3}\right), (2,4)
+    \end{align}
+    $$
+
+3.  Solve $x$ and $y$ for $x^2 - 2xy = 0$ and $x^3 = 2y$ (three solutions)
+
+    $$
+    x^3 = 2y \Longleftrightarrow y = \frac{x^3}{2} \\
+    x^2 - 2x\left(\frac{x^3}{2}\right) = 0 \\
+    x^2 - \frac{2x^4}{2} = 0 \\
+    \frac{2x^2 - 2x^4}{2} = 0 \\
+    2x^2 - 2x^4 = 0 \Longleftrightarrow (-1,0,1) \\
+    y = \left(-\frac{1}{2}, 0, \frac{1}{2}\right) \\
+    \text{Check:}\\
+    \left(-1, -\frac{1}{2}\right), (0,0), \left(1, \frac{1}{2}\right) \\
+    -1^2 - 2*(-1)*(-\frac{1}{2}) = 0\\
+    1^2 - 2*1*\frac{1}{2} = 0 \\
+    0^2 - 2*0*\frac{1}{2} = 0 \\
+    -1^3 = 2*-\frac{1}{2}\\
+    1^3 = 2*\frac{1}{2} \\
+    0^3 = 2*0
+    $$
+
+4.  Find the intersection points of the circles $x^2 + y^2 = 4$ and $x^2 + (y-1)^2 = 4$ (two $(x,y)$ pairs)
+
+    $$
+    \begin{align}
+    x^2 + y^2 &= 4 \\
+    y^2 &= 4 - x^2 \\
+    y &= \sqrt{4 - x^2} \\
+    x^2 + (\sqrt{4-x^2} - 1)^2 &= 4 \\
+    x^2 + (\sqrt{4-x^2} - 1)(\sqrt{4-x^2} - 1) &= 4 \\
+    x^2 + (4-x^2 - 2\sqrt{4-x^2} + 1) &= 4 \\
+    5 - 2\sqrt{4-x^2} &= 4 \\
+    -2\sqrt{4-x^2} &= -1 \\
+    \sqrt{4-x^2} &= \frac{-1}{-2} \\
+    4 - x^2 &= \left(\frac{1}{2}\right)^2 \\
+    \frac{15}{4} &= x^2 \\
+    x &= \pm \sqrt{\frac{15}{4}} \\
+    (\sqrt{\frac{15}{4}}, \frac{1}{2}), (-\sqrt{\frac{15}{4}}, \frac{1}{2})
+    \end{align}
+    $$
+
+# Summary
+
+Simplify, solve and check!
+
+For trig equations, we want to simplify to the form $sin(x) = c$ or $cos(x) = c$. Simplification techniques include substitution; identities like double-angle formula; addition formula; or $sin(x)^2 + cos(x)^2 = 1$.
+
+For exponential equations, we want to reduce to the form $A^p = A^q$, implying that $p = q$. The two main techniques are changing all exponentials to the same base, and substituting.
+
+For logarithmic equations, we want to reduce to the form $log_a(p) = log_a(q)$. Again, change all to the same base, and then look to substitute.
+
+For inequalities, identify equalities and undefined situations. These points then divide the number line into intervals; for which a single value can be checked. The solution is then the union of the intervals for which the inequality holds.
+
+## Trig Equations
+
+1.  Solve $cos(x) = -\frac{1}{2}\sqrt{3}$ From unit circle, $(-5\pi/6, 5\pi/6)$
+
+2.  Solve $2(sin^2(x)) = 3cos(x)$
+
+    $$
+    \begin{align}
+    2sin^2(x) &\Longleftrightarrow 1 - cos(2x) \\
+    cos(2x) &\Longleftrightarrow 2cos^2(x) - 1 \\
+    cos(x) &\Longleftrightarrow cos(-x) \\
+    \text{Therefore} &:\\
+    1 - cos(2x) &= 3cos(x) \\
+    3cos(x) + cos(2x) - 1 &= 0 \\
+    3cos(x) + 2cos^2(x) -2 &= 0 \\
+    \text{Substitute} &:\\
+    3p + 2p^2 -2 &= 0 \\
+    (2p-1)(p+2) &= 0 \\
+    \text{Thus} &:\\
+    cos(x) &= \left(-2, \frac{1}{2}\right) \\
+    x &= \left(\pm\frac{\pi}{3}\right)
+    \end{align}
+    $$
+
+3.  Solve $sin(2x) = tan(x)$ for $-\frac{\pi}{2} < x < \frac{\pi}{2}$
+
+    $$
+    \begin{align}
+    sin(2x) &\Longleftrightarrow 2sin(x)cos(x) \\
+    tan(x) &\Longleftrightarrow \frac{sin(x)}{cos(x)} \\
+    \text{Therefore}&:\\
+    2sin(x)cos(x) &= \frac{sin(x)}{cos(x)} \\
+    2sin(x)cos(x)cos(x) &= sin(x) \\
+    cos^2(x) &= \frac{1}{2} \\
+    \text{Thus} &:
+    \left(-\frac{\pi}{4}, 0, \frac{\pi}{4}\right)
+    \end{align}
+    $$
+
+## Exponential Equations
+
+1.  Solve $3^{x+6} = 9^{x^2}$
+
+    $$
+    x + 6 = x*x*log_3(9) \\
+    x + 6 = 2x^2 \\
+    2x^2 -x -6 = 0 \\
+    (2x+3)(x-2) = 0 \Longleftrightarrow (-\frac{3}{2},2)
+    $$
+
+    Initially had $(-3, 2)$ - forgot to do the division.
+
+2.  Solve $2^{2x} + 1 = 2^{x + 1}$
+
+    $$
+    x=0 => 2^{2*0} + 1 = 2^{0+1} => 1 + 1 = 2 \\
+    $$
+
+3.  Solve $2^{x^2} - 5^x = 0$
+
+    $$
+    x = x*x* log_5(2) \\
+    1 = x * log_5(2) \\
+    x = \frac{1}{log_5(2)}
+    $$
+
+    Submitting it gave me troubles - $1/log5(2)$ followed by "=" showed the number, but it would recognize it. And, I overlooked 0.
+
+## Logarithmic Equations
+
+1.  Solve $log_2(5-x) + log_2(3-2x) = 2$
+
+    $$
+    \begin{align}
+    log_2(5-x) + log_2(3-2x) &= log_2(4) \\
+    (5-x)(3-2x) &= 4 \\
+    15 -10x -3x +2x^2 &= 4 \\
+    2x^2 -13x + 11 &= 0 \\
+    (2x - 11)(x - 1) &= 0 \Longleftrightarrow (11/2, 1) \text{ but 11/2 fails}
+    \end{align}
+    $$
+
+2.  Solve $log_5(2x-3) = log_{25}(x^2)$
+
+    $$
+    \begin{align}
+    log_5(2x-3) &= \frac{log_5(x^2)}{log_5(25)} \\
+    2x - 3 &= \frac{x^2}{25} \\
+    25(2x-3) &= x^2 \\
+    50x - 75 &= x^2 \\
+    x^2 -50x +75 &= 0 \\\\
+    \frac{-b \pm \sqrt{b^2 -4ac}}{2a} &=
+    \frac{50 \pm \sqrt{(-50)^2 - 4*1*75}}{2} \\\\
+    &= \frac{50 \pm \sqrt{2500 - 300}}{2} \\\\
+    &= \frac{50 \pm \sqrt{2200}}{2} \Longleftrightarrow (1.547921, 48.45208) \text{ checks fail} \\
+    \end{align}
+    $$
+
+    $$
+    \begin{align}
+    log_5(2x-3) - \frac{log_5(x^2)}{log_5(25)} &= 0 \\\\
+    \frac{log_5(2x-3)}{ \frac{log_5(x^2)}{log_5(25)} } &= 0 \\\\
+    \frac{50x -75}{25} &= 0 \\
+    2x -3 &= 0 \Longleftrightarrow x = \frac{3}{2} \text{( but checks fail)}
+    \end{align}
+    $$
+
+    $$
+    \begin{align}
+    log_5(2x - 3) &= log_{25}(x^2) \\
+    \frac{log_{25}(2x - 3)}{log_{25}(5)} &= log_{25}(x^2) \\
+    log_{25}(2x - 3) &= log_{25}(5)*log_{25}(x^2) \Longleftrightarrow 5x^2 - 2x + 3 = 0 \\
+    \text{Or, since } log_{25}{5} = .5 \text{ maybe...}\\
+    2*log_{25}(2x-3) &= log_{25}(x^2)\\
+    (2x-3)^2 &= x^2 \\
+    3x^2 - 12x + 9 &= 0 \\
+    (3x - 3)(x - 3) &= 0 \Longleftrightarrow (3) \text{  Correct!}
+    \end{align}
+    $$
+
+3.  Solve $(ln(x))^2 - 4ln(x) = -3$
+
+    $$
+    \text{Substitute } p = ln(x) \\
+    p^2 - 4p + 3 = 0 \\
+    (p-3)(p-1) = 0 \Longleftrightarrow ln(x) = (1, 3) \\
+    x = (exp(1), exp(3))
+    $$
+
+## Inequalities
+
+1.  Solve inequality for $\frac{3x+5}{x+2} > 4$
+
+    $$
+    3x + 5 = 4x + 8 \Longleftrightarrow x = -3 \text{ (Equality)} \\
+    x = -2 \text{ (Domain) } \Longleftrightarrow -\infty ... -3 ... -2 ... \infty\\
+    -5 => Fails \\
+    -2.5 => Passes \\
+    -1 => Fails \\
+    \text{Thus, } (-3, -2)
+    $$
+
+2.  Solve inequality for $|2-x| + |2x+3| \le 5$
+
+    $$
+    ++) 2 -x + 2x + 3 = 5 \Longleftrightarrow  x + 5 = 5 => x = 0 \\
+    +-) 2 -x -2x - 3 = 5 \Longleftrightarrow -3x -1 = 5 => x = -2 \\
+    -+) -2 + x + 2x + 3 = 5 \Longleftrightarrow 3x + 1 = 5 => x = \frac{4}{3}\\
+    --) -2 + x -2x - 3 = 5 \Longleftrightarrow -x - 5 = 5 => x = -10\\
+    \text{First two check, latter two do not...} \\
+    -\infty ... -2 ... 0 ... \infty \\
+    -3 fails \\
+    -2 holds \\
+    0 holds \\
+    1 fails \\
+    \text{Thus, }\\
+    [-2, 0]
+    $$
+
+3.  John and Peter take a ferris wheel ride; first John then Peter 6 minutes later. John's cabin height as a function of time is $42 + 40sin\left(\frac{\pi}{12}t\right)$ and Peter's is $42 - 40cos\left(\frac{\pi}{12}t\right)$. At what times $t$ is Peter's cabin higher, given time interval $[0,24]$?
+
+    $\frac{\pi}{12}$ is $15^\circ$; so a 6 minute spread equals $90^\circ$. Thinking aloud, at minute zero (when Peter hops on) John is at 9:00. John crests at 12:00 at minute 6. At minute 9, both are at $45^\circ$, i.e. 1:30 and 10:30. Thereafter, Peter is higher (although it is unclear whether John get off?)
+
+    I think that can be distilled to $-cos\left(\frac{\pi}{12}t\right) > sin\left(\frac{\pi}{12}t\right)$. Note, $\frac{\pi}{12} = 15^\circ$.\
+    Argh, I was correct but used wrong brackets: $(9,21)$.
+
+    Explanation:
+
+    Simplify to $-cos\left(\frac{\pi}{12}t\right) = sin\left(\frac{\pi}{12}t\right)$.
+
+    Since both cannot be zero, divide by $cos\left(\frac{\pi}{12}t\right)$, which gives $tan\left(\frac{\pi}{12}t\right) = -1$
+
+## Domains
+
+1.  Determine maximum domain of $ln(12 + x - x^2)$.
+
+    $$
+    0 = x^2 -x - 12 \\
+    (x-4)(x+3) = 0 \Longleftrightarrow (-3, 4) \\
+    -\infty ... -3 .... 4 ... \infty \\
+    (-3,4)
+    $$
+
+## Systems of Equations
+
+1.  Solve $y + 2x = 4$ and $x - 2y = -3$
+
+    $$
+    x = 2y -3 \\
+    y + 2(2y -3) = 4 \Longleftrightarrow 5y -10 = 0 => y = 2 \\
+    y =2, x = 1
+    $$
+
+2.  Solve $x^2 - 5xy + 2y = -8$ and $(x+3)(y+4) = 0$
+
+    $$
+    x = (-3, ?) \\
+    y = (-4, ?) \\
+    -3^2 - 5*-3*y + 2y = -8 => 9 + 17y = -8 => y = -1 => (-3, -1)\\
+    x^2 - 5*-4*x + 2*-4 = -8 => x^2 +20x -8 = -8 => x = 0 (0, -4), (-20, -4) \\
+    $$
+
+# Linear Programming
+
+Imagine planning to maximize profit by 3D-printing cups and tiles with blue and white clay, 30/70 for tiles and 40/60 for cups. If $T$ is the number of tiles and $C$ the number of cups, and each takes 0.1kg to print, you'd need $.1*.3T + .1*.4C$ blue clay and $.1*.7T + .1*.6C$ white clay.
+
+Suppose you have 10kg of blue clay and 20kg white. Then you have the following constraints: $.03T + .04C \le 10$ and $.07T + .06C \le 20$.
+
+Now suppose the profit on each is \$1, thus the total profit equals the total number you sell. So, we want to maximize $P = T + C$ under the constraints above.
+
+A picture helps. Here, the blue line is the blue constraint formula, everything below it satisfying the constraint.
+
+![](images/clipboard-2268142253.png){width="411"}
+
+Now we add the white clay constraint; now the bright yellow represents the cups and tiles that can be made.
+
+![](images/clipboard-1556326380.png){width="221"}
+
+Now we add a profit line. We can shift it upwards, but it must intersect the yellow area.
+
+![](images/clipboard-668419603.png){width="204"}
+
+![](images/clipboard-3148606109.png){width="202"}
+
+\$300 is maximum profit. The intersection point can be found by solving the two equations, which gives $T=200$ and $C=100$.
+
+This method of optimization is called linear programming. Actual problems, such as route planning for ambulances, may involve thousands of variables and conditions, but the idea remains the same.

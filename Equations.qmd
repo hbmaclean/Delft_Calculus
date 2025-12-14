@@ -1,0 +1,1121 @@
+---
+title: "Week 3 - Equations"
+format: html
+editor: visual
+---
+
+## Introductory Context
+
+Radiation therapy focuses as much radiation as possible at a target tumor while minimizing deposits in surrounding healthy tissue. Relatively new proton therapy is more accurate.
+
+For a simplistic model, imagine a grid of tissue. An X-ray computed tomography (CT scan) passes energy through a region of tissue, with more energy absorbed by higher-density tissue. By measuring the intensity of the exiting beam, and repeating from multiple angles, tumors can be located.
+
+For proton therapy, protons with certain energy slow down and stop at a maximal depth. Knowing the desired depth, the energy required to reach it must be calculated.
+
+# Rules of Calculation
+
+Let's look at $p_1(x) = p_2(x)$, where both are polynomials. For example, $x3 + x2 + x - 1 = x^2 + 8x -7$.
+
+We bring all the terms to the left, and then simplify:
+
+$$
+\begin{align}
+(x^3 + x ^2 + x - 1) - (x ^2 + 8x -7) &= 0 \\
+x^3 -7x + 6 &= 0
+\end{align}
+$$
+
+The lefthand side is again a polynomial, which is always the case for $p_1(x) = p_2(x)$ - which can be reduced to the form $p(x) = 0$.
+
+In the simplest case, degree 1, $ax + b = 0$, we simply move $b$ to the righthand side and divide by $a$, and the solution is $x = -\frac{b}{a}$.
+
+For equations of degree 2, we first look to factorize. For example, for $x^2 - 8x + 12 = 0$, we can factorize as $(x - 2)(x -6) = 0$, which gives $x=2$ or $x=6$.
+
+If the equation cannot be factorized, we can use the quadratic equation or complete squares.
+
+The quadratic formula has $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$, where the square root portion is called the discriminant. The discriminant indicates how many solutions the second-degree equation has. If it is negative, the equation has no solution, which graphically means the parabola does not intersect the horizontal axis. If the discriminant is zero, there is precisely one solution. If it is positive, there are two solutions. (NOTE: *Possible* solutions! Each needs to be checked.)
+
+For example, to solve $3x^2 -8x + 4 = 0$, we plug in 3, -8, and 4 for $a$, $b$, and $c$, and get $D = (-8)^2 - 4*3*4 = 64 - 48 = 16$. Since it is positive, we know there are two solutions: $x = \frac{-(-8) + \sqrt{16}}{2*3} = 2$ or $x = \frac{-(-8) - \sqrt{16}}{2*3} = \frac{2}{3}$
+
+For an example of completing the square, consider $x^2 + 4x + 1 = 0$. We want to find a square of the form $(x-r)^2$ such that it gives the first two terms of our equation. We expand the square as $x^2 -2rx + r ^2$ and we see that $(x-r)^2 - r ^2 = x ^2 - 2rx$. In this example, we want $-2r$ to be equal to 4, so $r = -2$.
+
+We can plug that in as $(x+2)^2 -4 + 1 = 0$, and thus $(x+2)^2 = 3$. Solving for that, we get $x = -2 \pm \sqrt{3}$.
+
+## Exercises - Quadratic Equations
+
+1.  How often would graphs of the following functions intersect the x-axis?
+    i.  $4x^2 + 8x + 1$, by graphing 2; by quadratic discriminiant, $8^2 - 4*4*1 = 48$
+    ii. $4x^2 + 2x + 1$ , by graphing 0; by quadratic discriminant, $a=4, b=2, c=1; b^2 - 4ac = 4 - 4*4*1 = -12; x = \frac{-2 \pm \sqrt{-12}}{2*4}$
+    iii. $4x^2 - 4x + 1$, by graphing touches 0; by factoring, 1: $(2x-1)(2x-1)$; by quadratic discriminant, $-4^2 -4*4*1 = 0$
+2.  Solve $2x^2 + 6x + 3 = 0$ with the quadratic formula.
+    i.  $x_1 = \frac{-6 - \sqrt{12}}{4}$
+
+    ii. $x_2 = \frac{-6 + \sqrt{12}}{4}$
+
+        $$
+        a=2, b=6, c=3\\
+        b^2 - 4ac = 36 -24 = 12 \\
+        x = \frac{-6 \pm \sqrt{12}}{2 * 2}
+        $$
+3.  Solve $x^2 + 2x -1 = 0$ by completing the square.
+    i.  $x_1 = -1 - \sqrt{2}$
+
+    ii. $x_2 = -1 + \sqrt{2}$
+
+        $$
+        (x - r)^2 = x^2 -2rx + r^2 \\
+        (x - r)^2 - r^2 = x^2 - 2rx \\
+        \text{Thus: }
+        -2r = 2 \text{ and } r = -1 \\
+        \text{Plugging in: }\\
+        (x + 1)^2 - 1 - 1 = 0 \\
+        (x + 1)^2 = 2 \\
+        x = -1 \pm \sqrt{2}
+        $$
+
+# Polynomials of Degree 3 and Higher
+
+A graph of a polynomial of degree N intersects any line in at most N points. Thus, the number of solutions for $p(x) = 0$ is less than or equal to the degree of $p$.
+
+If the degree is odd, there is at least one solution - at least one intersection of the x-axis.
+
+We also know that for very large $x$, $p(x)$ behaves similarly to the term of the highest degree - so $p(x)$ is positive for very large positive values and negative for very large negative numbers.
+
+Since polynomials are continuous, with the intermediate value property, which guarantees that $p$ becomes zero somewhere.
+
+If the degree is even, there may be no solution. For example, $x^4 + 1$ cannot equal zero.
+
+There are formulas for solving degree-3 and 4 polynomials, but they are much more complicated than the quadratic formula. In some cases, we can solve by factorizing, or by inspection.
+
+For example, for $x^3 -7x + 6 = 0$, it is apparent that $x=1$ is one solution. We can then claim that the polynomial can be written as $(x-1)$ times a polynomial of degree 2, $(ax^2 + bx + c)$.
+
+$$
+\begin{align}
+(x-1)(ax^2 + bx + c) &= x^3 -7x + 6 \\
+&= ax^3 + bx^2 + cx - ax^2 -bx -c \\
+&= ax^3 + (b-a)x^2 +  (c-b)x -c \\
+\text{Then compare with coefficients of the original polynomial:}\\
+&= 1x^3 + 0x^2 + (-7)x + 6
+\end{align}
+$$
+
+Starting with with the first term and substituting $x=1$, we see that $ax^3 = 1x ^3 = 1*1 ^3$ and $a=1$.
+
+Next we have $(b-a) = 0$, and substituting derived $a$ we see that $b=1$.
+
+Finally we have $(c-b) = -7$, and thus $c = -6$.
+
+Now we have $x^3 -7x + 6 = (x-1)(x ^2 + x - 6)$, and we know how to solve the second-degree polynomial. Here we can factorize it as $(x+3)(x-2) = 0$, giving two more solutions - $x=-3$ and $x = 2$.
+
+## Exercise - Cubic Equation
+
+$x^3 - 4x ^2 - 11x + 30 = 0$ has three solutions, including $x=2$. Find the others.
+
+$$
+\begin{align}
+x^3 - 4x^2 - 11x + 30 &= 0 \\
+(x-2)(ax^2 + bx + c) &= ax^3 + bx^2 + cx -2ax^2 -2bx -2c \\
+&= ax^3 + bx^2 - 2ax^2 + cx - 2bx - 2c \\
+&= ax^3 + (b - 2a)x^2 + (c - 2b)x - 2c \\
+&= 1x^3 - 4x^2 - 11x + 30 \\
+\text{Thus:}\\
+a = 1; b = -2; c=-15\\
+\text{And: } (x-2)(1x^2 -2x -15) &= (x-2)(x + 3)(x -5)
+\end{align}
+$$
+
+Thus, the three solutions are 2, -3, and 5.
+
+# Equations Involving Rational Functions
+
+We want to be able to solve equations with "ugly" terms such as fractions, roots, and logarithms. We do so with a pattern - simplify, solve, and check.
+
+As an application of an equation containing rational functions, consider a ferry. The ferry's speed with respect to water is $v$, and the water flows at 8km/h. Downstream, the ferry travels $v+8 km/h$ and upstream, $v - 8km/h$. If the one-way distance is 30km, round trip is $30/(v+8) + 30/(v-8)$.
+
+To determine how fast the ferry must travel to complete a round trip in 2 hours, we have $2 = \frac{30}{v+8} + \frac{30}{v-8}$.
+
+First we want to **simplify**, here by multiplying the full equation by both denominators: $2(v+8)(v-8) = 30(v-8) + 30(v+8)$. We hesitate to expand, because factored expressions can be easier to work with; but no simple solution is apparent so we expand: $2(v^2 - 64) = 60v$.
+
+Then, we can simplify further with division by 2 and rearranging: $v^2 -30v - 64 = 0$.
+
+We can factor that as $(v -32)(v + 2) = 0$. Thus the solutions are 32 and -2; but in our application, the negative speed is nonsensical; we conclude that the ferry must travel 32km/h for a two-hour round trip.
+
+Now for another example, showing the importance of checking solutions. Consider $\frac{2x}{x-1} = \frac{x+3}{x^2-1}$. We multiply by the denominators to obtain $2x(x^2-1) = (x+3)(x-1)$. This expands to $2x^3 - 2x = x ^2 + 2x -3$, and $2x^3 - x ^2 -4x + 3 = 0$.
+
+This can be factored to $(x-1)^2(2x+3)=0$, revealing solutions $x = 1$ and $x = -\frac{3}{2}$. If we check the second solution, $-\frac{3}{2}$ becomes $\frac{6}{5}$ on both sides, so this is valid. But when we plug in 1, we get $\frac{2}{0}$ and $\frac{4}{0}$. Indeed, $x=1$ is outside the domain of both the left and right side and therefore cannot be a solution to this equation.
+
+## Exercises - Equations Involving Rational Functions
+
+1.  What is the solution to $\frac{1}{x} = \frac{3}{x-2}$?
+
+    $$
+    x-2 = 3x \\
+    x-3x = 2 \\
+    -2x = 2 \\
+    $$
+
+2.  How many solutions does this equation have? $x - \frac{4}{x+1} = \frac{x}{x+1}$
+
+    $$
+    x(x+1) - 4 = x \\
+    x^2 + x -x -4 = 0 \\
+    x^2 -4 = 0 \\
+    x = \pm 2
+    $$
+
+# Equations Involving Square Roots
+
+Generally, to deal with square roots, isolate them and square both sides. E.g.,
+
+$$
+3 = \sqrt{x^2+3} - x \\
+(x+3)^2 = x^2 + 3 \\
+x^2 + 6x + 9 = x^2 + 3 \\
+6x + 6 = 0 \\
+x = -1
+$$
+
+And we can confirm, $3 = \sqrt{-1^2 + 3} - (-1) = 2 + 1$.
+
+But consider $-1 = \sqrt{x^2 + 3} - x$. Isolating and simplifying gives $(x-1)^2 = x^2 + 3$, and again $x = -1$. But plugging that into the original formula gives $-1 = 3$. We introduced a false solution by squaring both sides!
+
+## Exercises - Equations Involving Square Roots
+
+1.  How many solutions does this equation have? $\sqrt{x-2} = \sqrt{x^2 -2x}$
+
+    $$
+    x - 2 = x^2 - 2x \\
+    x^2 -3x + 2 = 0 \\
+    (x - 2)(x -1) = 0 \\
+    \sqrt{1-2} = NAN
+    x = 2
+    $$
+
+2.  And this one? $\sqrt[3]{x^3 + 2x -6} -x = 0$
+
+    $$
+    \sqrt[3]{x^3 + 2x -6} = x \\
+    x^3 + 2x -6 = x^3 \\
+    2x -6 = 0 \\
+    x = 3
+    $$
+
+# Strategies for Solving Equations
+
+Again, Simplify, Solve, Check.
+
+Simplifying techniques:
+
+-   Balance method - perform same operation on both sides
+-   Divide by common factor (but be careful, that may rid a term that can be zero!)
+-   Multiply to get rid of denominators
+-   Square to get rid of square roots (but be careful of squares, negatives become positive)
+-   Factorization
+-   Substitution, e.g. $(x^3)^2 - 3x^3 - 4 = 0$ can be rewritten as $p^2 - 3p - 4 = 0$, with $p=x^3$; this has more evident solutions (-1, 4) which can take the cube roots for $p$
+
+## Exercises - Strategies for Solving Equations
+
+1.  Student looks to solve $x(2x+1)^2 = x(x-4) ^2$ with the following steps. Check any with mistakes.
+
+    i.  This implies that $(2x+1)^2 = (x-4) ^2$ \<--- Removing $x$ from both sides was faulty, as $x=0$ makes both sides equal
+
+    ii. Which implies that $2x+1 = x - 4$ \<--- This is also wrong, e.g. $2*1 + 1 \ne 1 -4!$
+
+    iii. From which it follows that $2x = x-5$
+
+    iv. Thus, $x = -5$
+
+2.  Give all solutions to $x(2x + 1)^2 = x(x-4) ^2$
+
+    $$
+    (2x + 1)(2x + 1) = (x-4)(x-4) \\
+    4x^2 + 4x + 1 = x^2 -8x + 16 \\
+    3x^2 + 12x -15 = 0
+    $$
+
+# Equations Involving Absolute Values
+
+Consider $|A| + |B| = C$. That should be broken into four equations, $A + B = C$, $A - B = C$, $-A + B = C$, and $-A - B = C$. This may lead to false solutions - always check!
+
+## Exercises
+
+1.  $|3x| = 1 + |2x - 4|$, $x_1 = ?, x_2 = ?, x_3 = ?, x_4 = ?$
+
+    $$
+    3x = 1 + 2x - 4, x = -3 \qquad(9, 11)\\
+    3x = 1 - 2x + 4, x = 1 \qquad(3, 3)\\
+    -3x = 1 + 2x - 4, x = 3/5 \qquad(1.8, 3.8)\\
+    -3x = 1 - 2x + 4, x = -5 \qquad(15,15)\\
+    $$
+
+2.  $|x^2 - 4| = |x - 2|$
+
+    $$
+    x^2 -4 = x -2, x^2-x = 2, x=2 \qquad(0,0) \\
+    x^2 -4 = -x + 2, x^2+x = 6, x=(2,-3) \qquad(5,5) \\
+    -x^2 + 4 = x - 2,  -x^2) -x = -6, x=2 \quad(0,0) \\
+    -x^2 + 4 = -x + 2, -x^2 +x = -2, x=-1 \quad(3,3)
+    $$
+
+3.  Any solution to $|x| = a - |2x + b|$ must satisfy one of:
+
+    -   $x = a + (2x + b)$
+
+    -   $x = a - (2x + b)$
+
+    -   $-x = a + (2x + b)$
+
+    -   $-x = a - (2x + b)$
+
+        How many solutions are there?
+
+        $$
+        \begin{align}
+        a + (2x+b) &= a + 2x + b \\
+        a - (2x + b) &= a -2x -b \\
+        -(a + (2x + b)) &= -a -2x -b\\
+        -(a - (2x + b)) &= -(a - 2x - b) = -a + 2x + b\\
+        \end{align}
+        $$
+
+        Shrug. Answers were 1, 2, 3, and 4 solutions... Explanation:
+
+        Solutions to $\pm x = a \pm (2x + b)$ correspond to the x-coordinates of the intersections of the solid or dashed blue lines with the solid or dashed orange lines. (Oh, we're still referring to the diagram?)
+
+        -   For most values of $a$ and $b$, there are four different solutions
+        -   But if one of the orange lines intersects the crossing point of the blue lines, or vice versa, there are only three points of intersection
+        -   If $a = 0$ and $b \ne 0$, there are four intersection points but they form two pair with the same x-coordinate, so there are only two solutions
+        -   If the crossing points coincide then the mutual crossing point is the only solution
+
+4.  How many of these can be solutions to the original equation, $|x| = a - |2x + b|$.
+
+# Training Sequence
+
+## Quadratic Equations
+
+1.  Solve $x^2 + 5x + 1 = 0$ using quadratic equation.
+
+    1.  $x_1 = ?$
+
+    2.  $x_2 = ?$
+
+        $a$, $b$, $c$ = 1, 5, 1; so discriminant is $5^2 - 4*1*1 = 21$. Thus we have $x = \frac{-5 + \sqrt{21}}{2}$ (-4.44e-16) and $\frac{-5 - \sqrt{21}}{2}$ (0)
+
+2.  Again for $4x^2 - 8x + 1 = 0$
+
+    1.  $x_1 = ?$
+
+    2.  $x_2 = ?$
+
+        $a$, $b$, $c$ = 4, -8, 1; so discriminant is $-8^2 - 4*4*1 = 48$. Thus we have $x = \frac{8 + \sqrt{48}}{2*4}$ (0) and $\frac{8-\sqrt{48}}{2*4}$ (-4.44e-16)
+
+3.  This time, factorize $x^2 + 6x - 27 = 0$
+
+    1.  $x_1 = -9$
+
+    2.  $x_2 = 3$
+
+        $(x+9)(x-3)$
+
+4.  Again for $3x^2 + 6x -9 = 0$
+
+    1.  $x_1 = -3$
+
+    2.  $x_2 = 1$
+
+        $3(x+3)(x-1) = 3(x^2 + 3x -1x -3) = 3x^2 + 6x - 9$
+
+5.  This time complete the square for $x^2 + 4x + 1 = 0$
+
+    1.  $x_1 = -\sqrt{3}-2$
+
+    2.  $x_2 = \sqrt{3} - 2$
+
+        $$
+        (x-r)^2 = x^2 -2rx + r^2 \\
+        (x-r)^2 -r^2 = x^2 -2rx \\
+        r = -2 \\
+        (x+2)^2 - 4 + 1 \\
+        x = \pm \sqrt{3} - 2
+        $$
+
+        WTF? I cannot submit this one. What the - reversing the terms worked...
+
+6.  Again for $x^2 - 12x + 6 = 0$
+
+    1.  $x_1 = -sqrt(30)+6$
+
+    2.  $x_2 = sqrt(30) + 6$
+
+        $$
+        (x-r)^2 = x^2 -2rx + r^2 \\
+        (x-r)^2 - r^2 = x^2 - 2rx \\
+        -2r = -12, r = 6 \\
+        (x-6)^2 -36 + 6 = 0 \\
+        (x-6)^2 = 30 \\
+        x = \pm \sqrt{30} + 6
+        $$
+
+    ## Higher Degree Polynomials
+
+    1.  $x^4 + 4x^2 - 5 = 0$ (Hint - use substitution)
+
+        $$
+        p = x^2 \\
+        p^2 + 4p - 5 = 0 \\
+        (p + 5)(p -1) = 0 \\
+        x = \pm \sqrt{1} \\
+        \text{(NOT root of -5)}
+        $$
+
+    2.  $x4 + 9x2 + 4 = x^2 -3$
+
+        $$
+        x^4 + 9x^2 - x^2 + 7 = 0 \\
+        x^4 + 8x^2 + 7 = 0 \\
+        p = x^2 \\
+        p^2 + 8p + 7 = 0 \\
+        (p + 7)(p + 1) = 0 \\
+        -7, -1 \\
+        \text{Both negative, no solution}
+        $$
+
+    3.  $2x^4 - 10x^2 + 39 = x^4 + 3x^2 + 3$
+
+        $$
+        2x^4 - x^4 -10x^2 -3x^2 + 39 - 3 = 0 \\
+        x^4 -13x^2 + 36 = 0 \\
+        p = x^2 \\
+        p^2 - 13p + 36 = 0 \\
+        (p - 9)(p - 4) = 0 \\
+        \pm \sqrt{9}, \pm \sqrt{4}
+        $$
+
+        (Minor submission error: $-\sqrt{9}$ is LESS THAN $-\sqrt{4}$ ...)
+
+    4.  $x^3 + 10x^2 + 32x + 32 = 0$ has $x = -2$ as one solution. Any others?
+
+        $$
+        \begin{align}
+        (x - (-2))(ax^2 + bx + c) &= x^3 + 10x^2 + 32x + 32 \\
+        &= ax^3 + bx^2 + cx + 2ax^2 + 2bx + 2c \\
+        &= ax^3 + (b + 2a)x^2 + (c + 2b)x + 2c \\
+        \text{Comparing coefficients with original:}\\
+        1x^3 + 10x^2 + 32x + 32 \\
+        a=1\\
+        b=8 \quad (b+2a)=10 \\
+        c=16 \quad (c + 2b) = 32 \\
+        \text{Thus,} \\
+        (x+2)(x^2 + 8x + 16) &= (x+2)(x+4)(x+4) \\
+        \text{Thus also,}\\
+        x = -4
+        \end{align}
+        $$
+
+    5.  $x^3 + 2x^2 - 13x + 10 = 0$
+
+        $$
+        \begin{align}
+        \text{By inspection, x=1 works, so:}\\
+        x^3 + 2x^2 - 13x + 10 &= (x-1)(ax^2 + bx + c) \\
+        &= ax^3 + bx^2 + cx -ax^2 -bx -c \\
+        &= ax^3 + (b-a)x^2 + (c-b)x -c \\
+        \text{Comparing with original coefficients:}\\
+        a = 1\\
+        b = 3 \quad (b-a)=2 \\
+        c = -10 \quad (c-b)=-13 \\
+        \text{Thus,}\\
+        (x-1)(x^2 + 3x - 10) \\
+        (x-1)(x + 5)(x -2)
+        \text{Thus,}\\
+        x = -5, 2
+        \end{align}
+        $$
+
+        Initial mistake which led me far astray: I looked at the original $c$ coefficient as 13, not -13. That made factorization not possible; and quadratic gave a negative discriminant (no solution); and completing the square solution did not equate to the original. Graphing made it obvious that there were multiple solutions.
+
+    ## Rational Functions
+
+    How many, and what are the, solutions for the following?
+
+    1.  $\frac{2}{x-1} = \frac{3}{2x+3}$
+
+        $$
+        \begin{align}
+        \left(\frac{2}{x-1}\right)(2x+3)(x-1) &= \left(\frac{3}{2x+3}\right)(2x+3)(x-1) \\
+        2(2x+3) &= 3(x-1) \\
+        4x + 6 &= 3x -3 \\
+        4x - 3x &= -9 \\
+        x &= -9
+        \end{align}
+        $$
+
+        RANT: After two submissions of -9, the second time just removing leading space in the box by default, this was "not correct"; but I could show the answer, which indicated it was correct; and then I resubmitted as-is, and it was accepted, "3 of 5 attempts". In the interim, I did A LOT of side-validation, including plotting and writing a function to compare the fractions for `seq(-300,300,.1)`.
+
+    2.  $\frac{x-2}{x+10} = \frac{2x+1}{x-5}$
+
+        $$
+        (x-2)(x-5) = (2x+1)(x+10) \\
+        x^2 -7x + 10 = 2x^2 + 21x + 10 \\
+        x^2 -7x = 2x^2 + 21x \\
+        x^2 = -28x \\
+        x = -28
+        $$
+
+    3.  $x - \frac{3}{x+1} = 1$
+
+        $$
+        \frac{x - 1}{1} = \frac{3}{x+1} \\
+        (x-1)(x+1) = 3 \\
+        x^2 -x + x -1 = 3 \\
+        x^2 = 4 \\
+        x = \pm 2
+        $$
+
+    4.  $\frac{x^2 + 2x + 1}{x-3} = \frac{2x^2 + 5x + 3}{2x+1}$
+
+        $$
+        (x^2 + 2x + 1)(2x + 1) = (2x^2 + 5x + 3)(x-3) \\
+        2x^3 + 4x^2 + 2x + x^2 + 2x + 1 = 2x^3 + 5x^2 + 3x -6x^2 -15x -9 \\
+        2x^3 + 5x^2 + 4x + 1 = 2x^3 -x^2 -12x -9 \\
+        6x^2 + 16x + 10 = 0 \\
+        \text{By inspection, 6x^2, 16x, 10:  -1 becomes 6 -16 + 10} \\
+        \text{Further, this can be factored, revealing -5/3:}\\
+        2(3x+5)(x+1)
+        $$
+
+    5.  $\frac{3x+2}{x-4} = \frac{1}{x+2}$
+
+        $$
+        (3x+2)(x+2) = x-4 \\
+        3x^2 + 6x + 2x + 4 = x - 4 \\
+        3x^2 + 7x + 8 = 0 \\
+        \text{No solution...}
+        $$
+
+    6.  $x + 2 = \frac{x^2 -1}{x-2}$
+
+        $$
+        (x+2)(x-2) = x^2 - 1 \\
+        x^2 -4 = x^2 -1 \\
+        0 = 3 \\
+        \text{No solution...}
+        $$
+
+    7.  $\frac{3}{x+2} - \frac{2}{x-1} + \frac{5}{x+5} = 0$
+
+        $$
+        \left(\frac{3}{x+2}\right)\left(\frac{x-1}{x-1}\right)\left(\frac{x+5}{x+5}\right) -
+        \left(\frac{2}{x-1}\right)\left(\frac{x+2}{x+2}\right)\left(\frac{x+5}{x+5}\right) +
+        \left(\frac{5}{x+5}\right)\left(\frac{x-1}{x-1}\right)\left(\frac{x+2}{x+2}\right) = 0 \\
+        \frac{(3x^2 + 12x -15) - (2x^2 + 14x + 20) + (5x^2 + 5x -10)}{(x-1)(x+2)(x+5)} = 0 \\
+        \frac{6x^2 + 3x -45}{ (x-1)(x^2 + 7x + 10) } = 0 \\
+        \frac{6x^2 + 3x - 45}{x^3 + 7x^2 + 10x -x^2 -7x -10} = 0\\
+        \frac{6x^2 + 3x - 45}{x^3 + 6x^2 + 3x -10} = 0 \\
+        \text{Quadratic? }  \quad b^2 - 4ac\\
+        3^2 - 4*6*-45 = 9 - (-1080) = 1089 \\
+        \text{Positive, so two solutions,} \quad \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \\
+        \frac{-3 \pm \sqrt{1089}}{12} = (-3, 2.5)
+        $$
+
+        Minor goof, I overlooked $-b$ in the full quadratic equation.
+
+    8.  $\frac{2}{x^2 - 4x + 3} = \frac{3}{x^2 - 3x + 2}$
+
+        $$
+        2x^2 -6x + 4 = 3x^2 -12x + 9 \\
+        -x^2 + 6x -5 = 0 \\
+        \text{Quadratic, discriminant = } \quad b^2 -4ac\\
+        -6^2 - 4*-1*-5 = 36 - 20 = 16 \\
+        \text{Positive, so two solutions: } \quad \frac{-b \pm \sqrt{b^2 -4ac}}{2a} \\
+        \frac{-(-6) \pm \sqrt{16}}{2*-1} = \left(\frac{10}{-2}, \frac{2}{-2}\right) = (-5,-1)
+        $$
+
+        Untaught lesson? Moving everything to the LHS leads to $(-5, -1)$; moving everything to the right leads to $(5, 1)$. Also note, 1 leads to divide by zero.
+
+    9.  $\frac{x-2}{x+3} = \frac{2x-7}{3x-5}$
+
+        $$
+        (x-2)(3x-5) = (x+3)(2x-7) \\
+        3x^2 -5x -6x + 10 = 2x^2 -7x + 6x - 21 \\
+        3x^2 -11x + 10 = 2x^2 -x - 21 \\
+        x^2 -10x + 31 = 0 \\
+        \text{Quadratic, discriminant: }\\
+        b^2 -4ac = -10^2 - 4*31 = -24 \\
+        \text{Negative, no solution...}\\
+        $$
+
+## Radical Functions
+
+1.  $2x + 1 = \sqrt{3x^2 + 5x + 13}$
+
+    $$
+    (2x + 1)(2x + 1) = 3x^2 + 5x + 13 \\
+    4x^2 + 4x + 1 = 3x^2 + 5x + 13 \\
+    x^2 -x -12 = 0 \\
+    \text{By inspection, x=4 works} \\
+    \text{Quadratic discriminant:}\\
+    b^2 - 4ac = -1^2 -4*-12 = 49 \\
+    \text{Positive, so two *possible* solutions:}\\
+    \frac{-b \pm \sqrt{49}}{2a} = \frac{-(-1) \pm 7}{2} = \left(\frac{8}{2}, \frac{-6}{2}\right) \\
+    \text{4 works, but -3 leads to -5=5}
+    $$
+
+2.  $x = 4\sqrt{x+3} -6$
+
+    $$
+    (x + 6)^2 = (4*(x+3))^2 \\
+    (x + 6)(x + 6) = (4x + 12)(4x + 12) \\
+    x^2 + 12x + 36 = 16x^2 + 96x + 144 \\
+    15x^2 + 84x + 108 = 0 \\
+    \text{Quadratic discriminant:}\\
+    b^2 - 4ac = 84^2 - 4*15*108 = 576 \\
+    \text{Thus, two possible solutions:}\\
+    \frac{-84 \pm \sqrt{576}}{30} = (-2, -3.6)
+    $$
+
+    Hmm. Given solution has $x^2 + 12x + 36 = 16(x+3)$, simplified to $x^2 - 4x -12 = 0$, then factored as $(x-6)(x+2)$.
+
+3.  $\sqrt{2x-5} = \sqrt{4-x}$
+
+    $$
+    (\sqrt{2x -5})^2 = (\sqrt{4 - x})^2 \\
+    2x - 5 = 4 -x \\
+    3x - 9 = 0 \\
+    x = 3
+    $$
+
+4.  $\sqrt{2x-5} = \sqrt{1-x}$
+
+    $$
+    2x-5 = 1-x \\
+    3x-6 = 0 \\
+    x=2 \\
+    \text{No square root of negative, no solution}
+    $$
+
+5.  $\sqrt[3]{x^2 -2x + 8} = x + 2$
+
+    $$
+    x^2 -2x + 8 = (x+2)^3 \\
+    x^2 -2x + 8 = (x+2)(x^2 + 4x + 4) \\
+    x^2 -2x + 8 = x^3 + 4x^2 + 4x + 2x^2 + 8x + 8 \\
+    x^2 -2x + 8 = x^3 + 6x^2 + 12x + 8 \\
+    x^3 + 5x^2 + 14x = 0 \\
+    x(x^2 + 5x + 14) = 0 \\
+    \text{Quadratic discriminant for the inner:}\\
+    b^2 - 4ac = 5^2 - 4*1*14 = 25-56 = -31 \\
+    \text{Negative, no solution?  Wrong...} \\
+    \text{All terms are added, so x must be negative...}\\
+    \text{Ah, zero!}
+    $$
+
+6.  $\sqrt[3]{7x + 1} = \sqrt{3x+1}$
+
+    $$
+    7x + 1 = (3x + 1)\sqrt{3x + 1}\\
+    \text{By inspection, 0 and 1 work}
+    $$
+
+    Given explanation:
+
+    To get rid of different roots, take the 6th power of both, giving $(7x + 1)^2 = (3x+1)^3$, which expands to $49x^2 + 14x + 1 = 27x^3 + 27x^2 + 9x + 1$. Bringing everything to one side gives $27x^3 - 22x^2 - 5x = 0$. This can be written as $x(27x^2 - 22x -5) = 0$, which can be further factored as $(x)(x -1)(27x + 5)$. Clearly then, $x=0$, $x=1$, and $x = -\frac{5}{27}$ are possible solutions. The latter does not work.
+
+7.  $\sqrt{2x-1} + \sqrt{5-x} = 3$
+
+    $$
+    \text{By inspection, 5 works... And it cannot be >5, or <.5}\\
+    2x - 1 + 5 -x = 9 \\
+    x -5 = 0 
+    $$
+
+## Absolute Values
+
+1.  $|x| - |x - 8| = 4$
+
+    $$
+    x - (x - 8) = 4 \quad -8 = 4 \\
+    -x - (x - 8) = 4 \quad -2x + 8 = 4, x = 2\\
+    x - (-x + 8) = 4 \quad 2x -8 = 4, x = 6\\
+    -x - (-x + 8) = 4 \quad -8 = 4 \\
+    $$
+
+    Explanation:
+
+    $x$ is obviously $x$ or $-x$; and $x-8$ is that for $x \ge 8$, or $-(x-8)$ for $x \le 8$. So we consider three cases, $x \le 0$, $0 \le x \le 8$, and $x \ge 8$.
+
+    For $x \le 0$, we have $-x + (x - 8) = 4 \Longleftrightarrow -8 = 4$
+
+    For $0 \le x \le 8$, we have $x + (x - 8) = 4 \Longleftrightarrow 2x = 12 \Longleftrightarrow x = 6$
+
+    For $x \ge 8$, we have $x - (x - 8) = 4 \Longleftrightarrow 8 = 4$
+
+2.  $|x + 2| + |x -2| = 10$
+
+    $$
+    x + 2 + x - 2 = 10 \Longleftrightarrow 2x = 10 \Longleftrightarrow x = 5\\
+    x + 2 - x + 2 = 10 \Longleftrightarrow 4 = 10 \\
+    -x -2 + x - 2 = 10 \Longleftrightarrow -4 = 10 \\
+    -x -2 - x + 2 = 10 \Longleftrightarrow -2x = 10 \Longleftrightarrow x = -5
+    $$
+
+3.  $|x + 2| + |x - 2| = 2$
+
+    $$
+    x + 2 + x -2 = 2 \Longleftrightarrow 2x = 2 \Longleftrightarrow x = 1\\
+    x + 2 -x + 2 = 2 \Longleftrightarrow 4 = 2 \\
+    -x -2 + x -2 = 2 \Longleftrightarrow -4 = 2\\
+    -x -2 -x + 2 = 2 \Longleftrightarrow -2x = 2 \Longleftrightarrow x = -1
+    $$
+
+4.  $|x| * |x -2| = 8$
+
+    $$
+    x * (x - 2) = 8 \Longleftrightarrow x^2 -2x - 8 = 0 \Longleftrightarrow (x - 4)(x + 2) \Longleftrightarrow (-2, 4)\\
+    x * (-x + 2) = 8 \Longleftrightarrow -x^2 + 2x -8 = 0 \Longleftrightarrow \text{Necessarily negative, or zero}\\
+    -x * (x - 2) = 8 \Longleftrightarrow -x^2 + 2x -8 = 0 \Longleftrightarrow \text{Ditto}\\
+    -x * (-x + 2) = 8 \Longleftrightarrow x^2 -2x - 8 = 0 \Longleftrightarrow \text{Same as first}
+    $$
+
+5.  $|x| * |x - 5| = 6$
+
+    $$
+    x * (x -5) = 6 \Longleftrightarrow x^2 -5x -6 = 0 \Longleftrightarrow (x + 1)(x -6) \Longleftrightarrow (-1, 6)\\
+    x * (-x + 5) = 6 \Longleftrightarrow -x^2 + 5x -6 = 0 \Longleftrightarrow -(x - 3)(x -2) \Longleftrightarrow (2,3)\\
+    -x * (x - 5) = 6 \Longleftrightarrow -x^2 + 5x -6 = 0 \Longleftrightarrow \text{Ditto}\\
+    -x * (-x + 5) = 6 \Longleftrightarrow x^2 -5x -6 = 0 \Longleftrightarrow \text{Same as first}
+    $$
+
+6.  $|x + 1| = 4 - |x - 3|$
+
+    $$
+    x + 1 = 4 - x + 3 \Longleftrightarrow 6 -2x = 0 \Longleftrightarrow (3)\\
+    x + 1 = 4 + x -3 \Longleftrightarrow 0=0\\
+    -x - 1 = 4 -x + 3 \Longleftrightarrow 8 = 0\\
+    -x - 1 = 4 + x - 3 \Longleftrightarrow 2 + 2x = 0 \Longleftrightarrow (-1)
+    $$
+
+## More Polynomials
+
+1.  $(x - 3)(2x + 11) = (x - 3)(x^2 - 7x - 11)$
+
+    $$
+    \text{After noting 3 is a solution, I reckon (x -3) can be removed from both sides}\\
+    2x + 11 = x^2 - 7x - 11 \Longleftrightarrow x^2 -9x -22 = 0 \Longleftrightarrow (x -11)(x + 2) \Longleftrightarrow (-2, 11)\\
+    $$
+
+2.  $(x - 3)((x + 1)^2 - 5) = ((x + 1)^2 - 5)(x + 3)$
+
+    $$
+    \text{Noting the longer terms are equal and the shorter terms cannot be equal,}\\
+    \text{it should follow that only when the longer terms are zero will both sides}\\
+    \text{equate. That ought to be:}\\
+    \quad \sqrt{5}-1 \\
+    \text{Ah, and because that is squared, it can also be negative (initially overlooked!):}\\
+    \quad -\sqrt{5}-1
+    $$
+
+    Given solution notes that $(x + 1)^2 = 5$ is in complete-square form, so $x + 1 = \pm \sqrt{5}$, and the solutions are $-1 \pm \sqrt{5}$.
+
+3.  For which values of $p$ does $x^2 + 4x + 3p = 0$ have just one solution?
+
+    $$
+    p=1, \Longleftrightarrow (x + 3)(x + 1) = 0 \Longleftrightarrow (-3, -1) \\
+    p=0, \Longleftrightarrow x^2 + 4x = 0 \Longleftrightarrow (-4, 0) \\
+    \text{Ah.  How can 4 be factored...?}\\
+    (x + 2)(x + 2) = x^2 + 4x + 4 \Longleftrightarrow 3p = 4, p=4/3
+    $$
+
+4.  For which values of $p$ does $px^2 + (1 - 2p)x - 2 = 0$ have $x = 2$ as a solution?
+
+    $$
+    4p + 2 - 4p -2 = 0 \Longleftrightarrow \text{Any x will do!}
+    $$
+
+5.  For which values of $p$ does $(x - 1)(x^2 + 2px + 7) = 0$ have TWO distinct solutions?
+
+    $$
+    \text{Clearly, x=1 is one solution regardless of p,}\\
+    \text{So we want ONE solution for the other term.}\\
+    \text{Further, p cannot be zero.}
+    (x^2 + 2px + 7) = 0\\\\
+    p=-11/4 \Longleftrightarrow (-3.5, -2, 1)\\
+    p=-8/3) \Longleftrightarrow (-3,1) \\
+    p=-44/9 \Longleftrightarrow (1,9) \\
+    p=-107/20 \Longleftrightarrow (1,10) \\
+    p=-4 \Longleftrightarrow (1,7) \\
+    p=-43/12 \Longleftrightarrow (1,6)\\
+    $$
+
+    Thinking further, between the lines, I think the question must boil down to how 7 can be factored: $(1,7), (-1,-7)$, i.e. $(x + 1)(x + 7), (x-1)(x-7)$, and thus $\pm8x$, and thus $p = \pm 4$. But, 1 is already a known solution, so the negative solutions make three. So, -4.
+
+    Given explanation:
+
+    Discriminant is $(2p)^2 - 4*1*7 = 4p^2 - 28$.
+
+    There is ONE solution if that equals zero, i.e. $4p^2 = 28$, thus $p = \pm \sqrt{7}$.
+
+    Thus we have $(x - 1)(x^2 + 2\sqrt{7}x + 7) = 0$, which occur for 1 (again) and $-\sqrt{7}$.
+
+## Substitution Method
+
+Given this: $(1 - \sqrt{x})^3 = 4 - 4\sqrt{x}$
+
+1.  Express both sides after substituting $p = 1 - \sqrt{x}$
+
+    $$
+    p^3 = 4p
+    $$
+
+2.  Solve the equation from #1.
+
+    $$
+    p(p^2 + 0p -4) = 0 \\
+    p(p -2)(p + 2) = 0 \Longleftrightarrow (-2, 0, 2)
+    $$
+
+3.  Solve the original equation, $(1 - \sqrt{x})^3 = 4 - 4\sqrt{x}$
+
+    $$
+    -2 = 1 - \sqrt{9} \\
+    0 = 1 - \sqrt{1} \\
+    \text{Cannot achieve 2}
+    $$
+
+Given $x^3 - 2x^2 - 5x + 6 = 0$ and told that $x = 1$ is a solution,
+
+1.  Rewrite the equation in terms of $u = x - 1$ (No 'x' allowed!)
+
+    $$
+    x(x^2 -2x -5) + 6 = 0 \Longleftrightarrow x(x \pm ?)(x \pm ?) + 6 = 0 \Longleftrightarrow \text{No 2 from factors of 5}\\
+    x^3 - (2x^2 - 5x + 6) \Longleftrightarrow x^3 - (2x - ?)(x - ?) + 6 \Longleftrightarrow \text{-3,-2 if not for 2x}\\
+    x^2(x - 2) -5(x - 6/5) \\
+    x^3 - 2(x^2 + 5/2x - 3) \\
+    \begin{align}
+    \text{Building blocks:}\\
+    (x-1)(x-1)(x-1) &= x^3 -3x^2 + 3x - 1 \\
+    (x-1)(x-1) &= x^2 -2x + 1 \\
+    (-x+1)(x-1) &= -x^2 +2x -1 \\
+    \text{So difference between u^3 and original formula is x^2 -8x + 7...}\\
+    (x-1)^3 + x^2 -8x + 7 = 0 \\
+    (x-1)^3 + (x-1)(x-7) = 0 \\
+    (x-1)^3 + (x-1)(x-1) -6(x-1) = 0 \\
+    u^3 + u^2 -6u = 0
+    \end{align}
+    $$
+
+    Wow, given explanation is quite simple:
+
+    Since $u = x - 1$, $x = u + 1$. Therefore, the original formula is $(u+1)^3 - 2(u+1)^2 - 5(u+1) + 6 = 0$, which when expanded and simplified is $u^3 + u^2 - 6u = 0$
+
+2.  Solve the equation from #1. $(-3, 0, 2)$
+
+3.  Give all the solutions to the original equation. Since $x = u + 1$, $(-2, 1, 3)$
+
+## Domain and Range
+
+Mentioned earlier, investigating maximal domain or range of a function often involves solving inequalities.
+
+1.  Consider $f(x) = \frac{x+1}{x^2 - \sqrt{4 + 3x^2}}$. What values, if any, are not in its domain?
+
+    $$
+    x^2 - \sqrt{4+3x^2} = 0 \\
+    x^2 = \sqrt{4+3x^2} \\
+    x^4 = 3x^2 + 4 \\
+    x^4 - 3x^2 - 4 = 0 \\
+    (x^2 - 4)(x^2 + 1) = 0 \\
+    \text{Thus,}\\
+    (-2,2)
+    $$
+
+2.  Which of $(0,2,4,6,8)$ are in the range of $g(x) = \frac{x^2 + 2x + 1}{x}$?
+
+    $$
+    x^2 + 2x + 1 = (x+1)(x+1) \\
+    g(-1) = 0/-1 \\
+    g(0) = 1/0 \\
+    g(1) = 4/1 \\
+    g(2) = 9/2 \\
+    ...
+    $$
+
+    I thought of square-root values, but the few I tried did not work.
+
+    Given explanation has this:
+
+    For $x \ne 0$, the numerator can be rewritten as $x^2 + 2x + 1 = y * x$, or $x^2 + (2-y)x + 1 = 0$.
+
+    $g(2 \pm \sqrt{3}) = 6$, $g(3 \pm \sqrt{8}) = 8$
+
+# Homework
+
+## Polynomials
+
+1.  How many solutions for $x^2 - 3x + 2 = 0$?
+
+    $$
+    (x-1)(x-2) = 0
+    $$
+
+2.  How many for $(x-3)(x+2) = (x+2)(x^2 + 3x + 5)$?
+
+    $$
+    \text{Clearly -2, and then both sides can be simplified:}\\
+    x-3 = x^2 + 3x + 5 \\
+    x^2 + 2x + 8 = 0 \\
+    \text{Discriminant:}\\
+    D = 2^2 - 4*1*8 = 4 -32 = -28\\
+    \text{Negative, thus just -2}
+    $$
+
+3.  How many for $x(3x + 7) = 3x(x+5)$?
+
+    $$
+    3x^2 + 7x = 3x^2 + 15x \Longleftrightarrow 7x = 15x \Longleftrightarrow (0)
+    $$
+
+4.  How many for $(x+3)^2 = (2x -4)^2$?
+
+    $$
+    x^2 + 6x + 9 = 4x^2 -16x + 16 \\
+    3x^2 - 22x + 7 = 0 \\
+    (3x - 1)(x - 7) = 0 \Longleftrightarrow (1/3, 7)
+    $$
+
+5.  Solve for $x$: $48 - 3(x-4)^2 = 0$
+
+    $$
+    48 - 3(x^2 -8x + 16) = 48 - 3x^2 + 24x - 48 \\
+    3x^2 - 24x = 0 \\
+    \text{Discriminant:}\\
+    -24^2 - 4*3*0 = 576 \\
+    \text{Quadratic:}\\
+    \frac{24 \pm \sqrt{576}}{2*3} \Longleftrightarrow (0, 8)
+    $$
+
+6.  Solve for $x$: $(x-4)^4 = 2(x-4)^2 + 8$
+
+    $$
+    (x-4)^4 = 2(x^2 -8x + 16) + 8 = 2x^2 -16x + 32 + 8 \\
+    (2x-8)(x-4) + 8 \\
+    (x-4)^3 = 2x + 8
+    $$
+
+    Duh, I overlooked 6-4 and only entered 2.
+
+7.  Solve for $x$: $x^3 + x^2 - 12x = 0$
+
+    $$
+    x(x^2 +x - 12) = 0 \\
+    x(x + 4)(x -3) = 0 \Longleftrightarrow (-4, 0, 3)
+    $$
+
+8.  For which values of $p$ does $x^2 + px + 3 = 0$ have ONE solution?
+
+    $$
+    \text{+3 can be factored as 1x3, -1x-3, giving two solutions:}\\
+    (x + 1)(x + 3) \Longleftrightarrow (p=4, x = (-1, -3)) \\
+    (x - 1)(x - 3) \Longleftrightarrow (p=-4, x = (1, 3)) \\
+    \text{p=0 yields no solutions...} \\
+    \text{Discriminant - b^2 - 4ac:}\\
+    b^2 - 4ac \Longleftrightarrow p^2 - 12 \\
+    \text{ONE solution if that equals zero:}\\
+    p^2 - 12 = 0 \Longleftrightarrow p = \pm \sqrt{12} \\
+    x^2 \pm \sqrt{12}x + 3 = 0 \Longleftrightarrow (-\sqrt{3}, \sqrt{3})
+    $$
+
+9.  $2x^3 + 3x^2 - 5x + p = 0$ has a solution $x = -1$. Given that, what is $p$?
+
+    $$
+    \text{Started overthinking this, trying to refactor.  Just plug in! }\\
+    2(-1)^3 + 3(-1)^2 - 5(-1) = 6 \Longleftrightarrow p = -6
+    $$
+
+## Rational Functions
+
+1.  How many solutions to $\frac{3}{x+9} = \frac{x+2}{x^2-1}$
+
+    $$
+    3x^2 - 3 = x^2 + 11x + 18 \\
+    2x^2 -11x - 21 = 0 \\
+    (2x+3)(x-7) \Longleftrightarrow (-\frac{3}{2}, 7)
+    $$
+
+    Got this wrong b/c I mistyped - missed the power on the right; so it then couldn't be factored, and had a negative discriminant.
+
+2.  And $\frac{25}{x+5} = \frac{x^2}{x+5}$
+
+    Overthought it for a bit. Denominators are equal, so numerators must be too. So, $x^2 = 25, x = \pm 5$, but -5 gives DIV/0, so just 5.
+
+3.  And $x+3 = \frac{5}{2x + 3}$
+
+    $$
+    (x+3)(2x+3) = 5 \\
+    2x^2 + 9x + 4 = 0 \\
+    (2x+1)(x+4) = 0 \Longleftrightarrow (-\frac{1}{2}, -4)
+    $$
+
+4.  And $\frac{3}{x-2} = \frac{x+3}{x^2+2x+2}$
+
+    $$
+    3x^2 + 6x + 6 = x^2 + 3x -2x - 6 \\
+    2x^2 + 5x + 12 = 0 \\
+    D = 25 - 4*2*12 = -71 \\
+    \text{Negative discriminant - no solution}
+    $$
+
+## Square Roots
+
+1.  How many solutions for $x + \sqrt{x + 7} = 5$
+
+    $$
+    x + 7 = (5-x)(5-x) = x^2 -10x + 25 \\
+    x^2 -11x + 18 = 0 \\
+    (x-2)(x-9) = 0 \Longleftrightarrow (2, 9)
+    $$
+
+2.  And $x = (x-20)\sqrt{x}$
+
+    $$
+    \frac{x}{x-20} = \sqrt{x} \\
+    \left(\frac{x}{x-20}\right)\left(\frac{x}{x-20}\right) = x \\
+    \frac{x^2}{x^2 - 40x + 400} = x \\
+    x^2 = x^3 - 40x^2 + 400x \\
+    x^3 - 41x^2 + 400x = 0 \\
+    x(x^2 - 41x + 400) = 0 \Longleftrightarrow (0) \\
+    \text{Must be >= 0, for square root, and if >0 then >20...}\\
+    x(x - 16)(x - 25) \Longleftrightarrow (16,25) \\
+    \text{Thus, } (0,25)
+    $$
+
+3.  And $|x-2| = 10 - |x+3|$
+
+    $$
+    (x-2) = 10 - (x + 3) \Longleftrightarrow x - 2 = 10 -x - 3 \Longleftrightarrow \\ 2x -9 = 0 \quad (4.5) \\
+    (x-2) = 10 - (-x - 3) \Longleftrightarrow x - 2 = 10 + x + 3 \Longleftrightarrow -2 = 13 \\
+    (-x+2) = 10 - (x + 3) \Longleftrightarrow -x + 2 = 10 -x - 3 \Longleftrightarrow 2 = 7 \\
+    (-x+2) = 10 - (-x - 3) \Longleftrightarrow -x + 2 = 10 + x + 3 \Longleftrightarrow 2x + 11 = 0 \quad (-\frac{11}{2})
+    $$
+
+## Applications
+
+An inflatable arch is used to decorate a doorway of 1x2 meters. The inner boundary of the arch is described by $y = -\left(\frac{10}{p}\right)x^2 + \left(\frac{1}{2}\right)p$, with $p$ dependent upon how much air is blown into the arch.
+
+In the picture, blue is allowed; orange blocks the door. Each square is 1x1m. The four corners of the door are $\left(\frac{1}{2}, 0\right), \left(\frac{1}{2},2\right), \left(-\frac{1}{2},2\right), \left(-\frac{1}{2},0\right)$
+
+![](images/clipboard-3894727949.png){width="326"}
+
+Determine $p$ such that the arch fits the door exactly.
+
+OK, the top corners of the door occur for $x = \pm \frac{1}{2}, y = 2$, so I want to solve for that; and since $x$ is squared, $\pm$ should not matter.
+
+$$
+2 = -\left(\frac{10}{p}\right)\left(\frac{1}{4}\right) + \left(\frac{1}{2}\right)p \\
+2 = -\frac{10}{4p} + \frac{p}{2} \\
+2 = \left(-\frac{10}{4p}\right)\left(\frac{2}{2}\right) + \left(\frac{p}{2}\right)\left(\frac{4p}{4p}\right) \\
+2 = \frac{4p^2 - 20 }{8p} \\
+4p^2 - 16p - 20 = 0 \\
+(4p+4)(p-5) \Longleftrightarrow (-4, 5) \Longleftrightarrow (!-4, 5)
+$$
+
+Correct, but given solution was different: Multiply first line above by $2p$ for $p^2 - 4p - 5 = 0$, which can be factored to $(p-5)(p+1)$.
+
+# Complex Numbers
+
+We've seen, not every equation has a solution; and such equations occur in many applications - such as vibrations of springs or in electrical circuits.
+
+One clear example, $x^2 + 1 = 0$ has no solutions. If graphed, there are no intersections with the x-axis.
+
+There is a trick to overcome this - we just define a solution! We introduce an imaginary number $i$, with the property that $i^2 = -1$. Now we expand the set of real numbers with a set of complex numbers, $z = x + iy$, with $x$ the real part of $z$ ($x = \text{Re }z$ ), and $y$ is the imaginary part ($y = \text{Im }z$).
+
+Now $z^2 + 1 = 0$ has two solutions, $\pm i$.
+
+## Rules of Calculation
+
+Remember, $i^2 = -1$ - note its usage/substitution in the latter two examples.
+
+-   add: $(-2 + 3i) + (4 - 5i) = -2 + 4 + (3-5)i = 2-2i$
+-   subtract: $(1-2) - (3-4i) = 1 - 3 + (-2+4)i  = -2 + 2i$
+-   multiply: $(1-2i)(-2+3i) = -2 + 3i + 4i - 6i^2 = -2 + 6 + (3+4)i = 4 + 7i$
+-   divide: $\frac{4+7i}{1-2i} = a + bi \Longrightarrow \left(\frac{4+7i}{1-2i}\right)(1-2i) = (a+bi)(1-2i) \Longrightarrow 4+7i = a + 2b + (-2a + b)i$
+
+Learned elsewhere, to solve one fraction, determine the "conjugate" of the denominator and multiply the fraction it over itself. This is effectively multiplying by one, but has the effect of squaring some or all of the imaginaries which can then be taken as -1.
+
+If a quadratic equation can be factored into a single square, it has ONE possible solution:
+
+$x^2 -6x + 9 = 0 \Longleftrightarrow (x-3)^2 =0 \Longleftrightarrow (3)$
+
+If it can be factored into two terms, it has TWO possible solutions:
+
+$x^2 - 5x + 6 = 0 \Longleftrightarrow (x-2)(x-3) = 0 \Longleftrightarrow (2,3)$
+
+If it cannot be factored, we can complete the square - which should be negative; and with the convention that $i^2 = -1$, we'll find two complex possible solutions:
+
+$x^2 + 4x + 13 = 0 \Longleftrightarrow (x + 2)^2 = -9 \Longleftrightarrow (x+2)^2 = 9i^2 \Longleftrightarrow x = -2 \pm 3i$
+
+## Exercises - Complex Numbers
+
+1.  $z = 4 + 3i$ and $w = 1 + 2i$
+
+    i.  $z + w = ?$
+
+        $(4 + 3i) + (1 + 2i) = 5 + 5i$
+
+    ii. $z - w = ?$
+
+        $(4+3i) - (1+2i) = 3 + i$
+
+    iii. $z*w = ?$
+
+         $(4+3i)(1+2i) = 4 + 8i + 3i + 6i^2 = 4 + 11i - 6 = -2 + 11i$
+
+    iv. $\frac{z}{w} = ?$
+
+        $$
+        \begin{align}
+        \frac{4+3i}{1+2i} &= \left(\frac{4+3i}{1+2i}\right)\left(\frac{1-2i}{1-2i}\right) \\
+        &= \frac{4 - 8i + 3i -6i^2}{1 -2i + 2i - 4i^2} \\
+        &= \frac{10 -5i}{5} \\
+        &= 2 -i
+        \end{align}
+        $$
+
+2.  Simplify $\frac{2}{1+i}$ in the form $x + iy$:
+
+    $$
+    \begin{align}
+    \frac{2}{1+i} &= \left(\frac{2}{1+i}\right)\left(\frac{1-i}{1-i}\right) \\
+    &= \frac{2 - 2i}{1 - i^2} \\
+    &= \frac{2 - 2i}{2} \\
+    &= 1 - i
+    \end{align}
+    $$
+
+3.  Simplify $\frac{1}{i}$:
+
+    $$
+    \begin{align}
+    \frac{1}{i} &= \left(\frac{1}{i}\right)\left(\frac{-i}{-i}\right) \\
+    &= \frac{-i}{-i^2} \\
+    &= -i
+    \end{align}
+    $$
+
+4.  Solve $z^2 + 2z + 5 = 0$, with $z_1$ having negative imaginary part, $z_2$ positive.
+
+    $(z+1)^2 = -4 \Longleftrightarrow (z+1)^2 = 4i^2 \Longleftrightarrow z + 1 = 2i \Longleftrightarrow z = - 1 \pm 2i$
+
+5.  Solve $z^2 - 6z + 25 = 0$
+
+    $(z-3)^2 = -16 \Longleftrightarrow (z-3)^2 = 16i^2 \Longleftrightarrow z = 3 \pm 4i$
+
+    Initially I goofed - had -34 (-25 -9)
+
+6.  Solve $z^2 + z + 1 = 0$
+
+    $z^2 = -z - 1 \Longleftrightarrow z = -\sqrt{z} \pm i \quad \text{Cannot use z in answer}$
+
+    $$
+    \text{Quadratic?}\\
+    \frac{-b \pm  \sqrt{b^2 - 4ac}}{2} = \frac{-1  \pm \sqrt{1 - 4}}{2} = \frac{-1 \pm \sqrt{-3}}{2} = -\frac{1}{2} \pm \frac{\sqrt{3}*i}{2}
+    $$

@@ -1,0 +1,1688 @@
+---
+title: "Differentiation"
+format: html
+editor: visual
+---
+
+# Differentiation
+
+An introductory example for differentiation is the construction of roller coasters. Speed and acceleration must be balanced against G-force on the riders. And the track, assembled of common components, must be smooth. The slope of the track and speed of the roller coaster can be determined with differentiation.
+
+The slope of a straight track is simply rise over run. For a curved track, we can approximate by taking two close points. The quotient of the two points approaches a limit value, at the point of interest.
+
+Speed is similar: For a constant speed, we can take the rise-over-run quotient for a time interval. For non-constant speed, the quotient is the *average* speed; we can again improve the approximation with smaller intervals.
+
+Slope and speed can thus be represented as below. Taking the limit of a quotient IS differentiation.
+
+$$
+\begin{align}
+Slope &= \lim_{\Delta x \rightarrow 0}\frac{\Delta y}{\Delta x} \\\\
+Speed &= \lim_{\Delta t \rightarrow 0}\frac{\Delta x}{\Delta t}
+\end{align}
+$$
+
+More precisely, suppose a function $f$ and point with x-coordinate $a$ are given; and the x-coordinate changes to $a + \Delta x$. The vertical increase is then equal to $f(a + \Delta x) - f(a)$ and the horizontal increase is $\Delta x$. The quotient of these two is called a difference quotient.
+
+Now we can take the limit of $\Delta x$ to zero. If the limit exists, the resulting value is called the derivative of $f$ at $x = a$, denoted as $f'(a)$ or $df/dx(a)$. The process of determining the derivative is called differentiation. The derivative measures the instantaneous rate of change of a function.
+
+Visually, the difference quotient is a straight line connecting the two points, $a$ and $a + \Delta x$. And if we let $\Delta x$ go to zero, the connecting line approaches a limiting position - which is the derivative, $f'(a)$. The line itself is a tangent line to the graph at the point $a$ - it passes through the point and has the same slope as the graph at that point.
+
+Thus, slope and speed can be represented as derivatives:
+
+$$
+\begin{align}
+\text{Slope at position }x = a&: \frac{dy}{dx}(a) \\\\
+\text{Speed at time } t = a&: \frac{dx}{dt}(a)
+\end{align}
+$$
+
+A simple use case: A computer can measure the time it takes for a wheel to make a full rotation; after which speed can be approximated by distance (circumference of wheel) over time, $\frac{\Delta x}{\Delta t}$.
+
+Interactive exercise, to indicate whether derivative is positive, negative, or zero at five points:
+
+![](images/clipboard-1211942461.png){width="324"}
+
+Differentiation is the process of using standard derivatives (e.g., for logarithms, exponents, and trig functions) combined with calculation rules.
+
+## Exercises - Approximating the Derivative
+
+Interactive, using this:
+
+![](images/clipboard-1535693361.png){width="243"}
+
+1.  Give $f'(2)$ to one decimal place: 3.0
+2.  Give $f'(4)$ to one decimal place: -1.2
+3.  There is one $a \in [2,4]$ such that $f'(a) = 0$. What is it, to one decimal place? 2.8
+4.  If we approximate $f'(2)$ with a difference quotient using $a=2$ and $\Delta x = 1$, how does the approximation compare to the actual value of $f'(2)$? Smaller
+
+## Exercises - The Derivative Function
+
+We saw earlier how to define the derivative of a function $f$ at a given point $x$. If you change the point $x$, the derivative changes too. This way, a new function is obtained; and it associates to a certain derivative of $f$ at $x$. The new function is called the derivative function of $f$, or simply the derivative of $f$. It is denoted by $f'$ or $\frac{df}{dx}$. (Elsewhere I've heard this as, "the derivative of f with respect to x".) This derivative function describes the slope of the graph of $f$.
+
+1.  Interactive - map graphs of functions to graphs of derivative functions.
+
+    ![](images/clipboard-3321026186.png){width="274"}
+
+    -   1D - clearly, constant negative
+    -   2F - negative, positive, negative, positive
+    -   3B - slope always positive, progressing less
+    -   4C - positive, negative, positive
+    -   5E - slope always negative, progressing less
+    -   6C - positive, negative, positive
+
+## Exercises - The Derivative of $x^2$
+
+1.  What is the difference quotient for $f(x) = x^2$ at $x = 3$.
+
+    $$
+    \frac{f(a+\Delta x) - f(a)}{\Delta x} \\\\
+    \frac{((3+h)^2 - 9)}{h} = \frac{9 + 6h + h^2 - 9}{h} = 6 + h
+    $$
+
+2.  Take the limit of the difference quotient as $h \rightarrow 0$. You can just plug in $h = 0$ after simplification. What is the derivative at $x = 3$?
+
+    Above, we cannot plug zero in too soon, but in the end we have $6 + 0 = 6$.
+
+3.  The above steps are tedious for many points. It can instead be calculated at an arbitrary point, $x = p$. With one calculation, you'll have all the derivative at all values of $x$. The result is the derivative function $f'(x)$ of $f(x)$.
+
+    What is the difference equation for $f(x) = x^2$ at $x = p$?
+
+    $$
+    \frac{f(a + \Delta x) - f(a)}{\Delta x} \\
+    \frac{(p+h)^2 - p^2}{h} = \frac{p^2 + 2hp + h^2 - p^2}{h} = 2p + h
+    $$
+
+4.  Take the limit of the difference quotient as $h \rightarrow 0$. What is the derivative at $x = p$?
+
+    $2p + 0 = 2p$
+
+## Visualizing Derivatives
+
+**Increasing/Decreasing**: Where $f(x)$ goes up, $f'(x)$ is positive - above the x-axis. Where $f(x)$ goes down, $f'(x)$ is negative.
+
+**Peaks and Valleys**: Where $f(x)$ has a local max or min, $f'(x)$ intercepts the x-axis.
+
+**Steepness**: The height of $f'(x)$ indicates steepness of $f(x)$ slope. Large positive $y$ indicates a steep upward slope of $f(x)$; and large negative $y$ indicates steep downward slope of $f(x)$.
+
+**Flat Spots**: If slope of $f(x)$ is zero but does not change signs, $f'(x)$ touches the x-axis but does not cross.
+
+**Inflection Points**: Where $f(x)$ changes concavity, $f'(x)$ has its own local max or min.
+
+[Math with Dr. Claire](https://www.youtube.com/watch?v=FClxmVrgPL8)
+
+# Rules of Calculation
+
+We learned how to calculate derivatives using a limit, but this is typically difficult.
+
+Meanwhile, we know of numerous types of functions, including trig, logarithms, and exponents; and have seen them in combination.
+
+Rather than using a limit, each type of function has a limit, and there are rules for combining them.
+
+## Derivative Times Constant
+
+The derivative of a constant times a derivative equals the constant times that derivative:
+
+$$
+[cf(x)]' = cf'(x)
+$$
+
+An example is the speed of a rollercoaster, measured in meters per second. The derivative of this function is the speed in meters per second. If we change the unit to feet, distance becomes 3.3 times the number of meters traveled, and speed becomes 3.3 times meters per second.
+
+## Derivative of Sum
+
+The derivative of a sum equals the sum of the derivatives:
+
+$$
+[f(x) + g(x)]' = f'(x) + g'(x)
+$$
+
+An example is someone walking on a moving train. The speed of the person with respect to the track equals the speed of the train plus the person's walking speed. Thus, the derivative of the two equals the sum of both derivatives.
+
+## Derivative of Product
+
+The derivative of a product equals the sum of ... the derivative of one times the other plus the reverse:
+
+$$
+[f(x)g(x)]' = f(x)g'(x) + f'(x)g(x)
+$$
+
+An example is the area of a cross-section of a pyramid. At a distance $x$ from the top, we have a rectangle with width $w(x)$ and length $l(x)$. The derivative of the area is the rate at which the area increases with $x$. Increasing to $x + \Delta x$ increases width and length. The additional area can be split into three parts - the original width times the change in length; the original length times the change in width; and the change in length times the change in width. Pictorially, we have:
+
+![](images/clipboard-692263405.png){width="281"}
+
+Another example:
+
+$$
+\begin{align}
+\frac{d}{dx}x^2sin(x)
+&= \left(\frac{d}{dx}x^2\right)sin(x) + x^2\left(\frac{d}{dx}sin(x)\right) \\
+&= 2x*sin(x)+x^2cos(x)
+\end{align}
+$$
+
+(Evidently, derivative of $sin(x)$ is $cos(x)$...
+
++------------------+----------------------------------------------------------------+
+| Derivative of... | Is...                                                          |
++==================+================================================================+
+| $x^n$            | $nx^{n-1}$                                                     |
+|                  |                                                                |
+|                  | $$                                                             |
+|                  | \begin{align}                                                  |
+|                  | \frac{d}{x}x^0 &= 0x^{-1} = 0 \\                               |
+|                  | \frac{d}{x}x^1 &= 1x^0 = 1 \\                                  |
+|                  | \frac{d}{x}x^2 &= 2x^1 = 2x \\                                 |
+|                  | \frac{d}{x}x^3 &= 3x^2 \\                                      |
+|                  | ...                                                            |
+|                  | \end{align}                                                    |
+|                  | $$                                                             |
++------------------+----------------------------------------------------------------+
+| $\frac{1}{x}$    | $-1x^{-2}$                                                     |
+|                  |                                                                |
+|                  | (Think, $\frac{1}{x} = x^{-1}$, thus derviative is $-1x^{-2}$) |
++------------------+----------------------------------------------------------------+
+| $x$              | $1$                                                            |
+|                  |                                                                |
+|                  | (Think, $x = x^1$, and thus derivative is $1x^0 = 1$)          |
++------------------+----------------------------------------------------------------+
+| $ln(x)$          | $\frac{d}{dx}log(x) = \frac{1}{x}*\frac{d}{x}x = \frac{1}{x}$  |
+|                  |                                                                |
+|                  | Explanation:                                                   |
+|                  |                                                                |
+|                  | $$                                                             |
+|                  | f(x) = ln(x) \\                                                |
+|                  | y = ln(x) \\                                                   |
+|                  | y = log_{e}x \\                                                |
+|                  | e^y = x \\                                                     |
+|                  | \frac{d}{dx}e^y = \frac{d}{dx}x \\                             |
+|                  | \text{Derivative of x with respect to x is 1, so} \\           |
+|                  | e^y*\frac{dy}{x} = 1 \\                                        |
+|                  | \frac{dy}{dx} = \frac{1}{e^y} = \frac{1}{x}                    |
+|                  | $$                                                             |
++------------------+----------------------------------------------------------------+
+| $log_a(x)$       | $\frac{1}{ln(a)x}$                                             |
++------------------+----------------------------------------------------------------+
+| $e^x$            | $e^x$ !!!                                                      |
++------------------+----------------------------------------------------------------+
+| $a^x$            | $a^x * ln(a)$                                                  |
++------------------+----------------------------------------------------------------+
+| $x^x$            | $x^x*(ln(x)+1)$                                                |
+|                  |                                                                |
+|                  | Explanation:                                                   |
+|                  |                                                                |
+|                  | $$                                                             |
+|                  | \begin{align}                                                  |
+|                  | \frac{d}{dx}x^x &= e^{xln(x)}\left(\frac{d}{dx}xln(x)\right)\\ |
+|                  | &= e^{xln(x)}\left(1*ln(x) + x*\frac{1}{x}\right) \\           |
+|                  | &= x^x(ln(x)+1)                                                |
+|                  | \end{align}                                                    |
+|                  | $$                                                             |
++------------------+----------------------------------------------------------------+
+| $sin(x)$         | $cos(x)$                                                       |
++------------------+----------------------------------------------------------------+
+| $cos(x)$         | $-sin(x)$                                                      |
++------------------+----------------------------------------------------------------+
+| $tan(x)$         | $\frac{1}{cos(x)^2}$                                           |
++------------------+----------------------------------------------------------------+
+
+## Chain Rule
+
+Consider a diver, concerned about decompression sickness.
+
+During ascent, pressure is a function of depth, $x$.
+
+$$
+p = p(x(t))
+$$
+
+Thus we are interested in the derivative of pressure as a function of time. If we consider a short period of time $\Delta t$, the change in pressure equals the change in pressure per meter times the change in depth.
+
+$$
+\frac{\Delta p}{\Delta t} = \frac{\Delta p}{\Delta x} * \frac{\Delta x}{\Delta t}
+$$
+
+Taking the limit as $\Delta t$ approaches zero, the change in pressure per second equals the derivative of the pressure as a function of depth times the derivative of the depth as a function of time.
+
+$$
+\frac{dp}{dt} = \frac{dp}{dx}*\frac{dx}{dt}
+$$
+
+![](images/clipboard-663063226.png){width="423"}
+
+As a formula, this becomes:
+
+$$
+[f(g(x))]' = f'(g(x)) * g'(x)
+$$
+
+Two common mistakes with the chain rule are 1) Forgetting the second factor, here $g'(x)$; and 2) Wrongly evaluating the derivative of $x$, rather than at the value of the inner function, here $g(x)$.
+
+## Chain Rule Summary
+
+1.  **Identify outer and inner functions**. For example, for $h(x) = sin(x^2)$, the outer is $f(u) = sin(u)$ and the inner is $g(x) = x^2$.
+2.  **Differentiate outer function** - find the derivative of $f(u)$ with respect to $u$. In the example, the derivative of $sin(u)$ is $cos(u)$.
+3.  **Substitute inner function back into derivative**. Replace $u$ with the original inner function, $g(x)$. In the example, $cos(x^2)$.
+4.  **Differentiate the inner function** - find the derivative of $g(x)$. In the example, derivative of $x^2$ is $2x$.
+5.  **Multiply the results**. In the example, the final result is $cos(x^2) * 2x$.
+
+### Chain Rule Examples
+
+-   Natural log
+
+$$
+\begin{align}
+\frac{d}{dx}ln(x^2+1) &= \frac{1}{x^2+1}*\frac{d}{dx}(x^2+1) \\
+&= \frac{1}{x^2+1} * 2x
+\end{align}
+$$
+
+-   Quotient
+
+$$
+\begin{align}
+\frac{d}{dx}\frac{f(x)}{g(x)} &= \frac{d}{dx}\left(f(x) * \frac{1}{g(x)}\right) \\\\
+\text{product rule} &:\\
+&= \left(f'(x)*\frac{1}{g(x)}\right) + \left(f(x)*\frac{d}{dx}\frac{1}{g(x)}\right)\\
+\frac{d}{dx}\frac{1}{x} = -x^{-2}\text{, so} &:\\
+&= \left(\frac{f'(x)}{g(x)}\right) + \left(f(x)*-\frac{1}{g(x)^2}*g'(x)\right) \\\\
+\text{Simplifying over common denominator} &: \\
+&= \frac{f'(x)g(x)-f(x)g'(x)}{g(x)^2}
+\end{align}
+$$
+
+-   Another quotient
+
+$$
+\begin{align}
+\frac{d}{dx}\frac{x}{x^2+1} &= \frac{1}{x^2+1} + x*\frac{-1}{(x^2+1)^2}*\left(\frac{d}{dx}x^2+1\right) \\
+&= \frac{x^2 + 1}{(x^2+1)^2} + \frac{x*(-1)*2x}{(x^2+1)^2} \\
+&= \frac{1-x^2}{(x^2+1)^2}
+\end{align}
+$$
+
+## Differentiation Rule
+
+$\frac{d}{dx}\left(\frac{1}{f}\right) = -\frac{\frac{d}{dx}(f)}{f^2}$
+
+E.g.,
+
+$$
+\begin{align}
+\frac{d}{dx}\left(\frac{1}{\sqrt{x}}\right) &=
+-\frac{\frac{d}{dx}\left(\sqrt{x}\right)}{\sqrt{x}^2} \\
+&= \frac{\frac{1}{2\sqrt{x}^2}}{\sqrt{x}^2} \\
+&= -\frac{1}{2x\sqrt{x}}
+\end{align}
+$$
+
+## Standard Derivatives of sine and cosine
+
+Picture the sine plot - with $y=0$ for $x \in (0, \pi, 2\pi, 3\pi, ...)$, cresting at $x \in \left(\frac{\pi}{2}, \frac{5\pi}{2}, ...\right)$.
+
+Its derivative starts positive, then hits zero at $x = \frac{\pi}{2}$, hits a low point at $x = \pi$, heads up to the x-axis again at $\frac{3\pi}{2}$, etc. Essentially it is the sine curve shifted by $\frac{\pi}{2}$. It is the cosine curve!
+
+For a closer look, we know sine is the y-coordinate of the point on a unit circle for an angle $\phi$. If the angle increases by $\Delta \phi$, there is a corresponding change of $\Delta sin(\phi)$. We can draw a right triangle over the change:
+
+![](images/clipboard-1551690405.png){width="227"}
+
+Then zooming in, and recalling that the length of the arc equals the associated angle in radians, so the length of the arc associated with the change is $\Delta \phi$.
+
+![](images/clipboard-2456840348.png){width="225"}
+
+Moreover, it is approximately equal to a straight line between the same endpoints - which is the hypotenuse of the triangle, one side of which is the change in y-coordinate.
+
+The change in y-coordinate can then be expressed as the length of the hypotenuse times the cosine of $\alpha$. (Evidently?) $A = \frac{\pi}{2} - \phi$, so $\alpha = \pi - \frac{\pi}{2} - \left(\frac{\pi}{2}\right) = \phi$. So we conclude that the change in y-coordinate equals aproximately $\Delta \phi * cos(\phi)$. Plugging that into the derivative, we find that the derivative of the sine equals the limit of $\Delta \phi \frac{cos(\phi)}{\Delta \phi}$, or $cos(\phi)$.
+
+## Standard Derivatives of $a^x$ and $x^p$
+
+Derivative is defined as the limit of a quotient function:
+
+$$
+f'(x) = \lim_{\Delta x \rightarrow 0}\frac{f(x + \Delta x) - f(x)}{\Delta x}
+$$
+
+For $f(x) = a^x$, that gives $\frac{a^{x+\Delta x} - a^x}{\Delta x}$.
+
+We know that the rules for exponents allow us to write this as $\frac{a^x * a^{\Delta x} - a^x}{\Delta x}$, which can then be rewritten as $a^x*\frac{a^{\Delta x} - 1}{\Delta x}$. Now the righthand side equals the difference quotient at $x=0$ (i.e., $1 = a^0$), and so $\frac{d}{dx}a^x = f'(0)a^x$ - a constant times $a^x$. The constant depends on $a$:
+
+![](images/clipboard-1914806652.png){width="286" height="166"}
+
+At some $a$, the graph of $f(x)$ will be tangent to $y = x + 1$. The value of $a$ is ... $e$! $e$ is the unique number such that $\frac{d}{dx}e^x = e^x$.
+
+Therefore, for any other $a$, we derive the derivative as follows:
+
+$$
+\begin{align}
+\frac{d}{dx}a^x &= \frac{d}{dx}e^{x*ln(a)} \\
+&= e^{x*ln(a)} * \frac{d}{dx}(x*ln(a)) \\
+&= a^x * ln(a)
+\end{align}
+$$
+
+Now we consider $ln(x)$, which is the inverse of $e^x$:
+
+$$
+\begin{align}
+x &= e^{ln(x)} \\
+\text{Using }\frac{d}{dx}x = 1\text{ and chain rule,}\\
+1 &= e^{ln(x)}*\frac{d}{dx}ln(x) \\
+\text{Since }e^{ln(x)} = x\text{,}\\
+1 &= x * \frac{d}{dx}ln(x) \\
+\text{Thus,}\\
+\frac{d}{dx}ln(x) &= \frac{1}{x}
+\end{align}
+$$
+
+This can also be used if the x-dependence is in the base. For any arbitrary $p$:
+
+$$
+\begin{align}
+\frac{d}{dx}x^p &= [e^{p*ln(x)}]' \\
+\text{Using chain rule,}\\
+&= e^{p*ln(x)}[p*ln(x)]' \\
+&= x^p * \frac{p}{x} \\
+&= px^{p-1}
+\end{align}
+$$
+
+## Rules Cheatsheet
+
++--------------------------------------------+------------------------------------------------------+---------------------------------------------------------+
+| Product Rule                               | Quotient Rule                                        | Chain Rule                                              |
++============================================+======================================================+=========================================================+
+| $y = f(x) * g(x)$                          | $y = \frac{f(x)}{g(x)} = \frac{hi}{lo}$              | $y = f(g(x))$                                           |
+|                                            |                                                      |                                                         |
+| $y' = f'(x) * g(x) + f(x) * g'(x)$         | $y' = \frac{lo*dhi - hi *dlo}{lo^2}$                 | $y' = f'(g(x)) * g'(x)$                                 |
++--------------------------------------------+------------------------------------------------------+---------------------------------------------------------+
+| $y = x^4 * sin(x)$                         | $y = \frac{e^\pi}{4x^3}$                             | $y = cos(3x^2)$                                         |
+|                                            |                                                      |                                                         |
+| $f(x) = x^4 \rightarrow f'(x) = 4x^3$      | $hi = e^\pi \rightarrow hi' = e^\pi$                 | $f(g(x)) = cos(3x^2) \rightarrow f'(g(x)) = -sin(3x^2)$ |
+|                                            |                                                      |                                                         |
+| $g(x) = sin(x) \rightarrow g'(x) = cos(x)$ | $lo = 4x^3 \rightarrow lo' = 12x^2$                  | $g(x) = 3x^2 \rightarrow g'(x) = 6x$                    |
+|                                            |                                                      |                                                         |
+| $y' = 4x^3 * sin(x) + x^4 * cos(x)$        | $y' = \frac{4x^3 * e^\pi - e^\pi * 12x^2}{(4x^3)^2}$ | $y' = -sin(3x^2) * 6x$                                  |
++--------------------------------------------+------------------------------------------------------+---------------------------------------------------------+
+
+## Exercises
+
+1.  Derivative of $f(x) = x^3cos(x)$
+
+    $f'(x) = 3x^2*cos(x) - x^3*sin(x)$
+
+2.  Derivative of $f(x) = x * ln(x)$
+
+    $f'(x) = 1*ln(x) + x * \frac{1}{x} = ln(x) + 1$
+
+3.  Derivative of $f(x) = e^{x^2}$
+
+    $$
+    f(u) = e^x \rightarrow f'(u) = e^x \\
+    g(x) = x^2 \rightarrow g'(x) = 2x \\
+    f'(x) = e^{x^2} * 2x
+    $$
+
+4.  Derivative of $f(x) = ln(2 + 7x)$
+
+    $$
+    f(u) = ln(u) \rightarrow f'(u) = \frac{1}{2 + 7x} \\
+    g(x) = 2 + 7x \rightarrow g'(x) = 7 \\
+    f'(x) = \frac{7}{2 + 7x}
+    $$
+
+5.  Derivative of $f(x) = 3x^3 + 5x^2 + 7x + 9$
+
+    $9x^2 + 10x + 7$
+
+6.  Determine $p$ such that $\frac{1}{\sqrt{x}} = x^p$
+
+    $\frac{1}{\sqrt{x}} = x^{-\frac{1}{2}} \rightarrow p = -\frac{1}{2}$
+
+7.  Derivative of $f(x) = \frac{1}{\sqrt{x}}$
+
+    $$
+    \frac{1}{\sqrt{x}} = x^{-\frac{1}{2}} \\
+    f'(x^{-\frac{1}{2}}) = -\frac{1}{2}x^{-\frac{3}{2}}
+    $$
+
+8.  For what value of $0 \le a \le 2\pi$ is $cos(x) = sin(x + a)$?
+
+    $\frac{\pi}{2}$
+
+9.  Which of the following equals $cos(x + a)$ and thus the derivative of cosine?
+
+    $-sin(x)$
+
+10. Derivative of $f(x) = tan(x)$ (recall, $tan(x) = \frac{sin(x)}{cos(x)}$)
+
+    $$
+    \begin{align}
+    \frac{d}{dx}\left(\frac{sin(x)}{cos(x)}\right) &=
+    \frac{cos(x)^2+sin(x)^2}{cos(x)^2} \\
+    \text{We know }cos(x)^2+sin(x)^2 = 1\text{, so:}\\
+    \frac{1}{cos(x)^2} \\\\
+    \text{Note, this is equivalent to }sec(x)^2 \\
+    \end{align}
+    $$
+
+11. Derivative of $2^x$
+
+    $2^x * ln(x)$
+
+12. Determine $k$ such that $f(x) = log_2(x) = k*ln(x)$
+
+    $$
+    log2(5)/log(5) = 1.442695 \\
+    \text{Given solution: } \frac{1}{ln(2)}
+    $$
+
+    Derivative of $f(x) = log_2(x)$
+
+    $$
+    1/x * log_2(e) \\
+    \text{Note, this is equal to: }\\
+    1/x/log(2)
+    $$
+
+    Given explanation:
+
+    Using rule of calculation $log_b(A) = log_c(b)/log_c(b)$ for $b = 2$, $c = e$, and $A = x$ we find that $log_2(x) = ln(x)/ln(2)$.
+
+    For the derivative we can use that the derivative of a constant times a function is just the constant times the derivative: $f'(x) = \frac{d}{dx}*\frac{1}{ln(2)}*ln(x) = \frac{1}{ln(2)}*\frac{d}{dx}*ln(x) = \frac{1}{ln(2)}*\frac{1}{x}$.
+
+# Tangent Lines
+
+We've seen that the derivative of a function is the slope of a tangent line at the graph of the function.
+
+For an example, we look at the function $f(x) = x^2 + 2$, and determine the tangent at $(1,3)$.
+
+```{r warning = FALSE}
+library(ggplot2)
+data.frame(x = seq(-5,5,.01)) |>
+    ggplot(aes(x)) +
+    geom_line(aes(y = x^2 + 2)) +
+    geom_line(aes(y = 2*x + 1, color = 'red')) +
+    ylim(c(-1,10)) +
+    theme(legend.position = 'none')
+```
+
+First, we know that the slope of the tangent line at $(1,3)$ equals the derivative at $x=1$. The derivative of $x^2 + 2$ is $2x$, and so $2*1 = 2$.
+
+Next we choose a point $(x, y)$ on the tangent line. Knowing the first point, we can say $\Delta y = y-3$ and $\Delta x = x -1$. Knowing the slope, we can say $2 = \frac{\Delta y}{\Delta x} = \frac{y-3}{x-1}$.
+
+Then we solve for $y$:
+
+$$
+\begin{align}
+2 = \frac{\Delta y}{\Delta x} &= \frac{y-3}{x-1} \\
+2(x-1) &= y - 3 \\
+y &= 2x + 1
+\end{align}
+$$
+
+This method can be used for any differentiable function. For the tangent line at the graph of $f$ at the point $(p, f(p))$, we know two properties of the tangent line: Its slope equals the derivative of $f$ at $p$, and the line crosses $(p, f(p))$. We can then solve for $y$:
+
+$$
+\begin{align}
+f'(p) &= \frac{y - f(p)}{x - p} \\
+y &= f'(p)(x-p) + f(p)
+\end{align}
+$$
+
+## Exercises
+
+1.  We saw above, the tangent line for $y = x^2 + 2$ at $(1,3)$ is $y = 2(x-1) + 3$. This can be rewritten as $ax + b$, or:
+
+    $2x + 1$
+
+2.  Determine equation for tangent of $f(x) = (2x+1)^2 + ln(4x -3)$ at point $x = 1$.
+
+    $$
+    \begin{align}
+    \text{Derivative: }\\
+    f'(x) &= \frac{d}{dx}(2x+1)^2 + \frac{d}{dx}ln(4x -3) \\
+    &= \frac{d}{dx}(4x^2 +4x + 1) + \frac{4}{4x -3} \\
+    &= 8x + 4 + \frac{4}{4x -3} \\\\
+    \text{Derivative at } x=1:\\
+    8(1) + 4 + \frac{4}{4(1) -3} &= 8 + 4 + 4 = 16 \\ 
+    \text{y at } x = 1:\\
+    y &= (2*1 + 1)^2 + ln(4*1 -3) = 9 + ln(1) = 9 \\\\
+    \text{Slope: } \\
+    16 &= \frac{\Delta y}{\Delta x} = \frac{y - 9}{x - 1} \\
+    y &= 16x - 16 + 9 = 16(x-1) + 9
+    \end{align}
+    $$
+
+    More simply, after solving derivative at $x=1$, we have $y = f'(1)*(x-1) + f(1)$, or $16(x-1)+9$.
+
+3.  Given $f(x) = 2sin(x) - 1$, the graph of $f$ intersects the x-axis at $x= \frac{\pi}{6}$. What is the angle between the graph of $f$ and the x-axis at the point of intersection?
+
+    ![](images/clipboard-1823440197.png){width="228"}
+
+    $$
+    \begin{align}
+    \text{Derivative:}\\
+    \frac{d}{dx}2sin(x) -1 &= \frac{d}{dx}x*sin(x) + \frac{d}{dx}sin(x)*x \\
+    &= sin(x) + x*cos(x) \\\\
+    \text{Derivative at } x = \frac{\pi}{6} \\
+    sin(\pi/6) + \pi/6*cos(\pi/6) &= 0.9534498 \text{ (wrong)}\\
+    0.9534498 / (\pi/180) &= 54.62865 \text{ (as radians, but wrong)} \\\\
+    \text{Slope:}\\
+    0.9534498 &= \frac{\Delta y}{\Delta x} = \frac{y - 0}{x - \frac{\pi}{6}} \\
+    y &= .9534498(x - \frac{\pi}{6})
+    \end{align}
+    $$
+
+4.  Which if any of these functions intersect orthoganally at $(1,1)$? $f(x) = \frac{1}{\sqrt{x}}$, $g(x) = \sqrt{x}$, $h(x) = x^2$
+
+    $$
+    \begin{align}
+    f'(1) &= -\frac{1}{2x\sqrt{x}} = -\frac{1}{2}\\
+    g'(1) &= \frac{1}{2}x^{-\frac{1}{2}} = 0.5\\
+    h'(1) &= 2x = 2 \\
+    \text{Thus, }f \text{ and }h \text{ are orthoganal}
+    \end{align}
+    $$
+
+# Non-Differentiable Functions
+
+Not all functions are differentiable. A function IS differentiable at point $a$ if the limit, as $\Delta x$ approaches zero, exists for the difference quotient, $(f(a + \Delta x) - f(a)) / \Delta x$. By 'exist', we mean that the limit is exactly one number. Graphically, the difference quotient is a slope that approximates the tangent of the function at the limit.
+
+Functions where the limit does not exist include those where $f$ is discontinuous at $x = a$; or the graph has a kink at $x = a$; or the graph has a vertical tangent at $x = a$.
+
+## Exercises
+
+1.  For $f(x) = |x|$, whose graph is a V with the low point at the origin, what is the tangent for $x > 0$? 1
+
+2.  And for $x < 0$? -1
+
+3.  For $f(x) = x^{\frac{1}{3}}$, whose graph is something of a stretched S, what is the derivative? $\frac{1}{3}x^{-\frac{2}{3}}$
+
+4.  Which of the following graphs are non-differentiable on the interval $(a,b)$, where $a, b \in \rm \!IR$ and $a < b$?
+
+    ![](images/clipboard-346534368.png)
+
+    1,6 have kinks; 3 is discontinuous; 4 has a vertical (I guessed each of these, and 5, but never in correct combinations.)
+
+# Local Minima and Maxima
+
+Think of a rollercoaster track, and wanting to know the lowest and highest point. Or a firm wanting to know at which output is profit maximal; or of some mechanical system, wanting to know at what state is energy minimal.
+
+We say a function $f$ has a *global* maximum at $x=a$ if all function values are less than or equal to $f(a)$; and a *global* minimum at $x=b$ if all function values are greater than or equal to $f(b)$.
+
+Similarly, we say that $f$ has a *local* maximum at $x=c$ if $f(c)$ is the largest value on some interval around $x=c$.
+
+These values are often referred to as extremal.
+
+If a function is differentiable and the derivative is positive, it is increasing. If negative, decreasing. But at an extremal value, it is neither increasing nor decreasing.
+
+Finally, given a function $f$ and an extremal point $a$, then:
+
+-   $f'(a) = 0$
+-   or, $f'(a)$ does not exist - such as at a kink or discontinuation
+-   or, $a$ is a boundary point
+
+More terminology:
+
+-   Critical points are points on the x-axis where derivative is zero
+-   Singular points are points on the x-axis where derivative does not exist
+-   Boundary points are boundaries of the domain
+
+Thus, IF $f$ is extremal at $x=a$, then $x=a$ must be a critical, singular, or boundary point.
+
+The reverse is not necessarily true: For $f(x) = x^3$, the derivative is zero at $x=0$, thus it is a critical point; but it is not extremal. Similarly, a function can have a singular point that is not extremal.
+
+In summary, to find local extrema:
+
+1.  Find:
+
+    -   critical points: $f'(x) = 0$
+    -   singular points: $f'(x)$ does not exist
+    -   boundary points
+
+2.  Check each:
+
+    -   local minimum?
+    -   local maximum?
+    -   neither?
+
+    If $f$ is continuous, it suffices to know where the function is increasing or decreasing to determine the extrema. This can be determined by the derivative - when $f'$ is positive or negative.
+
+    For example, for $f(x) = x - 2\sqrt{x}$,
+
+    -   0 is a boundary point (no square root for negatives)
+    -   1 is a critical point, at which derivative turns positive
+
+    From this, we know that $f$ is decreasing between $x=0$ and $x=1$ and increasing beyond $x=1$. Therefore at $x=0$, the function has a local maximum, and at $x=1$ a local minimum. (Wondering aloud, cannot the same point be "localized" such that it is max or min?)
+
+## Exercises
+
+1.  Which are true?
+
+    -   Local max cannot be global max (inherently false, as global max is also a local max?)
+    -   **If** $f$ **is differentiable on** $[0,2]$ **and** $f'$ **is nonzero on that interval, then** $f$ **can only have extrema at** $x=0$ **or** $x=2$
+    -   **Global minimum is also a local minimum** (obviously?)
+    -   If $f$ is differentiable and $f'(3) = 0$, then $f$ has a local extremum at $x=3$ (not necessarily true, e.g. $f(x) = x^3$)
+    -   **If** $f$ **is differentiable for all real numbers with a local maximum at** $x = -5$**, then** $f'(5) = 0$
+    -   A function can attain its global minimum at at most one point (parabola has two, eg)
+    -   If $f$ is defined for all real numbers and $f'(x) \ne 0$ for $x$ at which $f$ is differentiable, then $f$ has no local extrema (guessed this initially, but kink, boundary, or discontinuation points?)
+
+2.  Find critical points of $f(x) = x^4 - 6x^3 + 5$
+
+    $$
+    \text{Derivative:}\\
+    4x^3 - 18x^2 \\
+    \text{Critical point(s), }x=0:\\
+    4x^3 - 18x^2 = 0 \\
+    x^2(4x - 18) = 0 \\
+    x = \left(0, \frac{18}{4}\right)
+    $$
+
+3.  Find local max and min of $f(x) = x^4 - 6x^3 + 5$
+
+    Surely, max $0$ and min $\frac{9}{2}$ but that's partially correct?! I believe there are NO boundaries ($(-\infty, \infty)$), and that the domain is differentiable.
+
+    Explanation: $f'(x)$ slopes down on both sides of $0$, indicating that $f(0)$ is NOT extremal. But $f'(x)$ does change sign at $4.5$, it is a local (and global) minimum.
+
+    IMPORTANT TAKEAWAY: Ultimately it is the slope of the *function* and where it corresponds to extremals of the derivative slope. See here:
+
+    ```{r}
+    library(ggplot2)
+    data.frame(x = seq(-5,5,.01)) |>
+        ggplot(aes(x)) +
+        geom_line(aes(y = x^4 - 6*x^3 + 5)) +
+        geom_line(aes(y=4*x^3 - 18*x^2, color = 'red'))
+    ```
+
+4.  Function $f(x) = x^{\frac{2}{3}}e^x$ has one local max and min.
+
+    Local max is at $x = ?$ and is $critical|singular|boundary$
+
+    Local min is at $x = 0$ and is $critical|(singular)|boundary$
+
+    $$
+    \begin{align}
+    \text{Derivative:}\\
+    f'(x) &= \frac{d}{dx}x^{\frac{2}{3}}*e^x + x^{\frac{2}{3}}*\frac{d}{dx}e^x \\
+    &= \frac{2}{3}x^{-\frac{1}{3}}*e^x + x^{\frac{2}{3}}*e^x \\
+    &= e^x\left(\frac{2}{3}x^{-\frac{1}{3}} + x^{\frac{2}{3}}\right) \\
+    \end{align}
+    $$
+
+    I don't see how this can be zero. $0^{\frac{1}{2}} = 0$, but $\frac{2}{3}x^{-\frac{1}{3}} = \infty$; and $e^?$ is necessarily positive. Furthermore, I don't see that it could be bounded.
+
+    Explanation:
+
+    I was correct with the derivative, and the singular point $0$.
+
+    To find critical points, solve $f'(x) = \left(\frac{2}{3}x^{-\frac{1}{3}} + x^{\frac{2}{3}}\right)e^x = 0$.
+
+    Since $e^x$ never vanishes, this is equivalent to $\frac{2}{3}x^{-\frac{1}{3}} + x^{\frac{2}{3}} = 0$.
+
+    Since we can exclude $x=0$, we can safely multiply by $x^{\frac{1}{3}}$ to obtain $\frac{2}{3} + x = 0$, which clearly has $-\frac{2}{3}$ as a solution. Thus the behavior of $f'$ looks like this:
+
+    ![](images/clipboard-867522483.png){width="181"}
+
+    And so $f$ has a local maximum at $x = -\frac{2}{3}$ and local minimum at $x = 0$.
+
+# Twice Differentiable Functions
+
+(Tested but not taught?)
+
+If, for a function's derivative at every point, a derivative can be taken, the function is twice-differentiable. This is true of all polynomials, e.g. $f(x) = x^2 \Rightarrow f'(x) = 2x \Rightarrow f''(x) = 2$; and of trig functions like sine and cosine, e.g. $f(x) = sin(x) \Rightarrow f'(x) = cos(x) \Rightarrow f''(x) = -sin(x)$; and of exponential functions, e.g. $f(x) = e^x \Rightarrow f'(x) = e^x \Rightarrow f''(x) = e^x$.
+
+# Training Sequence
+
+## Exercises
+
+1.  Derivative of $f(x) = ln(5x)$
+
+    $f'(x) = \frac{1}{5x} \text{ (wrong)}$
+
+    $\text{Chain rule...} \frac{5}{5x} \text{ (Correct)}$
+
+2.  Derivative of $f(x) = \frac{2x+1}{x+1}$
+
+    $$
+    \begin{align}
+    f'(x) &= \frac{\frac{d}{dx}(2x+1)*(x+1) - \frac{d}{x}(x+1)*(2x+1)}{(x+1)^2} \\\\
+    &= \frac{(2x + 2) - (2x + 1)}{x^2 + 2x + 1} \\\\
+    &= \frac{1}{x^2 + 2x + 1} \text{ (Correct)}
+    \end{align}
+    $$
+
+3.  Derivative of $f(x) = x^2\sqrt{x}$
+
+    $$
+    \begin{align}
+    f'(x) &= \frac{d}{dx}x^2*\sqrt{x} + x^2*\frac{d}{dx}\sqrt{x} \\\\
+    &= 2x*\sqrt{x} + x^2*\frac{1}{2}x^{-\frac{1}{2}} \text{ (Correct)}
+    \end{align}
+    $$
+
+4.  Derivative of $f(x) = e^x sin(x)$
+
+    $$
+    \begin{align}
+    f'(x) &= \frac{d}{dx}e^x*sin(x) + e^x*\frac{d}{dx}sin(x) \\\\
+    &= e^x * sin(x) + e^x * cos(x) \\
+    &= e^x(sin(x)+cos(x)) \text{ (Correct)}
+    \end{align}
+    $$
+
+5.  Derivative of $f(x) = cos(3x^2 + 1)$
+
+    $$
+    \begin{align}
+    in' &= \frac{d}{dx}(3x^2 + 1) = 6x \\
+    out' &= \frac{d}{dx}cos(3x^2 + 1) = -sin(3x^2 + 1) \\
+    f' &= -sin(3x^2 + 1) * 6x \text{ (Correct)}
+    \end{align}
+    $$
+
+6.  Derivative of $f(x) = \frac{1}{sin(x)}$
+
+    $$
+    \begin{align}
+    f'(x) &= \frac{d}{dx}\frac{1}{sin(x)} \\\\
+    &= \frac{sin(x)*\frac{d}{dx}1 - 1*\frac{d}{dx}sin(x)}{sin(x)^2} \\\\
+    &= \frac{sin(x)*0 - 1*cos(x)}{sin(x)^2} \\\\
+    &= -\frac{cos(x)}{sin(x)^2} \text{ (Correct)}
+    \end{align}
+    $$
+
+7.  Derivative of $f(x) = log_2(x)$
+
+    $f'(x) = \frac{1}{ln(2)x} \text{ (Correct)}$
+
+8.  Derivative of $f(x) = \frac{x^3}{e^x}$
+
+    $$
+    \begin{align}
+    f'(x) &= \frac{e^x*\frac{d}{dx}x^3 - x^3*\frac{d}{dx}e^x}{(e^x)^2} \\
+    &= \frac{e^x*3x^2 - e^x*x^3}{(e^x)^2} \leftarrow\text{ Had erred here, with } 2x^2 \\
+    &= \frac{e^x(3x^2-x^3)}{(e^x)^2} \\
+    &= \frac{3x^2-x^3}{e^x} \text{ (Correct)}
+    \end{align}
+    $$
+
+9.  Derivative of $f(x) = x^2 3^x$
+
+    $$
+    \begin{align}
+    \text{Product Rule}\\
+    f'(x) &= \frac{d}{dx}x^2*3^x + x^2*\frac{d}{dx}3^x \\
+    &= 2x*3^x + x^2*3^x*ln(3) \\
+    &= 3^x(2x + x^2 * ln(3)) \text{ (wrong)}\\
+    \text{Note, I initially transcribed wrong with } x^2 3x \\
+    \text{That led to }9x^2 \text{via product rule and as }3x^3
+    \end{align}
+    $$
+
+    Boo! I googled and found this equivalent, which was accepted: $2x * 3^x + ln(3)*x^2 * 3^x$
+
+    ```{r}
+    x <- pi/2
+    2*x * 3^x + x^2 * 3^x * log(3)
+    3^x * (2*x + x^2 * log(3))
+    2*x * 3^x + log(3)* x^2 * 3^x
+    ```
+
+10. Derivative of $f(x) = ln(cos(x))$
+
+    $$
+    f'(x) = \frac{1}{cos(x)} * -sin(x) = -\frac{sin(x)}{cos(x)} \text{ (Correct)}
+    $$
+
+11. Derivative of $f(x) = ln(x + \sqrt{x^2 + 1})$
+
+    $$
+    \begin{align}
+    f'(x) &= \frac{1}{x + \sqrt{x^2+1}} * (1 + \frac{1}{2}(x^2+1)^{-\frac{1}{2}} * 2x) \\\\
+    &= \frac{1}{x + \sqrt{x^2+1}} * \left(1 + \frac{2x}{2*\sqrt{x^2+1}}\right) \\\\
+    &= \frac{1}{x + \sqrt{x^2+1}} * \left(1 + \frac{x}{\sqrt{x^2+1}}\right) \\\\
+    \text{I overlooked the } 2x\text{ in derivative of } \sqrt{x^2+1}\\
+    \text{And, while above was accepted, it simplifies:}\\
+    \frac{1}{\sqrt{x^2+1}} \\
+    \text{Which I do not follow...}
+    \end{align}
+    $$
+
+12. Derivative of $f(x) = (x^4+1)cos(x^2)$
+
+    $$
+    \begin{align}
+    f' &= \frac{d}{dx}(x^4+1)*cos(x^2) + \frac{d}{dx}cos(x^2)*(x^4+1) \\
+    &= 4x^3*cos(x^2) + 2x*-sin(x^2)*(x^4+1) \\
+    &= 4x^3*cos(x^2) - sin(x^2)*(2x^5+2x) \text{ (Correct)}
+    \end{align}
+    $$
+
+13. Derivative of $f(x) = 2^{x^2}$
+
+    $$
+    \begin{align}
+    f' &= x^2*2^{x^2-1} \text{ (wrong)} \\\\
+    f' &= \frac{d}{dx}2^{x^2} * \frac{d}{dx}x^2 \\
+    &= ln(2)*2^{x^2} * 2x \text{ (Correct)}
+    \end{align}
+    $$
+
+14. Derivative of $f(x) = \frac{ln(2x+2)}{x+1}$
+
+    $$
+    \begin{align}
+    f' &= \frac{lodhi - hidlo}{lo^2} \\
+    &= \frac{(x+1)\frac{d}{dx}ln(2x+2) - ln(2x+2)\frac{d}{dx}(x+1)}{(x+1)^2} \\
+    &= \frac{(x+1)\frac{2}{(2x+2)} - ln(2x+2)}{(x+1)^2} \\
+    &= \frac{\frac{2x+2}{2x+2} - ln(2x+2)}{(x+1)^2} \\
+    &= \frac{1-ln(2x+2)}{(x+1)^2} \text{ (Correct)}
+    \end{align}
+    $$
+
+15. Derivative of $f(x) = x*ln(x)-x$
+
+    $$
+    \begin{align}
+    \text{Presumably, product AND sum...}\\
+    f' &= \frac{d}{dx}(x*ln(x)) - \frac{d}{dx}x \\
+    &= \frac{d}{dx}x*ln(x)+x*\frac{d}{dx}ln(x) - 1 \\
+    &= 1*ln(x)+x*\frac{1}{x} - 1\\
+    &= ln(x) \text{ (Correct)}
+    \end{align}
+    $$
+
+16. Derivative of $f(x) = x^x$
+
+    $$
+    \begin{align}
+    \text{E.g., }a^x &\rightarrow a^x * ln(a) \\
+    \text{and/or, }x^n &\rightarrow nx^{n-1} \\\\
+    f'(x) &= x^x * ln(x) \\
+    &= x^x * \frac{1}{x} \\
+    &= \frac{x^x}{x} \\
+    &= x^{x-1} \text{ (wrong)} \\
+    \text{Hmm, maybe...} \\
+    f'(x) &= x*x^{x-1} = x^x \text{ (wrong) } \\
+    f'(x) &= x^x * (ln(x) + 1) \leftarrow \text{ Found solution, added above}
+    \end{align}
+    $$
+
+17. $f$ is a twice-differentiable function, with $f(1) = 1$, $f'(1) = 2$, and $f''(1) = 3$. If $g(x) = \frac{f(x^2)}{x}$, then $g'(1) = ?$
+
+    Were we taught any of this? I suppose initial question is, what $f(1)$ yields 1 and has a derivative of 2, the derivative of which is 3?
+
+    Well, we know $(1,1)$ and slope $2$, so $(2,3)$, $(3,5)$, etc., so $y = 2x -1$? Derivative of which is $2$, but... how to get to $3$?
+
+    $$
+    \begin{align}
+    g(1) &= \frac{f(1^2)}{1} = \frac{1}{1} \\
+    g'(1) &= \frac{d}{dx}1 = 0 \text{ (wrong)} \\
+    \text{For what } f \text{ does } f(1)&=1, f'(1)=2, f''(1) = 3 \text{ ?}\\
+    f(x) &= x^2 \rightarrow f'(x) = 2x \rightarrow f''(x) = 2\\
+    f(x) &= 2x^2 \rightarrow f'(x) = 4x \rightarrow f''(x) = 4\\
+    f(x) &= x^3 \rightarrow f'(x) = 3x^2 \rightarrow f''(x) = 6x \\
+    f(x) &= 2x + 1 \\\\
+    f(x) &= \frac{3}{2}x^2 - x + \frac{1}{2} \\
+    f'(x) &= \frac{7}{2}x - 1 \\
+    f''(x) &= \frac{7}{2}
+    \end{align}
+    $$
+
+    $$
+    \begin{align}
+    f(g(x)) = x & \Rightarrow f'(g(x))g'(x) = 1 \\
+    & \Rightarrow g'(x) = \frac{d}{dx}\frac{f(x^2)}{x} \\
+    &= \frac{x*\frac{d}{dx}\frac{f(x^2)}{x} - 1*\frac{f(x^2)}{x}}{x^2} \\
+    &= \frac{x*\frac{x*f'(x^2) - f(x^2)}{x^2} - \frac{f(x^2)}{x}}{x^2} \\
+    &= \frac{f'(x^2)-f(x^2) - \frac{f(x^2)}{x}}{x^2} \\
+    \text{Substituting given values...} \\
+    &= \frac{2-1-\frac{1}{1}}{1} = 0
+    \end{align}
+    $$
+
+    Giving up, to see the given solution:
+
+    $$
+    \text{With quotient- and chain rules:}\\
+    g'(x) = \frac{x*f'(x^2)*2x-f(x^2)*1}{x^2} = \frac{2*1^2*2-1}{1^2} = 3
+    $$
+
+18. $f$ is a "two times differentiable" function, with $f(1) = 1$, $f'(1) = 2$, and $f''(1) = 3$. If $g(x) = x^2f(x)$, then $g''(1) = ?$
+
+    $$
+    \begin{align}
+    g'(1) &= \frac{d}{dx}x^2f(x) \\
+    &= 2x*f(x) + x^2*f'(x) \\
+    &= 2*1+1^2*2 = 4 \\
+    g''(1) &= \frac{d}{dx}4 = 0 \text{ (wrong)} \\\\
+    g''(1) &= \frac{d}{dx}(2x * f(x) + x^2 * f'(x)) \\
+    &= (2*f'(x)+2x*f(x))+(2x*f'(x)+x^2*f''(x)) \\
+    &= 2*2+2*1+2*2+1*3= 13 \text{ (Correct!)}
+    \end{align}
+    $$
+
+19. Line $y = 2x + 3$ is tangent to the graph of $f(x)$ at the points $x = \pm 1$. What is the derivative of $f(f(x))$ at $x = -1$?
+
+    Known tangent points $(-1,1),(1,5)$, and slope is $2$. $f(-1) = 1$ and $f(f(-1)) = 5$. And, $f'(\pm1) = 2$, so $2$? (wrong)
+
+    Slope of tangent at $(-1,1)$ is $2$ and equals derivative at $x=-1$.
+
+    Knowing $(-1,1)$, we can say $\Delta y = y - 1$ and $\Delta x = x + 1$.
+
+    Knowing slope is $2$, we can say $2 = \frac{\Delta y}{\Delta x} = \frac{y-1}{x+1}$
+
+    Solving for $y$, we get $\frac{y-1}{x+1} = 2 \Rightarrow y = 2x + 3$. (Dang, we were given that!)
+
+    $$
+    f'(-1) = \frac{d}{dx}2x + 3 = 2\\
+    f''(-1) = \frac{d}{dx}2 = 0 \text{ (wrong)}
+    $$
+
+    Evidently, $f(f(x))$ is "the composition of a function with itself", meaning it is substituted into itself (at every $x$). So $f(f(x)) = 2(2x+3) + 3 = 4x + 9$. The derivative of which is $4$?
+
+20. Find tangent line of $g(x) = 4 + 2cos(2x)$ at $x=\frac{\pi}{12}$
+
+    $$
+    \begin{align}
+    g'(x) &= \frac{d}{dx}(4+2cos(2x)) \\
+    \text{Constant times derivative rule...} \\
+    &= 2*\frac{d}{dx}cos(2x) \\
+    &= 2*\left(-sin(2x)*\frac{d}{dx}2x\right) \\
+    &= 4*-sin(2x) \Rightarrow 4*-sin\left(\frac{2\pi}{12}\right) = -2 \\
+    y &= f'(p)(x-p)+f(p) \\
+    &\Rightarrow -2\left(x-\frac{\pi}{12}\right)+4+2cos\left(\frac{2\pi}{12}\right)
+    \end{align}
+    $$
+
+21. The graphs of $f(x) = ln(x) - \sqrt{3}$ and $g(x) = -\sqrt{x^2+2}$ intersect at $x=1$. What is the angle between the graphs?
+
+    ![](images/clipboard-190723613.png){width="206"}
+
+    Derivatives:
+
+    $$
+    \begin{align}
+    f'(x) = \frac{d}{dx}(ln(x) - \sqrt{3}) &= \frac{1}{x} \\\\
+    g'(x) = \frac{d}{dx}\left(-\sqrt{x^2+2}\right) &= \frac{d}{dx}\left(-\sqrt{x^2+2}\right)*\frac{d}{dx}(x^2+2) \\
+    &= -\frac{1}{2}(x^2+2)^{-\frac{1}{2}} * 2x \\
+    &= -\frac{x}{\sqrt{x^2+2}}
+    \end{align}
+    $$
+
+    Evaluate at $x=1$: $(1,-\frac{1}{\sqrt{3}})$ And for what it's worth, note that the intersection point is $(1, -\sqrt{3})$.
+
+    $\alpha = atan\left(|\frac{m_1-m_2}{1+m_1m_2}|\right) = atan\left(|\frac{1+\frac{1}{\sqrt{3}}}{1-\frac{1}{\sqrt{3}}}|\right) = 1.308997$ (radians)
+
+    Given explanation:
+
+    Consider $\alpha$ as $\beta$ above the x-axis and $\gamma$ below. These correspond to the derivatives at $x=1$, so $tan(\beta) = f'(1) = 1$, thus $\beta = \frac{\pi}{4}$; and since $\gamma$ is below the x-axis, $tan(\gamma) = -g'(1) = -\left(-\frac{1}{\sqrt{3}}\right)$, thus $\gamma = \frac{\pi}{6}$. Thus, $\alpha = \beta + \gamma = \frac{\pi}{4} + \frac{\pi}{6}$.
+
+22. For what $\alpha$ does $f_\alpha(x) = e^{\alpha x}$ intersect $g(x) = \sqrt{x+1}$ orthoganally at $(0,1)$?
+
+    Derivative of the easier:
+
+    $$
+    \begin{align}
+    g'(x) &= \frac{d}{dx}\sqrt{x+1} \\
+    &= \frac{1}{2}(x+1)^{-\frac{1}{2}} \\
+    &= \frac{1}{2\sqrt{x+1}}
+    \end{align}
+    $$
+
+    Evaluating $g'(0) = .5$. Orthoganal to that is $-\frac{1}{.5} = -2$
+
+23. Below is $f(x) = \frac{x+1}{x^2+1}$ and a tangent line at $(1,1)$. At what $p$ does another tangent line at $(p, f(p))$ intersect the first tangent on the x-axis?
+
+    ![](images/clipboard-739425085.png){width="279"}
+
+    Derivative:
+
+    $$
+    \begin{align}
+    f'(x) &= \frac{d}{dx}\frac{x+1}{x^2+1} \\
+    &= \frac{(x^2+1)*1-(x+1)*2x}{(x^2+1)^2} \\
+    &= \frac{(x^2+1)-(2x^2+2x)}{(x^2+1)^2} \\
+    &= \frac{-x^2 -2x + 1}{(x^2+1)^2} \\
+    \end{align}
+    $$
+
+    Evaluating at $x=1$ gives $-0.5$. So that tangent steps down, $(1,1), (2,.5),$ and touches x-axis at $(3,0)$.
+
+    From the diagram, $p$ appears to be extremal. Can the derivative equal zero?
+
+    $$
+    -x^2 -2x + 1 = 0 \\
+    \text{Quadratic}\\
+    \frac{-b \pm \sqrt{b^2 -4ac}}{2a} \\
+    \frac{2 \pm \sqrt{-2^2 -4*-1*1}}{2*-1} \\
+    \frac{2 \pm \sqrt{8}}{-2} \Rightarrow (-2.414214, 0.4142136)
+    $$
+
+    Check:
+
+    $$
+    \begin{align}
+    x &= \frac{2+\sqrt{8}}{-2} \\
+    f'(x) &= \frac{-x^2 -2x + 1}{(x^2+1)^2} \\
+    &= \frac{-\left(\frac{2+\sqrt{8}}{-2}\right)^2 -2\left(\frac{2+\sqrt{8}}{-2}\right) + 1}{(\left(\frac{2+\sqrt{8}}{-2}\right)^2+1)^2} = 0 \\
+    f(x) &= \frac{x+1}{x^2+1} \\
+    &= \frac{\left(\frac{2+\sqrt{8}}{-2}\right)+1}{\left(\frac{2+\sqrt{8}}{-2}\right)^2+1} = -0.2071068
+    \end{align}
+    $$
+
+    Confirming slope, we have $(3,0), (\frac{2+\sqrt{8}}{-2}, -0.2071068)$. Very close, but graphing was off a touch. Seeing that, I nudged $x$ to $-2$, leading to $y=-.2$.
+
+    ```{r}
+    data.frame(x=seq(-4,4,.01)) |>
+        ggplot(aes(x)) +
+        geom_line(aes(y = (x+1)/(x^2+1))) +
+        geom_segment(aes(x=1,y=1,xend=3,yend=0,color='red')) + 
+        geom_segment(
+            aes(
+                #x=( (2+sqrt(8)) / -2),
+                #y=( ( (2+sqrt(8)) /-2 )+1)/( ( (2+sqrt(8))/-2)^2+1),
+                x = -2, y = -.2,
+                xend=3,
+                yend=0,
+                color='green'
+            )
+        )
+    ```
+
+    Given explanation:
+
+    I was correct about $f'(x)$, and that slope of $T$ is $-\frac{1}{2}$ and that it intersects x-axis at $(3,0)$. Then the equation for $T$ is $y= -\frac{1}{2}(x-1) + 1 = \frac{3}{2} - \frac{1}{2}x$.
+
+    The equation of the second tangent line at $(p, f(p))$ is:\
+    $y = f'(p)(x-p) + f(p) = \frac{1-2p-p^2}{(p^2+1)^2}(x-p) + \frac{p+1}{p^2+1}$.
+
+    This line must intersect x-axis at $x=3$, so we find:
+
+    $$
+    \begin{align}
+    \frac{1-2p-p^2}{(p^2+1)^2}(3-p) + \frac{p+1}{p^2+1} &= 0 \\
+    \frac{3 -6p -3p^2 -p + 2p^2 + p^3 + p^3 + p^2 +p + 1}{(p^2+1)^2} & = 0 \\
+    \frac{2p^3 -6p +4}{(p^2+1)^2} &= 0 \\
+    \end{align}
+    $$
+
+    The denominator cannot be zero, so we solve for $2p^3 - 6p + 4 = 0$, simplified as $p^3 -3p + 2 = 0$. Knowing $p=1$ is a solution, we can simplify further as $(p-1)(p^2 + p - 2)$, and further still as $(p-1)(p-1)(p+2)$ - given solutions $(1, -2)$.
+
+24. Is $f(x) = |x-3|$ differentiable at $x=3$? No - kink at 3
+
+25. Is $f(x) = |x-3|^2$ differentiable at $x = 3$? Yes
+
+26. Is $f(x) = |x-3|^\frac{1}{2}$ differentiable at $x=3$? No - kink at 3
+
+27. Is $f(x) = \sqrt{(x-3)^2}$ differentiable at $x=3$? No - kink at 3
+
+28. Is $f(x) = (x-3)^\frac{1}{3}$ differentiable at $x=3$? No - vertical tangent. Fuller explanation: Derivative of $(x-3)^{1/3}$ is $\frac{1}{3}(x-3)^{-\frac{2}{3}}$ which becomes infinitely large as $x$ approaches zero.
+
+29. Is $f(x) = (x-3) * |x-3|$ differentiable at $x = 3$? Yes
+
+30. Find local min/max of $f(x) = \frac{x+7}{(x-2)(x+3)}$
+
+    Derivative:
+
+    $$
+    \begin{align}
+    f'(x) &= \frac{(x-2)(x+3)\frac{d}{dx}(x+7) - (x+7)\frac{d}{dx}((x-2)(x+3))}{((x-2)(x+3))^2}\\\\
+    &= \frac{(x-2)(x+3) - (x+7)(2x + 1)}{((x-2)(x+3))^2} \\\\
+    &= \frac{x^2 + 3x -2x -6 - 2x^2 -x -14x -7}{x^2 +3x -2x -6} \\
+    &= \frac{-x^2 - 14x -13}{x^2 + x - 6} \\
+    &= \frac{(-x - 1)(x + 13)}{(x-2)(x+3)} \\
+    \end{align}
+    $$
+
+    Thus, critical points at $(-13, -1)$ and singular points at $(-3, 2)$. Unbounded, $(-\infty, \infty)$.
+
+    Not sure what to say about the graph though - it goes sharply up AND down at the singular points, and horizontal at the critical points.
+
+    Argh, answers were -13 and -1. Burned by the graph, for which everything looks horizontal and vertical.
+
+    ```{r}
+    library(ggplot2)
+    data.frame(x=seq(-20,20,.01)) |> ggplot(aes(x)) + geom_line(aes(y=(x+7)/((x-2)*(x+3))))  + scale_x_continuous(breaks = seq(-20,20,1)) + theme(legend.position = 'none')
+    ```
+
+31. Find global min/max of $f(x) = 2sin(x) + 1 + cos(2x)$ on the interval $[0, 2\pi]$.
+
+    $$
+    \begin{align}
+    f'(x) &= \frac{d}{dx}(2sin(x) + 1 + cos(2x) \\\\
+    &= 2cos(x) - 2sin(2x) \\
+    &= 2cos(x) -4sin(x)cos(x) \\
+    &= 2(cos(x) -2sin(x)cos(x)) \\
+    0 &= cos(x) - 2sin(x)cos(x) \\
+    cos(x) &= 0 \text{ at } \left(\frac{\pi}{2},\frac{3\pi}{2}\right) \\\\
+    sin(x) &= \frac{1}{2} \text{ at } \left(\frac{\pi}{6}, \frac{5\pi}{6}\right)
+    \end{align}
+    $$
+
+    Visually, and by plugging those values into $f$, the global minimum is $f(\frac{3\pi}{2}) = -2$. Maximum occurs twice at $f(\frac{\pi}{6}) = 2.5$ and $f(\frac{5\pi}{6} = 2.5)$. But, $\frac{\pi}{6}$ (max) and $\frac{3\pi}{2}$ (min) is wrong?!
+
+    Argh, it wants the min/max *values*, not the x-values. So yes, 2.5 and -2.
+
+    ```{r}
+    library(ggplot2)
+    data.frame(x=seq(0,2*pi,.01)) |> ggplot(aes(x)) + geom_line(aes(y=2*sin(x)+1+cos(2*x))) + geom_line(aes(color='red', y=2*(cos(x)-2*sin(x)*cos(x)))) + scale_x_continuous(breaks = seq(0,2*pi,1)) + theme(legend.position = 'none')
+    ```
+
+32. Find local min/max of $f(x) = 4^x - 2^x$ on the interval $[-2,2]$.
+
+    $$
+    \begin{align}
+    f'(x) &= 4^x*ln(4) - 2^x*ln(2) \\
+    \text{Given solution:}\\
+    0 &= 4^xln(4) - 2^xln(2) \\
+    &= 2^{2x}2ln(2) - 2^xln(2) \\
+    &= ln(2)(2^{2x+1} - 2^x) \\
+    ln(2) &\text{ cannot be zero, so:} \\
+    0 &= 2^{2x+1} - 2^x \\
+    x &= 2x + 1 \\
+    x &= -1
+    \end{align}
+    $$
+
+    I guessed correctly by plotting - local maxima at boundaries, $(-2,2)$; and local minima at $(-1)$.
+
+    ```{r}
+    data.frame(x=seq(-2,2,.01)) |> ggplot(aes(x)) + geom_line(aes(y=4^x-2^x)) + geom_line(aes(color='red', y=4^x*log(4)-2^x*log(2))) + scale_x_continuous(breaks = seq(-2,2,1)) + theme(legend.position = 'none')
+    ```
+
+33. Find x-coordinate of point $P$ on the graph of $f(x) = \sqrt{x}$ that is closest to $(5,0)$.
+
+    I determined the answer (4.5) using euclidean distance from $(5,0)$, $\sqrt{(x_2-x_1)^2+(y_2-y_1)^2} = \sqrt{(x-5)^2+x}$, using R.
+
+    Given solution:\
+    Derivative of that is $f'(x) = -2 * (5-x) + 1 = 2x - 9$. That is zero at $\frac{9}{2}$, which is a minimum as $f$ is an upward facing parabola.
+
+34. Suppose distance traveled by a cart is given as $d(t) = \frac{t^2}{t^2+3}$. At what $t$ is speed maximal?
+
+    $$
+    \begin{align}
+    d'(t) &= \frac{(t^2+3)\frac{d}{dt}t^2 - t^2\frac{d}{dt}(t^2+3)}{(t^2+3)^2} \\
+    &= \frac{(t^2+3)2t - t^22t}{(t^2+3)^2} \\
+    &= \frac{2t^3 + 6t - 2t^3}{(t^2+3)^2} \\
+    &= \frac{6t}{(t^2+3)^2}
+    \end{align}
+    $$
+
+    Unsure what to do next, I plotted it - eventually with an artificial domain just for visual effect.
+
+    ```{r}
+    library(ggplot2)
+    data.frame(t = seq(-3,3,.1)) |> ggplot(aes(t)) + geom_line(aes(y= (t^2)/(t^2+3))) + geom_line(aes(color='red', y = (6*t)/(t^2+3)^2))
+    ```
+
+    On a lark, I picked the largest derivative, which peaks at 1.
+
+    Given solution:
+
+    Speed is given by $d'(t)$, for which I was correct. Then, to maximize it, take the derivative of it:
+
+    $$
+    \begin{align}
+    v'(t) &= \frac{d}{dt}\frac{6t}{(t^2+3)^2} \\\\
+    &= \frac{6(t^2 + 3)^2 - 6t(4t^3 + 12t)}{((t^2+3)^2)^2}\\\\
+    &= \frac{6*t^4 + 6t^2 + 9) - 24t^4 - 72t^2}{(t^2+3)^4}\\\\
+    &= \frac{6t^4 + 36t^2 + 54 - 24t^4 - 72t^2}{(t^2+3)^4}\\\\
+    &= \frac{-18t^4 - 36t^2 + 54}{(t^2+3)^4} \\\\
+    &= \frac{-18(t^4 + 2t^2 -3)}{(t^2+3)^4} \\\\
+    &= \frac{-18(t^2-1)(t^2+3)}{(t^2+3)^4} \\\\
+    &= \frac{18 - 18t^2}{(t^2+3)^3}
+    \end{align}
+    $$
+
+    Thus, $v'(t) = 0$ for $(-1,1)$ and, given the domain, max is at 1. Thus max speed is $v(1) = \frac{6}{4^2} = \frac{3}{8}$.
+
+35. What $x$ is the global min of $f(x) = \sqrt{x^2 + 2x + 1}$?
+
+    $$
+    \begin{align}
+    f'(x) &= \frac{d}{dx}\sqrt{x^2+2x+1} \\\\
+    &= \frac{d}{dx}\sqrt{x^2+2x+1}*\frac{d}{dx}(x^2+2x+1) \\\\
+    &= \frac{1}{\sqrt{x^2+2x+1}}(2x+2) \\\\
+    &= \frac{2x + 2}{\sqrt{x^2+2x+1}} \\\\
+    \text{Critical point(s):} \\
+    2x + 2 &= 0 \Rightarrow x = -1 \\
+    \text{Singular point(s):} \\
+    x^2 + 2x + 1 &= 0 \Rightarrow (x+1)(x+1) = 0 \Rightarrow x=-1
+    \end{align}
+    $$
+
+36. What are the max and min of $f(x) = x^3 - 18x^2 + 96x - 144$?
+
+    $$
+    \begin{align}
+    f'(x) &= \frac{d}{dx}x^3 - 18x^2 + 96x - 144 \\\\
+    &= 3x^2 - 36x + 96 \\
+    &= (3x-12)(x-8) \\
+    \text{Critical points: } (4,8) \\
+    f(4) &= 16 \\
+    f(8) &= -16 \\
+    f(3) &= 9 \\
+    f(12) &= 144
+    \end{align}
+    $$
+
+    ```{r}
+    library(ggplot2)
+    data.frame(x = seq(3,12,.01)) |> ggplot(aes(x)) + geom_line(aes(y = x^3 - 18*x^2 + 96*x - 144)) + geom_line(aes(color='red', y = (3*x-12)*(x-8))) + scale_x_continuous(breaks = seq(3,12,1)) + theme(legend.position = 'none')
+    ```
+
+37. What are global max and min of $f(x) = \frac{3}{2}x^{\frac{2}{3}} - x$?
+
+    I transcribed this wrong, missing the $-x$.
+
+    $$
+    \begin{align}
+    f'(x) &= \frac{d}{dx}\left(\frac{3}{2}x^{\frac{2}{3}} - x\right)\\\\
+    &= \frac{2}{3}*\frac{3}{2}x^{-\frac{1}{3}} - 1\\\\
+    &= \frac{1}{\sqrt[3]{x}} - 1\\
+    \text{Critical point(s): } 1 \\
+    \text{Singular point(s): } 0 \\
+    \text{Boundary points: } (-1,2) \\
+    f(0) &= 0 \\
+    f(-1) &= NaN \\
+    f(1) & = .5 \\
+    f(2) &= 1.381102 \\
+    \end{align}
+    $$
+
+    Thus, max is $.5$ at $x=1$, and min is $0$ at $x=0$. Wrong on the max though - they claim it is at -1, for which I get NaN?!
+
+    ```{r}
+    library(ggplot2)
+    data.frame(x = seq(-1,2,.1)) |> ggplot(aes(x)) + geom_line(aes(y=(3/2)*(x^(2/3))-x)) + geom_line(aes(color = 'red', y = (1/x^(1/3))-1))
+    ```
+
+38. Imagine a cannon atop a hill, with trajectory given as $x(t) = 10cos(\alpha)t$ and $y(t) = 10 + 10sin(\alpha)t - 5t^2$, as functions of time. What is the max horizontal distance possible?
+
+    $$
+    \begin{align}
+    x'(t) &= \frac{d}{dt}cos(\alpha)*10t + \frac{d}{dt}10t * cos(\alpha) \\\\
+    &= -sin(\alpha) * 10t + 10cos(\alpha) \\\\
+    y'(t) &= \frac{d}{dt}10t*sin(\alpha) - \frac{d}{dt}5t^2 \\\\
+    &= \frac{d}{dt}10t*sin(\alpha) + 10t*\frac{d}{dt}sin(\alpha) - \frac{d}{dt}5t^2 \\\\
+    &= 10sin(\alpha) + 10t*cos(\alpha) - 10t \\\\
+    &= 10(sin(\alpha) + t*cos(\alpha) - t) \\
+    \end{align}
+    $$
+
+    Initially assume $45^\circ$, or $\frac{\pi}{4}$, for which $cos=sin=\frac{1}{2}\sqrt{2}$.
+
+    $$
+    \begin{align}
+    0 &= -5t^2 + 10sin(pi/4)t + 10 \\\\
+    &\Rightarrow \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \\\\
+    &= \frac{-10sin(pi/4) \pm \sqrt{(10sin(pi/4))^2 - 4*-5*10}}{2*-5} \\\\
+    &= \frac{-7.071068 \pm \sqrt{50 + 200}}{-10} \\\\
+    &= (-0.874032, 2.288246) \\
+    &\Rightarrow 10*cos(pi/4)*2.288246 = 16.18034 \text{ (wrong)}\\
+    \end{align}
+    $$
+
+    Repeating the process, quadratic formula above for $30^\circ$ ($\frac{\pi}{6}$) instead of $45^\circ$ gives $(-1, 2)$, and $10*cos(pi/6)*2 = 17.32051$, which is correct!
+
+39. Rollercoaster comprising two parabolas:
+
+    $$
+    f(x) = \left\{
+        \begin{array}{}
+            \frac{1}{6}x^2 & \text{ for } 0\leq x\leq 8 \\
+            a(x-15)^2+b & \text{ for } 8\lt x \leq 20
+        \end{array}
+    \right.
+    $$
+
+    What are the exact values of $a$ and $b$ such that the two meet smoothly?
+
+    Presumably, calculate derivatives such that upper bound of one equals the lower bound of the other.
+
+    $$
+    \begin{align}
+    f_1'(x) &= \frac{d}{dx}\left(\frac{1}{6}x^2\right) = \frac{x}{3} \\\\
+    f_1'(8) &= \frac{8}{3} \\\\
+    f_2'(x) &= \frac{d}{dx}(a(x-15)^2 + b) = 2ax - 30a \\
+    \frac{8}{3} &= 2a8 - 30a \Rightarrow -14a = \frac{8}{3} \Rightarrow a = -\frac{8/3}{14}
+    \end{align}
+    $$
+
+    $a$ is correct, though better as $-\frac{4}{21}$. Stumped on $b$, I plotted and "zoomed in" by plotting just 5 through 10; then adjusted $b$ until they overlapped at 20. Correct!!!
+
+    Better explanation:
+
+    Both functions and derivatives should coincide at $x=8$. Thus, these must hold:
+
+    $$
+    \begin{align}
+    \frac{1}{6}x^2 &= a(x-15)^2 + b \\
+    \frac{1}{3}x &= 2a(x-15)
+    \end{align}
+    $$
+
+    Evaluating at $x=8$:
+
+    $$
+    \begin{align}
+    \frac{64}{6} &= 49a + b\\
+    \frac{8}{3} &= -14a \\
+    \end{align}
+    $$
+
+    We have $a = -\frac{4}{21}$; thus we can derive $b$:
+
+    $$
+    b = \frac{64}{6} + 49 * \frac{4}{21} = \frac{32}{3} + \frac{28}{3} = 20
+    $$
+
+# Homework
+
+1.  Given a differentiable function $f$, with $f(2)=3$ and $f(2.03) = 3.012$, give an approximation of $f'(2)$.
+
+    $$
+    \begin{align}
+    m &= \frac{y_2 - y_1}{x_2 - x_1} \\
+    &= \frac{3.012 - 3}{2.03 - 2} \\
+    &= 0.4
+    \end{align}
+    $$
+
+    Is the approximation larger, smaller, or equal to the actual value of $f'(2)$?
+
+    Without knowing the actual function, I didn't know what to do but look at the given graph, whose slope is decreasing around 2 - so the second point is relatively low.
+
+2.  Given the graph of $f$, which graph reflects $f'$?
+
+    ![](images/clipboard-3137584405.png)
+
+    Down, up, down, up; crosses x-axis at local extrema:
+
+    ![](images/clipboard-299739786.png){width="104" height="52"}
+
+3.  Find the local min/max of $f(x) = 3 + x^2 - 2x^4$.
+
+    $$
+    \begin{align}
+    f'(x) &= \frac{d}{dx}3 + x^2 - 2x^4 \\
+    &= 2x - 8x^3 \\
+    &= 2x(1 - 4x^2) \\
+    0 &= 2x \Rightarrow x=0 \\
+    0 &= 1 - 4x^2 \Rightarrow x=(-.5, .5) \\
+    f(0) &= 3 + 0^2 - 2*0^4 = 3 \\
+    f(.5) &= 3 + .5^2 - 2*.5^4 = 3.125
+    \end{align}
+    $$Good lesson here - graphing $(-5,5)$ looks like a parabola; $(-1,1)$ reveals some interest at the top. Also, I would have overlooked $-5$ above, again revealed by the plot.
+
+    ```{r}
+    library(ggplot2)
+    data.frame(x = seq(-1,1,.01)) |> ggplot(aes(x)) + geom_line(aes(y=3 + x^2 - 2*x^4))
+    ```
+
+4.  Find local min/max of $g(x) = 6\sqrt{x} + 2x\sqrt{x} - 6x$ on the interval $[0,4]$.
+
+    $$
+    \begin{align}
+    g'(x) &= \frac{d}{dx}(6\sqrt{x} + 2x\sqrt{x} - 6x) \\
+    &= \frac{d}{dx}(6x^{\frac{1}{2}}) + \frac{d}{dx}(2x^{\frac{2}{2}}*x^{\frac{1}{2}}) - \frac{d}{dx}(6x) \\
+    &= 3x^{-\frac{1}{2}} + \frac{d}{dx}2x^{\frac{3}{2}} - 6 \\
+    &= \frac{3}{\sqrt{x}} + 3x^{\frac{1}{2}} - 6 \\
+    &= \frac{3}{\sqrt{x}} + 3\sqrt{x} - 6 \\
+    \text{Critical point(s): } (1)
+    \end{align}
+    $$
+
+    ```{r}
+    data.frame(x = seq(0,4,.1)) |> ggplot(aes(x)) + geom_line(aes(y = 6*sqrt(x) + 2*x*sqrt(x) - 6*x)) + geom_line(aes(color = 'red', y= 3/sqrt(x) + 3*sqrt(x) - 6)) + theme(legend.position = 'none')
+    ```
+
+    I answered correctly from observation (basically, $\frac{3}{1} + 3*1 - 6 = 0$); the plot; and checking $f(1)$ and neighboring values.
+
+    Given solution:
+
+    $$
+    \begin{align}
+    f'(x) &= \frac{3}{\sqrt{x}} + 3\sqrt{x} - 6 = 0 \\
+    \text{Rewritten (how?!) as: }\\
+    &= 3(\sqrt{x})^2 - 6\sqrt{x} + 3 = 0 \\
+    \text{Substitute } u = \sqrt{x} \text{ :}\\
+    u^2 - 2u + 1 = 0 \\
+    \end{align}
+    $$
+
+    Conclusion: At $x=0$, $f$ has a local minimum; at $x=1$, $f$ has a critical point, but no extremum, since the derivative does not change sign; and at $x=4$, $f$ has a local maximum.
+
+5.  Student bikes to school. First three minutes, distance in meters is given by $s(t) = 6t^5 - 50t^4 + 120t^3$, for interval $0 \leq t \leq 3$. At what time ($t$) is speed maximal?
+
+    $$
+    \begin{align}
+    \text{Distance:}\\
+    s'(t) &= \frac{d}{dt}(6t^5 - 50t^4 + 120t^3) \\
+    &= 30t^4 - 200t^3 + 360t^2 \\
+    \text{Speed: }\\
+    s''(t) &= \frac{d}{dt}(30t^4 - 200t^3 + 360t^2) \\
+    &= 120t^3 - 600t^2 + 720t \\
+    &= 120t(t^2 - 5t + 6) \\
+    &= 120t(t-2)(t-3) \Rightarrow (0,2,3)
+    \end{align}
+    $$
+
+    ```{r}
+    library(ggplot2)
+    data.frame(x = seq(0,3,.1)) |> ggplot(aes(x)) + geom_line(aes(y = 6*x^5 - 50*x^4 + 120*x^3)) + geom_line(aes(color='red', y = 30*x^4 - 200*x^3 + 360*x^2)) + geom_line(aes(color = 'green', y = 120*x^3 - 600*x^2 + 720*x)) + theme(legend.position = 'none')
+    ```
+
+6.  Derivative of $f(x) = x^2ln(x) - 2sin(x)$
+
+    $$
+    \begin{align}
+    f'(x) &= \frac{d}{dx}(x^2ln(x)-2sin(x)) \\\\
+    &= \frac{d}{dx}x^2*ln(x)+x^2*\frac{d}{dx}ln(x) - \frac{d}{dx}2sin(x) \\\\
+    &= 2x*ln(x) + x^2*\frac{1}{x} - 2cos(x) \\
+    &= 2x*ln(x) + x - 2cos(x) \\
+    \end{align}
+    $$
+
+7.  Derivative of $f(x) = \frac{1+x}{1-x^2}$
+
+    $$
+    \begin{align}
+    f'(x) &= \frac{d}{dx}\left(\frac{1+x}{1-x^2}\right) \\
+    &= \frac{(1-x^2)\frac{d}{dx}(1+x) - (1+x)\frac{d}{dx}(1-x^2)}{(1-x^2)^2} \\
+    &= \frac{(1-x^2)*1 - (1+x)*-2x}{(1-x^2)^2} \\
+    &= \frac{(1-x^2) + 2x(1+x)}{(1-x^2)^2} \\
+    &= \frac{1 - x^2 + 2x + 2x^2}{(1-x^2)^2} \\
+    &= \frac{x^2 + 2x + 1}{(1-x^2)^2}\\
+    &= \frac{(x+1)(x+1)}{(x^2-1)^2} \\
+    &= \frac{(x+1)(x+1)}{(x-1)^2(x+1)^2} \\
+    &= \frac{1}{(x-1)^2}
+    \text{Critical point(s):} \\
+    \text{Singular point(s):} (-1,1)
+    \end{align}
+    $$
+
+    ```{r}
+    library(ggplot2)
+    data.frame(x=seq(-3,3,.1)) |> ggplot(aes(x)) + geom_line(aes(y = (1+x)/(1-x^2))) + geom_line(aes(color='red', y = 1/(x-1)^2)) + scale_x_continuous(breaks = seq(-3,3,.5)) + theme(legend.position = 'none')
+    ```
+
+8.  Derivative of $f(x) = cos(3^x)$
+
+    $$
+    \begin{align}
+    f'(x) &= \frac{d}{dx}cos(3^x) \\
+    &= \frac{d}{dx}cos(3^x)*\frac{d}{dx}3^x \\
+    &= -sin(3^x) * 3^x * log(3)
+    \end{align}
+    $$
+
+    ```{r}
+    library(ggplot2)
+    data.frame(x = seq(.5,3,.1)) |> ggplot(aes(x)) + geom_line(aes(y=cos(3^x))) + geom_line(aes(color='red', y = -sin(3^x) * 3^x * log(3)))
+    ```
+
+9.  Derivative of $f(x) = ln(sin(x^2))$
+
+    $$
+    \begin{align}
+    f'(x) &= \frac{d}{dx}ln(sin(x^2)) \\
+    &= \frac{1}{sin(x^2)}*2x*cos(x^2) \\
+    &= \frac{2x*cos(x^2)}{sin(x^2)} \\
+    &= \frac{2x}{tan(x^2)}
+    \text{Critical AND singular point, } x &= 0
+    \end{align}
+    $$
+
+    ```{r}
+    library(ggplot2)
+    data.frame(x = seq(-1.5,1.5,.1)) |> ggplot(aes(x)) + geom_line(aes(y=log(sin(x^2)))) + geom_line(aes(color='red', y = (2*x*cos(x^2))/(sin(x^2)))) + scale_x_continuous(breaks = seq(-1.5,1.5,.25)) + theme(legend.position = 'none')
+    ```
+
+10. Derivative of $f(x) = \sqrt{\frac{1+x}{1-x}}$
+
+    $$
+    \begin{align}
+    \text{Let }Q &= \frac{1+x}{1-x} \\
+    f'(x) &= \sqrt{Q} * Q' \\\\
+    Q' &= \frac{(1-x)\frac{d}{dx}(1+x) - (1+x)\frac{d}{dx}(1-x)}{(1-x)^2} \\
+    &= \frac{(1-x)*1 - (1+x)*-1}{(1-x)^2} \\
+    &= \frac{2}{(1-x)^2} \\\\
+    f'(x) &= \frac{d}{dx}\sqrt{Q} * Q'\\
+    &= \frac{1}{2}Q^{-\frac{1}{2}} * Q'\\
+    &= \frac{1}{2*\sqrt{Q}} * Q'\\
+    &= \frac{1}{2*\sqrt{\left(\frac{1+x}{1-x}\right)}} * \frac{2}{(1-x)^2} \\
+    &= \frac{1}{\sqrt{\left(\frac{1+x}{1-x}\right)}*(1-x)^2} \\\\
+    \text{Critical point(s): }  \\
+    \text{Singular point(s): } 1 \\
+    \end{align}
+    $$
+
+    ```{r}
+    library(ggplot2)
+    data.frame(x = seq(-1.25,1.25,.1)) |> ggplot(aes(x)) + geom_line(aes(y=sqrt((1+x)/(1-x)))) + geom_line(aes(color='red', y = 1/(sqrt((1+x)/(1-x))*(1-x)^2))) + scale_x_continuous(breaks = seq(-1.25,1.25,.25)) + theme(legend.position = 'none')
+    ```
+
+11. Consider $f(x) = -\frac{1}{2}x^2 + 6x - 13$.
+
+    i.  Give equation of tangent line at $(7, f(7))$.
+
+        $$
+        \begin{align}
+        \text{Derivative: }\\
+        f'(x) &= \frac{d}{dx}(-\frac{1}{2}x^2 + 6x - 13) \\
+        &= -x + 6 \\\\
+        \text{Slope at } x=7\text{: }\\
+        -7 + 6 &= -1 \\\\
+        y\text{ at }f(7)\text{:}\\
+        -\frac{1}{2}7^2 + 6*7 - 13 &= 4.5 \\\\
+        \text{Tangent formula: }\\
+        -1 &= \frac{\Delta y}{\Delta x} = \frac{y-4.5}{x-7} \\
+        y &= -1(x-7) + 4.5\\
+        &= 11.5 -x
+        \end{align}
+        $$
+
+    ii. What is $b$ such that $y = 2x + b$ is tangent to $f$?
+
+        I overthought this one, for hours... I assumed $y = 2x+b$ was tangent to *all of* $f$. I set this equation equal to $f$ and calculated $b$ as $\frac{1}{2}x^2 - 6x + 13$ and confirmed it has the same derivative, but the answer was denied. Finally I just plotted and adjusted, narrowed in on $-5$, tangent at $(4,3)$.
+
+        Given explanation: Knowing slope is 2, assume line is tangent to $f$ at $(p, f(p))$, then $f'(p) = 2$. Knowing derivative is $-x + 6$, this gives $-p + 6 = 2 \Rightarrow p = 4$. Since $f(4) = 3$, the line hits $(4,3)$, giving $2*4 + b = 3 \Rightarrow b = -5$.
+
+    iii. What is $c$ such that $y = \frac{1}{2}x + c$ is orthoganal to $f$?
+
+         Slope of given line is $\frac{1}{2}$. Orthoganal to that is the negative reciprocal, $-\frac{1}{\frac{1}{2}} = -2$. Thus the intersection should be at $-x + 6 = -2 \Rightarrow x = 8$, and $f(8) = 3$, so $(8,3)$. Then we have $\frac{1}{2}8 + c = 3 \Rightarrow c = -1$.
+
+         ```{r}
+         library(ggplot2)
+         data.frame(x = seq(7.5,8.5,.1)) |> ggplot(aes(x)) + geom_line(aes(y=(-1/2)* x^2 + 6*x - 13)) + geom_line(aes(color='red', y = .5*x - 1)) + scale_x_continuous(breaks = seq(7.5,8.5,.1)) + theme(legend.position = 'none')
+         ```
+
+12. Superhero flying:
+
+    $$
+    \begin{align}
+    \text{Flight path:}\\
+    f(x) &= \frac{1}{100}cos(\frac{1}{2}x + 3) + \frac{1}{4} \\\\
+    \text{Ground Distance (km):}\\
+    d(t) &= 200t - 100t^2 \\\\
+    \text{Vertical velocity?}\\
+    v(t) &= ? 
+    \end{align}
+    $$
+
+    First, derivative of path to determine max/min:
+
+    $$
+    \begin{align}
+    f'(x) &= \frac{d}{dx}\left(\frac{1}{100}cos(\frac{1}{2}x+3) + \frac{1}{4}\right) \\
+    &= \frac{1}{100}*\frac{d}{dx}\left(cos(\frac{1}{2}x+3)\right) \\
+    &= \frac{1}{100}*\frac{d}{dx}cos\left(\frac{1}{2}x+3\right)*\frac{d}{dx}\left(\frac{1}{2}x+3\right) \\
+    &= \frac{1}{100} * -sin\left(\frac{1}{2}x + 3\right)*\frac{1}{2} \\
+    &= -\frac{1}{200}sin\left(\frac{1}{2}x + 3\right) \\
+    &= \frac{-sin\left(\frac{1}{2}x + 3\right)}{200} \\
+    \text{Critical point(s):} \\
+    sin(0) &= 0 \Rightarrow x = -6 \pm 2k\pi \\
+    f(-6) &= 0.26 \text{ (max)}\\
+    f(-6 + 2*\pi) &= 0.24 \text{ (min)}\\\\
+    \text{Change Ratio:}\\
+    \frac{\Delta y}{\Delta x} &= \frac{.02}{2\pi} = \frac{.01}{\pi} = 0.03141593 \\\\
+    \text{Presumably then: }\\
+    \frac{.01}{\pi}(200t - 100t^2) \text{ (wrong)}
+    \end{align}
+    $$
+
+    Whoa, the sidekick formula increases from 0 to 1, and then becomes increasingly negative. Negative $x$ displacement makes no sense to me; presumably the domain is $[0,1]$.
+
+    $$
+    \begin{align}
+    \text{Derivative of distance:}\\
+    d'(t) &= \frac{d}{dt}(200t - 100t^2) \\
+    &= 200 - 200t\\\\
+    \text{Critical point(s): } 1 \\
+    \text{Agrees with apparent domain, } [0,1]
+    \end{align}
+    $$
+
+    Above is all wrong. Given explanation - think Chain Rule ($[f(g(x))]' = f'(g(x)) * g'(x)$), where $f$ is the flight path and $g$ is the sidekick formula.
+
+    Vertical displacement is:
+
+    $$
+    \begin{align}
+    y(t) &= \frac{1}{100}cos\left(\frac{1}{2}x(t) + 3\right) + \frac{1}{4} \\
+    &= \frac{1}{100}cos(100t - 50t^2 +3) + \frac{1}{4}
+    \end{align}
+    $$
+
+    Vertical velocity is the derivative:
+
+    $$
+    \begin{align}
+    v(t) = y'(t) &= -\frac{1}{100}sin(100t - 50t^2 + 3)(100-50*2t) \\
+    &= (t-1)sin(100t - 50t^2 + 3)
+    \end{align}
+    $$
+
+# Differential Equations
+
+One primary application of derivatives is in differential equations. These are equations that express relationships between unknown functions and their derivatives. Differential equations are very important in physics and engineering.
+
+As an example, to describe the temperature of coffee as a function of time, we know it cools down faster when hot and slower near room temperature. It seems reasonable to assume that the rate of cooling is proportional to the difference of the coffee- and room temperatures.
+
+Let $f(t)$ be a function describing the temperature difference at time $t$. This is the function we want to find.
+
+The rate of cooling is then the derivative of $f$. This is proportional to $f$ itself, so there is a constant $k$ such that $f'(t) = k*f(t)$. We do not know the value of $k$, but it should be negative as the difference in temperatures reduces over time. Let's assume $k = -2$.
+
+Now we want to find a function such that its derivative is -2 times the function itself: $f'(t) = -2f(t)$. We know an exponential function can achieve that, so we have $f(t) = e^{-2t}$, whose derivative is $-2e^{-2t}$, which equals $-2f(t)$.
+
+Note that there are infinite solutions to this, as we can incorporate a constant:
+
+$$
+\begin{align}
+f(t) &= Ce^{-2t} \\
+f'(t) &= -2Ce^{-2t} = -2f(t)
+\end{align}
+$$
+
+But there should be one $C$ for the cooling of our coffee. If the coffee maker produces at $80^\circ$ and room temperature is $20^\circ$, the difference is 60, and so $f(0) = 60$. Thus we have $f(0) = Ce^{-2*0} = 60 \Rightarrow C=60$, and thus $f(t) = 60e^{-2t}$.
