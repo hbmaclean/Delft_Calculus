@@ -1,54 +1,52 @@
 ---
-title: "Trigonometric Functions"
+title: "Week 2 - Trigonometric Functions"
 format: html
 editor: visual
 ---
 
-## 
+# Concept and Definition
 
 Trigonometric functions arise in periodic events such as acoustic and water waves and circular motions like Ferris wheels. When built in 2000, the London Eye was the largest Ferris wheel - with 32 closed cabins, 135 meters tall, and a thirty-minute rotation.
 
-Trig functions are usually defined as the ratio of two sides of a triangle. Given an acute ange $\theta$:
+Trig functions are usually defined as the ratio of two sides of a triangle. Given an acute angle $\theta$:
 
 -   its sine is the length of the opposite side divided by the length of the hypotenuse
 -   its cosine is the length of the adjacent side divided by the length of the hypotenuse
 -   its tangent is the length of the opposite side divided by the length of the adjacent side, or $sin(\theta)/cos(\theta)$
 
-Mnemonics: Sign makes a number its opposite. Cosigning is side-by-side.
+Mnemonics: Sign makes a number its opposite. Cosign adjacent to other signature.
 
 A complete rotation contains 360 degrees, equal to $2\pi*r$. Therefore, $1r = \left(\frac{180}{\pi}\right)^\circ$ and $1^\circ = \frac{\pi}{180r}$.
 
-For a sector of a circle, the length of its arc is $s = \frac{\theta}{2\pi}*2\pi r = r * \theta$
+For a sector of a circle, the length of its arc is $s = \frac{\theta}{2\pi}*2\pi r = r * \theta$. And thus, if radius is 1, then the arc $s$ is equal to the angle $\theta$ measured in radians.
 
-![](images/clipboard-2551319047.png){width="487"}
+![](images/clipboard-3643572851.png){width="477"}
 
 A circle with $r=1$ is called the unit circle. A triangle within the circle with the radius as hypotenuse, then $\sin(\theta)$ can be found at the vertical axis and $cos(\theta)$ at the horizontal axis, and $tan(\theta)$ is the height of a vertical line tangent to the circle to the extended hypotenuse.
 
-![](images/clipboard-3246932481.png){width="484"}
-
-![](images/clipboard-481782650.png){width="485"}
+![](images/clipboard-70891524.png){width="465"}
 
 Thus we can calculate common angles easily with a quarter unit circle, from $0\pi$ to $\frac{1}{2}\pi$:
 
-![](images/clipboard-2277221334.png){width="714"}
+![](images/clipboard-528313628.png){width="550"}
 
 Ah, ok. We know $1^\circ = \frac{\pi}{180}$, and thus for above, $30^\circ = \frac{30\pi}{180} = \frac{1}{6}\pi$. And knowing hypotenuse is 1, $\sin(\frac{1}{6}\pi) = \frac{opp}{1}$
 
 Above has $\frac{1}{3}\pi = 60^\circ$, here is $\frac{2}{3}\pi$ - note that cosine is negative on the x-axis:
 
-![](images/clipboard-1126986067.png){width="512"}
+![](images/clipboard-343992586.png){width="453"}
 
 Another example, for $\frac{5}{6}\pi$ we make a *counterclockwise* turn with an angle of $\frac{5}{6}\pi$
 
-![](images/clipboard-1757014157.png)
+![](images/clipboard-3459374548.png){width="780"}
 
 And for $-\frac{2}{3}\pi$, we rotate clockwise on the unit circle
 
-![](images/clipboard-1057413089.png){width="510"}
+![](images/clipboard-2296289161.png)
 
 Visualizing $cos$, $sin$, and $tan$:
 
-![](images/clipboard-3342596686.png){width="511"}
+![](images/clipboard-3339423973.png)
 
 Since the tangent is the quotient of sine and cosine, it is defined for all values for which the cosine is non-zero; and its graph has vertical asymptotes at the zeros.
 
@@ -97,7 +95,7 @@ Height of the Eye is 135 meters, which is $2r$ meters. Total distance is the cir
 
 In the following diagram, $h$ can be written as both $h = h_\alpha \sin(\alpha)$ and $h = h_\beta \sin(\beta)$
 
-![](images/clipboard-912192002.png){width="333"}
+![](images/clipboard-164719333.png){width="240"}
 
 **Given that, what are** $h_\alpha$ and $h_\beta$?
 
@@ -115,7 +113,7 @@ $\frac{a}{sin(\alpha)} = \frac{b}{sin(\beta)}$
 
 Recall Pythagorean theorem, $a^2 + b ^2 = c ^2$. In addition to calculating $h$, we can also derive the lengths of adjacent sides - the two portions of $c$: $b*cos(\alpha)$ and $a*cos(\beta)$, whose sum equals $c$.
 
-![](images/clipboard-3103284203.png)
+![](images/clipboard-2401963132.png)
 
 Given that, express $a^2$ in terms of $b$, $c$, and the angle $\alpha$.
 
@@ -123,36 +121,1552 @@ $a^2 = (c - b*cos(\alpha)) ^2 + (b*sin(\alpha)) ^2$
 
 # Rules of Calculation
 
-Looking back to a right triangle within a unit circle, with hypotenuse of 1, we can see that the sum of squares of its sides is 1. This holds for all real $\theta$.
+Looking back to a right triangle within a unit circle, with hypotenuse of 1, we can see that the sum of cosine squared and sine squared is 1. This holds for all real $\theta$.
 
-![](images/clipboard-2456798100.png){width="443"}
+![](images/clipboard-1628938938.png)
 
 From the unit circle it is clear that sine and cosine are periodic functions. If we rotate through the circle, we will encounter the same $\theta$.
 
-![](images/clipboard-1258920616.png){width="445"}
+![](images/clipboard-1673107764.png){width="377"}
 
 Thus, sine and cosine have a period of $2\pi$! This can be seen in their graphs as well:
 
-![](images/clipboard-743393864.png){width="576"}
+![](images/clipboard-1749356507.png){width="380"}
 
 Back to that triangle within a unit circle. The angle opposite $\theta$ is $\frac{\pi}{2} - \theta$, and for this angle the opposite- and adjacent sides are reversed, which shows that the cosine of one is equal to the sine of the other.
 
-![](images/clipboard-3214103630.png){width="506"}
-
 Now if we reflect that triangle along the x-axis, we can see that cosine of an angle and its reflection are equal ( $cos(-\theta) = cos(\theta)$ ); while sine of an angle and its reflection are opposite ( $-sin(\theta) = sin(-\theta)$ ).
 
-![](images/clipboard-791406037.png){width="508"}
+![](images/clipboard-2044186869.png)
 
 Graphs show that cosine is line-symmetric, and thus again even; and sine is point-symmetric in the origin, and thus odd:
 
-![](images/clipboard-2816040854.png)
+![](images/clipboard-2693584838.png){width="456"}
 
 ## Addition Formula
 
 Here we start again with a right triangle with hypotenuse of 1:
 
-![](images/clipboard-3885289211.png)
+![](images/clipboard-3461695917.png)
 
-Now we add an angle $\beta$ and two adjacent triangles:
+Now we add an angle $\beta$ and two adjacent triangles; and knowing from that opposite side can be written as $hyp*sin$ and adjacent side can be written as $hyp * cos$, we can derive the sides of the new triangles:
 
-![](images/clipboard-526833364.png)
+![](images/clipboard-3199212548.png){width="304"}
+
+![](images/clipboard-3280437961.png){width="322"}
+
+Finally we form a new triangle within, and can easily visualize sin and cosine of angle $\alpha + \beta$:
+
+![](images/clipboard-1017837427.png){width="484"}
+
+These are also know as double-angle formulas. They only hold for acute angles.
+
+Further, since $sin(-\beta) = -sin(\beta)$ and $cos(-\beta) = cos(\beta)$, we also have:
+
+$$
+\begin{align}
+sin(\alpha - \beta) = sin(\alpha)cos(\beta) - cos(\alpha)sin(\beta) \\
+cos(\alpha - \beta) = cos(\alpha)cos(\beta) + sin(\alpha)sin(\beta)
+\end{align}
+$$
+
+## Doubled Angle Formulas
+
+**NOTE: These do not necessarily hold for other multipliers!**
+
+$sin(2\theta) = 2sin(\theta)cos(\theta)$
+
+$cos(2\theta) = cos^2(\theta) - sin^2(\theta)$
+
+$cos(2\theta) = 2cos^2(\theta) - 1$
+
+$cos(2\theta) = 1 - 2sin^2(\theta)$
+
+$tan(2\theta) = \frac{2tan(\theta)}{1-tan^2(\theta)}$
+
+Explanation for $tan$:
+
+$$
+\begin{align}
+tan(2\theta) &= \frac{sin(2\theta)}{cos(2\theta)} \\
+&= \frac{2sin(\theta)cos(\theta)}{cos^2(\theta) - sin^2(\theta)} \\
+&= \left(\frac{2sin(\theta)cos(\theta)}{cos^2(\theta)-sin^2(\theta)}\right)
+\left(\frac{\frac{1}{cos^2(\theta)}}{\frac{1}{cos^2(\theta)}}\right) \\
+&= \frac{2*\frac{sin(\theta)}{cos(\theta)}}{1-\frac{sin^2(\theta)}{cos^2(\theta)}} \\
+&= \frac{2tan(\theta)}{1-tan^2(\theta)}
+\end{align}
+$$
+
+## Exercises - Rules of Calculation
+
+The reciprocals of $sin$, $cos$, and $tan$ are cosecant ( $csc(x) = \frac{1}{sin(x)}$ ), secant ( $sec = \frac{1}{cos(x)}$ ), and cotangent ( $cot(x) = \frac{1}{tan(x)}$ ).
+
+Using the above, simplify $csc^2(x) - cot ^2(x)$:
+
+$$
+\begin{align}
+\frac{1}{sin^2(x)} - \frac{1}{tan^2(x)} &= \\
+\frac{1}{sin^2(x)} - \frac{1}{\frac{sin^2(x)}{cos^2(x)}} &= \\
+\frac{1}{sin^2(x)} - \frac{cos^2(x)}{sin^2(x)} &= \\
+\frac{1-cos^2(x)}{sin^2(x)} &= \\
+1
+\end{align}
+$$
+
+Simplify $cot^2(x) + sec^2(x) - csc^2(x)$:
+
+My work. After stalling here, I derived $tan^2(x)$ by executing before- and after on an arbitrary $\frac{\pi}{6}$.
+
+$$
+\begin{align*}
+\frac{1}{tan^2(x)} + \frac{1}{cos^2(x)} - \frac{1}{sin^2(x)} &= \\
+\frac{1}{\frac{sin^2(x)}{cos^2(x)}} + \frac{1}{cos^2(x)} - \frac{1}{sin^2(x)} &= \\
+\frac{cos^2(x)}{sin^2(x)} + \frac{1}{cos^2(x)} - \frac{1}{sin^2(x)} &= \\
+\left(\frac{cos^2(x)}{sin^2(x)}\right)\left(\frac{cos^2(x)}{cos^2(x)}\right) +
+\left(\frac{1}{cos^2(x)}\right)\left(\frac{sin^2(x)}{sin^2(x)}\right) -
+\left(\frac{1}{sin^2(x)}\right)\left(\frac{cos^2(x)}{cos^2(x)}\right) &= \\
+\frac{cos^2(x)*cos^2(x) + sin^2(x) - cos^2(x)}{sin^2(x)*cos^2(x)} &= \\
+\frac{cos^2(x) + sin^2(x) - cos^2(x)}{sin^2(x)} &= \\
+\frac{sin^2(x)}{sin^2(x)}
+\end{align*}
+$$
+
+Given solution - need to study this further:
+
+$$
+\begin{align*}\cot^2(x)+\sec^2(x)-\csc^2(x)
+&=\frac{\cos^2(x)}{\sin^2(x)}+\frac{1}{\cos^2(x)}-\frac{1}{\sin^2(x)}\\
+&=\frac{1}{\cos^2(x)}-1=\frac{1-\cos^2(x)}{\cos^2(x)}\\
+&=\frac{\sin^2(x)}{\cos^2(x)}=\tan^2(x)\end{align*}
+$$
+
+For all $x \ne 0$, which of these is correct?
+
+-   $tan(-x) = tan(x)$ - i.e., $tan(x)$ is even
+-   $tan(-x) = -tan(x)$ - i.e., $tan(x)$ is odd \<------- visualize the point-symmetry
+-   $tan(x)$ is neither odd nor even
+
+Use the definition of $tan(x)$ to find an addition formula for $tan(\alpha + \beta)$. (Hint, divide numerator and denominator of $\frac{sin(\alpha + \beta)}{cos(\alpha + \beta)}$ by $cos(\alpha)cos(\beta)$.
+
+$$
+\begin{align}
+tan(\alpha + \beta) &= \frac{sin(\alpha + \beta)}{cos(\alpha + \beta)} \\
+&= \frac{sin(\alpha)cos(\beta) + sin(\beta)cos(\alpha)}{cos(\alpha)cos(\beta) - sin(\alpha)sin(\beta)} \\
+&= \frac{
+    \frac{sin(\alpha)cos(\beta) + sin(\beta)cos(\alpha)}{cos(\alpha)cos(\beta)}
+}{
+    \frac{cos(\alpha)(cos(\beta) - sin(\alpha)sin(\beta)}{cos(\alpha)cos(\beta)}
+}
+\end{align}
+$$
+
+Given answer:
+
+$$
+\begin{align*} \tan(\alpha+\beta)& =\frac{\sin(\alpha+\beta)}{\cos(\alpha+\beta)}  =\frac{\sin(\alpha)\cos(\beta)+\cos(\alpha)\sin(\beta)}{\cos(\alpha)\cos(\beta)-\sin(\alpha)\sin(\beta)}\\
+ & =\frac{\displaystyle\frac{\sin(\alpha)}{\cos(\alpha)}+\frac{\sin(\beta)}{\cos(\beta)}}{1-\displaystyle\frac{\sin(\alpha)\sin(\beta)}{\cos(\alpha)\cos(\beta)}}=\frac{\tan(\alpha)+\tan(\beta)}{1-\tan(\alpha)\tan(\beta)} \end{align*}
+$$
+
+From elsewhere: $tan(\alpha + \beta)$ is one of the most important trigonometry identities, also known as the tangent addition formulas, used to find the value of the tangent function for compound angles.
+
+$$
+\begin{align}
+tan(\alpha + \beta) &= \frac{sin(\alpha + \beta)}{cos(\alpha + \beta)} \\
+&= \frac{sin(\alpha)cos(\beta) + cos(\alpha)sin(\beta)}{cos(\alpha)cos(\beta) - sin(\alpha)sin(\beta)} \\
+&= \frac{
+    \frac{sin(\alpha)cos(\beta) + cos(\alpha)sin(\beta)}{cos(\alpha)cos(\beta)}
+}{
+    \frac{cos(\alpha)cos(\beta) -sin(\alpha)sin(\beta)}{cos(\alpha)cos(\beta)}
+}\\
+&= \frac{tan(\alpha) + tan(\beta)}{1- tan(\alpha)tan(\beta)}
+\end{align}
+$$
+
+# Catch the Mistake
+
+Given that $sin(127) \approx 0.8$, how can we calculate $cos(127)$?
+
+We know that $sin^2(x) + cos^2(x) = 1$, and thus $cos^2(127) \approx 1 - 0.8^2 \approx 1-0.64 \approx 0.36$, and thus $cos(127) \approx \sqrt{0.36} \approx 0.6$.
+
+But no - $cos(127) \approx 0.23$?!
+
+The reason is, the cosine for any angle between 90 and 270 degrees is negative. The mistake was assuming that $\sqrt{0.36} \approx 0.6$, where it could also be -0.6.
+
+# Composing Functions
+
+Function composition is analogous to an assembly line, e.g. $sin(x)$ followed by $x^2$ - notably different than $x^2$ followed by $sin(x)$.
+
+Composition is useful for breaking down complex formulas into simpler components. For example:
+
+$$
+\begin{align}
+x^8 + 2x^4 + 1 &= 4 \\
+&= (x^4)^2 + 2x^4 + 1 \\
+\end{align}
+$$
+
+And so we can write $f(x) = x^2 + 2x + 1$ and $g(x) = x^4$, and then $f(g(x))$
+
+Now solve $f(x) = 4 = x^2 + 2x + 1 = x^2 + 2x = 3$, $x = (-3, 1)$.
+
+Hence $f(g(x)) = 4$ when $g(x) = -3$ or $g(x) = 1$.
+
+Now solve $x^4 = -3$ and $x^4 - 1$. The first has no solution, the latter can be $\pm1$.
+
+Thus, $f(g(x)) = 4$ can be $\pm1$.
+
+## Exercises - Composing Functions
+
+Given two functions, $f(x) = x^2 + 2x + 3$ and $g(x) = 2x -3$, determine $f(g(x))$ and $g(f(x))$ in expanded form.
+
+$$
+\begin{align}
+f(g(x)) &= ax^2 + bx + c \\
+&= (2x-3)^2 + 2(2x-3) + 3 \\
+&= 4x^2 -12x + 9 + 4x -6 + 3 \\
+&= 4x^2 - 8x + 6
+\end{align}
+$$
+
+$$
+\begin{align}
+g(f(x)) &= ax^2 + bx + c \\
+&= 2(x^2 + 2x + 3) - 3 \\
+&= 2x^2 + 4x + 6 -3 \\
+&= 2x^2 + 4x + 3
+\end{align}
+$$
+
+The function $h(x) = f(g(x))$ is the composition of $f$ with $g$, with the following tables of inputs/outputs:
+
+|        |     |     |     |     |     |     |     |
+|--------|-----|-----|-----|-----|-----|-----|-----|
+| $x$    | -3  | -2  | -1  | 0   | 1   | 2   | 3   |
+| $f(x)$ | 2   | 1   | 2   | -1  | -3  | 1   | 3   |
+| $g(x)$ | -2  | -3  | 0   | -2  | 3   | 1   | 2   |
+
+Determine $h(0)$.
+
+When $g(0) = -2$, and $f(-2) = 1$, thus $h(0) = 1$.
+
+# Scaling and Translation {#scaling_and_translation}
+
+Linear functions such as $f(x) = 2x + 1$ can be viewed as having two characteristics - scaling (here, times 2) and translation (here, plus 1).
+
+![](images/clipboard-2746319381.png){width="487"}
+
+## Translation
+
+Here we consider the composition of $f(x) = x + 5$ and $g(x) = x^2$. Translation, in $f$, is plus 5.
+
+Composed as $f(g(x)) = x^2 + 5$, we get vertical translation - the graph of the composition is equivalent to the graph of $g$ with all points shifted up by 5.
+
+![](images/clipboard-3031313885.png){width="495"}
+
+Composed as $g(f(x)) = (x+5)^2$, the graph shifts to the *left* by 5. To the left is counterintuitive, but consider that $f(g(-5)) = g(0)$, and thus the composition is equal to the original shifted left.
+
+![](images/clipboard-3928004007.png){width="496"}
+
+## Scaling
+
+Here we consider $f(x) = 2x$ and $g(x) = sin(x)$. If we compose as $f(g(x)) = 2*sin(x)$, the composition graph is equal to the sin graph, but stretched vertically by a factor of two.
+
+![](images/clipboard-2877831087.png){width="492"}
+
+If we compose as $g(f(x)) = sin(2x)$, the composition graph is shrunk horizontally by a factor of two. We can see that $f(1) = g(2)$.
+
+In summary, we have:
+
+|            |                                     |
+|------------|-------------------------------------|
+| $g(x) + a$ | Vertical shift upwards              |
+| $g(x + a)$ | Horizontal shift left               |
+| $ag(x)$    | Vertical scaling by $a$             |
+| $g(ax)$    | Horizontal scaling by $\frac{1}{a}$ |
+
+![](images/clipboard-2875652226.png){width="469"}
+
+## Wave Function
+
+Wave functions of the form $f(t) = a*sin(bt + c) + d$ describe all sorts of waves, sound, light, water, etc.
+
+-   $a$ is the amplitude, or absolute distance from equilibrium
+-   $\frac{2\pi}{b}$ is the period - the time/distance between two maxima
+-   $c$ is the phase - the time at which the wave passes through equilibrium (and $\frac{c}{b}$ seems to be the distance from the y-axis for one equilibrium point?)
+-   $d$ is the average height - the equilibrium position of the wave
+-   $t$ represents time
+
+![](images/clipboard-764224467.png){width="494"}
+
+Later we learn that in terms of sound, pitch relates to period/frequency; and volume relates to amplitude.
+
+## Exercises - Scaling and Translation
+
+Graph of $f(x)$ is below:
+
+![](images/clipboard-1644354731.png){width="159"}
+
+Interactive Exercise - Use sliders to match blue and orange:
+
+![](images/clipboard-2024086371.png)
+
+![](images/clipboard-557988024.png)
+
+Below is the correct layout, with the explanation:
+
+-   $f(x) - 3$ shifts the graph -3 upwards or 3 downwards
+-   $f(x-3)$ shifts the graph 3 to the right
+-   $f(x/2)$ has the same graph of $f$ but scaled a factor of $\frac{1}{\frac{1}{2}} = 2$ horizontally
+-   $f(x)/2$ scales the graph a factor of $\frac{1}{2}$ vertically
+
+I got the latter two wrong; I found it difficult with vague feedback and without coordinates.
+
+# Exponential Functions
+
+Exponential functions describe many processes of growth and decay.
+
+![](images/clipboard-446842070.png){width="442"}
+
+A bank account interest accrual is a good example of exponential growth.
+
+Imagine a \$200 account gaining 3% interest.
+
+After year 1, $200*1.03=206$.
+
+After year 2, $206*1.03 = 212.18$. This can be written as $206*1.03^2$.
+
+After year 3, $206*1.03^3$.
+
+This is an exponential function, of the general form $a*b^x$, with $a$ some non-zero constant; $b$ a positive number called the base; and $x$ the exponent.
+
+In the above example, $x$ is a natural number because interest is received annually. But in general, we would like to define $b^x$ for any real number $x$.
+
+Referring to the rules of calculation for powers, we know that $b^{\frac{p}{q}} = (b ^p) ^{\frac{1}{q}} = \sqrt[q]{b^p}$
+
+![](images/clipboard-1883942285.png)
+
+What to do if $x$ is not rational? We can approximate with rational numbers.
+
+For example, if $x = 2^{\sqrt{2}}$, we can approximate $\sqrt{2} \approx 1.4 \approx \frac{14}{10}$. With more decimals, we get a better approximation:
+
+![](images/clipboard-4123544316.png){width="494"}
+
+## Exercises - Exponential Functions
+
+If a laboratory bacteria population starts at 100 and grows 5% per minute, what formula describes it? $100*1.05^t$
+
+For $x \in\mathbb R$, the equation $4 * 2^{x+1}$ is equal to:
+
+-   $2^{2x+2}$
+-   $8^x + 2$
+-   $2^{x+3}$ \<-------
+-   $2^x + 4$
+-   $8^{x+1}$
+
+Interactive - use sliders for $a$ and $b$ to line up all three graphs:
+
+![](images/clipboard-917368427.png){width="303"}
+
+Of shifting/scaling horizontally/vertically, what do adjusting $a$ and $b$ do?
+
+-   $a$ shifts horizontally
+-   $b$ scales vertically
+
+Values for $a$ and $b$ are?
+
+-   $a = 3$
+-   $b = 8$
+
+Correct values give two expressions of the same function. Which rule of calculation is illustrated by this equality?
+
+-   $v^x * v^y = v^{x+y}$ \<---- $8 * 2^x = 2^3 * 2^x = 2^{x+3}$
+-   $(v^x)^y = v^{xy}$
+-   $v^xw^x = (vw)^x$
+
+# Inverse Functions
+
+Fahrenheit \<=\> Celsius is an example of inverse functions. We use notation $f$ and $f^{inv}$, and the domain of $f$ is the range of $f^{inv}$, and the range of $f$ is the domain of $f^{inv}$.
+
+If $f(x) = 3x$, then $y = 3x$ and $x = \frac{1}{3}y$, and therefore $f^{inv}(x) = \frac{1}{3}x$.
+
+But, if $f(x) = x^2$, then $y = \pm\sqrt{x}$ - there are two solutions and we cannot know the original value of $x$.
+
+A function has an inverse only if, for each $y$ in the range of $f$, the equation $y = f(x)$ has exactly one solution. Functions with this property are called "injective".
+
+If a function is injective, its graph may have at most one point intersecting any horizontal line. (The "horizontal line test".)
+
+The graph of any $f^{inv}$ reflects the graph of $f$ along $y=x$.
+
+Via later exercises, we know:
+
+1.  For the inverse of a fraction, e.g. $f(x) = \frac{x+1}{x+2}$, follow this procedure:
+    i.  Replace $x$ with $y$: $\frac{y+1}{y+2}$
+    ii. Assign to the new $x$: $x = \frac{y+1}{y+2}$
+    iii. Multiply both sides by denominator: $x(y+2) = y + 1$
+    iv. Distribute: $xy + 2x = y + 1$
+    v.  Isolate the $y$-elements: $xy - y = -2x + 1$
+    vi. Factor–out $y$: $y(x -1) = -2x + 1$
+    vii. Isolate $y$ through division: $y = \frac{-2x + 1}{x-1}$
+2.  For logarithms,
+    -   $ln(e^a) = a$
+    -   If $x - 1 = ln(y)$, then $e^{x-1} = y$
+
+![](images/clipboard-4152190543.png){width="762"}
+
+## Exercises - Inverse Functions
+
+If $f(x) = x^2$ with domain $(-\infty, 0]$, what are its:
+
+-   inverse function? $f^{inv} = -\sqrt{x}$
+-   domain? $[0, \infty)$
+-   range? $(-\infty, 0]$
+
+Which of these are injective?
+
+![](images/clipboard-3668394551.png){width="276"}
+
+Clearly NOT $h$, a horizontal line; nor $g$; nor more subtly $j$ and $k$. Only $f$ (though I wondered about the mid section) and $i$.
+
+Determine inverse function of $f(x) = 4x + 1$:
+
+$$
+\begin{align}
+y &= 4x + 1 \\
+y - 1 &= 4x \\
+\frac{y -1}{4} &= x \\
+f^{inv}(x) &= \frac{x-1}{4}
+\end{align}
+$$
+
+# Logarithms
+
+Logarithms are inverses of exponentials: $log_b(x)$ is the inverse of $b^x$. E.g., $log_2(8) = log_2(2^3) = 3$ and $log_5(\frac{1}{5}) = log_5(5^{-1}) = -1$. (Answers the question, *to what exponent* does the given base gives $x$?)
+
+-   $y = log_b(x) \Longleftrightarrow x = b^y$
+-   Domain: $(0, \infty)$
+-   Range: $\rm I\!R$
+-   Common bases:
+    -   $b = 10$
+    -   $b = 2$
+    -   $b = \mathrm e = 2.71828...$ (Euler's number, an irrational number that is the value of $(1 + 1/n)^n$ as $n$ approaches $\infty$. It can also be expressed as the sum of $1/0! + 1/1! + 1/2! + 1/3! + ...$)
+
+Graphs of an exponential and its inverse logarithm are reflective:
+
+![](images/clipboard-3587945602.png)
+
+Note again that $b^x$ grows *faster* than $x^c$ for any positive number $c$.
+
+The *inverse* of $b^x$ grows *slower* than the inverse of $x^c$, which is $x^{\frac{1}{c}}$: $log_b(x)$ grows slower than $x^d$ for any $d > 0$.
+
+## Exercises - Logarithms
+
+$log_3(9) = ?$ : $3$
+
+$log_4(\frac{1}{2}) = ?$ : $(-\frac{1}{2})$
+
+$log_5(-25) = ?$ : does not exist
+
+$ln(1) = ?$ : $0$ ($ln$ implies base $e$, but whatever - any base to the zeroth power is 1)
+
+$log_2(8^A) = ?$ : $3A$ (simply, if $A=2$ and $log_2(8) = 3$ then $log_2(8^2) = 6 = 3*A$
+
+Adjust sliders such that $g(x) = log_2(x) + a$ and $h(x) = log_2(bx)$ match the graph of $log_2(x)$:
+
+![](images/clipboard-3589363008.png)
+
+Of shifting/scaling horizontally/vertically, what do adjusting $a$ and $b$ do?
+
+-   $a$ shifts vertically
+-   $b$ scales horizontally (for this, I referred to the rules of [Scaling and Translation](#scaling_and_translation), for visually it looked suspiciously like shifting vertically, just not as smooth - probably clearer if we could zoom out)
+
+Values for $a$ and $b$ are?
+
+-   $a = 2$
+-   $b = 4$
+
+Correct values give two expressions of the same function. Which rule of calculation is illustrated by this equality?
+
+-   $log_2(ab) = log_2(a) + log_2(b)$ \<------ $y = log_2(x) + 2 = log_2(4x) = log_2(x) + log_2(4)$
+-   $log_2(a^K) = K log_2(a)$
+-   $log_b(a) = \frac{log_c(a)}{log_c(b)}$
+
+## Logarithms with Base \< 1
+
+Until now, we defined $log_b(x)$ as the inverse function of $b^x$, where we assumed $b > 1$. But both are also defined for $0 < b < 1$.
+
+For example, recalling that a negative exponent gives the inverse, we know $(\frac{1}{2})^{-1} = 2$, and thus $log_{\frac{1}{2}}(2) = -1$.
+
+We can see that the graph still satisfies the horizontal line test, and so is injective and has the inverse function:
+
+![](images/clipboard-4264812716.png){width="130"}
+
+Since $log_b(x)$ is the inverse of $b^x$, the graph of $log_b(x)$ can be obtained by reflecting the graph of $b^x$ along the line $y = x$.
+
+![](images/clipboard-2589233581.png)
+
+Another way of obtaining the graph of $log_b(x)$ is by relating it to $log_{\frac{1}{b}}(x)$. Write $x$ as $b^a$ for some number $a$, then calculation rules give:
+
+$$
+x = b^a \Longleftrightarrow x^{-1} = (\frac{1}{b})^a
+$$
+
+And thus, using the definition of logarithm:
+
+$$
+log_b(x) = log_b(b^a) = a = log_{\frac{1}{b}}(\frac{1}{b})^a = log_{\frac{1}{b}}(x^{-1})
+$$
+
+And thus, taking the exponent out:
+
+$$
+log_b(x) = -log_{\frac{1}{b}}(x)
+$$
+
+![](images/clipboard-1452955738.png)
+
+# Rules of Calculation
+
+1.  **Logarithm of a product is a sum of logarithms.** Think of binary bits: Three bits gives $2^3$ permutations. Two more bits gives $2^2$ permutations. In total, there would be $2^5$ permutations. And, $log_2(2^3) = 3$ and $log_2(2^2) = 2$. In general:
+
+    $log_b(AB) = log_b(A) + log_b(B)$
+
+    $log_b(\frac{A}{B}) = log_b(A) - log_b(B)$
+
+2.  If now we have five bits and $2^5$ permuations; and take $K$ sets of those, we have $K*5$ bits with $2^{5^K}$ permutations.
+
+    $log_b(A^K) = K log_b(A)$
+
+3.  **Change of base formula.** With two symbols per box, we can make $2^N$ permutations with $N$ boxes. With ten symbols per box, we can make $10^N$ permutations. Suppose we want 100 permutations: In base 10 we need only two boxes; in base 2, we need seven boxes. For 1000 permutations, we need three base-10 boxes, and ten base-2 boxes. In all instances, the ratio is always very near 0.3! And this is great - to figure out $log_2(500)$ on a calculator with only $log_{10}$, we can do $log_{10}(500) / log_{10}(2)$ or in general:
+
+    $log_b(A) = \frac{log_c(A)}{log_c(b)}$
+
+## Exercises - Rules of Calculation
+
+For $A> 0$, the formula $log_3(9A)$ can be rewritten as? $2 + log_3(A)$
+
+For $A>0, B>0$, the formula $log_2(\frac{A^2}{B})$ can be rewritten as? $log_2(A^2) - log_2(B) = A - log_2(B)$, on second guess $2log_2(A) - log_2(B)$
+
+For $A>0$, the formula $log_{16}(A)$ can be rewritten as? $log_{16}(A) = \frac{log_2(A)}{log_2(16)} = \frac{log2(A)}{4}$
+
+$log_{\frac{1}{3}}(9) = ?$
+
+-   $log_{\frac{1}{3}}(9) = \frac{log_3(9)}{log_3(\frac{1}{3})} = \frac{2}{log_3(3^{-1})} = -\frac{2}{1}$
+-   Given solution - $log_{\frac{1}{3}}(9) = log_{\frac{1}{3}}(3^2) = log_{\frac{1}{3}}\left((\frac{1}{3}) ^{-2}\right) = -2$
+
+$log_{\frac{1}{3}}(log_{10}(1)) = ?$
+
+-   Does not exist - because $10^0 = 1$, but there is no exponent to bring $\frac{1}{3}$ to zero.
+
+$log_{\frac{1}{4}}(A) = ?$
+
+-   $-\frac{1}{2}log_2(A)$
+-   Given solution - use the **Change of Base** formula: $log_{\frac{1}{4}}(A) = \frac{log_2(A)}{log_2(\frac{1}{4})} = \frac{log_2(A)}{log_2(2^{-2})} = -\frac{log_2(A)}{2}$
+
+# Training Sequence
+
+## Trigonometry Definitions
+
+1.  Degrees vs. Radians
+    i.  $210^\circ = \frac{210\pi}{180} \approx 3.67$
+    ii. $110^\circ = \frac{110\pi}{180} \approx 1.92$
+    iii. $\frac{5}{6}\pi = \frac{150\pi}{180} = 150^\circ$
+    iv. $\frac{2}{3}\pi = \frac{120\pi}{180} = 120^\circ$
+2.  Given a right triangle with angle $\theta$ and adjacent side $a$, opposite side $b$, and hypotenuse $c$
+    i.  If $b=5$ and $\theta = \frac{\pi}{6}$, then what are:
+        -   $a$ : From unit circle, we know $cos(\frac{\pi}{6}) = \frac{1}{2}\sqrt{3} = \frac{a}{10}$, thus $a = 5*\sqrt{3}$
+
+            More easily, knowing $c$, we know $a^2 + 5^2 = 10^2$, thus $a = \sqrt{75}$
+
+        -   $c$ : From unit circle, we know $sin(\frac{\pi}{6}) = \frac{1}{2} = \frac{5}{c}$, thus $c=10$
+    ii. If $a = 4$ and $c = 5$, then what is
+        -   $sin(\theta)$ : We know $cos(\theta) = \frac{4}{5}$, and $cos(\theta)^2 + sin(\theta) ^2 = 1$, so $sin(\frac{4}{5})^2 = 1 - cos(\frac{4}{5})^2$
+
+            Hmm, that was wrong. More simply, given two sides we know $b=3$, so $sin(\theta) = \frac{3}{5}$
+
+## Rules of Calculation
+
+1.  Rewrite $cos^4(x)$ in terms of $sin(x)$, using $S$ to denote $sin(x)$:
+
+    Let's see, $cos^2(x) + sin^2(x) = 1$, so surely $cos^4(x) = 1 - sin^4(x)$? Wrong.
+
+    How about, $cos^4(x) = cos^2(x)*cos^2(x) = (1-sin^2(x))(1-sin^2(x)) = 1 -2sin^2(x) + sin^4(x)$
+
+2.  Use double-angle formula for cosine, to conclude that $cos(2x)$ equals (which of the following - may be multiple): \$cos(2x) =
+
+    i.  $2sin^2(x) -1$
+
+    ii. $1-2sin^2(x)$ \<-----
+
+    iii. $2cos^2(x)-1$ \<-----
+
+    iv. $1-2cos^2(x)$
+
+        Explanation:
+
+        $$
+        sin^2(x) + cos^2(x) = 1\\
+        \text{Therefore:}\\
+        sin^2(x) = 1 - cos^2(x)\\
+        cos^2(x) = 1 - sin^2(x)\\
+        \text{Therefore:}\\
+        cos(2x) = cos^2(x) - sin^2(x) = 1 - sin^2(x) - sin^2(x) = 1 - 2sin^2(x) \\
+        cos(2x) = cos^2(x) - sin^2(x) = cos^2(x) - (1 - cos^2(x)) = 2cos^2(x) - 1
+        $$
+
+3.  $sin(x)$ is equivalent to which of the following?
+
+    i.  $\frac{1}{2}sin(\frac{x}{2})cos(\frac{x}{2})$
+    ii. $cos^2(\frac{x}{2})-sin^2(\frac{x}{2})$
+    iii. $sin(\pi - x)$ \<--- $180^\circ$ rotation, same angle other side
+    iv. $sin(\frac{2x}{3})cos(\frac{x}{3})-cos(\frac{2x}{3})sin(\frac{x}{3})$
+
+4.  Use double-angle formula to find an equivalent for $tan(2x)$:
+
+    i.  $\frac{2\tan(x)}{1+tan^2(x)}$
+    ii. $\frac{2\tan(x)}{1-tan^2(x)}$
+    iii. $\frac{2\tan(x)}{tan^2(x)-1}$
+
+## Addition Formula
+
+1.  Take $\alpha = \frac{\pi}{6}$ and $\beta = \frac{\pi}{4}$ in the addition formulas for sine and cosine to find the exact values of:
+
+    i.  $sin(\frac{5\pi}{12}) = sin(\frac{\pi}{6} + \frac{\pi}{4}) = cos(\frac{\pi}{6})sin(\frac{\pi}{4}) + sin(\frac{\pi}{6})cos(\frac{\pi}{4})$
+    ii. $cos(\frac{5\pi}{12}) = cos(\frac{\pi}{6})cos(\frac{\pi}{4})-sin(\frac{\pi}{6})sin(\frac{\pi}{4})$
+
+2.  Given a function $Rsin(x + \varphi)$ which, for each value of $R$ and $\varphi$ can be written as $Rsin(x + \varphi) = Asin(x)+Bcos(x)$. If $R = \sqrt{2}$ and $\varphi = \frac{\pi}{4}$ we have:
+
+    $A = ?$
+
+    $B = ?$
+
+    Hmm.
+
+    $$
+    \begin{align}
+    \text{From the unit circle, we know:}\\
+    \frac{\pi}{4} &= 45^\circ\text{, for which } sin=cos=\frac{1}{2}\sqrt{2}\\\\
+    \text{And addtion rule:}\\
+    sin(x + \varphi) &= cos(x)sin(\varphi) + sin(x)cos(\varphi) \\\\
+    \text{Plugging in }R\text{ and }\varphi\text{:}\\
+    \sqrt{2}sin(x + \frac{\pi}{4}) &= Asin(x)+Bcos(x) \\
+    sin(x + \frac{\pi}{4}) &= \dfrac{Asin(x) + Bcos(x)}{\sqrt{2}}\\\\
+    \text{Thus I *think* we know, }\\
+    A &= \sqrt{2}*cos(\varphi) = \sqrt{2}*\frac{1}{2}*\sqrt{2}=1\\
+    B &= \sqrt{2}*sin(\varphi) = \sqrt{2}*\frac{1}{2}*\sqrt{2} = 1\\
+    \end{align}
+    $$
+
+3.  Rewrite $sin(3x)$ as a function of $sin(x)$, starting with $sin(3x) = sin(x + 2x)$. That should lead to $sin(3x) = Asin^3(x) + Bsin^2(x) + Csin(x) + D$, with:
+
+    i.  $A$
+
+    ii. $B$
+
+    iii. $C$
+
+    iv. $D$
+
+        $$
+        \begin{align}
+        sin(3x) &= sin(x + 2x) \\
+        &= cos(x)sin(2x) + sin(x)cos(2x) \\
+        &= cos(x)2sin(x)cos(x) + sin(x)(cos^2(x) - sin^2(x)) \\
+        &= cos^2(x)2sin(x) + sin(x)cos^2(x) - sin^3(x) \\
+        &= (1-sin^2(x))2sin(x) + sin(x)(1-sin^2(x)) - sin^3(x) \\
+        &= 2sin(x) - 2sin^3(x) + sin(x) - sin^3(x) - sin^3(x) \\
+        &= -4sin^3(x) + 3sin(x)
+        \end{align}
+        $$
+
+        Note: Double-angle and pythagorean:
+
+        $sin(2\theta) = 2sin(\theta)cos(\theta)$
+
+        $cos(2\theta) = cos^2(\theta) - sin^2(\theta)$
+
+        $cos^2(\theta) + sin^2(\theta) = 1$
+
+4.  If $sin(x) = \frac{5}{13}$ and $cos(y) = \frac{4}{5}$ for $x,y \in [0, \frac{\pi}{2}]$, then
+
+    i.  $sin(x+y)$
+
+        $$
+        \begin{align}
+        sin(x+y) &= sin(x)cos(y) + cos(x)sin(y) \\
+        sin(x) &= \frac{opp}{hyp} = \frac{5}{13} \\
+        cos(y) &= \frac{adj}{hyp} = \frac{4}{5} \\
+        cos^2(x) &= 1- (\frac{5}{13})^2 \\
+        sin^2(y) &= 1 - (\frac{4}{5})^2 \\
+        sin(x+y) &= \frac{5}{13}*\frac{4}{5} +
+            \left(\sqrt{1-(\frac{5}{13})^2}\right)
+            \left(\sqrt{1 - (\frac{4}{5})^2}\right) \\
+        &= 0.8615385
+        \end{align}
+        $$
+
+5.  Recall the addition formulas:
+
+    $$
+    \begin{align}
+    sin(\alpha + \beta) &= sin(\alpha)cos(\beta) + cos(\alpha)sin(\beta) \\
+    cos(\alpha + \beta) &= cos(\alpha)cos(\beta) - sin(\alpha)sin(\beta) \\\\
+    \text{ Thus, if we negate }\beta \text{ and use:}\\
+    sin(-\beta) &= -sin(\beta) \\
+    cos(-\beta) &= cos(\beta) \\\\
+    \text{We also have:}\\
+    sin(\alpha - \beta) &= sin(\alpha)cos(\beta) - cos(\alpha)sin(\beta) \\
+    cos(\alpha - \beta) &= cos(\alpha)cos(\beta) + sin(\alpha)sin(\beta)
+    \end{align}
+    $$
+
+    I'll also note, $cos(0) = 1$ and $sin(90) = 1$.
+
+    Given that, match the following formulas with these choices: a) $sin(\alpha) + sin(\beta)$, b) $sin(\alpha) - sin(\beta)$, c) $cos(\alpha) + cos(\beta)$, d) $cos(\alpha) - cos(\beta)$:
+
+    i.  $-2sin(\frac{\alpha+\beta}{2})sin(\frac{\alpha-\beta}{2}) = cos(\alpha) - cos(\beta)$
+
+    ii. $2sin(\frac{\alpha+\beta}{2})cos(\frac{\alpha-\beta}{2}) = sin(\alpha) + sin(\beta)$
+
+    iii. $2cos(\frac{\alpha+\beta}{2})cos(\frac{\alpha-\beta}{2}) = cos(\alpha) + cos(\beta)$
+
+    iv. $2cos(\frac{\alpha+\beta}{2})sin(\frac{\alpha-\beta}{2}) = sin(\alpha) - sin(\beta)$
+
+        Explanation:
+
+        $$
+        \begin{align}
+        \alpha \text{ and } \beta \text{ can be written as: }\\
+        \alpha &= \frac{\alpha + \beta}{2} + \frac{\alpha - \beta}{2} \\
+        \beta &= \frac{\alpha + \beta}{2} - \frac{\alpha - \beta}{2} \\\\
+        \text{Thus:}\\
+        sin(\alpha) + sin(\beta) &= sin\left(\frac{\alpha+\beta}{2}\right)cos\left(\frac{\alpha-\beta}{2}\right) 
+        + cos\left(\frac{\alpha+\beta}{2}\right)sin\left(\frac{\alpha-\beta}{2}\right) \\
+        &+ sin\left(\frac{\alpha+\beta}{2}\right)cos\left(\frac{\alpha-\beta}{2}\right) 
+        - cos\left(\frac{\alpha+\beta}{2}\right)sin\left(\frac{\alpha-\beta}{2}\right) \\
+        &= 2sin\left(\frac{\alpha+\beta}{2}\right)cos\left(\frac{\alpha-\beta}{2}\right) \\
+        \text{And similarly for the other equations}
+        \end{align}
+        $$
+
+## Applications
+
+1.  Imagine we hold a $30^\circ$ or $\frac{\pi}{6}$-radian triangle at eye-height, 1.5 meters, and step back until it aligns with the top of a tower; and then measure the distance ($x=30$ meters). What is the height of the tower?
+
+    $$
+    tan(\frac{\pi}{6}) = \frac{h}{30} \\
+    h = tan(\frac{\pi}{6})*30 + 1.5
+    $$
+
+2.  Similar to #1, but $45^\circ$ or $\frac{\pi}{4}$ radians, and $x = 30$.
+
+    $$
+    h = tan(\frac{\pi}{4}) * 30 + 1.5
+    $$
+
+3.  This one needs a picture. Here, $a=25$, $b=20$, $\alpha = \frac{\pi}{4}$, and $\beta = \frac{\pi}{6}$.
+
+    ![](images/clipboard-1004095183.png)
+
+    $$
+    sin(\frac{\pi}{4}) = \frac{h_1}{25} \\
+    h_1 = 25*sin(\frac{\pi}{4}) \\
+    sin(\frac{\pi}{6}) = \frac{h_2}{20} \\
+    h_2 = 20*sin(\frac{\pi}{6}) \\
+    h = 20*sin(\frac{\pi}{6}) + 25*sin(\frac{\pi}{4})
+    $$
+
+## Compositions
+
+1.  $f(x) = x^2$ and $g(x) = x-3$. Determine $g(f(x))$ in the form $ax^2 + bx + c$.
+
+    I over-thought this one for awhile - it is simply $1x^2 + 0x -3$.
+
+2.  $f(x) = x^2$ and $g(x) = 3x-5$. Determine $f(g(x))$ in the form $ax^2 + bx + c$.
+
+    $f(g(x)) = (3x -5)^2 = 9x^2 -30x + 25$
+
+3.  Graph of $f(x)$ and $g(x)$ is below.
+
+    ![](images/clipboard-731077076.png)
+
+    What is $f(g(2))$? $g(2) = -1$ and $f(-1) = 2$, so $f(g(2)) = 2$
+
+    What is $g(f(-2))$? $f(-2) \approx .5$ and $g(.5) \approx -.5$, so $g(f(-2)) \approx -.5$
+
+4.  Given the following table of values:
+
+    |        |     |     |     |     |     |     |     |
+    |--------|-----|-----|-----|-----|-----|-----|-----|
+    | $x$    | -3  | -2  | -1  | 0   | 1   | 2   | 3   |
+    | $f(x)$ | 5   | -1  | 3   | -1  | 2   | -4  | 1   |
+    | $g(x)$ | -1  | 2   | 1   | 0   | 6   | -3  | 2   |
+
+    What is $f(g(3))$? -4
+
+    What is $g(f(-1))$? 2
+
+5.  Given $f(x) = x^3$ and $h(x) = x^6 + 2$, write $h(x)$ as a composition of $f(x)$ and a polynomial $g(x)$.
+
+    $h(x) = ?$ "Composition of A and B" implies to me, $h(x) = f(g(x))$, but that was wrong?! $h(x) = g(f(x))$
+
+    $g(x) = ?$
+
+    $$
+    \begin{align}
+    f(x) &= x^3 \\
+    h(x) &= (x^3)^2 + 2 \\
+    g(x) &= x^2 + 2
+    \end{align}
+    $$
+
+6.  Given $f(x) = x^3$ and $h(x) = x^3 + 3x^2 + 3x + 1$, write $h(x)$ as a composition of $f(x)$ and a polynomial $g(x)$.
+
+    $h(x) = ?$ Same wording as above, better be $h(x) = g(f(x))$. Nope - $h(x) = f(g(x))$
+
+    $g(x) = ?$
+
+    $$
+    \begin{align}
+    f(x) &= x^3 \\
+    h(x) &= x^3 + 3x^2 + 3x + 1 \\
+    g(x) &= x + 1 \\
+    g(x)^3 &= (x+1)^3 \\
+    &= (x+1)(x+1)(x+1) \\
+    &= (x^2 +2x + 1)(x+1) \\
+    &= x^3 + 2x^2 + x + x^2 + 2x + 1\\
+    &= x^3 + 3x^2 + 3x + 1
+    \end{align}
+    $$
+
+## Exponential Functions
+
+1.  $3^3 * 9^7$ can be simplified to $3^A$ - what is $A$? 17
+
+2.  $\frac{1}{3}\sqrt{3}*9^3$ can be simplified to $3^A$ - what is $A$? 11/2
+
+    $$
+    \begin{align}
+    \frac{1}{3}\sqrt{3}*9^3 &= \frac{1}{3}\sqrt{3}*(3^2)^3 \\
+    &= \frac{1}{3}3^\frac{1}{2}*3^6 \\
+    &= \frac{1}{3}3^\frac{13}{2} \\
+    &= 3^{-1}*3\frac{13}{2} \\
+    &= 3^\frac{11}{2}
+    \end{align}
+    $$
+
+3.  $\frac{5^x\sqrt{5}}{5^y}$ can be simplified to $(\frac{1}{5})^A$, where $A$ depends on $x$ and $y$. What is $A$?
+
+    $$
+    \begin{align}
+    \frac{5^x\sqrt{5}}{5^y} &= \frac{5^x5^\frac{1}{2}}{5^y} \\
+    &= 5^{x-y+\frac{1}{2}} \\
+    &= (\frac{1}{5})^{-(x-y+\frac{1}{2})}
+    \end{align}
+    $$
+
+4.  $\frac{\frac{1}{8}(2\sqrt{2})^x}{(2^y)^3}$ can be simplified to $2^A$, where $A$ depends on $x$ and $y$. What is $A$?
+
+    $$
+    \begin{align}
+    \frac{\frac{1}{8}(2\sqrt{2})^x}{(2^y)^3} &= \frac{2^{-3}(2^\frac{3}{2})^x}{2^{3y}} \\
+    &= \frac{2^{\frac{3x}{2}-3}}{2^{3y}} \\
+    &= 2^{\frac{3x}{2} - 3y -3}
+    \end{align}
+    $$
+
+5.  Which is larger, $100^2$ or $2^{100}$? $2^100$
+
+6.  Below are graphs of $2^x$, $3^x$, $x^2$, and $x^3$ for \$x.
+
+    ![](images/clipboard-2865495962.png){width="308"}
+
+    $2^x$: h
+
+    $3^x$: i
+
+    $x^2$: f
+
+    $x^3$: g
+
+## Exponential Functions - Applications
+
+1.  Interest rate is 4%/year - what is it over 10 years? Not $1.04^{10}$, nor $.04^{10}$. Is this a trick question? The *rate* remains 4%.
+
+    What is it per month? $.04/12$
+
+    Ah, to the right of each answer is the percent sign... So $(1.04^10-1)*100\%$ over ten years, and $(.04/12*100)\%$ per month.
+
+2.  Tones in music correspond to different frequencies of sound waves. An octave corresponds to a factor of 2 in frequencies (e.g. 440Hz is A, as is 880Hz but an octave higher). In western music, an octave is divided into 12 notes. In tuning a piano, all 12 notes have the same ratio of frequencies; i.e. frequencies in Hz of 440 (A), 440$x$ (B flat), 440$x^2$ (B), 440$x^3$ (C), etc. One such multiplication by $x$ is called a semitone.
+
+    What value of $x$ should be used? Hmm. Surely not 0 or 1; nor 2 since that would equate A and B-flat. Guessed $\frac{1}{2}$ given "semi"tone; and since $\frac{1}{2}^4 *2 = \frac{1}{2}^3$, etc. but wrong. Guessed $\frac{3}{2}$ based on next question, wrong. Guessed $\frac{1}{6}$ for "factor 2 ... 12 notes".
+
+    $o = 440x^{0..11}$ and $440x^{11} = 880$, thus $x^11 = 2$, and $x = 2^{\frac{1}{11}}$. I like that - $440*(2^{\frac{1}{11}})^{11} = 880$. Wrong - maybe $\frac{1}{12}$? Yes, right thinking, wrong count - we want the *thirteenth* to equal twice the first - so $2^{\frac{1}{12}}$.
+
+3.  In general two notes sound harmonious if their ratio is simple. Two notes differ by a fifth if their frequency ratio is about $\frac{3}{2}$.
+
+    How many semitones difference should there be for a fifth when playing on a tuned piano?
+
+    My thoughts: *ANY* two notes, or successive ones? If successive, then for example 440 ought to jump to 660, which is near to $440*(2^{\frac{1}{12}})^7$ - so 7?
+
+    What is the actual ratio of the two frequencies differing by this number of semitones? If 7, then $440*(2^{\frac{1}{12}})^7 / 440 * (2^{\frac{1}{12}})^0 = 1.498307$
+
+## Inverse Functions
+
+1.  Determine inverse function of $f(x) = 3x + 5$:
+
+    $f^{inv} = \frac{1}{3}(x - 5)$
+
+2.  Determine inverse function of $f(x) = x^2 + 5, x \ge 0$:
+
+    $f^{inv} = \sqrt{x-5}$
+
+3.  Determine inverse function of $f(x) = \frac{x-1}{2x+3}$
+
+    $f^{inv} = ?$
+
+    $$
+    \begin{align}
+    f(x) &= \frac{x-1}{2x + 3}\\
+    &= \frac{y-1}{2y+3} \\
+    x(2y+3) &= y - 1 \\
+    2xy + 3x &= y - 1 \\
+    2xy - y &= -3x -1 \\
+    y(2x-1) &= -3x -1\\
+    y &= \frac{-3x -1}{2x-1}
+    \end{align}
+    $$
+
+4.  Pair up or say "none" these functions/inverses:
+
+    -   $f(x) = 2 + e^x \longleftrightarrow j$
+
+        $$
+        x = 2 + e^y \\
+        ln(x) -2 = y
+        $$
+
+    -   $g(x) = e^{x-1} \longleftrightarrow h$
+
+        $$
+        x = e^{y-1} \\
+        ln(x) = ln(e^{y-1}) \\
+        \text{Logarithm property says, }ln(e^a) = a\text{, so:}
+        ln(x) = y-1 \\
+        y = ln(x) + 1
+        $$
+
+    -   $h(x) = 1 + ln(x) \longleftrightarrow g$
+
+        $$
+        x = 1 + ln(y) \\
+        x - 1 = ln(y) \\
+        e^{x-1} = y
+        $$
+
+    -   $i(x) = 2 + ln(x) \longleftrightarrow none$
+
+        $$
+        x = 2 + ln(y) \\
+        x - 2 = ln(y) \\
+        e^{x-2} = y
+        $$
+
+    -   $j(x) = ln(x-2) \longleftrightarrow f$
+
+        $$
+        e^x = y-2 \\
+        y = e^x + 2
+        $$
+
+    -   $k(x) = x \longleftrightarrow k!!$
+
+    -   $l(x) = \frac{1}{x+1} \longleftrightarrow p$
+
+        $$
+        x(y+1) = 1 \\
+        xy + x = 1 \\
+        xy = 1 - x \\
+        y  = \frac{1-x}{x}
+        $$
+
+    -   $m(x) = \frac{1}{x+2} \longleftrightarrow none$
+
+        $$
+        x(y+2) = 1 \\
+        xy + 2x = 1\\
+        xy = -2x + 1 \\
+        y = \frac{-2x + 1}{x}
+        $$
+
+    -   $n(x) = \frac{x+1}{x+2} \longleftrightarrow q$
+
+        $$
+        x(y+2) = y+1 \\
+        xy + 2x = y + 1 \\
+        xy - y = -2x + 1 \\
+        y(x-1) = -2x + 1 \\
+        y = \frac{-2x + 1}{x-1}
+        $$
+
+    -   $p(x) = \frac{1-x}{x} \longleftrightarrow l$
+
+        $$
+        xy = 1-y \\
+        xy + y = 1\\
+        y(x+1) = 1\\
+        y = \frac{1}{x+1}
+        $$
+
+    -   $q(x) = \frac{2x-1}{1-x} \longleftrightarrow n$
+
+        $$
+        x(1-y) = 2y-1 \\
+        x - xy = 2y -1 \\
+        x + 1 = xy + 2y \\
+        x + 1 = y(x + 2) \\
+        y = \frac{x+1}{x+2}
+        $$
+
+## Logarithms
+
+Recalling, log of a product can be rewritten as a sum of individual logs; a log of a ratio as a subtraction of individual logs; and a log of an exponential can be rewritten as a multiplication of the log of the base, times the exponent. We also see a neat trick, $log_8(x) = \frac{1}{3}log_2(x)$ (because $2^3 = 8$, etc. for other log bases.)
+
+1.  Rewrite $log_3(3A^3B)$ for $A>0, B>0$:
+    -   $2 + log_3(A) + log_3(B)$
+    -   $3 + 3log_3(A) + 3log_3(B)$
+    -   $27 + 3*3^A + 3^B$
+    -   $1 + 3log_3(A) + log_3(B)$ \<---- $log_3(3) = 1; log_3(A^3) = 3log_3(A); ...$
+2.  Rewrite $log_4\left(\frac{2^{KL}}{A^5}\right)$ for $A>0, K>0, L>0$:
+    -   $\sqrt{KL} + 5log_4(A)$
+
+    -   $16KL + 5log_4(A)$
+
+    -   $\frac{1}{2}KL - 5log_4(A)$ \<----
+
+    -   $\sqrt{K+L} - 5log_4(A)$
+
+        $$
+        \begin{align}
+        log_4(\frac{2^KL}{A^5}) &= log_4(2^KL) - log_4(A^5) \\
+        &= KLlog_4(2) - 5log_4(A) \\
+        &= \frac{1}{2}KL - 5log_4(A)
+        \end{align}
+        $$
+3.  Rewrite $8ln(A) - 2K$ for $A>0, K \in \rm I\!R$
+    -   $ln(A^8e^{-2k})$ \<------
+
+    -   $ln(8^A2e^K)$
+
+    -   $ln(A^8e^-K-2)$
+
+    -   $ln(A^8e^{2k})$
+
+        $$
+        \begin{align}
+        8ln(A) - 2K &= ln(A^8) - 2K \\
+        &= ln(A^8e^{-2K})
+        \end{align}
+        $$
+4.  Rewrite $log_8(AB^K)$ for $A>0, B>0, K \in \rm I\!R$:
+    -   $3log_2(A) + 3Klog_2(B)$
+
+    -   $\frac{3}{log_2(A)} + \frac{3K}{log_2(B)}$
+
+    -   $\frac{1}{3}log_2(A) + \frac{K}{3}log_2(B)$ \<-----
+
+    -   $\frac{1}{3log_2(A)} + \frac{K}{3log_2(B)}$
+
+        $$
+        \begin{align}
+        log_8(AB^K) &= log_8(A) + Klog_8(B) \\
+        &= \frac{1}{3}log_2(A) + \frac{K}{3}log_2(B)
+        \end{align}
+        $$
+5.  The Ehrenberg Relation predicts a relation between weight $w$ in kilograms and height $h$ in meters of a child between 5 and 13: $ln(w) = ln(2.4) + 1.84h$.
+    i.  Given age 8 and height 1.3m, what is the estimated weight?
+
+        $$
+        \begin{align}
+        ln(w) &= ln(2.4) + 1.84*1.3 \\
+        &= 0.8754587 + 2.392 \\
+        &= 3.267469 \\
+        \exp(3.267469) &= 26.24482
+        \end{align} 
+        $$
+
+    ii. Given age 10 and weight 32kg, what is the estimated height?
+
+        $$
+        \begin{align}
+        ln(32) &= ln(2.4) + 1.84h \\
+        ln(32) - ln(2.4) &= 1.84h \\
+        \frac{ln(32) - ln(2.4)}{1.84} &= h \\
+        h &= \frac{ln(32/2.4)}{1.84} \\
+        &= 1.407754
+        \end{align}
+        $$
+
+    iii. The weight can be written as $w = Ab^h$. What are $A$ and $b$?
+
+         Well, given two known points $(26.24482, 1.3), (32, 1.407754)$, slope is \$\\frac{1.407754-1.3}{32-26.24482} =
+
+         $$
+         \begin{align}
+         ln(w) &= ln(2.4) + 1.84h \\
+         ln(Ab^h) &= ln(2.4) + 1.84h \\
+         ln(Ab^h) - ln(2.4) &= 1.84h \\
+         ln(A) + h*ln(b) - ln(2.4) &= 1.84h \\
+         h(ln(b) - 1.84) &= ln(2.4) - ln(A) \\
+         \text{Plug in h=1.30?}\\
+         ln(A) + 1.3*ln(b) - ln(2.4) &= 1.84*1.3 \\
+         ln(A) + 1.3*ln(b) - 0.8754687 &= 2.392 \\
+         ln(A) + 1.3*ln(b) &= 3.267469 \\
+         \text{To stay under 3.26: } 0 < A < 27, 0 < b < 13 \\
+         \text{Gah, let's try known examples:}\\
+         ln(26.24482) &= Ab^{1.3} \\
+         ln(32) &= Ab^{1.407754}
+         \end{align}
+         $$
+
+         Hm. To help, I plotted. y-intercept is, obviously in hindsight, $x=2.4$.
+
+         ```{r}
+         data.frame(x = seq(10,50,1)) |>
+             ggplot(aes(x, y = log(x/2.4)/1.84)) +
+             geom_point() +
+             geom_line() +
+             labs(x = 'Weight(kg)', y = 'Height(m)')
+         ```
+
+         On a lark, what if I assume $A=2.4$, then: $32 = 2.4*b^{1.407754}$, and $32/2.4 = b^{1.407754}$, and $\frac{32}{2.4} = b^{1.407754}$, and $b = \frac{32}{2.4}^{\frac{1}{1.407754}} = 6.296537$. Or the other example, $26.24482 = 2.4 * b^{1.3}$, thus $\frac{26.24482}{2.4} = b^{1.3}$ and $b = \frac{26.24482}{2.4}^{\frac{1}{1.3}} = 6.296538$ . Does it work? Yes!
+
+         Given explanation - very different!
+
+         $$
+         \begin{align}
+         ln(w) &= ln(2.4) + 1.84h \\
+         w &= e^{ln(2.4) + 1.84h} \\
+         &= 2.4(e^{1.84})^h \\
+         &= 2.4 * 6.3^h
+         \end{align}
+         $$
+
+## Application - Log Plots
+
+For a function $f(x)$, a log plot of $f$ is a graph of the logarithm of $f$ versus $x$. This is particularly useful for exponential functions, for which log plots look like straight lines.
+
+1.  If $f(x) = A*B^x$, then $log(f(x))$ can be written as $a * x + b$. What then is the relationship between $a$ and $b$ on the one hand and $A$ and $B$ on the other?
+
+    -   $a = ln(B)$
+
+    -   $b = ln(A)$
+
+        $$
+        log(AB^x) = log(A) + x*log(B) = log(B) * x + log(A)
+        $$
+
+2.  Suppose a radioactive sample whose radioactivity $R$ as a function of time $t$ can be modeled as $R(t) = A*B^t$ for some constants $A$ and $B$. To determine $A$ and $B$, you do some measurements and come up with:\
+    ![](images/clipboard-3008675879.png){width="330"}\
+    Now you have to find the exponential function that best fits these points, which due to measurement error can be hard! But we know that in a log plot, the points should lie on a straight line, which is easier to fit.\
+    ![](images/clipboard-3305657519.png){width="326"}\
+    In the second graph, the best fitting line is drawn. Which formula best describes it?
+
+    -   $-1.121 * x + 2.320$
+    -   $-0.372 * x + 1.595$
+    -   $0.063 * x - 1.595$
+    -   $-1.121 * x + 1.590$
+    -   $-0.372 * x + 2.320$ \<--- Knowing 2 points $\approx (0,2.25), (6.25,0)$
+    -   $-0.063 * x + 2.320$
+
+3.  Given the results of #2, what are the values of $A$ and $B$ such that $R(t) = A*B^t$?
+
+    $A = exp(2.320) \approx 10.175$
+
+    $B = exp(-0.372) \approx .689$
+
+I am awed by this. Here is the Ehrenberg weight function, plotted as-is and via log. (Works for other log bases too.)
+
+```{r}
+library(ggplot2)
+library(gridExtra)
+p1 <- data.frame(x = seq(10,50,1)) |>
+    ggplot(aes(x, y = (10.175 * .689^x))) +
+    geom_point() +
+    geom_line() +
+    labs(x = 'Weight(kg)', y = 'Height(m)')
+p2 <- data.frame(x = seq(10,50,1)) |>
+    ggplot(aes(x, y = log(10.175 * .689^x))) +
+    geom_point() +
+    geom_line() +
+    labs(x = 'Weight(kg)', y = 'Height(m)')
+grid.arrange(p1, p2, ncol = 2)
+```
+
+# Homework
+
+## Trigonometric Functions I
+
+1.  If $0 < \theta < \frac{\pi}{2}$ and $sin(\theta) = \frac{3}{5}$ then:
+
+    i.  $cos(\theta) = .8$ (Argh, calculated correctly but typed in .64 instead of .8!)
+
+    ii. $tan(\theta) = .75$
+
+        $$
+        \text{Without looking:}\\
+        cos(\theta)^2 =  1 - (\frac{3}{5})^2 = .64\\
+        cos(\theta) = sqrt(.64) = .8\\
+        tan(\theta) =  \frac{.6}{.8} = .75
+        $$
+
+2.  If $\frac{\pi}{2} < \theta < \pi$ and $sin(\theta) = \frac{12}{13}$ then:
+
+    i.  $cos(\theta) = -0.3846154$
+
+    ii. $tan(\theta) = -2.4$
+
+        $$
+        \begin{align}
+        cos(\theta)^2 &= 1 - (\frac{12}{13})^2 \\
+        cos(\theta) &= sqrt(1 - (\frac{12}{13})^2) \\
+        tan(\theta) &= \frac{\frac{12}{13}}{sqrt(1 - (\frac{12}{13})^2)}
+        \end{align}
+        $$
+
+        NOTE: I noted the angle GREATER than $\frac{\pi}{2}$ but the overlooked it; and needed the second attempt to negate.
+
+3.  Which functions apply to the following graph?\
+    ![](images/clipboard-1954081378.png)
+
+    i.  $cos(\frac{1}{2}x - \pi)$
+    ii. $cos(\frac{1}{2}(x-\pi))$ \<-----
+    iii. $sin(\pi - \frac{1}{2}x)$ \<----
+    iv. $sin(\frac{1}{2}x - \pi)$
+
+    NOTE: I got this one wrong. First I noted point-symmetry, indicating sine. Then I plotted each; and noted the upward approach to 0,0. Argh! I did not plot the second one! The given explanation:
+
+    $$
+    \begin{align}
+    cos(\frac{1}{2}x - \pi) &= -cos(\frac{1}{2}x) \\
+    cos(\frac{1}{2}(x-\pi)) &= sin(\frac{1}{2}x) \\
+    sin(\pi - \frac{1}{2}x) &= sin(\frac{1}{2}x) \\
+    sin(\frac{1}{2}x = \pi) &= -sin(\frac{1}{2}x) \\
+    \text{Upward wave through origin looks like a sine function;}\\
+    \text{Horizontal scale can not be determined from the picture,}\\
+    \text{so 1/2x instead of x is no obstruction}
+    \end{align}
+    $$
+
+4.  Consider a function $Rcos(x + \varphi)$ that can be expressed as $Asin(x) + Bcos(x)$. If $R = 2\sqrt{3}$ and $\varphi = \frac{\pi}{6}$ we have:
+
+    i.  $A = -\sqrt{3} = -1.732051$
+
+    ii. $B = 3$
+
+        $$
+        \begin{align}
+        Rcos(x + \varphi) &= Asin(x) + Bcos(x) \\
+        &= Rcos(x)cos(\varphi) - Rsin(x)sin(\varphi) \\
+        A &= -Rsin(\varphi) = -2\sqrt{3}sin(\frac{\pi}{6}) = -1.732051\\
+        B &= Rcos(\varphi) = 2\sqrt{3}cos(\frac{\pi}{6}) = 3\\\\
+        \text{Let's just say x = 15...}\\
+        2\sqrt{3}cos(15 + \frac{\pi}{6}) &= Asin(15) + 3cos(15) \\
+        -3.405395 &= A*0.6502878 + -2.279064 \\
+        -1.126331 &= A*0.6502878 \\
+        A &= \frac{-1.126331}{0.6502878} = -1.73205 \\\\
+        \text{How about x = 32...}\\
+        2\sqrt{3}cos(32 + \frac{\pi}{6}) &= Asin(32) + 3cos(32) \\
+        1.547571 &= A*0.5514267 + 2.50267 \\
+        4.050241 &= A*0.5514267 \\
+        A &= \frac{4.050241}{0.5514267} = 7.345022
+        \end{align}
+        $$
+
+        For this, I plotted - but until the end, I omitted $R$ from the first function! In the end, I WAS correct, but put in the decimal value, and only two digits.
+
+        ```{r}
+        data.frame(x = seq(0,90,.1)) |>
+            ggplot(aes(x)) +
+            geom_line(aes(color = 'blue', y = 2*sqrt(3)*cos(x + pi/6))) +
+            geom_line(aes(color = 'red', y = -sqrt(3)*sin(x) + 3*cos(x)))
+        ```
+
+        The given explanation:
+
+        Use addition formula to find that $cos(x + \varphi) = cos(x)(cos(\varphi) - sin(x)sin(\varphi)$. That implies that $A = -Rsin(\varphi)$ and $B = Rcos(\varphi)$. Given $R = 2\sqrt{3}$ and $\varphi = \frac{\pi}{6}$, we have:
+
+        -   $A = -2\sqrt{3}sin(\frac{\pi}{6}) = -2\sqrt{3}*\frac{1}{2} = -\sqrt{3}$
+        -   $B = 2\sqrt{3}cos(\frac{\pi}{6}) = 2\sqrt{3}*\frac{1}{2}\sqrt{3} = 3$
+
+## Trigonometric Functions II
+
+1.  Write $sin^4(x)$ only in terms of $cos(x)$, using C to denote $cos(x)$: $(1-C^2) ^2$
+
+2.  Write $4sin(x)cos(x)-sin^2(x)$ only in terms of $sin(2x)$ and $cos(2x)$, leading to $a + b*cos(2x) + c*sin(2x)$
+
+    a.  -.5
+
+    b.  .5
+
+    c.  2
+
+        $$
+        \begin{align}
+        4*sin(x)cos(x) - sin^2(x) &= 2(2sin(x)cos(x)) - sin^2(x) \\
+        &= 2sin(2x) - sin^2(x) \\
+        &= 2sin(2x) - \frac{1-cos(2x)}{2} \\
+        \text{Had to research for another equivalent:}\\
+        sin^2(x) &= \frac{1-cos(2x)}{2}
+        \end{align}
+        $$
+
+        Oh my! I guessed by graphing. Felt confident in $c=2$, not $a$ nor $b$. In fact $a=-.5, b=.5$ did not look perfect graphed; but I was willing to check if $c$ was right. Given explanation:
+
+        $$
+        \begin{align}
+        sin(2x) &= 2sin(x)cos(x) \\
+        cos(2x) &= cos^2(x)-sin^2(x) \\
+        sin^2(x) + cos^2(x) &= 1\\
+        \text{Thus:}\\ 
+        cos(2x) &= cos^2(x) - sin^2(x) = 1- 2sin^2(x)\\
+        \text{And therefore: }\\
+        4sin(x)cos(x) - sin^2(x) &= 2sin(2x) + \frac{1}{2}(1 - 2sin^2(x)) - \frac{1}{2}\\
+        &= -\frac{1}{2} + 2sin(2x) + \frac{1}{2}cos(2x)
+        \end{align}
+        $$
+
+3.  Write $cos(3x)$ as a function of $cos(x)$ (starting with $cos(x + 2x)$), leading to $A(cos(x))^3 + B(cos(x)) ^2 + Ccos(x) + D$
+
+    A.  4
+
+    B.  0
+
+    C.  -3 (Goofed initially, forgot the negative sign!)
+
+    D.  0
+
+        $$
+        \begin{align}
+        cos(3x) &= cos(2x + x) \\
+        &= cos(2x)cos(x) - sin(2x)sin(x) \\
+        &= cos(x)(cos^2(x)-sin^2(x)) - sin(x)(2sin(x)cos(x)) \\
+        &= cos^3(x) - cos(x)sin^2(x) - 2sin^2(x)cos(x) \\
+        &= cos^3(x) - cos(x)(1-cos^2(x)) - 2(1-cos^2(x))cos(x) \\
+        &= cos^3(x) - cos(x) + cos^3(x) - 2cos(x) + 2cos^3(x)\\
+        &= 4cos^3(x) - 3cos(x)
+        \\\\
+        \text{Relevant equivalents: }\\
+        sin(x)^2 + cos(x)^2 &= 1 \\
+        cos(2x) &= cos^2(x)-sin^2(x) \\
+        sin(2x) &= 2sin(x)cos(x) \\
+        \end{align}
+        $$
+
+## Compositions
+
+1.  Given $f(x) = x^2 - 3x + 5$ and $g(x) = 4x + 3$, determine both $f(g(x))$ and $g(f(x))$ in expanded form:
+    i.  $f(g(x)) = ax^2 + bx + c = 16x^2 + 12x + 5$
+
+        $$
+        \begin{align}
+        (4x+3)^2 - 3(4x+3) + 5 &= (4x+3)(4x+3) - 3(4x+3) + 5 \\
+        &= 16x^2 + 12x + 12x + 9 - 12x - 9 + 5 \\
+        &= 16x^2 +12x + 5
+        \end{align}
+        $$
+
+    ii. $g(f(x)) = kx^2 + lx +m = 4x^2 - 12x + 23$
+
+        $$
+        4(x^2 - 3x + 5) + 3 = 4x^2 - 12x +20 + 3
+        $$
+
+## Scaling and Shifting
+
+1.  The graph of $f(x) = 3 + 5sin(2x + 3)$ is scaled vertically by a factor of 2 and horizontally by a factor of 2, then shifted 3 to the right and 3 down - via $g(x) = a + bsin(cx+d)$, with $b > 0, c > 0, 0 \le d < 2\pi c$, where:
+    a.  shift down 3: $a=-3 + 3$ \<--- wrong, 0
+
+    b.  scale vertically 2: $b = 2 * 5$
+
+    c.  scale horizontally 2: $c = \frac{1}{2} * 2$
+
+    d.  shift right 3: $d = -3 + 3$
+
+        ```{r}
+        data.frame(x = seq(-10,10,.1)) |>
+            ggplot(aes(x)) +
+            geom_line(aes(y = 3 + 5*sin(2*x+3))) +
+            geom_line(aes(color='red', y = 0 + 10*sin(1*x + 0)))
+        ```
+
+        Explanation:\
+        Scalings turn $f(x)$ into $2f(x/2)$, which is then $6 + 10sin(x+3)$.\
+        Both tanslations subtract 3, yielding $g(x) = 2f((x-3)/2) - 3 = 3 + 10sin(x)$
+2.  Recalling that $e^ae ^b = e ^{a+b}$ and $(e^a) ^b = e ^{ab}$, let $f(x) = e^x$ and $g(x) = e^6(e ^x) ^2$. The graph of $g$ can be obtained from the graph of $f$ by applying the following transformations:
+    -   horizontal scaling from y-axis by factor of 1/2 followed by horizontal shift 3 to the left \<----
+
+    -   horizontal scaling from y-axis by factor of 2 followed by horizontal shift of 3 to the left
+
+    -   horizontal scaling from y-axis by factor of 1/2 followed by a horizontal shift of 6 to the left
+
+    -   horizontal scaling from y-axis by factor of 2 followed by a horizontal shift of 6 to the left
+
+        I was wrong, guessed the third based on "factor of 2" being actual $\frac{1}{2}$, and then the "plus 6".
+
+        Explanation: $e^6(e^x)^2 = e^6e^{2x} = e^{2x+6} = e^{2(x+3)}$. Now, starting with $f(x) = e^x$, horizontal scaling by factor of $\frac{1}{2}$ gives $e^{2x}$, after which shifting left 3 gives $e^{2(x+3)}$. (Were we taught that - the subtle difference between $2x+3$ and $2(x+3)$?)
+3.  The graph of $f(x) = x^2$ is shifted vertically 3 up, then scaled vertically by a factor of 5, via $ax^2 + bx + c$, with
+    a.  5
+
+    b.  0
+
+    c.  15
+
+        Vertically up is plus 3. Scaled by factor of 5 is $\frac{1}{5}$. So I think $x^2$ becomes $x^2 + 3$, then $(x^2+3)\frac{1}{5} = \frac{1}{5}x^2 + \frac{3}{5}$.
+
+        But, $\frac{1}{5}x^2 + 0x + \frac{3}{5}$ is wrong, other than $b=0$. How else could it be written?
+
+        MISTAKE! Vertical scaling is as-is; *horizontal* scaling is the reciprocal. Right idea other than that.
+
+## Exponential Functions
+
+1.  Simplify $2^3 * 4^5 = 2^x$, i.e., $x = 13$
+
+    $2^3 *4^5 = 2^3 *2^5 *2^5 = 2^{3+5+5}$
+
+2.  Simplify $4^3 * 16^2 * 4 = 2^y$, i.e., $y=?$
+
+    $4^3 *16^2 *4 = 4^3 * 4^2 * 4^2 * 4^1 = 4^8 = 2^{16}$
+
+3.  Interactive - map functions to graphs:\
+    ![](images/clipboard-3682932186.png){width="361"}
+
+## Inverse Functions
+
+Invert the following:
+
+f.  $f(x) = e^{2x+1}$
+
+    $$
+    x = e^{2y + 1} \\
+    log(x) = 2y + 1 \\
+    y = \frac{log(x) - 1 }{2} \\
+    y= \frac{1}{1}log(x) = \frac{1}{2} = k
+    $$
+
+g.  $g(x) = \frac{1}{x-2}$
+
+    $$
+    \begin{align}
+    x &= \frac{1}{y-2} \\
+    x(y-2) &= 1 \\
+    xy - 2x &= 1 \\
+    xy &= 2x + 1\\
+    y &= \frac{2x + 1 }{x} = m
+    \end{align}
+    $$
+
+h.  $h(x) = \frac{2x+1}{3x+2}$
+
+    $$
+    \begin{align}
+    x &=  \frac{2y + 1}{3y + 2} \\
+    x(3y + 2) &= 2y + 1 \\
+    3xy + 2x &= 2y + 1 \\
+    3xy - 2y &= 1 - 2x \\
+    y(3x -2) &= 1 -2x \\
+    y &= \frac{1 - 2x}{3x -2} = l\\
+    \end{align}
+    $$
+
+i.  $i(x) = \frac{1}{2}ln(x-1)$
+
+    $$
+    x = \frac{1}{2}log(y-1) \\
+    2x = log(y-1) \\
+    e^{2x} +1 = y = n
+    $$
+
+j.  $j(x) = \frac{1}{x}$
+
+    $$
+    x = \frac{1}{y} \\
+    xy = 1 \\
+    y = 1/x = j
+    $$
+
+k.  $k(x) = \frac{1}{2}ln(x) - \frac{1}{2}$
+
+l.  $l(x) = \frac{1-2x}{3x-2} = h$
+
+m.  $m(x) = \frac{2x+1}{x} = g$
+
+n.  $n(x) = 1 + e^{2x} = i$
+
+## Logarithms
+
+1.  If $log_2(5) + 2log_2(3) = log_2(x)$, then $x = 45$
+
+    $$
+    \begin{align}
+    log_2(x) &= log_2(5) + log_2(3^2)\\
+    &= log_2(5*9)
+    \end{align}
+    $$
+
+2.  If $3log_{10}(10) - log_{10}(4) = log_{10}(y)$, then $y = 250$
+
+    $$
+    \begin{align}
+    log_{10}(y) &= log_{10}(10^3) - log_{10}(4) \\
+    &= log_{10}(1000/4)
+    \end{align}
+    $$
+
+3.  If $2ln(8) - 5ln(2) = ln(z)$, then $z = 8^2/2^5 = 2$
+
+4.  If $log_2(x) + 2log_2(3) = log_2(y)$, then $y = 3^2x = 9x$
+
+5.  Suppose bacteria colony grows 4%/hour. "Rule of 72" states that it takes approximately 72/4=18 hours to double. Calculate the hours to double more accurately.
+
+    $$
+    logb(2, base = 1.04) = 17.67299 \\
+    1.04^17.67299 = 2
+    $$
+
+# Fourier Series
+
+An oboe and trumpet sound the same, but differ in timbre. We associate pitch and volume as period/frequency and amplitude of the sound waves, but how to measure timbre? If we plot sounds of the two instruments, they have different shapes:
+
+![](images/clipboard-3825298555.png)
+
+18th C mathematician Fourier theorized that a continuous periodic function of frequency $f$ can be written as a sum of sines and cosines of frequencies $f$, $2f$, $3f$, etc., with the shape of the function determining the precise amplitude of each sine and cosine. In brief summary, at each frequency we choose the amplitudes that best fits the wave function, for the sines and cosines:
+
+![](images/clipboard-1953127720.png){width="396"}
+
+The more frequencies taken, the better approximation. In the limit, an infinite sum is obtained, called the Fourier-series. For sound, only a finite number of terms is required since the ear is insensitive to high frequencies.
+
+This theory is also fundamental in acoustics, optics, and signal processing. Fourier was actually studying heat conduction.
+
+# Cumulative Feedback
+
+1.  Exercises: Composing Functions has tables of values for f and g that sit between questions 1 and 2, both of which pertain to functions f and g.  It would be clearer if the tables were below the heading, "Exercise 2: Composing from table".
+
+2.  Earlier in the Rules of Calculation, there is a slide, "More Rules of Calculation" showing a reflected triangle and three formulas, omitting a fourth that is discussed:
+
+    1.  cos(pi/2-theta) = sin(theta)
+
+    2.  sin(pi/2-theta) = cos(theta)
+
+    3.  cos(-theta) = cos(theta)
+
+    4.  NOT SHOWN: sin(-theta) = -sin(theta)
+
+3.  Throughout Logarithm Rules of Calculation - should be "permutations" not "combinations", ya? (For that matter, is a "combination lock" a misnomer?)
+
+4.  One exercise has, "The function $h(x) = f(g(x))$ is the composition of $f$ with $g$". And yet, the answer to another exercise has, "write $h(x)$ as a composition of $f(x)$ and $g(x)$" equals $h(x) = g(f(x))$. The "Composing Functions" transcript agrees with the first case, "...we can see x\^8 + 2x\^4 +1 as the composition of f(x) = x\^2+2x+1 with g(x) = x\^4 ... hence f(g(x))". I would ask that the described order implies the functional order; or that "in either order" is explicit.
+
+5.  Rotations:
+
+    1.  Clockwise: clock, speedometer, washing machine, lamp switch
+
+    2.  Counter: oven and stove,

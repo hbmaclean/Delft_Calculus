@@ -129,7 +129,7 @@ And, an infinite number of primitives can be found, simply by adding a constant 
 
     i.  $F_1(x) = 4x^3 + 4x \Rightarrow F_1'(x) = 12x^2 + 4$
     ii. $F_2(x) = x^4 + 2x^2 - 10 \Rightarrow F_2'(x) = 4x^3 + 4x \Longleftarrow$
-    iii. $F_3(x) = (x^2 + 1)^2 F_3'(x) = 4x^3 + 4x  \Longleftarrow$
+    iii. $F_3(x) = (x^2 + 1)^2 \Rightarrow F_3'(x) = 4x^3 + 4x  \Longleftarrow$
     iv. $F_4(x) = 12x^2 + 4 \Rightarrow F_4'(x) = 24x$\$
     v.  $F_5(x) = x^4 + 2x^2 \Rightarrow F_5'(x) = 4x^3 + 4x  \Longleftarrow$
 
@@ -151,7 +151,7 @@ The Fundamental Theorem roughly says that integration and differentiation are in
 
 Given a function and a signed area $S$ for an integral $[a,t]$, if we extend the integral by say $\Delta t$, the claim is that $S' = f$.
 
-![](images/clipboard-4268992696.png)
+![](images/clipboard-4268992696.png){width="390"}
 
 If we zoom in on $\Delta S$, we can see that nearly a rectangle of width $\Delta t$ and height $f(t)$. We can make the approximation better by taking a smaller $\Delta t$. Thus it follows that $\Delta s \approx f(t) * \Delta t$ and $\frac{\Delta S}{\Delta t} \approx f(t)$. And these become exact if we let $\Delta t$ tend to 0: $\lim_{\Delta t \to 0} \frac{\Delta s}{\Delta t} = f(t)$.
 
@@ -198,9 +198,249 @@ Visually, the original area under $g$ is deformed atop the area under $f$:
 
 ![](images/clipboard-454085678.png){width="120"}
 
-## Working Example
+## Integral of Zero Length
 
-x
+For any function, its integral $a$ to $a$ is zero - there is no area within a zero-width space.
+
+## Splitting an Integral
+
+For any integral $a$ to $c$, you can take an interim point $b$, and sum the integrals of $a$ to $b$ and $b$ to $c$.
+
+## Integral with Backwards Interval
+
+An integral $b$ to $a$, where $b>a$, is equal to that interval negated and reversed.
+
+$$
+\begin{align}
+0 &= \int_a^a f(x)dx \\
+&= \int_a^b f(x)dx + \int_b^a f(x)dx \\
+\text{Therefore:}\\
+\int_b^a f(x)dx &= -\int_a^b f(x)dx
+\end{align}
+$$
+
+## Integral of Shifted Linear Function
+
+Linear functions involve scaling (sending $x$ to a multiple of itself) and shifting (adding a constant.)
+
+For a shifted function, e.g. $f(x+C)$, the graph of $f(x+C)$ equals the graph of $f(x)$, but shifted left by $C$.
+
+The integrals are equal as well, but for the endpoints:
+
+$$
+\int_a^b f(x+C)dx = \int_{a+C}^{b+C}f(x)dx
+$$
+
+## Integral of Scaled Linear Function
+
+For a scaled linear function, e.g. $f(2x)$, the graph of $f(2x)$ is equivalent to the graph of $f(x)$, but compressed by half towards the left. The area under the curve is also halved, as are the endpoints:
+
+$$
+\int_a^b f(2x)dx = \int_{2a}^{2b} \frac{1}{2}f(x)dx
+$$
+
+This holds for any constant:
+
+$$
+\int_a^b f(Cx)dx = \int_{aC}^{bC}\frac{1}{C}f(x)dx
+$$
+
+If the constant is negative, consider that $f(-x)$ is a reflection of $f(x)$. Equivalences hold if the endpoints are negated:
+
+$$
+\int_a^b f(-x)dx = \int_{-b}^{-a}f(x)dx = -\int_{-a}^{-b}f(x)dx
+$$
+
+## Substitution Method
+
+For differentiation, there are numerous rules for dealing with combinations of functions. Unfortunately there is no such set of rules for integration, but there are several techniques for simplifying - one of which is substitution.
+
+The key to evaluating an integral is to find an anti-derivative of the function. Once we have the anti-derivative $F$ and $F'(x) = f(x)$, we know:
+
+$$
+\int_a^b f(x)dx = F(b) - F(a) \\
+\text{Which can also be written as:}\\
+\int f(x)dx = F(x) + C
+$$
+
+Consider the following:
+
++----------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| $\int cos(x^3 + 5x)*(3x^2 + 5)dx$      | The first factor can be written as $f(g(x))$, with $f(x) = cos(x)$ and $g(x) = x^3 + 5x$.                                                                                                                          |
+|                                        |                                                                                                                                                                                                                    |
+|                                        | The second factor happens to be the derivative of $g$ - $g'(x) = 3x^2 + 5$.                                                                                                                                        |
+|                                        |                                                                                                                                                                                                                    |
+|                                        | And we know the anti-derivative of $cos$, so we have $F(x) = sin(x)$.                                                                                                                                              |
++----------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| $F'(g(x))*g'(x) = \frac{d}{dx}F(g(x))$ | Thus we can rewrite the function, in a form that is precisely the result of the chain rule for differentiation - thus it is equal to the derivative of $F(g(x))$, and therefore is the primitive function for $f$. |
++----------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| $= F(g(x)) + C = sin(x^3 + 5x) + C$    | Thus the integral is equal to $F(g(x)) + C$.                                                                                                                                                                       |
++----------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Now consider the same with substitution:
+
+$$
+\begin{align}
+u &= x^3 + 5x \\
+\frac{du}{dx} &= 3x^2 + 5 \Longrightarrow du = (3x^2+5)dx \\
+\int cos(x^3 + 5x) * (3x^2 + 5)dx &= \int cos(u)du \\
+&= sin(u) + C \\
+&= sin(x^3 + 5x) + C
+\end{align}
+$$
+
+## Substitution with Bounded Intervals
+
+Consider $\int_1^2 2xe^{3+x^2}dx$.
+
+We *can* calculate the indefinite integral to find an antiderivative:
+
+1.  Use substitution, $u = 3 + x^2$
+2.  Then, $du = 2x dx$
+3.  Then, rewrite integral as $\int e^udu$
+4.  This is equal to $e^u + C$
+5.  In terms of $x$, we get $e^{3+x^2} + C$
+6.  Plug the boundaries into this antiderivative: $\left[e^{3+x^2}\right]_1^2 = e^7 - e^4$
+
+But there is an easier way!
+
+1.  Rewrite integral as usual, but for the boundaries: $\int_?^? 2xe^{3+x^2}dx$
+2.  Calculate new boundaries - in this case, $3 + 1^2$ and $3 + 2^2$.
+3.  Finish integral with new boundaries: $\int_4^7 e^udu = \left[e^u\right]_4^7 = e^7 - e^4$
+
+Caution though: After substitution, boundaries may be in the wrong order. For example, consider:
+
+1.  $\int_0^\pi(cos(x))^2sin(x)dx$
+2.  Substitute $u = cos(x)$
+3.  Then, $du = -sin(x)dx$ and $-du = sin(x)dx$
+4.  Then for the original boundaries, $x = 0 \Rightarrow u = 1$ and $x = \pi \Rightarrow u = -1$.
+5.  Then we have $\int_1^{-1}-u^2du$. (I confirmed this, but still do not see how to get to this point.)
+6.  We can negate the integral and reverse the boundaries: $-\int_{-1}^1 -u^2du$
+7.  In this case, two minus signs cancel: $\int_{-1}^1 u^2du$
+8.  This is easily evaluted with its primitive: $\left[\frac{1}{3}u^3\right]_{-1}^1 = \frac{2}{3}$
+
+## Integration by Parts
+
+Another major technique for calculating integrals is by parts - such as for the integral of the product of two functions, e.g. $\int (3x+4)cos(x)dx$ and $\int xe^{4x}dx$.
+
+Unlike the product rule for differentiation, this method does not lead directly to a solution, only a simpler integral.
+
+Recalling, the differentiation product rule is $[fg]' = f'g + fg'$.
+
+So for example, we have $[(3x+4)sin(x)]' = 3sin(x) + (3x+4)cos(x)$.
+
+We can use this observation to calculate a primitive function.
+
+1.  Rewrite the relationship:
+
+    $(3x+4)cos(x) = [(3x+4)sin(x)]' - 3sin(x)$
+
+2.  Write as integrals:
+
+    $\int (3x+4)cos(x)dx = \int [(3x+4)sin(x)]'dx - \int 3sin(x)dx$
+
+3.  Knowing that a primitive function of a derivative equals the original function, so:
+
+    $\int(3x+4)cos(x)dx = (3x+4)sin(x) - \int 3sin(x)dx$
+
+4.  And in this case, we know the primitive for sin, so:
+
+    $\int(3x+4)cos(x)dx = (3x+4)sin(x) - 3cos(x) + C$
+
+In general, we have a primitive function $F$ for a function $f$ such that $F' = f$.
+
+We can then represent the product rule as $[Fg]' = F'g + Fg' = fg + Fg'$.
+
+We can rearrange that as $fg = [Fg]' - Fg'$.
+
+Integration then gives $\int fgdx = \int [Fg]'dx - \int Fg'dx$.
+
+Again, primitive of derivative is the original function, so $\int fgdx = Fg - \int Fg'dx$.
+
+Applying this to the earlier example:
+
+$$
+\begin{align}
+\int (3x+4)cos(x)dx &\Rightarrow f(x) = cos(x), F(x) = sin(x) \\
+&\Rightarrow g(x) = 3x+4, g'(x) = 3 \\
+&= (3x+4)sin(x) - \int 3sin(x)dx \\
+&= (3x+4)sin(x) + 3cos(x) + C
+\end{align}
+$$
+
+Another example, $\int xe^{4x}dx$. Which of the two functions, $x$ and $e^{4x}$, shall we integrate and which shall we differentiate?
+
+$$
+\begin{align}
+\text{differentiate} &\Longleftarrow ? \Longrightarrow \text{integrate} \\
+1 &\Longleftarrow x \Longrightarrow \frac{1}{2}x^2 \\
+4e^{4x} &\Longleftarrow e^{4x} \Longrightarrow \frac{1}{4}e^{4x}
+\end{align}
+$$
+
+Differentiating $x$ as 1 is simplest, so we say $f(x) = e^{4x}$ and $g(x) = x$, thus $g'(x) = 1$.
+
+Then, applying the parts ($g' = 1$, $F = \frac{1}{4}e^{4x}$), we get: $\int xe^{4x}dx = \frac{1}{4}e^{4x}x - \int \frac{1}{4}e^{4x}-1dx$.
+
+Now we calculate the final integral:
+
+$$
+\begin{align}
+\int \frac{1}{4}e^{4x} - 1 dx &= \frac{1}{4}xe^{4x} - \frac{1}{4}(\frac{1}{4}e^{4x} + C) \\
+&= \frac{1}{4}xe^{4x} - \frac{1}{16}e^{4x} - \frac{1}{4}C
+\end{align}
+$$
+
+### Tip - Choosing Parts
+
+Integration by parts turns the problem of solving one integral into solving another, thus the goal is to make the new integral simpler than the original.
+
+A primary decision is, which function to differentiate and which to integrate. Consider the following table. The top few entries have similar complexity in either direction. Polynomials become moderately more complicated when integrating as the degree increases by one, and slightly simpler when differentiating. Logarithms are considerably easier to differentiate.
+
+In summary, lower on the right column suggests differentiating; while higher on the left is acceptable to integrate.
+
+| Derivative    | Primative |
+|---------------|-----------|
+| $e^x$         | $e^x$     |
+| $cos(x)$      | $sin(x)$  |
+| $-sin(x)$     | $cos(x)$  |
+| $nx^{n-1}$    | $x^n$     |
+| $\frac{1}{x}$ | $ln(x)$   |
+
+So, for example, given $\int xsin(x)$, you'd want to differentiate $x$ and integrate $sin(x)$; while given $\int xln(x)$, you'd rather integrate $x$ and differentiate $ln(x)$.
+
+### Tip - Creating Product, Multiplying by One
+
+Given $\int ln(x)$, we can consider that as $\int 1*ln(x)$ and integrate the constant 1, just so we can differentiate $ln(x)$ - yielding $xln(x) - x + C$.
+
+### Tip - Re-Integration
+
+Consider $\int e^x cos(x)dx$. Both functions are equally challenging. Integrating $e^x$ and differentiating $cos(x)$, we can say:
+
+$$
+\begin{align}
+\int e^x cos(x)dx &= e^x cos(x) + \int e^x sin(x)dx \\
+&= e^x cos(x) + \left(e^x sin(x) - \int e^x * cos(x) dx \right)\\
+\text{Note, latter integral equals initial one, so:}\\
+2\int e^x cos(x)dx &= e^xcos(x) + e^xsin(x) \\
+\int e^x cos(x)dx &= \frac{1}{2}(e^x cos(x) + e^x sin(x)) + C
+\end{align}
+$$
+
+## Common Antiderivatives
+
+Always add "$+C$" because the derivative of any constant is zero.
+
+-   Power rule: $\int x^n dx = \frac{x^{n+1}}{n+1} + C$
+-   Exponential: $\int e^xdx = e^x + C$
+-   Logarithm: $\int\frac{1}{x} = ln|x| + C$
+-   Trigonometric: $\int cos(x)dx = sin(x) +C$, $\int sin(x)dx = -cos(x) + C$
+
+## Working Examples
+
+### Integral of Sum
+
+Here we look at $4x^3 - 3x^2$.
 
 $$
 \begin{align}
@@ -209,12 +449,61 @@ $$
 \text{Knowing that } \int x^n &= \frac{1}{n+1}x^{n+1} \text{, we have:} \\
 &= 4\left[\frac{1}{4}x^4\right]_1^2 - 3\left[\frac{1}{3}x^3\right]_1^2 \\
 \text{Evaluating both at boundaries:}\\
-&= 4(\frac{16}{4}-\frac{1}{4}) - 3(\frac{8}{3}-\frac{1}{3}) \\
+&= 4\left(\frac{16}{4}-\frac{1}{4}\right) - 3\left(\frac{8}{3}-\frac{1}{3}\right) \\
 &= 15 - 7 = 8 \\
 \text{Which could be written directly as:}\\
 \int 4x^3-3x^2 dx = x^4-x^3 + C
 \end{align}
 $$
+
+### Piecewise Function
+
+Consider $\int_{-1}^2|x|dx$. The absolute function is piecewise, with $x=x$ for positive values and $x = -x$ for negative values. To evaluate the integral, we can split it and sum the two.
+
+$$
+\begin{align}
+\int_{-1}^2|x|dx &= \int_{-1}^0|x|dx + \int_0^2|x|dx \\\\
+&= \int_{-1}^0 -xdx + \int_0^2 xdx \\\\
+&= \left[-\frac{1}{2}x^2\right]_{-1}^0 + \left[\frac{1}{2}x^2\right]_0^2 \\\\
+&= \left(-\frac{1}{2}0^2 - -\frac{1}{2}(-1)^2\right) + 
+   \left(\frac{1}{2}2^2 - \frac{1}{2}0^2\right) \\\\
+&= \frac{5}{2}
+\end{align}
+$$
+
+## Substitution Method
+
+Consider $\int \frac{1}{1+x^3}*x^2dx$.
+
+Consider the first factor as a composition of $f(x) = \frac{1}{x}$ and $g(x) = 1 + x^3$.
+
+Now try substituting $u$ for $1 + x^3$. We know $\frac{du}{dx} = 3x^2$, and therefore $du = 3x^2dx$.
+
+$x^2$ occurs in the interval, but without the multiplier of 3; so we can write $\frac{1}{3}du = x^2dx$.
+
+Now we can express the interval as:
+
+$$
+\begin{align}
+\int \frac{1}{u}*\frac{1}{3}du &= \frac{1}{3}ln|u| + C \\
+&= \frac{1}{3}ln|1+x^3| + C
+\end{align}
+$$
+
+# Catch the Error
+
+$$
+\begin{align}
+\int_{-1}^1 \frac{1}{x^2} &= \int_{-1}^1x^{-2}dx \text{ ( i.e., } \frac{1}{x^2} \Leftrightarrow x^{-2} \text{)} \\
+&= \left[-x^{-1}\right]_{-1}^1 = \left[-\frac{1}{x}\right]_{-1}^1 \text{ (i.e., }\frac{d}{dx}-x^{-1} = x^{-2} \text{)} \\
+&= \left(-\frac{1}{1}\right)-\left(-\frac{1}{-1}\right) = -1-1 \\
+&= -2
+\end{align}
+$$
+
+But, $\frac{1}{x^2}$ is necessarily positive, so the integral should be as well.
+
+The problem is that $\frac{1}{x^2}$ is NOT continuous for $[-1,1]$, as $\frac{1}{0^2}$ is not defined. Integrals of such unbounded functions are "improper" integrals and must be treated differently.
 
 ## Exercises
 
@@ -239,6 +528,348 @@ $$
 
 2.  Find antiderivative $F(x)$ of $f(x) = 3e^x + 5cos(x)$ such that $F(0) = 0$
 
-    $3e^x + 5sin(x)$
+    $3e^x + 5sin(x) - 3$
 
-3.  
+3.  Evaluate $f(x) = \begin{cases} 0 & x\leq 1 \\[2.5mm] x^2 & x>1\end{cases}$for $(0,2)$.
+
+    $$
+    \begin{align}
+    \int_0^2 f(x)dx &= \int_0^1 0dx + \int_1^2 x^2dx \\\\
+    &= 0 + \left[\frac{1}{3}x^3\right]_1^2 \\\\
+    &= \frac{8}{3} - \frac{1}{3} = \frac{7}{3}
+    \end{align}
+    $$
+
+4.  What is the TOTAL area between the graph of $f(x) = (x+1)(x-1)(x+2)$ and the x-axis for $x = (-2,1)$?
+
+    $$
+    \begin{align}
+    (x+1)(x-1)(x+2) &= (x^2-1)(x+2) = x^3 + 2x^2 -x -2 \\\\
+    \int_{-2}^1f(x)dx &= \int_{-2}^1 (x^3+2x^2-x-2)dx \\\\
+    &= \int_{-2}^{-1} (x^3+2x^2-x-2)dx + \int_{-1}^1 |(x^3+2x^2-x-2)|dx\\\\
+    &= \int_{-2}^{-1}x^3dx + 2\int_{-2}^{-1}x^2dx - \int_{-2}^{-1}xdx -2\int_{-2}^{-1} 1dx\\\\
+    &+ \left|\int_{-1}^1x^3dx + 2\int_{-1}^1x^2dx - \int_{-1}^1xdx -2\int_{-1}^1 1dx\right| \\\\
+    &= \left[\frac{1}{4}x^4\right]_{-2}^{-1} + 2\left[\frac{1}{3}x^3\right]_{-2}^{-1} - \left[\frac{1}{2}x^2\right]_{-2}^{-1} -2\left[x\right]_{-2}^{-1} \\\\
+    &+ \left|\left[\frac{1}{4}x^4\right]_{-1}^1 + 2\left[\frac{1}{3}x^3\right]_{-1}^1 - \left[\frac{1}{2}x^2\right]_{-1}^1 - 2\left[x\right]_{-1}^1 \right| \\\\
+    &= \left(\frac{1}{4} - \frac{16}{4}\right) + 2\left(-\frac{1}{3} - -\frac{8}{3}\right) - \left(\frac{1}{2} - \frac{4}{2}\right) - 2\left(-1 - - 2\right) \\
+    &+ \left|\left(\frac{1}{4} - \frac{1}{4}\right) + 2\left(\frac{1}{3} - -\frac{1}{3}\right) - \left(\frac{1}{2} - \frac{1}{2}\right) - 2\left(1 - -1\right)\right| \\
+    &= \left(-\frac{15}{4}\right) + \left(\frac{14}{3}\right) + \left(\frac{3}{2}\right) - 2(1) + \left| (0) + \left(\frac{4}{3}\right) - (0) - (4)\right| \\
+    &= -\frac{45}{12} + \frac{56}{12} + \frac{18}{12} - \frac{24}{12} + \left|\frac{16}{12} - \frac{48}{12}\right| \\
+    &= \frac{5}{12} + \frac{32}{12} = \frac{37}{12} \\
+    \end{align}
+    $$
+
+    Phew, on the 5th try. First, I wrongly assumed the split was at 0; but plotting shows positive area for $(-2,-1)$ and negative for $(-1,0)$.
+
+5.  What is the primitive function $F(x)$ of $f(x) = cos(2x)$ such that $F(0) = 0$?
+
+    $sin(x^2) * 2x$ (wrong?!)
+
+    $\frac{1}{2}sin(2x)$
+
+6.  Primitive function $G(x)$ of $f(x) = cos(x+5)$ such that $G(-5) = 0$?
+
+    $sin(x+5)$
+
+7.  Primitive function $H(x)$ of $h(x) = cos(2x+5)$ such that $H(-5/2) = 0$?
+
+    $\frac{1}{2}sin(2x+5)$
+
+8.  Evaluate $\int_3^5 \frac{1}{2x+3}dx$
+
+    $$
+    \begin{align}
+    \text{Primitive} &: \frac{1}{2}ln(2x+3) \\
+    \text{Evaluate} &: \frac{1}{2}(ln(13)-ln(9)) 
+    \end{align}
+    $$
+
+9.  Given $\int x^2\sqrt{1+x^3}dx$, rewrite as $\int f(u)du$ with $u = 1 + x^3$.
+
+    $$
+    \begin{align}
+    u &= 1 + x^3 \\
+    \frac{du}{dx} &= 3x^2 \\
+    du &= 3x^2dx \\
+    \frac{1}{3}du &= x^2dx \\
+    \text{Thus,}\\
+    f(u) &= \frac{1}{3}\sqrt{u}
+    \end{align}
+    $$
+
+10. Find anti-derivative of $F(x) = \int x^2 \sqrt{1+x^3}dx$, such that $F(0) = \frac{2}{9}$.
+
+    $$
+    \begin{align}
+    \frac{du}{dx}\frac{1}{3}\sqrt{u} &= \frac{1}{3}\sqrt{u}^{\frac{3}{2}} = \frac{1}{3}(1+x^3)^{\frac{3}{2}} - \frac{1}{9} \text{ (Wrong)} \\
+    \frac{du}{dx}\frac{1}{3}\sqrt{u} &= \frac{1}{6}\sqrt{u}^2 = \frac{u}{6} = \frac{1+x^3}{6} + \frac{1}{18} \text{ (Wrong)} \\
+    \frac{du}{dx}\frac{1}{3}\sqrt{u} &= \frac{1}{3}u^{\frac{1}{2}} = \frac{1}{3}*\frac{u^{\frac{3}{2}}}{\frac{3}{2}} = \frac{1}{3}*\frac{2}{3}*u^{\frac{3}{2}} = \frac{2}{9}u^{\frac{3}{2}} \text{ (Correct)}
+    \end{align}
+    $$
+
+11. Given $\int \frac{(ln(x))^5}{x}dx$, use $u = ln(x)$ to rewrite as $\int f(u)du$.
+
+    $$
+    \begin{align}
+    u &= ln(x) \\
+    \frac{du}{dx} &= \frac{1}{x} \\
+    du &= \frac{1}{x}dx \\
+    f(u) &= u^5du
+    \end{align}
+    $$
+
+12. Find antiderivative of $\int \frac{(ln(x))^5}{x}dx$ such that $F(1) = 0$.
+
+    $$
+    \frac{du}{dx}u^5 = \frac{1}{6}u^6 = \frac{1}{6}ln(x)^6
+    $$
+
+13. Find antiderivative $F(x) = \int \frac{cos(\sqrt{x})}{\sqrt{x})}dx$
+
+    $$
+    \begin{align}
+    u &= \sqrt{x} \\
+    \int \frac{cos(\sqrt{x})}{\sqrt{x}}dx \\
+    \frac{du}{dx} &= \frac{1}{2*\sqrt{u}} \\
+    du &= \frac{1}{2*\sqrt{u}}dx \\
+    \frac{sin(\sqrt{x})}{2*\sqrt{x}} \text{ (Wrong)} \\\\
+    \text{Figured it out by trial and error:}\\
+    2sin(\sqrt{x})
+    \end{align}
+    $$
+
+    I was on the right path above. The given solution:
+
+    Substitute with $u = \sqrt{x}$, and thus $du = \frac{1}{2\sqrt{x}}$, which can be written as $2du = \frac{1}{\sqrt{x}}$. (Note, I had $\frac{1}{2\sqrt{u}}$...)
+
+    Then rewrite integral as, $\int \frac{cos(\sqrt{x})}{\sqrt{x}}dx = \int 2cos(u)du = 2sin(u) + C = 2sin(\sqrt{x}) + C$. And since $F(0) = 0$, $C=0$.
+
+14. Consider $\int_1^2 \frac{4x^3}{3+x^4}dx$. Use $u = 3+x^4$ and rewrite as $\int_a^bf(u)du$, with $a<b$.
+
+    $$
+    \begin{align}
+    u &= 3 + x^4 \\
+    \frac{du}{dx} &= 4x^3 \\
+    du &= 4x^3dx \\
+    \int_1^2\frac{4x^3}{3+x^4}dx &= \int \frac{du}{u} = \int_4^{19} \frac{1}{u}du
+    \end{align}
+    $$
+
+15. Evaluate the integral from #14.
+
+    $\frac{1}{19} - \frac{1}{4}$ (Wrong)
+
+    Antiderivative: $\frac{1}{u} \Rightarrow ln(u) + C$
+
+    Thus? $ln(19) - ln(4)$ (Correct)
+
+16. Consider $\int_1^4 \frac{e^{\frac{1}{x}}}{x^2}dx$. Substitute $u = \frac{1}{x}$ and rewrite as $\int_a^b f(u)du$, with $a < b$.
+
+    $$
+    \begin{align}
+    u &= \frac{1}{x} = x^{-1} \\
+    \frac{du}{dx} &= -1x^{-2} = -\frac{1}{x^2} \\
+    du &= -\frac{dx}{x^2} \\
+    \int \frac{e^{\frac{1}{x}}}{x^2}dx &= \int_{1}^{\frac{1}{4}} -e^udu \\
+    &= -\int_{\frac{1}{4}}^1-e^udu \\
+    &= \int_{\frac{1}{4}}^1e^udu
+    \end{align}
+    $$
+
+    Note, first submission I had the function correct but evaluated $a$ and $b$ through the function, rather than $u$.
+
+17. Evaluate the integral in #16.
+
+    Antiderivative: $e^u \Rightarrow e^u + C$
+
+    Thus, $e^1 - e^{\frac{1}{4}}$
+
+18. Consider $\int_a^b f(cx+d)dx$, where $a$, $b$, $c$, and $d$ are constants and $c \ne 0$. Substitute $u = cx + d$ and rewrite.
+
+    Knowing $\int_a^b f(x+C) \Rightarrow \int_{a+C}^{b+C} f(x)$ and $\int_a^b f(Cx) \Rightarrow \int_{aC}^{bC}\frac{1}{C}f(x)$, we have:
+
+    $\int_{ac+d}^{bc+d} \frac{1}{c}f(x)$
+
+19. Solve $F(x) = \int x sin(3x) dx$ such that $F(0) = 0$.
+
+    This one took me awhile. I was close, but overlooked moving $\frac{1}{3}$ out of the final integral.
+
+    $$
+    \begin{align}
+    \int x sin(3x)dx \\
+    f(x) &= sin(3x) \Longrightarrow F(x) = -\frac{1}{3}cos(3x) \\
+    g(x) &= x \Longrightarrow g'(x) = 1 \\
+    Fg - \int Fg'dx &= -\frac{1}{3}cos(3x)x - \int -\frac{1}{3}cos(3x)dx \\
+    &= -\frac{1}{3}cos(3x)x + \frac{1}{3} \int(cos3x)dx \\
+    &= -\frac{1}{3}cos(3x)x + \frac{1}{3}\left(\frac{1}{3}sin(3x)\right) \\
+    &= -\frac{1}{3}cos(3x)x + \frac{1}{9}sin(3x) + C
+    \end{align}
+    $$
+
+20. Find the integral $\int_1^e \sqrt{x}ln(x)dx$. Differentiate $ln(x)$ and integrate $\sqrt{x}$.
+
+    Struggled with this one too - goofed! Was taking *derivative* of final integral, not primitive!
+
+    $$
+    \begin{align}
+    \int_1^e \sqrt{x}*ln(x)dx \\
+    f(x) &= \sqrt{x} \Longrightarrow F(x) = \frac{2}{3}x^{\frac{3}{2}}\\
+    g(x) &= ln(x) \Longrightarrow g'(x) = \frac{1}{x} \\
+    Fg - \int Fg'dx &= \frac{2}{3}x^{\frac{3}{2}}ln(x) - \int \frac{2}{3}x^{\frac{3}{2}}\frac{1}{x} \\
+    &= \frac{2}{3}x^{\frac{3}{2}}ln(x) - \frac{2}{3}\int x^{\frac{3}{2}}\frac{1}{x} \\
+    &= \frac{2}{3}x^{\frac{3}{2}}ln(x) - \frac{2}{3}\frac{2x\sqrt{x}}{3} \\
+    &= \frac{2}{3}x^{\frac{3}{2}}ln(x) - \frac{4x\sqrt{x}}{9}\\
+    \text{Evaluate boundaries: }\\
+    \left(\frac{2}{3}e^{\frac{3}{2}}ln(e) - \frac{4e\sqrt{e}}{9}\right) - \\
+    \left(\frac{2}{3}1^{\frac{3}{2}}ln(1) - \frac{4*1\sqrt{1}}{9}\right) &= 1.440375
+    \end{align}
+    $$
+
+21. Integrate by parts to find primitive function for $\int x^2cos(2x)dx$.
+
+    I struggled mightily on this one until "switching parts".
+
+    $$
+    \begin{align}
+    \int x^2cos(2x)dx \\
+    f(x) &= cos(2x) \\
+    F(x) &= \frac{1}{2}sin(2x) \\
+    g(x) &= x^2 \\
+    g'(x) &= 2x \\
+    Fg - \int Fg' &= \frac{1}{2}sin(2x)x^2 - \int \frac{1}{2}sin(2x)2x \\
+    &= \frac{1}{2}sin(2x)x^2 - \int x*sin(2x) \\
+    f_2(x) &= sin(2x) \\
+    F_2(x) &= -\frac{1}{2}cos(2x) \\
+    g_2(x) &= x \\
+    g_2'(x) &= 1 \\
+    &\Rightarrow \frac{1}{2}sin(2x)x^2 - \left( -\frac{1}{2}cos(2x)x - \int -\frac{1}{2}cos(2x)*1 \right) \\
+    &= \frac{1}{2}sin(2x)x^2 + \frac{1}{2}cos(2x)x - \frac{1}{2}\int cos(2x) \\
+    &= \frac{1}{2}\left(sin(2x)x^2 + cos(2x)x - \frac{1}{2}sin(2x)\right)
+    \end{align}
+    $$
+
+22. Integrate by parts to evaluate $\int_1^eln(x)^2dx$
+
+    Flailed on this one too, taking *derivative* rather than primitive...
+
+    $$
+    \begin{align}
+    \int_1^e ln(x)^2dx &= \int_1^e 1*ln(x)^2dx \\
+    f(x) &= 1 \\
+    F(x) &= x \\
+    g(x) &= ln(x)^2 \\
+    g'(x) &= \frac{2ln(x)}{x} \\
+    Fg - \int Fg' &= xln(x)^2 - \int x \frac{2ln(x)}{x} \\
+    &= xln(x)^2 - 2\int ln(x) \\
+    &= xln(x)^2 - 2(ln(x)x-x) \\
+    \text{Evaluating boundaries:}\\
+    \left(eln(e)^2 - 2(ln(e)e-e)\right) - \left(1ln(1)^2 - 2(1ln(1)-1)\right) &= 0.7182818
+    \end{align}
+    $$
+
+23. Calculate $\int_0^{\frac{\pi}{2}} e^{3x}sin(2x)dx$
+
+    I was so close for so long on this one. My mistake was moving $-\frac{4}{9}$ to the left for $\frac{13}{9}$ - but using that on the right side, rather than the reciprocal!
+
+    $$
+    \begin{align}
+    \int e^{3x}sin(2x)dx \\
+    Fg - \int Fg' \\
+    f(x) &= e^{3x} \\
+    F(x) &= \frac{1}{3}e^{3x} \\
+    g(x) &= sin(2x) \\
+    g'(x) &= 2cos(2x) \\
+    \int e^{3x}sin(2x)dx &= \frac{1}{3}e^{3x}sin(2x) - \int \frac{1}{3}e^{3x}2cos(2x) \\
+    &= \frac{1}{3}e^{3x}sin(2x) - \frac{2}{3}\int e^{3x}cos(2x) \\
+    &= \frac{1}{3}e^{3x}sin(2x) - \frac{2}{3}\left(\frac{1}{3}e^{3x}cos(2x) - \int \frac{1}{3}e^{3x} * -2sin(2x) \right)\\
+    &= \frac{1}{3}e^{3x}sin(2x) - \frac{2}{3}\left(\frac{1}{3}e^{3x}cos(2x) + \frac{2}{3} \int e^{3x}sin(2x) \right) \\
+    &= \frac{1}{3}e^{3x}sin(2x) - \frac{2}{9}e^{3x}cos(2x) - \frac{4}{9} \int e^{3x}sin(2x) \\
+    &\Rightarrow \frac{9}{13}\left( \frac{1}{3}e^{3x}sin(2x) - \frac{2}{9}e^{3x}cos(2x)\right) \\
+    &= \frac{9}{39}e^{3x}sin(2x) - \frac{18}{117}cos(2x) \\
+    &= \frac{3}{13}e^{3x}sin(2x) - \frac{2}{13}e^{3x}cos(2x) \\
+    \text{Evaluate boundaries:} \\
+    \left(\frac{3}{13}e^{3\pi/2}sin(2\pi/2) - \frac{2}{13}e^{3\pi/2}cos(2\pi/2)\right) - \\
+    \left(\frac{3}{13}e^{3*0}sin(2*0) - \frac{2}{13}e^{3*0}cos(2*0)\right) &= 17.27966
+    \end{align}
+    $$
+
+# Training Sequence
+
+1.  Graph is given with $(0,-1),(1,0),(2,1),(3,1),(4,1),(5,2)$. What is the integral $\int_0^5f(x)dx$?
+
+    I was unsure what was being asked, and took and educated guess $3.5$ (three full squares and two halves above the x-axis, and one half below.) Correct.
+
+2.  Another graph, a downward slope including points $(0,3), (3,0), (7,-1)$. Arrange the following integrals of $f(x)dx$ from large to small: $\int_0^3$ (all positive), $\int_0^5$ (mostly positive), $\int_0^7$ (more positive than the last), $\int_2^7$.
+
+3.  $\int_0^1 e^{-x^2}$ is approximately equal to $-0.50$, $0.25$, $0.75$, $1.46$. Approximate with Riemann sum.
+
+    Is that $e^{-(x^2)}$ or $e^{(-x^2)}$? The latter is silly in that it becomes positive when squared... So I guessed $e^{-(.5^2)} \approx 0.7788$.
+
+4.  $\int_1^4 \frac{\sqrt{x^2+1}}{x}$ is approximately equal to $1.21$, $2.17$, $3.34$, $4.19$?
+
+    Huh. I did the following for $4.93$:
+
+    ```{r}
+    sum(sapply(seq(1,4,2), function(x) { h <- sqrt(x^2+1)/x; 2*h}))
+    ```
+
+    Then I checked manually, each value gives $1+$. Plotted it; calculated max ($\frac{\sqrt{1^2+1}}{1} \approx 1.414$) and min ($\frac{\sqrt{4^2+1}}{4} \approx 1.03$) Multiplied by length of interval for a range of $3.09-4.24$. Was already wrong with $4.19$, so $3.34$. (Ah, used `sapply` as if the interval was of length 4.)
+
+5.  If $\int_1^5 f(x)dx = 5$ and $\int_1^3f(x)dx = 8$, then $\int_3^5f(x) = ?$
+
+    $-3$, obviously.
+
+6.  If $\int_2^8 f(x)dx = 6$, then $\int_1^4f(2x)dx = ?$
+
+    This is a scaled linear function, so $\int_a^b f(2x) = \int_{2a}^{2b} \frac{1}{2}f(x)$. All is there in the formula but the half, so $3$.
+
+7.  Evaluate $\int_\pi^{\frac{\pi}{2}}cos(x)dx$.
+
+    Backwards interval, so:
+
+    $-\left[sin(x)\right]_{\frac{\pi}{2}}^\pi = 1$
+
+8.  Evaluate $\int_2^2e^{x^2}$
+
+    Huh, zero-length interval - zero? Yep.
+
+9.  Evaluate $\int_1^{12}\sqrt{\frac{1}{4}x+6}$
+
+    Plotted, this is linear from $(1,2.5)$ to $(12, 3)$ - so it would seem the area is $\frac{1}{2}11*\frac{1}{2} = 2.75$, but that is wrong...
+
+    ```{r}
+    data.frame(x=seq(1,12,.01)) |> ggplot(aes(x)) + geom_line(aes(y = sqrt((x/4)+6)))  + scale_x_continuous(breaks = seq(1,12,1)) + scale_y_continuous(breaks = seq(2,3,.5))
+    ```
+
+10. Evaluate $\int_2^4e^x*e^x$
+
+    Intriguing that this isn't $e^{2x}$.
+
+    Since $e^x \Leftrightarrow e^x$, I assumed $e^8-e^4$, but that was wrong...
+
+    $$
+    \begin{align}
+    \int_2^4 e^x*e^x \\
+    f &= e^x \\
+    F &= e^x \\
+    g &= e^x \\
+    g' &= e^x \\
+    Fg - \int Fg' &= e^xe^x - \int e^xe^x \\
+    &= \frac{1}{2}(e^xe^x)
+    \end{align}
+    $$
+
+    That IS correct; but solution is simpler:
+
+    $$
+    \begin{align}
+    \int_2^4 e^xe^x &= \int_2^4 e^{2x} \\
+    &= \frac{1}{2}\int_4^8 e^x \\
+    &= \frac{1}{2}\left[e^x\right]_4^8 \\
+    &= \frac{1}{2}\left(e^8-e^4\right)
+    \end{align}
+    $$
+
+11. Find primitive of $sin\left(\frac{2}{3}x-3\right)$ such that $F\left(\frac{9}{2}\right) = 1$.
+
+12. Find primitive of $\frac{3}{(5x-2)^3}$ such that $F(1) = 0$.
