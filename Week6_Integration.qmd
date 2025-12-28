@@ -380,13 +380,13 @@ $$
 
 Differentiating $x$ as 1 is simplest, so we say $f(x) = e^{4x}$ and $g(x) = x$, thus $g'(x) = 1$.
 
-Then, applying the parts ($g' = 1$, $F = \frac{1}{4}e^{4x}$), we get: $\int xe^{4x}dx = \frac{1}{4}e^{4x}x - \int \frac{1}{4}e^{4x}-1dx$.
+Then, applying the parts ($g' = 1$, $F = \frac{1}{4}e^{4x}$), we get: $\int xe^{4x}dx = \frac{1}{4}e^{4x}x - \int \frac{1}{4}e^{4x}*1dx$.
 
 Now we calculate the final integral:
 
 $$
 \begin{align}
-\int \frac{1}{4}e^{4x} - 1 dx &= \frac{1}{4}xe^{4x} - \frac{1}{4}(\frac{1}{4}e^{4x} + C) \\
+\int \frac{1}{4}e^{4x} * 1 dx &= \frac{1}{4}xe^{4x} - \frac{1}{4}(\frac{1}{4}e^{4x} + C) \\
 &= \frac{1}{4}xe^{4x} - \frac{1}{16}e^{4x} - \frac{1}{4}C
 \end{align}
 $$
@@ -841,6 +841,35 @@ The problem is that $\frac{1}{x^2}$ is NOT continuous for $[-1,1]$, as $\frac{1}
     data.frame(x=seq(1,12,.01)) |> ggplot(aes(x)) + geom_line(aes(y = sqrt((x/4)+6)))  + scale_x_continuous(breaks = seq(1,12,1)) + scale_y_continuous(breaks = seq(2,3,.5))
     ```
 
+    Substitution method. I needed additional guidance; was on the right path but was unsure about the treatment of $4du$.
+
+    $$
+    \begin{align}
+    \int_1^{12}\sqrt{\frac{1}{4}x + 6} dx \\
+    u &= \frac{1}{4}x + 6 \\
+    \frac{du}{dx} &= \frac{1}{4} \\
+    du &= \frac{1}{4}dx \\
+    4du &= dx \\
+    \int_1^{12}4\sqrt{u} &= 4\int_1^{12}\sqrt{u} \\
+    &= 4 * \frac{2}{3}u^{\frac{3}{2}} \\
+    &= 4 * \frac{2}{3}\left(\frac{1}{4}x + 6\right)^{\frac{3}{2}} \\
+    &= \frac{8}{3}\left(\frac{1}{4}x + 6\right)^{\frac{3}{2}} \\\\
+    \left[ \frac{8}{3}\left(\frac{1}{4}x + 6\right)^{\frac{3}{2}}\right]_1^{12} = 72-41\frac{2}{3} &= 30\frac{1}{3}
+    \end{align}
+    $$
+
+    Given solution is neat - for the bounded interval:
+
+    $$
+    \begin{align}
+    \int_1^{12}\sqrt{\frac{1}{4}x+6}dx 
+    &= 4\int_{\frac{1}{4}}^3\sqrt{x+6}dx \\
+    &= 4\int_{\frac{25}{4}}^9\sqrt{x}dx \\
+    &= 4\left[\frac{2}{3}x\sqrt{x}\right]_{\frac{25}{4}}^9 \\
+    &= 4\left(\frac{54}{3} - \frac{125}{12}\right) = \frac{91}{3}
+    \end{align}
+    $$
+
 10. Evaluate $\int_2^4e^x*e^x$
 
     Intriguing that this isn't $e^{2x}$.
@@ -872,4 +901,345 @@ The problem is that $\frac{1}{x^2}$ is NOT continuous for $[-1,1]$, as $\frac{1}
 
 11. Find primitive of $sin\left(\frac{2}{3}x-3\right)$ such that $F\left(\frac{9}{2}\right) = 1$.
 
+    $$
+    \begin{align}
+    u &= \frac{2}{3}x -3 \\
+    \frac{du}{dx} &= \frac{2}{3} \\
+    du &= \frac{2}{3}dx \\
+    \frac{3}{2}du &= dx \\
+    \int sin\left(\frac{2}{3}x - 3\right)dx &= \int \frac{3}{2}sin(u) \\
+    &= \frac{3}{2}\int sin(u) \\
+    &= -\frac{3}{2}cos(u) \\
+    &= -\frac{3}{2}cos\left(\frac{2}{3}x-3\right) + C \Rightarrow C=2.5
+    \end{align}
+    $$
+
 12. Find primitive of $\frac{3}{(5x-2)^3}$ such that $F(1) = 0$.
+
+    Needed guidance on this one too. I spent a lot of time substituting for $(5x-2)^3$. In the final solution, I made a mistake with $\frac{3}{2}\int$ - when the anti-derivative was negative, I ended up with $\frac{3}{2} - ?$ rather than $\frac{3}{2} * -?$.
+
+    $$
+    \begin{align}
+    u &= 5x -2 \\
+    \frac{du}{dx} &= 5 \\
+    du &= 5dx \\
+    \frac{1}{5}du &= dx \\
+    \int \frac{3}{(5x-2)^3}dx &= \int \frac{3}{5u^3} \\
+    &= \frac{3}{5}\int \frac{1}{u^3} \\
+    &= \frac{3}{5}\int u^{-3} \\
+    &= \frac{3}{5} * -\frac{1}{2}u^{-2} \\
+    &= \frac{3}{5} * -\frac{1}{2u^2} \\
+    &= \frac{3}{5} * -\frac{1}{2(5x-2)^2} \\
+    &= -\frac{3}{10(5x-2)^2} + C \Rightarrow C = \frac{1}{30}
+    \end{align}
+    $$
+
+13. Evaluate $\int_0^6 \frac{1}{x+2}dx$
+
+    I *thought* this, but only submitted given five chances (correct!):
+
+    $$
+    \int_2^8 \frac{1}{x} = \left[ln(x)\right]_2^8 = ln(8)-ln(2)
+    $$
+
+14. With $k>0$, what is the value of $\int_k^{3k}\frac{1}{x}dx$?
+
+    I had the formula correct immediately but paused on how to answer it without knowing $k$. Experimentally I realized that any $ln(3x)-ln(x) = ln(3)$. The given solution indicates that $ln(3k)-ln(k) = ln\left(\frac{3k}{k}\right) = ln(3)$.
+
+    $$
+    \begin{align}
+    \int_k^{3k}\frac{1}{x}dx &= \left[ln(x)\right]_k^{3k} = ln(3)
+    \end{align}
+    $$
+
+15. What is the primitive for $cos(x)sin(x)$ such that $F\left(\frac{\pi}{4}\right)= 0$?
+
+    Goofed slightly, had $g' = -cos(x)$.
+
+    $$
+    \begin{align}
+    \int cos(x)sin(x) \\
+    f &= cos(x) \\
+    F &= sin(x) \\
+    g &= sin(x) \\
+    g' &= cos(x) \\
+    \int cos(x)sin(x) &= Fg - \int Fg' \\
+    &= sin(x)sin(x) - \int sin(x)cos(x) \\
+    &= \frac{1}{2}sin(x)^2 + C \Rightarrow C = -\frac{1}{4}
+    \end{align}
+    $$
+
+16. Anti-derivative of $\frac{1}{x\sqrt{x-x^2}}$?
+
+    I tried to differentiate all of these, using product quotient rules. Was definitely far astray on the correct answer.
+
+    i.  $2ln(x\sqrt{x-x^2})\frac{2\sqrt{x-x^2}}{2+x-2x^2}$
+
+    ii. $\frac{ln(x)}{2\sqrt{x-x^2}}$
+
+    iii. $-\frac{2\sqrt{x-x^2}}{x}$
+
+         $$
+         \begin{align}
+         \frac{d}{dx}\frac{-2\sqrt{x-x^2}}{x} &= \frac{2\sqrt{x-x^2}}{x^2}-\frac{2}{x}\frac{1-2x}{2\sqrt{x-x^2}} \\
+         &= \frac{2(x-x^2)-x(1-2x)}{x^2\sqrt{x-x^2}} \\
+         &= \frac{x}{x^2\sqrt{x-x^2}} \\
+         &= \frac{1}{x\sqrt{x-x^2}}
+         \end{align}
+         $$
+
+    iv. $\sqrt{\frac{1-x}{x}}$
+
+17. We've seen that $\frac{d}{dx}ln(x+\sqrt{x^2+1}) = \frac{1}{\sqrt{x^2+1}}$. Use that to evaluate $\int_0^1 \frac{1}{\sqrt{x^2+1}}dx$.
+
+    $$
+    \left[ln(x+\sqrt{x^2+1})\right]_0^1 = ln(\sqrt{2}+1)
+    $$
+
+18. Derivative of $xln(x)$
+
+    Product rule, $f'(x)g(x) + f(x)g'(x)$
+
+    $1*ln(x) + x*\frac{1}{x} = ln(x) + 1$
+
+19. Evaluate $\int_1^2(ln(x)+1)dx$
+
+    $$
+    \left[xln(x)\right]_1^2 = (2*ln(2))-ln(1) = 2*ln(2)
+    $$
+
+20. Evaluate $\int_1^2ln(x)dx$
+
+    Was wrong initially, without the outer parens...
+
+    $$
+    \left[xln(x)-x\right]_1^2 = (2ln(2)-2) - (1ln(1)-1)
+    $$
+
+21. Find the max value of the antiderivative of $\frac{-x}{x^2+1}$
+
+    I struggled to get a primitive via parts (the resulting quadratic integral kept getting more complex!), then researched and realized substitution. In the end though: The result will always be negative(\*) due to $-x$ and the squaring; thus zero is largest...
+
+    $$
+    \begin{align}
+    \int \frac{-x}{x^2+1}dx \\
+    u &= x^2 + 1 \\
+    \frac{du}{dx} &= 2x \\
+    du &= 2xdx \\
+    \frac{1}{2}du &= xdx \\
+    \int \frac{-x}{x^2+1}dx &= \int -\frac{1}{2u}du \\
+    &= -\frac{1}{2} \int \frac{1}{u}du \\
+    &= -\frac{1}{2} ln(u) \\
+    &= -\frac{ln(x^2+1)}{2} + C
+    \end{align}
+    $$
+
+22. Find the area between the graphs for $f(x) = x^2$ and $g(x) = \sqrt{x}$:
+
+    ![](images/clipboard-1554715012.png){width="122"}
+
+    That should be the area under $g$ minus the area under $f$.
+
+    $$
+    G(x) = \int_0^1 \sqrt{x} = \left[\frac{2}{3}x^{\frac{3}{2}}\right]_0^1 = \frac{2}{3}\\
+    F(x) = \int_0^1 x^2 = \left[\frac{1}{3}x^3\right]_0^1 = \frac{1}{3}
+    $$
+
+23. Find area enclosed by $f(x) = e^{2x} -1$, the x-axis, and $x=2$.
+
+    Plotting, I see that $y$ and $x$ have the same sign - i.e., there is positive area for $x$ in $[0,2]$ and negative area for $x$ in $[-\infty, 0]$. Based on the wording of the question, that should equal the interval for $[0,2]$.
+
+    $$
+    F(x) = \int_0^2 e^{2x} -1 = \left[ \frac{e^{2x}}{2}-x \right]_0^2 = \left(\frac{e^4}{2}-2\right)-\frac{e^0}{2} = \frac{e^4-e^0}{2}-2
+    $$
+
+24. Area between $f(x) = x^4 - 3x^3 + 2x + 1$ and $g(x) = x^4 - 2x^3 - 2x^2 + x + 3$ for the interval $[-1,2]$
+
+    ![](images/clipboard-2501936234.png){width="160"}
+
+    I confirmed that the graph is honest - the functions are equal for $x$ in $(-1,1,2)$. So, this looks like $\int_{-1}^1 G-F + \int_1^a F-G + |\int_a^2 F-G|$, with $a$ TBD.
+
+    When are $f$ and $g$ zero? Both seem impossible (irrational?) Maybe I don't need to know - just consider total area of each?
+
+    $$
+    f(x) = x^4 - 3x^3 + 2x + 1 \\
+    f'(x) = 4x^3 - 9x^2 + 2 \\
+    g(x) = x^4 -2x^3 -2x^2 + x + 3 \\
+    g'(x) = 4x^3 - 6x^2 - 4x + 1
+    $$
+
+    $$
+    \begin{align}
+    F(x) &= \int x^4 - 3x^3 + 2x + 1 \\
+    &= \left[\frac{1}{5}x^5 - \frac{3}{4}x^4 + x^2 + x\right] \\\\
+    G(x) &= \int x^4 -2x^3 -2x^2 + x + 3 \\
+    &= \left[\frac{1}{5}x^5 - \frac{2}{4}x^4 - \frac{2}{3}x^3 + \frac{1}{2}x^2  + 3x\right] \\\\
+    \int_{-1}^1 G - F + \int_1^2 F-G &= \left[\frac{1}{5}x^5 - \frac{2}{4}x^4 - \frac{2}{3}x^3 + \frac{1}{2}x^2 + 3x\right]_{-1}^1 \\
+    &- \left[\frac{1}{5}x^5 - \frac{3}{4}x^4 + x^2 + x\right]_{-1}^1 \\
+    &+ \left|\left[\frac{1}{5}x^5 - \frac{3}{4}x^4 + x^2 + x\right]_1^2\right| \\
+    &- \left|\left[\frac{1}{5}x^5 - \frac{2}{4}x^4 - \frac{2}{3}x^3 + \frac{1}{2}x^2 + 3x \right]_1^2\right|
+    \end{align}
+    $$
+
+    ```{r}
+    f <- function(x) { x^4 - 3*x^3 + 2*x + 1 }
+    g <- function(x) { x^4 - 2*x^3 -2*x^2 + x + 3 }
+    data.frame(x=seq(-1,2,.01)) |> ggplot(aes(x)) + geom_line(aes(y = f(x))) + geom_line(aes(color='red', y = g(x)))
+    ```
+
+    ```{r}
+    G <- function(x) { (1/5)*x^5 - (2/4)*x^4 - (2/3)*x^3 + (1/2)*x^2 + 3*x }
+    F <- function(x) { (1/5)*x^5 - (3/4)*x^4 + x^2 + x }
+
+    ((G(1)-G(-1))-(F(1)-F(-1))) + (abs(F(2)-F(1))-abs(G(2)-G(1))) # 2.25 (Wrong)
+    ((G(1)-G(-1))-(F(1)-F(-1))) + abs(abs(F(2)-F(1))-abs(G(2)-G(1))) # Correct!
+    ```
+
+    Given explanation - solve for $f(x)-g(x)=0$:
+
+    $$
+    \begin{align}
+    f(x) - g(x) &= -x^3 + 2x^2 + x - 2 \\
+    &= (x-2)(-x^2 + 1) \\
+    &= -(x-2)(x-1)(x+1) \Rightarrow (-1,1,2) \\
+    \text{Now, awesome, primitive of the difference:}\\
+    \int_{-1}^2 |f(x)-g(x)| &= 
+    \left[\frac{1}{4}x^4 - \frac{2}{3}x^3 - \frac{1}{2}x^2 + 2x\right]_{-1}^1 \\
+    &+ \left[-\frac{1}{4}x^4 + \frac{2}{3}x^3 + \frac{1}{2}x^2 - 2x\right]_1^2 \\
+    &= \left(\frac{13}{12}-\left(-\frac{19}{12}\right)\right) + \left(-\frac{2}{3}-\left(-\frac{13}{12}\right)\right) = \frac{37}{12}
+    \end{align}
+    $$
+
+25. Consider $cosh(x) = \frac{e^x+e^{-x}}{2}$ and $sinh(x) = \frac{e^x-e^{-x}}{2}$. Then it is easily(?) seen that $cosh'(x) = sinh(x)$ and $sinh'(x) = cosh(x)$.
+
+    ```{r}
+    library(ggplot2)
+    e <- exp(1)
+    data.frame(x = seq(-1,1,.01)) |> ggplot(aes(x)) + geom_line(aes(y=( e^x + e^(-x) )/2 )) + geom_hline(yintercept = (e^1 + e^(-1))/2, linetype = 'dashed') + geom_vline(xintercept = c(-1,1), linetype = 'dashed')
+    ```
+
+    Above is $cosh(x)$ for $[-1,1]$. Compute indicated area, of the graph and horizontal line crossing the endpoints.
+
+    Hmm, first identify horizontal line, which would be $y = \frac{e^1+e^{-1}}{2} = 1.543081$.
+
+    Now, the width of the rectangle is 2, so area is $2*\frac{e^1 + e^{-1}}{2} = e^1+e^{-1} = 3.086161$.
+
+    Thus highlighted area is $e^1 + e^{-1} - \int_{-1}^1cosh(x)$.
+
+    Primitive of $\frac{e^x+e^{-x}}{2}$:
+
+    $$
+    \begin{align}
+    \frac{1}{2}\int e^x + e^{-x} &= \frac{1}{2}\left(\int e^x + \int\frac{1}{e^x}\right) \\
+    &= \frac{1}{2}\left(e^x + \int\frac{1}{e^x}\right) \\
+    &= \frac{1}{2}\left(e^x - \frac{1}{e^x}\right) \\
+    &= \frac{e^x}{2} - \frac{1}{2e^x}
+    \end{align}
+    $$
+
+    Thus, $e^1 + e^{-1} - \left[\frac{e^x}{2}-\frac{1}{2e^x} \right]_{-1}^1$
+
+    ```{r}
+    e <- exp(1)
+    F <- function(x) { (e^x)/2 - 1/(2*(e^x)) }
+    A <- e^1 + e^(-1)
+    A - ( F(1) - F(-1) )
+    ```
+
+26. Consider $f(x) = \frac{1}{x+1}$ and some value $p$ in the interval $[0,3]$. Let $A$ be the area under the graph of $f$ between $x=0$ and $x=p$; and let $B$ be the area under the graph of $f$ between $x=p$ and $x=3$. What is $p$ such that $A=B$?
+
+    ![](images/clipboard-1826981697.png){width="208"}
+
+    $$
+    \begin{align}
+    \int \frac{1}{x+1} &= \left[ ln(x+1) \right]_0^3 \\
+    &= log(4)-log(1) = 1.386294 \\
+    \text{Just by chance...} \\
+    log(2)-log(1) &== log(4)-log(2)
+    \end{align}
+    $$
+
+    Given explanation:
+
+    $$
+    \begin{align}
+    A &= \int_0^p \frac{1}{x+1} = \left[ln(x+1)\right]_0^p = ln(p+1)-ln(1) = ln(p+1) \\
+    B &= \int_p^3 \frac{1}{x+1} = \left[ln(x+1)\right]_p^3 = ln(3+1)-ln(p+1) = ln(4)-ln(p+1) \\
+    \text{Thus, } A=B \text{ when}\\
+    ln(p+1) &= ln(4) - ln(p+1) \Rightarrow \\
+    2ln(p+1) &=ln(4) \Rightarrow \\
+    ln(p+1) &= \frac{1}{2}ln(4) = ln(2) = 1
+    \end{align}
+    $$
+
+27. Evaluate $\int_0^1(x^2 + 2x + 3)e^{2x}$
+
+    Initially, I tried the reverse of $f$ and $g$ below and seemed to dead-end. Then I was on course but when solving the final integral, forgot to add back the original.
+
+    $$
+    \begin{align}
+    g &= (x^2 + 2x + 3) \\
+    g' &= 2x + 2 \\
+    f &= e^{2x} \\
+    f' &= 2e^{2x} \\
+    F &= \frac{1}{2}e^{2x} \\
+    \int_0^1(x^2+2x+3)e^2x &= \frac{1}{2}e^{2x}(x^2 + 2x + 3) - \int \frac{1}{2}e^{2x}(2x+2) \\
+    &= \frac{1}{2}e^{2x}(x^2 + 2x + 3) - \int \frac{1}{2}e^{2x}2(x+1) \\
+    &= \frac{1}{2}e^{2x}(x^2 + 2x + 3) - \int e^{2x}(x+1) \\
+    \\
+    f_2 &= f \\
+    F_2 &= F \\
+    g_2 &= x + 1 \\
+    g_2' &= 1 \\
+    \int e^{2x}(x+1) &= \frac{1}{2}e^{2x}(x+1) - \int \frac{1}{2}e^{2x} \\
+    &= \frac{1}{2}e^{2x}(x+1) - \frac{1}{4}e^{2x} \\\\
+    &= \frac{1}{2}e^{2x}(x^2 + 2x + 3) - \left(\frac{1}{2}e^{2x}(x+1) - \frac{1}{4}e^{2x}\right)
+    \end{align}
+    $$
+
+    ```{r}
+    e <- exp(1)
+    FG <- function(x) {
+        (1/2)*e^(2*x)*(x^2 + 2*x + 3) -
+        ( (1/2)*e^(2*x)*(x+1) - (1/4)*e^(2*x))
+    }
+    FG(1)-FG(0)
+    ```
+
+28. Evaluate $\int_1^2\frac{ln(x)}{x^2}$
+
+    Try as $ln(x) * \frac{1}{x^2}$
+
+    $$
+    \begin{align}
+    f &= \frac{1}{x^2} \\
+    F &= -1x^{-1} = -\frac{1}{x} \\
+    g &= ln(x) \\
+    g' &= \frac{1}{x} \\
+    \int_1^2 ln(x)*\frac{1}{x^2} &= Fg - \int Fg' \\
+    &= -\frac{1}{x}ln(x) - \int -\frac{1}{x}\frac{1}{x} \\
+    &= -\frac{1}{x}ln(x) + \int \frac{1}{x^2} \\
+    &= -\frac{1}{x}ln(x) - \frac{1}{x} \\
+    &= -\frac{ln(x)+1}{x}
+    \end{align}
+    $$
+
+    ```{r}
+    FG <- function(x) { -(log(x)+1)/x }
+    FG(2) - FG(1)
+    ```
+
+29. Substitute $u = cos(x)$ and rewrite $\int \frac{sin(x)}{cos(x)}$ as $\int f(u)du$
+
+    $$
+    \begin{align}
+    u &= cos(x) \\
+    \frac{du}{dx} &= -sin(x) \\
+    du &= -sin(x)dx \\
+    \int \frac{sin(x)}{cos(x)} &= \frac{-1}{u}du
+    \end{align}
+    $$
+
+30. Using previous exercise, find primitive for $tan(x)$ for $\left(-\frac{\pi}{2},\frac{\pi}{2}\right)$ such that $F(0)=0$
+
+    Well, $tan(x) = \frac{sin(x)}{cos(x)}$; so have $\int \frac{-1}{cos(x)}$.
