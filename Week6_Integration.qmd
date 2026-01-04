@@ -1275,9 +1275,82 @@ The problem is that $\frac{1}{x^2}$ is NOT continuous for $[-1,1]$, as $\frac{1}
     \end{align}
     $$
 
-32. Rocket launch...
+32. Evaluate $\int_0^{35,786} \frac{(6,371km)^2}{(s+6,371km)^2}mg$ where $m=2000kg$ (weight of satellite) and $g=9.81m/s^2$ (gravitational force for height $s$ above ground), and $6371km$ is the radius of the earth. "What is the work done by gravity when we bring the satellite into a geostationary orbit in $GJ=10^9J$?"
 
-33. Radioactive decay...
+    Evidently, a Joule equals the amount of work when a force of one Newton displaces a body a distance of one meter in the direction of that force. $1J = kg*m^2*s^{-2}$, where $m$ is meter and $s$ is seconds. If I follow, we know $kg=2000$, $m^2 = (35786*10^3)^2$, $s^{-2} = ?$
+
+    Note, $s$ is height, not seconds (not $h$?):
+
+    $$
+    \begin{align}
+    \int_{s=0}^{s=35786} &\frac{6371^2}{(s+6371)^2}*2000*\frac{9.81*2000}{s^2}ds \\
+    &= 2000*6371^2*9.81*2000 \int_{s=0}^{s=35786} \frac{1}{(s+6371)^2}\frac{1}{s^2} \\
+    &= 2000^2*6371^2*9.81 \int_{s=0}^{s=35786} \frac{1}{s^2(s+6371)^2} \\
+    &= 2000^2*6371^2*9.81 \left[ \frac{1}{6371^2}\left(-\frac{1}{s}-\frac{1}{s+6371}+\frac{2ln(|s|)-2ln(|s+6371|)}{6371}\right)\right]_{s=0}^{s=35786} \\
+    &= 2000^2*6371^2*9.81*\frac{1}{6371^2} \left[ \left(-\frac{1}{s}-\frac{1}{s+6371}+\frac{2ln(|s|)-2ln(|s+6371|)}{6371}\right)\right]_{s=0}^{s=35786}\\
+    &= \frac{2000^2*6371^2*9.81}{6371^2} \left[ \left(-\frac{1}{s}-\frac{1}{s+6371}+\frac{2ln(|s|)-2ln(|s+6371|)}{6371}\right)\right]_{s=0}^{s=35786}\\
+    &= 2000^2*9.81 \left[ \left(-\frac{1}{s}-\frac{1}{s+6371}+\frac{2ln(|s|)-2ln(|s+6371|)}{6371}\right)\right]_{s=0}^{s=35786}\\
+    &= -4045.607
+    \end{align}
+    $$
+
+    ```{r}
+    F <- function(s) {
+        2000^2*9.81*(
+            - 1/s
+            - 1/(s+6371)
+            + (2*log(abs(s))-2*log(abs(s+6371)))/6371
+        )
+    }
+    F(35786)
+    ```
+
+    I submitted the wrong answer five times in exhaustion. Given explanation:
+
+    $$
+    \begin{align}
+    &\text{First, change all lengths to meters:}\\\\
+    W &= \int_0^{35786*10^3} \frac{9.81*(6371*10^3)^2 * 2000}{(s+6371*10^3)^2}ds \\
+    &= \left[-\frac{9.81(6371*10^3)^2*2000}{s+6371*10^3}\right]_0^{35786*10^3} \\
+    &= -19*10^9 + 125*10^9 = 106*10^9 \\
+    &= 106 \text{ GJ}
+    \end{align}
+    $$
+
+33. Uranium-238 has a half-life of $h=1.41*10^{17}s$. Suppose a U-238 sample emits alpha particles at a rate of $e(t) = 2^{-\frac{t}{h}}*10^7$ particles per second. How many particles will it have emitted between $t=0, t=h$?
+
+    $$
+    \begin{align}
+    \int_{t=0}^{t=1.41*10^{17}} 2^{-\frac{t}{1.41*10^{17}}} *10^7
+    &= 10^7 \int_{t=0}^{t=141*10^{15}} 2^{\left(-\frac{t}{141*10^{15}}\right)} \\
+    &= 10^7 \left[
+       -\frac{141*10^{15}}{ln(2)*2^{\left(-\frac{t}{141*10^{15}}\right)}}
+    \right]_{t=0}^{t=141*10^{15}}
+    \end{align}
+    $$
+
+    ```{r}
+    F <- function(t) {
+        10^7 * (
+            (-141 * 10^15) /
+            (log(2) * 2^(-t/(141*10^15)))
+        )
+    }
+    F(141*10^15) - F(0)
+    ```
+
+    Tried the above and more; could not see how it could turn out positive. Answer and explanation:
+
+    $$
+    \begin{align}
+    \text{Total emissions } &= \int_0^h e(t) dt \\
+    &= \int_0^h 2^{-\frac{t}{h}}*10^7dt \\
+    &= \left[ -\frac{h}{ln(2)}2^{-\frac{t}{h}}*10^7\right]_0^h \\
+    &= -\frac{h}{2ln(2)}*10^7 + \frac{h}{ln(2)}*10^7 \\
+    &= 10^7\left(-\frac{h}{2ln(2)} + \frac{h}{ln(2)}\right) \\
+    &= 1.0171*10^24
+    \end{align}
+    $$
 
 34. Length of a graph of $f(x)$ can be calculated as $L = \int_a^b \sqrt{1 + f'(x)^2}dx$
 
@@ -1531,6 +1604,32 @@ The problem is that $\frac{1}{x^2}$ is NOT continuous for $[-1,1]$, as $\frac{1}
 
 11. Plutonium 239 sample emits particles at a rate of $N(t) = N_0 * 2^{-\frac{t}{h}}$ particles/second, where $h = 7.6*10^{11}$ and $N_0 = 7.3*10^{11}$. Calculate $\int_{t=0}^{t=2*h} N(t)$.
 
+    I could not figure out the relevant homework question, and followed its answer here - and that did not work either. First my attempt, then the given solution:
+
+    $$
+    \begin{align}
+    \text{Total emissions } &= \int_{t=0}^{t=2h} e(t) dt \\
+    &= \int_{t=0}^{t=2h} 2^{-\frac{t}{h}}*7.3*10^{11}dt \\
+    &= \left[ -\frac{h}{ln(2)}2^{-\frac{t}{h}}*7.3*10^{11}\right]_{t=0}^{t=2h} \\
+    &= -\frac{h}{2ln(2)}*7.3*10^{11} + \frac{h}{ln(2)}*7.3*10^{11} \\
+    &= 7.3*10^{11}\left(-\frac{h}{2ln(2)} + \frac{h}{ln(2)}\right) \\
+    &\approx 8.0 * 10^{23}
+    \end{align}
+    $$
+
+    $$
+    \begin{align}
+    \text{Total emissions } &= \int_0^{2h} N(t)dt \\
+    &= N_0 \int_0^{2h} 2^{-\frac{t}{h}}dt \\
+    &= N_0 \left[ -\frac{h}{ln(2)}2^{-\frac{t}{h}}\right]_0^{2h} \\
+    &= N_0 \left( -\frac{h}{4ln(2)} + \frac{h}{ln(2)}\right) \\
+    &= N_0 * \frac{3h}{4ln2} \\
+    &\approx 6.0*10^{23}
+    \end{align}
+    $$
+
+    Clearly my mistake was not multiplying the first denominator by another 2, presumably due to $2h$.
+
 12. Evaluate $\int_0^3f(x)dx$, where $f(x) = \begin{cases} 2x & x < 2, \\[2.5mm] (x-1)^3 & x \geq 2 \end{cases}$
 
     $$
@@ -1684,4 +1783,10 @@ The problem is that $\frac{1}{x^2}$ is NOT continuous for $[-1,1]$, as $\frac{1}
     F(0)
     ```
 
-19. x
+# Multiple Integrals
+
+Imagine trying to find the volume of a modern office building with a wavy roof. We can approach it with a Riemann sum in three dimensions, slicing it into boxes, multiplying floor volume by box height, and summing for an approximation. We represent that as follows, with $D$ the domain over which we integrate, in this case the base of the building.
+
+$$
+\int\int_D f(x,y)dA
+$$
