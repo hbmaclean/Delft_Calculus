@@ -1790,3 +1790,96 @@ Imagine trying to find the volume of a modern office building with a wavy roof. 
 $$
 \int\int_D f(x,y)dA
 $$
+
++------------------------------------------------------+--------------------------------------------------+
+| $f(x)$ defined on rectangle $D = [a,b] \times [c,d]$ | Volume between $D$ and graph of $f$ is\          |
+|                                                      | $Vol(V) = \int\int_D f(x,y)d(x,y)$               |
++------------------------------------------------------+--------------------------------------------------+
+| ![](images/clipboard-2971756478.png){width="254"}    | ![](images/clipboard-170425587.png){width="187"} |
++------------------------------------------------------+--------------------------------------------------+
+
+If the width of the slices, $\Delta y$, is very small, the y-coordinate of one slice is nearly constant; so the y-coordinates are $y_1$, $y_2$, etc.
+
+The height of the $i$-th slice is given by $f(x, y_i)$. Note that for each slice the value of $y_i$ is constant, so $f(x,y_i)$ is a function of a single variable $x$.
+
+Now the area of the side of the $i$-th slice is the area below the graph of the function $f(x,y_i)$, which is $\int_a^b f(x,y_i)dx$.
+
+Therefore the volume of the $i$-th slice is:
+
+$$
+Vol(slice_i) = \int_a^b f(x,y_i)dx * \Delta y
+$$
+
+Summing the volumes of all the slices gives an approximation of the overall volume:
+
+$$
+Vol(V) = \sum_{i=1}^N Vol(slice_i) \approx \sum_{i=1}^N \int_a^b f(x,y_i)dx * \Delta y
+$$
+
+We can consider the sum as a Riemann sum of the function $g(y) = \int_a^b f(x,y)dx$ over the interval $[c,d]$. By letting $\Delta y \rightarrow 0$, this becomes $\int_c^d g(y)dy$ and we obtain:
+
+$$
+Vol(V) = \int_c^d \left(\int_a^b f(x,y)dx\right)dy
+$$
+
+To evaluate this, we first compute the inner integral, considering $y$ as a constant. We consider this result a function of $y$, which we then integrate for the outer integral.
+
+We could have sliced along the x-axis. Either way, we find:
+
+$$
+\begin{align}
+Vol(V) &= \int\int_D f(x,y)d(x,y) \\
+&= \int_c^d\left(\int_a^b f(x,y)dx\right)dy \\
+&= \int_a^b\left(\int_c^d f(x,y)dy\right)dx
+\end{align}
+$$
+
+Full, excellent example from [Patrick JMT \@ youtube](https://www.youtube.com/watch?v=DYsv6L-VcsQ&t=60s)
+
+$$
+\begin{align}
+\int_1^3 &\int_0^2(xy + x^2y^3)d(x,y) \\\\
+& x\text{ is constant; integrate } y \text{:}\\
+&= \int_1^3 \left[ \frac{xy^2}{2} + \frac{x^2y^4}{4} \right]_{y=0}^{y=2} dx\\\\
+& \text{Evaluate } y \text{ , noting here } y=0 \text{ amounts to nothing } \\
+&= \int_1^3 \left[ 2x + 4x^2 \right] dx\\\\
+& \text{Integrate and evaluate with respect to } x \\
+&= \left[ x^2 + \frac{4x^3}{3} \right]_{x=1}^{x=3} \\
+&= \left(9 + \frac{4}{3}(27)\right) - \left(1 + \frac{4}{3}\right) \\
+&= ...
+\end{align}
+$$
+
+1.  Consider rectangle $D = [-1,3] \times [0,2]$. The volume $V$ between $D$ and the plane $z = 36 - 2x - 4y$ is $V = \int\int_D (36-2x-4y)d(x,y)$. Find the volume.
+
+    $$
+    \begin{align}
+    V = \int & \int_D(36-2x-4y)d(x,y) \\\\
+    & \text{Integrate } y \text{ treating } x \text{ as constant } \\
+    &= \int \left[36y -2xy - \frac{4y^2}{2} \right]_{y=0}^{y=2} \\
+    &= \int \left[36y -2xy - 2y^2\right]_{y=0}^{y=2} \\\\
+    & \text{Evaluate } y \\
+    &= \int \left[ \left(72 -4x -8\right) - \left(0\right)\right]dx \\
+    &= \int \left[64 - 4x\right]dx \\\\
+    & \text{Integrate } x \\
+    &= \left[ 64x - \frac{4x^2}{2} \right]_{x=-1}^{x=3} \\
+    &= \left(192 - 18\right) - \left(-64 -2\right) \\
+    &= 174 + 66 = 240
+    \end{align}
+    $$
+
+2.  Consider rectangle $D = [0,2] \times [0,3]$. The volume $V$ between $D$ and the surface $z = 72 - 9x^2 - 4y^2$ is $V = \int\int_D(72 - 9x^2 - 4y^2)d(x,y)$. Find the volume.
+
+    $$
+    \begin{align}
+    V = \int &\int_D(72-9x^2-4y^2)d(x,y) \\\\
+    & \text{Integrate } y \text{ treating } x \text{ as constant:} \\
+    &= \int \left[ 72y -9yx^2 - \frac{4y^3}{3} \right]_{y=0}^{y=3} \\\\
+    & \text{Evaluate } y \\
+    &= \int \left[ \left(216 - 27x^2 - 36\right) - \left(0\right)\right]dx \\
+    &= \int \left[ \left(180 - 27x^2\right)\right]dx \\\\
+    & \text{Integrate } x \\
+    &= \left[ 180x - \frac{27x^3}{3} \right]_{x=0}^{x=2} \\
+    &= 360 - 72 = 288
+    \end{align}
+    $$
