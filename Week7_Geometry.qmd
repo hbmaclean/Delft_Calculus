@@ -1,0 +1,249 @@
+---
+title: "Week7_Geometry"
+format: html
+editor: visual
+---
+
+## Cartesian Coordinates
+
+From Rene Descartes, we have the cartesian coordinate system in a plane, with perpendicular coordinate axes ($x$, $y$), point of origin at their intersection, and positive and negative coordinate points. The system is flexible in terms of orientation, units, and sign - all of which can be used advantageously. For example, while GPS coordinate axes run north-south and east-west, we might prefer orienting to a street plan - one axis parallel to streets and one to avenues.
+
+This system was revolutionary in that it bridged two very different fields of mathematics - geometry and algebra.
+
+# Vectors
+
+Vectors have length and direction, but not a fixed starting point.
+
+Vectors are used to describe flow - water, electricity, wind, people; force - such as gravitation.
+
+Vector notation may include bold, underline, caret- or arrow above.
+
+There is also a unique zero vector - with length zero and no direction. E.g., absence of wind on a still day.
+
+Vectors can be added, even shifted such that they are head to toe for addition.
+
+Multiplying a vector by a positive scalar increases the length accordingly. Multiplying by a negative scalar flips the direction, in addition to multiplying length.
+
+## Calculating with Vectors
+
+We can consider a line on a graph, say from origin to $(3,2)$, as a vector denoted by $\begin{pmatrix}3\\2\end{pmatrix}$, meaning from the starting point, move 3 to the right and 2 up. Since vectors do not have fixed starting points, this is equal to the vector from $(1,1)$ to $(4,3)$, or from $(-1,1)$ to $(2,3)$.
+
+In general a vector from $(a,b)$ to $(c,d)$ is the vector with $c-a$ as the first component and $d-b$ as the second component.
+
+The length, or norm, of a vector $\begin{pmatrix}a\\b\end{pmatrix}$ is $\sqrt{a^2 + b^2}$
+
+To add two vectors, we sum them component-wise: $\begin{pmatrix}a\\b\end{pmatrix} + \begin{pmatrix}c\\d\end{pmatrix} = \begin{pmatrix}a+c\\b+d\end{pmatrix}$
+
+Multiplying a vector by a scalar is also component-wise: $k\begin{pmatrix}a\\b\end{pmatrix} = \begin{pmatrix}ka\\kb\end{pmatrix}$
+
+Multiplication holds for negative scalars, which as explained earlier, flips the direction.
+
+## The Dot Product
+
+When adding two vectors, the sum can be obtained geometrically by placing one after another.
+
+Multiplying a vector by a scalar also has geometric meaning, as it simply multiplies the length of the arrow.
+
+Multiplying two vectors does NOT have geometric meaning. To do so, we use the "dot" product, which in general takes the form $\begin{pmatrix}a\\b\end{pmatrix} \cdot \begin{pmatrix}c\\d\end{pmatrix} = ac + bd$. The result is a scalar, not another vector.
+
+The dot product relates to geometry as follows: Given two vectors $\vec{v}$ and $\vec{w}$, and the angle between them $\alpha$, then their dot product equals the product of their lengths times $cos(\alpha)$ - e.g., $\vec{v} \cdot \vec{w} = ||\vec{v}||*||\vec{w}||*cos(\alpha)$
+
+We can use this property to find the angle between any two vectors:
+
+$$
+\begin{align}
+\vec{v} &= \begin{pmatrix}1\\2\end{pmatrix} \\
+\vec{w} &= \begin{pmatrix}3\\1\end{pmatrix} \\
+cos(\alpha) &= \frac{\vec{v} \cdot \vec{w}}{||\vec{v}||*||\vec{w}||} \\
+&= \frac{5}{\sqrt{5}\sqrt{10}}
+\end{align}
+$$
+
+In this case, $cos(\alpha)$ can be simplified to $\frac{1}{2}\sqrt{2}$, which we know to be the cosine of $\frac{\pi}{4}$.
+
+In any case, the dot product is revealing:
+
+-   If the dot product is negative, the cosine of the angle is negative - meaning the angle is larger than $\frac{\pi}{2}$, and obtuse.
+-   If the dot product is positive, so is the cosine; and thus the angle is less than $\frac{\pi}{2}$ and acute.
+-   If the dot product is zero, and the vector lengths are non-zero, then the cosine of the angle is 0, meaning the angle is $\frac{pi}{2}$ and right.
+
+### Rules of Calculation
+
+Order does not matter: $\vec{v} \cdot \vec{w} = \vec{w} \cdot \vec{v}$.
+
+For any three vectors, $\vec{u} \cdot (\vec{v} + \vec{w}) = \vec{u} \cdot \vec{v} + \vec{u} \cdot \vec{w}$
+
+For any two vectors and scalar, $(c\vec{v}) \cdot \vec{w} = \vec{v} \cdot (c\vec{w}) = c(\vec{v} \cdot \vec{w})$
+
+For any vector, if $\vec{v} \cdot \vec{v} = 0$ then $\vec{v} = \begin{pmatrix}0\\0\end{pmatrix}$
+
+Note:
+
+-   It is possible that $\vec{v} \cdot \vec{w} = 0$ with neither vector equal to the zero vector
+-   Dot product of three vectors is not defined
+-   Square of a vector is not defined, always write $\vec{v} \cdot \vec{v}$
+
+# Exercises
+
+1.  Consider a rectangle with vertices $A$, $B$, $C$, and $D$, where we know coordinates $A = (-2, -1)$, $B = (5, -1)$, and $C = (5,3)$. What are the coordinates of $D$?
+
+    $(-2, 3)$
+
+2.  Consider equilateral triangle with $A = (2,1)$, $B = (2, 7)$, and $C$ - what are its coordinates?
+
+    $AB = 7-6 = 6$, so $C = (1+3, ?)$. Hint says height of equilateral triangle is $\frac{1}{2}\sqrt{3}*base$, so $\frac{1}{2}\sqrt{3}*6 = 5.196152$ (Wrong?!) Ah, plus 2 offset...
+
+    Cartesian length formula is $\sqrt{\left((x_2-x_1)^2 + (y_2-y_1)^2\right)}$
+
+    $$
+    \begin{align}
+    \sqrt{\left((x_2-x_1)^2 + (y_2-y_1)^2\right)} &= \sqrt{\left((x-2)^2 + (4-1)^2\right)} = 6 \\
+    &= \sqrt{\left((x-2)^2 + 9\right)} = 6 \\
+    &= (x-2)^2 = 27 \\
+    &= x-2 = \sqrt{27} \\
+    &= x = \sqrt{27}+2
+    \end{align}
+    $$
+
+3.  Suppose we have $A = (5,3)$, $B = (2,3)$, and $C = (-1, 1)$, and we shift the origin down 1, right 7. What are the new coordinates of $A$? Instinctively guessed $(12,2)$, but no - shifting origin does the reverse - $(-2, 4)$.
+
+4.  Suppose instead we rotate the original coordinate system $90^\circ$ clockwise. What are new coordinates of $B$ (originally, $(2,3)$)?
+
+    Guessed $(-2,3)$, thinking we rotate axes but not point. (Wrong)
+
+    Then $(2, -3)$, thinking we rotate whole thing. (Wrong)
+
+    Oops, started with $(3,2)$, not $(2,3)$. So, like second guess, $(3, -2)$. (Wrong)
+
+    Like first guess, $(-3, 2)$. (Correct - so, rotate axes, not point.)
+
+5.  Suppose instead we rotate the original coordinate system $45^\circ$ counter-clockwise. What are the new coordinates of $C$ (originally, $(-1, 1)$)?
+
+    With pencil and paper, $-45^\circ$ should put the point ON the y-axis, thus $y=0$. Distance from origin must remain unchanged, $\sqrt{2}$, so $x = \sqrt{2}$
+
+6.  Distance between $(-2,3)$ and $(4, -1)$.
+
+    $\sqrt{ 6^2 + 4^2 }$
+
+7.  Given a line at $y=3$, a point $P$ on that line at $(7,3)$, and another point $Q$ at $(x, 3)$ such that distance from $Q$ to origin equals $QP$.
+
+    Hmmm.
+
+    $$
+    \begin{align}
+    Q0 &= \sqrt{(x-0)^2 + (3-0)^2} = \sqrt{x^2+9} \\
+    QP &= \sqrt{(7-x)^2 + (3-3)^2} = \sqrt{(7-x)^2} \\
+    &\Rightarrow \sqrt{x^2+9} = \sqrt{(7-x)^2} \\
+    &\Rightarrow x^2 + 9 = 49 -14x + x^2 \\
+    &\Rightarrow 14x = 40 \\
+    &\Rightarrow x = \frac{20}{7} \\
+    \text{Validate:} \\
+    \sqrt{ \left(\frac{20}{7}\right)^2 + 9 } &= 4.142857 \\
+    \sqrt{\left(7-\frac{20}{7}\right)^2} &= 4.142857
+    \end{align}
+    $$
+
+    $Q0 = \sqrt{(x-0)^2 + (3-0)^2} = \sqrt{x^2 + 9}$ and $QP = \sqrt{(7-x)^2 + (3-3)^2} = \sqrt{(7-x)^2}$
+
+8.  What best describes triangle with $A = (2, -1)$, $B = (6, 1)$, and $C = (0, 8)$.
+
+    $$
+    \begin{align}
+    AC &= \sqrt{(2-0)^2 + (8--1)^2} = 9.219544 \\
+    AB &= \sqrt{(6-2)^2 + (1--1)^2} = 4.472136 \\
+    BC &= \sqrt{(6-0)^2 + (8-1)^2} = 9.219544 \\
+    AC &= BC \Rightarrow \text{thus, isosceles}
+    \end{align}
+    $$
+
+9.  Which can be described as vectors?
+
+    i.  Cash in wallet \[ NO - no direction. No? Income, expenditures? \]
+    ii. Electric field \[ YES \]
+    iii. Temperature \[ NO - no direction. No? Up, down? \]
+    iv. Slope of a mountain \[ YES...\]
+
+10. Let $\hat{v}$ and $\hat{w}$ be two arbitrary vectors. Draw $\vec{v}$, $\vec{w}$, and their sum $\vec{v} + \vec{w}$ with their starting points at the origin. Consider the quadrilateral with the endpoints of these three vectors and the origin as vertices. What kind of quadrilateral is this?
+
+    i.  square
+    ii. rectangle
+    iii. rhombus \[ Tried second, wrong (only true if $\hat{v}$ and $\hat{w}$ have same length \]
+    iv. parallelogram \[ Tried third, correct \]
+    v.  kite \[ Tried first, wrong \]
+    vi. trapezoid
+
+    Does it NOT matter how the vectors are drawn? What if all are drawn on the y-axis, say - then it's just a line? Or if two are drawn in opposite directions?
+
+11. $\vec{v}$ starts at $(-1,2)$ and ends at $(3,4)$. What are its components?
+
+    $\begin{pmatrix}4\\2\end{pmatrix}$
+
+12. Provide the length of $\vec{v} = \begin{pmatrix}-2\\3\end{pmatrix}$
+
+    $\sqrt{ (-2)^2 + 3^2 } = \sqrt{13} = 3.605551$
+
+13. Given $\vec{u} = \begin{pmatrix}-2\\1\end{pmatrix}$ and $\vec{v} = \begin{pmatrix}1\\4\end{pmatrix}$, calculate $\vec{w} = 3\vec{u} - 2\vec{v}$.
+
+    $$
+    \begin{align}
+    3\begin{pmatrix}-2\\1\end{pmatrix} - 2\begin{pmatrix}1\\4\end{pmatrix}
+    &= \begin{pmatrix}-6\\3\end{pmatrix} - \begin{pmatrix}2\\8\end{pmatrix} \\
+    &= \begin{pmatrix}-8\\-5\end{pmatrix}
+    \end{align}
+    $$
+
+14. Dot product of $\begin{pmatrix}3\\5\end{pmatrix} \cdot \begin{pmatrix}2\\-3\end{pmatrix}$
+
+    $6 + -15 = -9$
+
+    And thus angle is obtuse
+
+15. Suppose $||\vec{v}|| = \sqrt{3}$, $||\vec{w}|| = \sqrt{6}$, and $\vec{v} \cdot \vec{w} = 3$. What is the angle in radians between $\vec{v}$ and $\vec{w}$?
+
+    $$
+    \begin{align}
+    cos(\alpha) &= \frac{\vec{v} \cdot \vec{w}}{||\vec{v}||*||\vec{w}||} \\
+    &= \frac{3}{\sqrt{3}\sqrt{6}} \\
+    &= \frac{3}{\sqrt{18}} \\
+    &= \frac{3}{\sqrt{9*2}} \\
+    &= \frac{3}{3\sqrt{2}} \\
+    &= \frac{1}{\sqrt{2}} \\
+    &= \frac{1}{\sqrt{2}} * \frac{\sqrt{2}}{\sqrt{2}} \\
+    &= \frac{\sqrt{2}}{2}
+    \end{align}
+    $$
+
+    From the unit circle, this is $\frac{\pi}{4}$
+
+16. Consider triangle with $A = (1,1)$, $B = (4,2)$, and $C = (-1, 7)$. Which is true?
+
+    i.  $ABC$ is a right triangle, with right angle at $A$
+    ii. $ABC$ is a right triangle, with right angle at $B$
+    iii. $ABC$ is a right triangle, with right angle at $C$
+    iv. $ABC$ is not a right triangle
+
+    $$
+    \begin{align}
+    ||AB|| &= \sqrt{(4-1)^2 + (2-1)^2} = \sqrt{10} \\
+    ||AC|| &= \sqrt{(-1-1)^2 + (7-1)^2} = \sqrt{40} \\
+    ||BC|| &= \sqrt{(4--1)^2 + (2-7)^2} = \sqrt{50} \\ 
+    \end{align}
+    $$
+
+    Clearly, $||AB||^2 + ||AC||^2 = ||BC||^2$; $BC$ is the hypotenuse and right angle is at $A$.
+
+17. Suppose $||\vec{v}|| = 1$, $||\vec{w}|| = 4$, and $\vec{v} \cdot \vec{w} = 2$.
+
+    1.  Find $\vec{w} \cdot (-3\vec{v} + \vec{w})$
+    2.  Find $||\vec{v} - \vec{w}||$
+
+18. Find angle between $\vec{v}$ and $\vec{w}$, given $||\vec{v}|| = 5$, $||\vec{w}|| = 12$, and $||\vec{v} + \vec{w}|| = 13$.
+
+    $$
+    \begin{align}
+    cos(\alpha) &= \frac{\vec{v} \cdot \vec{w}}{||\vec{v}||*||\vec{w}||} \\
+    &= \frac{}{5*12}
+    \end{align}
+    $$
+
+19. x
