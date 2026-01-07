@@ -83,6 +83,72 @@ Note:
 -   Dot product of three vectors is not defined
 -   Square of a vector is not defined, always write $\vec{v} \cdot \vec{v}$
 
+### Angle Between Two Vectors
+
+The angle formula says that the cosine of the angle between two vectors equals their dot product over the product of their lengths:
+
+$$
+cos(\alpha) = \frac{\vec{v}\cdot\vec{w}}{||\vec{v}||*||\vec{w}||}
+$$
+
+And we know that a straight angle corresponds to a zero-dot product, and thus $cos(0) = 90^\circ$.
+
+To prove the formula we use the definition of cosine as the quotient of the length of the adjacent side over the length of the hypotenuse *in a right triangle*.
+
+To acquire a right triangle, we can draw a line perpendicular to one of the vectors - an orthoganal projection of one vector onto another:
+
+![](images/clipboard-1394278850.png){width="241"}
+
+To determine the cosine, we need to determine the lengths of the sides, for which we first need to identify the new point $P$.
+
+To determine $P$, we look at its properties:
+
+-   First, $\vec{OP}$ points in the same direction as $\vec{v}$, and so is a multiple of $\vec{v}$: $\vec{OP} = c\vec{v}$
+-   $\vec{PW}$ is perpendicular to $\vec{v}$, meaning that $\vec{PW}\cdot\vec{v} = 0$
+-   Now the new vector equals the hypotenuse vector minus the origin to the new point: $\vec{PW} = \vec{OW} - \vec{OP}$
+
+This gives us:
+
+$$
+\begin{align}
+(\vec{w} - c\vec{v})\cdot\vec{v} &= 0 \\
+\vec{w}\cdot\vec{v} - c\vec{v}\cdot\vec{v} &= 0 \\
+\vec{w}\cdot\vec{v} &= c\vec{v}\cdot\vec{v} \\
+c &= \left(\vec{w}\cdot\vec{v}\right)/\left(\vec{v}\cdot\vec{v}\right)\\\\
+\text{Circling back to the first bullet point:}\\
+\vec{OP} &= c\vec{v} \\
+&= ((\vec{w}\cdot\vec{v}/(\vec{v}\cdot\vec{v})) * \vec{v}
+\end{align}
+$$For a working example, consider $\vec{v} = \begin{pmatrix}1\\1\end{pmatrix}$ and $\vec{w} = \begin{pmatrix}3\\1\end{pmatrix}$.
+
+Then the projection of $\vec{w}$ onto $\vec{v}$ is:
+
+$$
+\begin{align}
+p &= ((\vec{w}\cdot\vec{v})/(\vec{v}\cdot\vec{v}))*\vec{v} \\
+&= \left( \begin{pmatrix}3\\1\end{pmatrix}\cdot\begin{pmatrix}1\\1\end{pmatrix}\right) /
+   \left( \begin{pmatrix}1\\1\end{pmatrix}\cdot\begin{pmatrix}1\\1\end{pmatrix}\right) *\vec{v} \\
+&= \frac{3+1}{1+1}\begin{pmatrix}1\\1\end{pmatrix} \\
+&= 2\begin{pmatrix}1\\1\end{pmatrix} \\
+&= \begin{pmatrix}2\\2\end{pmatrix}
+\end{align}
+$$
+
+Now for the angle between the original vectors, we have:
+
+$$
+\begin{align}
+cos(\alpha) &= \frac{||\vec{p}||}{||\vec{w}||} \\
+&= \frac{||\frac{\vec{v}\cdot\vec{w}}{\vec{v}\cdot\vec{v}}\vec{v}||}{||\vec{w}||} \\
+&= \frac{\vec{v}\cdot\vec{w}}{\vec{v}\cdot\vec{v}}\left(\frac{||\vec{v}||}{||\vec{w}||}\right) \\
+&= \frac{\vec{v}\cdot\vec{w}}{||\vec{v}||^2}\left(\frac{||\vec{v}||}{||\vec{w}||}\right)
+\end{align}
+$$
+
+Here is a visual example - trying to best position a TV in a room:
+
+![](images/clipboard-558422424.png){width="385"}
+
 # Exercises
 
 1.  Consider a rectangle with vertices $A$, $B$, $C$, and $D$, where we know coordinates $A = (-2, -1)$, $B = (5, -1)$, and $C = (5,3)$. What are the coordinates of $D$?
@@ -235,15 +301,84 @@ Note:
 17. Suppose $||\vec{v}|| = 1$, $||\vec{w}|| = 4$, and $\vec{v} \cdot \vec{w} = 2$.
 
     1.  Find $\vec{w} \cdot (-3\vec{v} + \vec{w})$
+
+        $\vec{w} \cdot (-3\vec{v} + \vec{w}) = \vec{w} \cdot -3\vec{v} + \vec{w} \cdot \vec{w}$
+
     2.  Find $||\vec{v} - \vec{w}||$
 
-18. Find angle between $\vec{v}$ and $\vec{w}$, given $||\vec{v}|| = 5$, $||\vec{w}|| = 12$, and $||\vec{v} + \vec{w}|| = 13$.
+        $$
+        \begin{align}
+        ||\vec{v} - \vec{w}|| &= \sqrt{(\vec{v}-\vec{w})\cdot(\vec{v}-\vec{w})} \\
+        &= \sqrt{\vec{v}\cdot\vec{v} - 2\vec{v}\cdot\vec{w} + \vec{w}\cdot\vec{w}} \\
+        &= \sqrt{||\vec{v}||^2 - 2\vec{v}\cdot\vec{w} + ||\vec{w}||^2 } \\
+        &= \sqrt{1^2 - 2\vec{v}\cdot\vec{w} + 4^2} \\
+        &= \sqrt{17 - 2\vec{v}\cdot\vec{w} }
+        \end{align}
+        $$
 
     $$
     \begin{align}
-    cos(\alpha) &= \frac{\vec{v} \cdot \vec{w}}{||\vec{v}||*||\vec{w}||} \\
-    &= \frac{}{5*12}
+    ||\vec{v}|| &= 1 \\
+    &\Rightarrow \sqrt{(v_a)^2 + (v_b)^2} = 1 \\
+    &\Rightarrow (v_a)^2 + (v_b)^2 = 1 \\\\
+    ||\vec{w}|| &= 4 \\
+    &\Rightarrow \sqrt{(w_a)^2 + (w_b)^2} = 4 \\
+    &\Rightarrow (w_a)^2 + (w_b)^2 = 16 \\\\
+    \begin{pmatrix}v_a\\v_b\end{pmatrix} &\cdot \begin{pmatrix}w_a\\w_b\end{pmatrix} = 2 \\
+    &\Rightarrow v_a*w_a + v_b*w_b = 2 \\\\
+    \text{Perhaps } \vec{v} = \begin{pmatrix}\pm1\\0\end{pmatrix}, \vec{w} = \begin{pmatrix}\pm2\\\sqrt{12}\end{pmatrix}
     \end{align}
     $$
 
-19. x
+18. Find angle between $\vec{v}$ and $\vec{w}$, given $||\vec{v}|| = 5$, $||\vec{w}|| = 12$, and $||\vec{v} + \vec{w}|| = 13$.
+
+    Hmm. Dot is $ac + bd$. Plus is $\begin{pmatrix}a+c\\b+d\end{pmatrix}$. Norm/length is $||\sqrt{(a-c)^2 + (b-d)^2}||$.
+
+    $$
+    \begin{align}
+    ||\vec{v}|| &= 5 \\
+    &\Rightarrow \sqrt{(v_a)^2 + (v_b)^2} &= 5 \\
+    &\Rightarrow (v_a)^2 + (v_b)^2 &= 25 \\
+    &\Rightarrow (\pm5,0), (\pm4,\pm3), ...\\\\
+    ||\vec{w}|| &= 12 \\
+    &\Rightarrow \sqrt{(w_a)^2 + (w_b)^2} &= 12 \\
+    &\Rightarrow (w_a)^2 + (w_b)^2 &= 144 \\
+    &\Rightarrow (\pm12,0), ... \\\\
+    ||\begin{pmatrix}v_a\\v_b\end{pmatrix} &+ \begin{pmatrix}w_a\\w_b\end{pmatrix}|| = 13 \\
+    &\Rightarrow \sqrt{(w_a - v_a)^2 + (w_b - v_b)^2} &= 13 \\
+    &\Rightarrow (w_a - v_a)^2 + (w_b - v_b)^2 &= 169 \\\\
+    \text{Perhaps?}\\
+    \vec{w} &= \begin{pmatrix}\pm12\\0\end{pmatrix} \\
+    \vec{v} &= \begin{pmatrix}0\\\pm5\end{pmatrix} \\
+    &\Rightarrow \begin{pmatrix}\pm12\\0\end{pmatrix} \cdot \begin{pmatrix}0\\\pm5\end{pmatrix} &= 0 \\\\
+    cos(\alpha) &= \frac{\vec{v} \cdot \vec{w}}{||\vec{v}||*||\vec{w}||} \\
+    &= \frac{0}{5*12} = 0 \\
+    \text{If so, } cos(90) = 0 \Rightarrow 90 * \frac{\pi}{180}
+    \end{align}
+    $$
+
+    I was correct, but the explanation is useful:
+
+    $$
+    \begin{align}
+    13 &= ||v + w|| \\
+    &= \sqrt{(\vec{v}+\vec{w})\cdot(\vec{v}+\vec{w})} \\
+    &= \sqrt{\vec{v}\cdot\vec{v} + 2\vec{v}\cdot\vec{w} + \vec{w}\cdot\vec{w}} \\
+    &= \sqrt{||\vec{v}||^2 + 2\vec{v}\cdot\vec{w} + ||\vec{w}||^2} \\
+    &= \sqrt{5^2 + 2\vec{v}\cdot\vec{w} + 12^2} \\
+    &= \sqrt{169 + 2\vec{v}\cdot\vec{w}} \\\\
+    13 &= \sqrt{169+2\vec{v}\cdot\vec{w}}\\
+    169 &= 169+2\vec{v}\cdot\vec{w} \\
+    0 &= 2\vec{v}\cdot\vec{w} 
+    \end{align}
+    $$
+
+19. What is the angle between $\vec{v} = \begin{pmatrix}-1\\2\end{pmatrix}$ and $\vec{w} = \begin{pmatrix}3\\2\end{pmatrix}$, in degrees to the nearest integer.
+
+20. Calculate the projection of $\vec{v} = \begin{pmatrix}2\\3\end{pmatrix}$ onto $\vec{w} = \begin{pmatrix}-1\\2\end{pmatrix}$.
+
+21. The vertices of a regular hexagon are at $(cos(60k), sin(60k)$ for $k = 0,1,...,5$. Calculate the angle in the diagram, in degrees to the nearest integer:
+
+    ![](images/clipboard-574788923.png){width="136"}
+
+22. 
