@@ -4,7 +4,7 @@ format: html
 editor: visual
 ---
 
-## Cartesian Coordinates
+# Cartesian Coordinates
 
 From Rene Descartes, we have the cartesian coordinate system in a plane, with perpendicular coordinate axes ($x$, $y$), point of origin at their intersection, and positive and negative coordinate points. The system is flexible in terms of orientation, units, and sign - all of which can be used advantageously. For example, while GPS coordinate axes run north-south and east-west, we might prefer orienting to a street plan - one axis parallel to streets and one to avenues.
 
@@ -128,8 +128,9 @@ $$
 p &= ((\vec{w}\cdot\vec{v})/(\vec{v}\cdot\vec{v}))*\vec{v} \\
 &= \left( \begin{pmatrix}3\\1\end{pmatrix}\cdot\begin{pmatrix}1\\1\end{pmatrix}\right) /
    \left( \begin{pmatrix}1\\1\end{pmatrix}\cdot\begin{pmatrix}1\\1\end{pmatrix}\right) *\vec{v} \\
-&= \frac{3+1}{1+1}\begin{pmatrix}1\\1\end{pmatrix} \\
-&= 2\begin{pmatrix}1\\1\end{pmatrix} \\
+&= \left(3*1 + 1*1\right)/\left(1*1 + 1*1\right)*\begin{pmatrix}1\\1\end{pmatrix} \\
+&= \frac{4}{2}*\begin{pmatrix}1\\1\end{pmatrix} \\
+&= 2*\begin{pmatrix}1\\1\end{pmatrix} \\
 &= \begin{pmatrix}2\\2\end{pmatrix}
 \end{align}
 $$
@@ -147,7 +148,86 @@ $$
 
 Here is a visual example - trying to best position a TV in a room:
 
-![](images/clipboard-558422424.png){width="385"}
+|  |  |
+|--------------------------------------|----------------------------------|
+| ![](images/clipboard-2193332596.png){width="426"} | $$
+\begin{align}
+\vec{v} \cdot \vec{w} &= (-1.5*-0.5) + (1.5*1.5) = 3 \\\\
+||\vec{v}|| &= \sqrt{(-1.5)^2 + 1.5^2} \Rightarrow \sqrt{4.5} \\\\
+||\vec{w}|| &= \sqrt{(-0.5)^2 + 1.5^2} \Rightarrow \sqrt{2.5} \\\\
+cos(\alpha) &= \frac{3}{\sqrt{4.5}\sqrt{2.5}}
+= \frac{3}{\sqrt{4.5*2.5}}
+= \frac{3}{\sqrt{11.25}} \\
+&= \frac{3}{\sqrt{\frac{45}{4}}}
+= \frac{3}{\frac{\sqrt{45}}{\sqrt{4}}}
+= \frac{3}{\frac{\sqrt{45}}{2}}
+= \frac{6}{\sqrt{45}}
+= \frac{6}{3\sqrt{5}}
+= \frac{2}{\sqrt{5}}
+\end{align}
+$$ |
+
+# Curves and Equations
+
+A circle is the set of all points with the same distance from the center. The distance is the radius ($r$), and we'll call the center $(a,b)$, then we have:
+
+$$
+\begin{align}
+r &= \left|\left|\begin{pmatrix}x\\y\end{pmatrix}-\begin{pmatrix}a\\b\end{pmatrix}\right|\right| \\\\
+&= \sqrt{(x-a)^2 + (y-b)^2}
+\end{align}
+$$In the standard form of a formula for a circle, $(x-a)^2 + (y-b)^2 = r^2$, the center ($(a,b)$) and radius are immediately apparent; and thus thus try to avoid expanding the formula.
+
+However, $2x^2 -4x + 2y^2 + 8y + 1 = 0$ is also a circle! It contains only terms of the form $x^2$, $y^2$, $x$, $y$, and a constant; and the coefficient for $x^2$ and $y^2$ is identical. This formula we want to rewrite in standard form by completing the square. We tackle the $x$ and $y$ terms separately.
+
+First, we want to rewrite $2x^2 - 4x$ as $2(x-a)^2 + c$ for some $a$ and $c$. If we expand, we get $2x^2 -4ax + 2a^2 + c$, so $-4x = -4ax$, and $a=1$. Then $c$ must negate $2a^2$, and $a=1$, so $c=-2$. Thus we can replace $2x^2-4x$ with $2(x-1)^2 -2$.
+
+Now we rewrite $2y^2 + 8y$ as $2(y-a)^2 +c$. Expanding again gives $2y^2 - 4ay + 2a^2 + c$, so $8y = -4ay$, and $a = -2$. Then $c$ must negate $2a^2$, so $c=-8$. Thus we have $2(y+2)^2 - 8$.
+
+Thus we find that $2x^2 - 4x + 2y^2 + 8y + 1 = 2(x-1)^2 + 2(y+2)^2 - 9$. (NOTE: $-9$ is $-2$ for $x$; $-8$ for $y$; and $+1$ for the original constant.)
+
+Validate!
+
+```{r}
+x<-7; y<-pi; 2*x^2 - 4*x + 2*y^2 + 8*y + 1; 2*(x-1)^2 + 2*(y+2)^2 - 9
+```
+
+Finally we can rewrite the formula as $(x-1)^2 + (y+2)^2 = \frac{9}{2}$, making clear the center $(1,-2)$ and radius $\sqrt{\frac{9}{2}}$.
+
+## Equations for a Line
+
+Vertical lines are described by $x=c$ for some constant $c$. All other lines can be described as $y = ax+b$.
+
+The following method provides a unified description of all lines, and generalizes to higher dimensions - such as the equation of a plane in three dimensions.
+
+For any given line, we first determine a perpendicular vector $n = (a,b)$, called the normal vector.
+
+Next we take the point of intersection, $P$. Then another point $(x,y)$ is on the line if the vector $(x,y)-P$ points in the direction of the line. Since $n$ is perpendicular, the dot-product of $n$ and $(x,y)-P$ equals zero. We can also conclude that the dot product of $n$ with $(x,y)$ equals the dot product with $P$. Writing $n=\begin{pmatrix}a\\b\end{pmatrix}$ and $n \cdot P = c$ and expanding the equation gives the standard formula for the line, $ax + by = n \cdot P = c$.
+
+For example, for the vertical line through $(3,2)$, the normal vector is $(1,0)$, so $a=1$ and $b=0$. Thus we have $1x+0y=c$. To determine $c$, we take one point on the line - may as well take the given $(3,2)$ - and plug in for $1*3 + 0*2 = 3$, which is exactly the dot product of $(3,2)$ with $(1,0)$.
+
+A more interesting line is through $(2,1)$ and $(4,-2)$. The direction of the line is from $(4,-2)$ to $(2,1)$, so $(2,-3)$. We obtain the normal vector by swapping the components and multiplying one of them by $-1$, giving $(3,2)$. Indeed, vector $(3,2)$ is perpendicular to $(2,-3)$ as their dot product is $6-6=0$. Thus the equation for the line is $3x + 2y = c$. We again obtain $c$ by plugging in a point, say $(2,1)$, and so $c=3*2+2*1=8$. Thus we have $3x+2y-8$.
+
+In summary:
+
+$$
+\begin{align}
+&(x,y) \text{ is on the line if: }\\
+&n \perp \begin{pmatrix}x\\y\end{pmatrix} - P \\\\
+&n \cdot \left(\begin{pmatrix}x\\y\end{pmatrix} - P\right) = 0 \\\\
+&n \cdot \begin{pmatrix}x\\y\end{pmatrix} = n \cdot P \\\\
+&n = \begin{pmatrix}a\\b\end{pmatrix} \\\\
+&n \cdot P = c \\\\
+&\text{Therefore: } \\
+&ax + by = c
+\end{align}
+$$
+
+## Circles and their Tangents
+
+A line is tangent to a circle if it intersects in exactly one point.
+
+Further, for any point $P$ on a circle with center $C$, the line tangent to $P$ is orthogonal to vector $\vec{CP}$.
 
 # Exercises
 
@@ -300,11 +380,18 @@ Here is a visual example - trying to best position a TV in a room:
 
 17. Suppose $||\vec{v}|| = 1$, $||\vec{w}|| = 4$, and $\vec{v} \cdot \vec{w} = 2$.
 
-    1.  Find $\vec{w} \cdot (-3\vec{v} + \vec{w})$
+    i.  Find $\vec{w} \cdot (-3\vec{v} + \vec{w})$
 
-        $\vec{w} \cdot (-3\vec{v} + \vec{w}) = \vec{w} \cdot -3\vec{v} + \vec{w} \cdot \vec{w}$
+        $$
+        \begin{align}
+        \vec{w} \cdot (-3\vec{v} + \vec{w}) &= \vec{w} \cdot -3\vec{v} + \vec{w} \cdot \vec{w} \\
+        &= -3\left(\vec{w} \cdot \vec{v}\right) + \begin{pmatrix}2\\\sqrt{12}\end{pmatrix} \cdot \begin{pmatrix}2\\\sqrt{12}\end{pmatrix} \\
+        &= -3\left(\begin{pmatrix}2\\\sqrt{12}\end{pmatrix} \cdot \begin{pmatrix}1\\0\end{pmatrix}\right) + 16 \\
+        &= -3*2 + 16 = 10
+        \end{align}
+        $$
 
-    2.  Find $||\vec{v} - \vec{w}||$
+    ii. Find $||\vec{v} - \vec{w}||$
 
         $$
         \begin{align}
@@ -326,7 +413,14 @@ Here is a visual example - trying to best position a TV in a room:
     &\Rightarrow (w_a)^2 + (w_b)^2 = 16 \\\\
     \begin{pmatrix}v_a\\v_b\end{pmatrix} &\cdot \begin{pmatrix}w_a\\w_b\end{pmatrix} = 2 \\
     &\Rightarrow v_a*w_a + v_b*w_b = 2 \\\\
-    \text{Perhaps } \vec{v} = \begin{pmatrix}\pm1\\0\end{pmatrix}, \vec{w} = \begin{pmatrix}\pm2\\\sqrt{12}\end{pmatrix}
+    \text{*Perhaps*:}\\
+    \vec{v} &= \begin{pmatrix}\pm1\\0\end{pmatrix} \Rightarrow ||\vec{v}|| = \sqrt{1} \\
+    \vec{w} &= \begin{pmatrix}\pm2\\\sqrt{12}\end{pmatrix} \Rightarrow ||\vec{w}|| = \sqrt{16} = 4 \\
+    ||v - w|| &= \sqrt{(\vec{v}-\vec{w})\cdot(\vec{v}-\vec{w})} \\
+    &= \sqrt{\vec{v}\cdot\vec{v} - 2\vec{v}\cdot\vec{w} + \vec{w}\cdot\vec{w}} \\
+    &= \sqrt{||\vec{v}||^2 - 2\vec{v}\cdot\vec{w} + ||\vec{w}||^2} \\
+    &= \sqrt{1^2 - 2*2 + 4^2} \\
+    &= \sqrt{13} \text{ (Correct!)}
     \end{align}
     $$
 
@@ -375,10 +469,151 @@ Here is a visual example - trying to best position a TV in a room:
 
 19. What is the angle between $\vec{v} = \begin{pmatrix}-1\\2\end{pmatrix}$ and $\vec{w} = \begin{pmatrix}3\\2\end{pmatrix}$, in degrees to the nearest integer.
 
+    $$
+    \begin{align}
+    ||\vec{v}|| &= \sqrt{(-1)^2 + 2^2} = \sqrt{5} \\
+    ||\vec{w}|| &= \sqrt{3^2 + 2^2} = \sqrt{13} \\
+    \vec{v}\cdot\vec{w} &= (-1*3) + (2*2) = 1 \\
+    cos(\alpha) &= \frac{\vec{v}\cdot\vec{w}}{||v||*||w||} = \frac{1}{\sqrt{5}\sqrt{13}} \\
+    \alpha &= arccos(\frac{1}{\sqrt{65}}) * (180/pi) \approx 82.875^\circ
+    \end{align}
+    $$
+
 20. Calculate the projection of $\vec{v} = \begin{pmatrix}2\\3\end{pmatrix}$ onto $\vec{w} = \begin{pmatrix}-1\\2\end{pmatrix}$.
+
+    $$
+    \begin{align}
+    p &= \left( \begin{pmatrix}2\\3\end{pmatrix}\cdot\begin{pmatrix}-1\\2\end{pmatrix}\right) /
+    \left( \begin{pmatrix}-1\\2\end{pmatrix}\cdot\begin{pmatrix}-1\\2\end{pmatrix}\right) *
+    \begin{pmatrix}-1\\2\end{pmatrix} \\
+    &= ((2*-1)+(3*2))/(-1^2 + 2^2) * \begin{pmatrix}-1\\2\end{pmatrix} \\
+    &= \frac{4}{5} * \begin{pmatrix}-1\\2\end{pmatrix} \\
+    &= \begin{pmatrix}-\frac{4}{5}\\\frac{8}{5}\end{pmatrix}
+    \end{align}
+    $$
 
 21. The vertices of a regular hexagon are at $(cos(60k), sin(60k)$ for $k = 0,1,...,5$. Calculate the angle in the diagram, in degrees to the nearest integer:
 
     ![](images/clipboard-574788923.png){width="136"}
 
-22. 
+    From the diagram and knowing that interior angles are $120^\circ$, it seemed clear enough that the shaded area is one fourth of one angle - so I just said $30^\circ$ (correct)
+
+22. The physical concept of work is defined as the size of force times the displacement of an object in the direction of the force. The latter concept of directional displacement is known as scalar projection: the length of the displacement vector on the force vector, with a sign indicating whether the angle between the vectors is acute (+) or obtuse (-). The scalar projection equals $\left(\vec{v}\cdot\vec{w}\right)/\left(||\vec{w}||\right)$.
+
+    Consider an object moving from $(2,4)$ to $(3,-4)$ while a force $F = \begin{pmatrix}3\\4\end{pmatrix}$ acts on it. What is the scalar projection of the displacement on $F$?
+
+    $$
+    \begin{align}
+    (2,4) \rightarrow (3,-4) &= \begin{pmatrix}1\\-8\end{pmatrix} \\
+    \frac{\vec{v}\cdot\vec{w}}{||\vec{w}||} &= \left( \begin{pmatrix}1\\-8\end{pmatrix} \cdot \begin{pmatrix}3\\4\end{pmatrix} \right / \sqrt{3^2 + 4^2} \\
+    &= \frac{-29}{5}
+    \end{align}
+    $$
+
+23. Consider circle with center $(-1,2)$ with point $(1,-1)$. Give $a$, $b$, and $r$ for $(x-a)^2 + (y-b)^2 = r^2$.
+
+    $$
+    \begin{align}
+    \sqrt{(1--1)^2 + (-1-2)^2} &= \sqrt{4+9} = \sqrt{13} \\
+    a &= -1 \\
+    b &= 2 \\
+    r &= \sqrt{13}
+    \end{align}
+    $$
+
+24. $2x^2 + 6x + 2y^2 - 4y = -6$ defines a circle. Determine its radius and center.
+
+    $$
+    \begin{align}
+    2x^2 + 6x &= 2(x-a)^2 + c = 2x^2 -4ax + 2a^2 + c \\
+    &\Rightarrow a = -1.5, c = -4.5 \\
+    2y^2 - 4y &= 2(y-a)^2 + c = 2y^2 -4ay + 2a^2 + c \\
+    &\Rightarrow a = 1, c = -2\\\\
+    2x^2 + 6x + 2y^2 - 4y + 6 &= 2(x+1.5)^2 + 2(y-1)^2 -0.5 \\
+    &= (x+1.5)^2 + (y-1)^2 = \frac{1}{4} \\\\
+    \text{Thus, center } &= (-1.5, 1) \text{ and radius } = \sqrt{\frac{1}{4}}
+    \end{align}
+    $$
+
+25. A circle with center $(1,0)$ and radius $\sqrt{2}$ twice intersects another circle with center $(-2,1)$ and radius $2$. Identify the higher intersection point.
+
+    $$
+    \begin{align}
+    \text{Circle #1} \\
+    (x-1)^2 + (y-0)^2 &= \sqrt{2}^2 = 2\\
+    \text{Circle #2} \\
+    (x+2)^2 + (y-1)^2 &= 2^2 = 4\\\\
+    (x+2)^2 + (y-1)^2 &= ((x-1)^2 + y^2)^2 \\
+    (x+2)^2 + (y-1)^2 &= (x-1)^4 + 2y^2(x-1)^2 + y^4 \\
+    (x+2)^2 + (y-1)^2 &= (x-1)^4 + 2y^2(x^2 -2x + 1) + y^4 \\
+    x^2 + 4x + 4 + y^2 -2y + 1 &= x^4 -4x^3 + 6x^2 -4x + 1 + 2x^2y^2 -4xy^2 + 2y^2 + y^4 \\\\
+    x^4 -4x^3 + 5x^2 -8x + y^4 + y^2 + 2y -4 + 4xy^2 -2x^2y^2 &= 0 \Rightarrow (0,1)! \\
+    (x-1)^4 -x^2 -4x + y^4 + (y+1)^2 -6 + 4xy^2 -2x^2y^2\\
+    (x-1)^4 -x^2 -4x + y^4 + (y+1)^2 -6 + 2y^2(2x -x^2) \\
+    (x-1)^4 - (x+2)^2 + y^4 + (y+1)^2 + 2y^2(2x -x^2) -2 \\
+    (x-1)^4 - (x+2)^2 + y^4 + (y+1)^2 - 2y^2(x^2 -2x) -2 \\
+    (x-1)^4 - (x+2)^2 + y^4 + (y+1)^2 - 2y^2(x-1)^2 + 2y^2 - 2 \\
+    \end{align}
+    $$
+
+26. Give the (most obvious) normal vector for $2x+3y=7$.
+
+    $$
+    \begin{align}
+    \text{Two points}&: (2,1), (5,-1) \\
+    \text{Direction}&: (5-2, -1 -1) = (3,-2) \\
+    \text{Perpendicular}&: (2,3) \\
+    \end{align}
+    $$
+
+27. Determine equation for line through $(2,3)$ and $(1,5)$.
+
+    $$
+    \begin{align}
+    \text{Two points}&: (1,5),(2,3) \\
+    \text{Direction}&: (2-1,3-5) = (1,-2) \\
+    \text{Perpendicular}&: (2,1) \\
+    \text{Formula}&: 2x + 1y = c \\
+    \text{Plug in}&: 2*2 + 1*3 = 7 \\
+    \text{Formula}&: 2x + 1y - 7
+    \end{align}
+    $$
+
+28. Consider circle with center $(0,0)$ and radius $2$; with a line defined by $3x -y + 2$, which intersects the circle at $(0,2)$ and one other point. What is that other point?
+
+    Hmm. I think that means, $x$ and $y$ satisfy the line formula AND fit the radius formula. So, $3x - y + 2 = 0$ and $x^2 + y^2 -4 = 0$. So,
+
+    $$
+    \begin{align}
+    0 &= 3x -y + x^2 + y^2 +2 -4 \\
+    0 &= x^2 + 3x + y^2 -y -2 \\
+    2 &= (x+1)(x+2) + (y-2)(y+1) \\
+    \end{align}
+    $$
+
+    I got it, $(-1.2, -1.6)$ through experimentation. The solution is to substitute a known element from one of the formulas into the other. In this case, we can say $y = 3x + 2$, and then plug that in to $x^2 + (3x+2)^2 = 4$, which can then be expanded and solved for $(0,2)$ or $\left(-\frac{6}{5}, -\frac{8}{5}\right)$
+
+29. Consider circle with center $C$ at $(-1, 2)$ and radius $5$. The point $P$ $(3,-1)$ lies on the circle. The line tangent to the circle at $P$ can be described as $ax + by = c$. Those values are not unique, but the ratios $\frac{a}{c}$ and $\frac{b}{c}$ are. Find the ratios.
+
+    $$
+    \begin{align}
+    \text{Two points}&: (-1,2), (3,-1)\\
+    \text{Direction}&: (4, -3) \\
+    \text{Perpendicular}&: (3,4) \\
+    \text{Formula}&: 3x + 4y = c \\
+    \text{Plug in}&: 3*3 + 4*-1 = 5 \\
+    &: 3*-1 + 4*2 = 5 \\
+    \end{align}
+    $$
+
+30. The line $3x + y = 6$ is tangent to a circle around the origin. What are the coordinates $(a,b)$ of intersection? Note, you don't need to know the radius; vector $\begin{pmatrix}a\\b\end{pmatrix}$ must be orthogonal to the line? Why?
+
+    $$
+    \begin{align}
+    \text{Two points}&: (0,6), (1,3) \\
+    \text{Direction}&: (1,-3) \\
+    \text{Perpendicular}&: (3,1) \\
+    \end{align}
+    $$
+
+31. x
