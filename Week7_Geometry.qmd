@@ -95,7 +95,7 @@ And we know that a straight angle corresponds to a zero-dot product, and thus $c
 
 To prove the formula we use the definition of cosine as the quotient of the length of the adjacent side over the length of the hypotenuse *in a right triangle*.
 
-To acquire a right triangle, we can draw a line perpendicular to one of the vectors - an orthoganal projection of one vector onto another:
+To acquire a right triangle, we can draw a line perpendicular to one of the vectors - an orthogonal projection of one vector onto another:
 
 ![](images/clipboard-1394278850.png){width="241"}
 
@@ -228,6 +228,48 @@ $$
 A line is tangent to a circle if it intersects in exactly one point.
 
 Further, for any point $P$ on a circle with center $C$, the line tangent to $P$ is orthogonal to vector $\vec{CP}$.
+
+## Parameterization
+
+A circle can be described sufficiently given its center and radius, say center is $(4,3)$ and radius is $2$.
+
+Given that, we can use the Pythagorean theorem to check if any point is on the circle: $(x-4)^2 + (y-3)^2 = 2^2$. This is known as an implicit description of the circle.
+
+A third description is parameterization, and it is considered explicit. If we were to travel the circumference once and consider the $x,y$ coordinates functions of time, with $x(t) = 4 - 2cos(t)$ and $y(t) = 3 + 2sin(t)$ for $0 \le t \lt 2\pi$.
+
+Rules of parameterization: The entire curve must be covered; and only once, with the possible exception of start-and-endpoint of a circle.
+
+Now consider a line segment from $A=(2,4)$ to $B=(5,-1)$. If we traverse the line over time $(0,1)$, then if at time $t$ we are at point $P$, we know $\vec{AP} = t\vec{AB} = \begin{pmatrix}3t\\-5t\end{pmatrix}$, and therefore $P = (2+3t, 4-5t)$; and we have $x(t) = 2 + 3t$ and $y(t) = 4 - 5t$ for $0 \le t \le 1$.
+
+In summary:
+
+**Circles** - a circle with center $(a,b)$ and radius $r$ can be parameterized as:
+
+$$
+\left\{ \begin{array}{rcl} x(t)&=&a+r\cos(t)\\ y(t)&=&b+r\sin(t)\end{array}\right.\
+\text{with } 0 \le t \le 2\pi
+$$
+
+**Lines** - A line through $(a,b)$ with direction given by $\vec{v} = \begin{pmatrix}v_x\\v_y\end{pmatrix}$ can be parameterized as:
+
+$$
+\left\{ \begin{array}{rcl} x(t)&=&a+v_x\,t\\ y(t)&=&b+v_y\,t\end{array}\right.\
+\text{with } -\infty \le t \le \infty \\\\
+$$
+
+**Line Segments** - A line segment from $(a,b)$ to $(c,d)$ can be parameterized as:
+
+$$
+\left\{ \begin{array}{rcl} x(t)&=&a+(c-a)t\\ y(t)&=&b+(d-b)t\end{array}\right.\
+\text{with } 0 \le t \le 1
+$$
+
+**Graphs of Functions** - The graph of a function $f$ with $x$ ranging from $a$ to $b$ can be parameterized as:
+
+$$
+\left\{ \begin{array}{rcl} x(t)&=&t\\ y(t)&=&f(t)\end{array}\right.\
+\text{with } a \le t \le b
+$$
 
 # Exercises
 
@@ -591,7 +633,7 @@ Further, for any point $P$ on a circle with center $C$, the line tangent to $P$ 
     \end{align}
     $$
 
-    I got it, $(-1.2, -1.6)$ through experimentation. The solution is to substitute a known element from one of the formulas into the other. In this case, we can say $y = 3x + 2$, and then plug that in to $x^2 + (3x+2)^2 = 4$, which can then be expanded and solved for $(0,2)$ or $\left(-\frac{6}{5}, -\frac{8}{5}\right)$
+    I got it, $(-1.2, -1.6)$ through experimentation, knowing the values had to be negative and seemingly between $-2$ and $-1$. The solution is to substitute a known element from one of the formulas into the other. In this case, we can say $y = 3x + 2$, and then plug that in to $x^2 + (3x+2)^2 = 4$, which can then be expanded and solved for $(0,2)$ or $\left(-\frac{6}{5}, -\frac{8}{5}\right)$
 
 29. Consider circle with center $C$ at $(-1, 2)$ and radius $5$. The point $P$ $(3,-1)$ lies on the circle. The line tangent to the circle at $P$ can be described as $ax + by = c$. Those values are not unique, but the ratios $\frac{a}{c}$ and $\frac{b}{c}$ are. Find the ratios.
 
@@ -600,20 +642,120 @@ Further, for any point $P$ on a circle with center $C$, the line tangent to $P$ 
     \text{Two points}&: (-1,2), (3,-1)\\
     \text{Direction}&: (4, -3) \\
     \text{Perpendicular}&: (3,4) \\
-    \text{Formula}&: 3x + 4y = c \\
+    \vec{CP}\text{ Formula}&: 3x + 4y = c \\
     \text{Plug in}&: 3*3 + 4*-1 = 5 \\
     &: 3*-1 + 4*2 = 5 \\
     \end{align}
     $$
+
+    I tinkered manually until arriving at:
+
+    ```{r}
+    data.frame(x = seq(-1,3,1)) |> ggplot() + geom_line(aes(x, y = (5-3*x)/4)) + scale_x_continuous(breaks = seq(-5,5,1)) + scale_y_continuous(breaks = seq(-5,5,1)) + geom_line(aes(x, y=(4*x-15)/3))
+    ```
+
+    Which gives $4x - 3y = 15$. I was on the right course - here's the given solution:
+
+    $\vec{CP} = \begin{pmatrix}4\\-3\end{pmatrix}$ is orthogonal to the tangent line (yep, got that), hence we can take $a=4$ and $b=-3$. And we know $P$ should be on the line, so $c = \begin{pmatrix}4\\-3\end{pmatrix}  \cdot \begin{pmatrix}3\\-1\end{pmatrix} = (4*3) + (-3*-1) = 15$.
 
 30. The line $3x + y = 6$ is tangent to a circle around the origin. What are the coordinates $(a,b)$ of intersection? Note, you don't need to know the radius; vector $\begin{pmatrix}a\\b\end{pmatrix}$ must be orthogonal to the line? Why?
 
     $$
     \begin{align}
     \text{Two points}&: (0,6), (1,3) \\
-    \text{Direction}&: (1,-3) \\
-    \text{Perpendicular}&: (3,1) \\
+    \text{Direction}&: (1,-3) \\\\
+    \begin{pmatrix}1\\-3\end{pmatrix} \cdot \begin{pmatrix}a\\b\end{pmatrix} &= 0  \\
+    1*a -3*b &= 0 \\
+    1*a -3*(6-3b) &= 0 \\
+    a -18 + 9a &= 0 \\
+    10a &= 18 \\
+    a &= \frac{9}{5} \\
+    1*\frac{9}{5} -3b &= 0\\
+    b &= \left(\frac{9}{5}\right) / 3 = \frac{3}{5} \\
     \end{align}
     $$
 
-31. x
+    ```{r}
+    data.frame(x = seq(-5,5,1)) |> ggplot() + geom_line(aes(x, y = (6-3*x))) + scale_x_continuous(breaks = seq(-5,5,1)) + scale_y_continuous(breaks = seq(-20,20,1)) + annotate('point', x=0,y=0) + annotate('line', x=c(0,3), y=c(0,1)) + annotate('point', x=9/5, y=3/5)
+    ```
+
+31. Consider upper half of circle centered at $(0,0)$ with radius $3$. Which is a valid parameterization?
+
+    i.  $$
+        \left\{\begin{array}{rcl} x(t)&=& 3\cos(t)\\y(t)&=& 3\sin(t)\end{array}\right.,\text{with } 0\leq t\leq 2\pi.
+        $$\
+        No, this is the whole circle
+
+    ii. $$
+        \left\{\begin{array}{rcl} x(t)&=& -3\cos(t)\\y(t)&=& 3\sin(t)\end{array}\right.,\text{with } 0\leq t\leq \pi.
+        $$\
+        Yes, but wrong?!
+
+    iii. $$
+         \left\{\begin{array}{rcl} x(t)&=& 3\sin(t)\\y(t)&=& 3\cos(t)\end{array}\right.,\text{with } 0\leq t\leq \pi.
+         $$\
+         No, this is the right half
+
+    iv. $$
+        \left\{\begin{array}{rcl} x(t)&=& t\\y(t)&=& \sqrt{9-t^2}\end{array}\right.,\text{with } -3\leq t\leq 3.
+        $$\
+        Ah, $ii$ and $iv$.
+
+32. Consider line parameterized by $\left\{\begin{array}{rcl} x(t) &=& 7-2t\\y(t) &=&-1+4t\end{array}\right.$\
+    Suppose we want to limit the parameterization to the line segment between $(10,-7)$ and $(-3, 19)$, by restricting $t$ to the interval $[a,b]$.
+
+    $$
+    \begin{align}
+    7 - 2t &= 10 \Rightarrow t = -\frac{3}{2} \\
+    7 - 2t &= -3 \Rightarrow t = 5
+    \end{align}
+    $$
+
+33. Consider the line defined by $4x + 3y = 5$. Suppose it is parameterized by $x(t)$ and $y(t)$, and that $x(t) = t^3$. What is $y(t)$?
+
+    $$
+    \begin{align}
+    t=-3 \Rightarrow x(t)=-27 \Rightarrow 4*-27 + 3*y = 5 \Rightarrow y=\frac{113}{3}\\
+    t=-2 \Rightarrow x(t)=-8 \Rightarrow 4*-8 + 3*y = 5 \Rightarrow y=\frac{37}{3} \\
+    t=-1 \Rightarrow x(t)=-1 \Rightarrow 4*-1 + 3*y = 5 \Rightarrow y=\frac{9}{3} \\
+    t=0 \Rightarrow x(t)=0   \Rightarrow 4*0 + 3*y=5    \Rightarrow y=\frac{5}{3} \\
+    t=1 \Rightarrow x(t)=1   \Rightarrow 4*1 + 3*y=5    \Rightarrow y=\frac{1}{3} \\
+    t=2 \Rightarrow x(t)=8   \Rightarrow 4*8 + 3*y=5    \Rightarrow y=-\frac{27}{3} \\
+    t=3 \Rightarrow x(t)=27  \Rightarrow 4*27 + 3*y=5   \Rightarrow y=-\frac{103}{3} \\
+    (4*(-t)^3 + 5)/3 \\\\
+    \text{Easier... the given solution:}\\
+    4x + 3y = 5 \Rightarrow y = \frac{5-4x}{3} \Rightarrow y = \frac{5-4t^3}{3}
+    \end{align}
+    $$
+
+34. Match the parameterizations. Four are given, with eight images - two lines, two arcs, two ovals, and two s-shaped curves.
+
+    This one is clearly a line; and clearly $y$ is always positive so there is only one possibility.
+
+    $$
+    \left\{ \begin{array}{rcl} x(t)&=&-2 + 3\cos(t)\\ y(t)&=&4 - 2t\end{array}\right.\
+    \text{with } 0 \le t \le 1
+    $$
+
+    This one would seem to be circular. Given the multipliers, it should be wider than tall.
+
+    $$
+    \left\{ \begin{array}{rcl} x(t)&=&3\cos(t)\\     y(t)&=&2\sin(t)\end{array}\right.\
+    \text{with } 0 \le t \le 2\pi
+    $$
+
+    I plotted this one... In hindsight, the behavior of $y$ suggests a wave, so one of the two s-curves.
+
+    $$
+    \left\{ \begin{array}{rcl} x(t)&=&2\sin(t)\\ y(t)&=&t\end{array}\right.\
+    \text{with } -\pi \le t \le \pi
+    $$
+
+    Evidently a semi-circle, given the range; and $cos(-pi) = -1$, $cos(0) = 1$, leaving one choice.
+
+    $$
+    \left\{ \begin{array}{rcl} x(t)&=&\sin(t)\\ y(t)&=&\cos(t)\end{array}\right.\
+    \text{with } -\pi \le t \le 0
+    $$
+
+35. x
