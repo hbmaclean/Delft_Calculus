@@ -229,7 +229,7 @@ A line is tangent to a circle if it intersects in exactly one point.
 
 Further, for any point $P$ on a circle with center $C$, the line tangent to $P$ is orthogonal to vector $\vec{CP}$.
 
-## Parameterization
+# Parameterization
 
 A circle can be described sufficiently given its center and radius, say center is $(4,3)$ and radius is $2$.
 
@@ -270,6 +270,61 @@ $$
 \left\{ \begin{array}{rcl} x(t)&=&t\\ y(t)&=&f(t)\end{array}\right.\
 \text{with } a \le t \le b
 $$
+
+## Velocity and Acceleration
+
+Velocity and acceleration are important concepts in physics, and parameterization can be used to determine them.
+
+As an example, we consider palletizers - robotic arms that stack boxes onto pallets. The stacking should be done as fast as possible; but the speed cannot be arbitrarily high, and the acceleration should not be higher than object (e.g. eggs!) can handle. Optimizing can be an interesting and challenging problem.
+
+The first question is, if you know the position of an object as a function of time, how do you find speed and acceleration?
+
+Rather than speed, we look at velocity - speed plus direction - which can be described by a vector, which points in the direction of motion, and has norm equal to the speed. I.e., if the velocity vector is known, we can take the norm as speed. So how do we determine the velocity vector?
+
+First, assume our object is moving at a constant speed along a straight line; and at time $t$, the object is at position $A$, and some time $\Delta t$ later, it is at position $B$. The change of position is given by the displacement vector $\vec{AB}$, and velocity is defined as $\frac{\vec{AB}}{\Delta t}$.
+
+But what if the path is not straight and the speed not constant? The motion of the object gives a parameterization of the path: At some time $t$, the object is at $A = (x(t), y(t))$. Some time later, the object is at $B = (x(t + \Delta t), y(t + \Delta t))$. The change in position is then given by the vector of the difference of those two components:
+
+$$
+\vec{AB} = \begin{pmatrix} x(t+\Delta t) - x(t)\\y(t+\Delta t) - y(t)\end{pmatrix}
+$$
+
+And the average velocity is given as that vector over change in time:
+
+$$
+\vec{v_{av}} = \frac{\vec{AB}}{\Delta t}
+$$
+
+But the average velocity is an approximation. What is the exact velocity at time $t$? The smaller we take $\Delta t$, the closer the approximation. When we take the limit of $\Delta t$ to $0$, the average velocity vector becomes the velocity vector of the object at point $A$. Furthermore, at the limit, the average velocity vector is tangent to the path at $A$ - which is intuitive, as the object travels in the direction of the path.
+
+So for velocity at time $t$, we have:
+
+$$
+\begin{align}
+\vec{v}(t) &= \lim_{\Delta t \rightarrow 0} \frac{1}{\Delta t}\begin{pmatrix}x(t+\Delta t) - x(t)\\y(t+\Delta t) - y(t)\end{pmatrix} \\\\
+&= \lim_{\Delta t \rightarrow 0}\begin{pmatrix}\frac{x(t+\Delta t)-x(t)}{\Delta t}\\
+\frac{y(t+\Delta t)-y(t)}{\Delta t}\end{pmatrix}
+\text{ (Scalar } \frac{1}{\Delta t} \text{ moved into vector)}\\\\
+&= \begin{pmatrix}x'(t)\\y'(t)\end{pmatrix} \text{ (Above quotients ARE the derivatives!)}
+\end{align}
+$$
+
+This means, if the position is known as a function of time, the velocity vector contains the derivatives of the position vector. Speed at $t$ is then the norm of that vector - the square root of the sum of derivatives squared. Acceleration at $t$ can be calculated by taking the time derivative of the velocity vector, or as the second derivative of the position vector.
+
+Velocity, speed, and acceleration:
+
+$$
+\begin{align}
+\text{Velocity at } t:\\
+\vec{v}(t) &= \begin{pmatrix}x'(t)\\y'(t)\end{pmatrix} \\\\
+\text{Speed at } t:\\
+||\vec{v}(t)|| &= \sqrt{(x'(t))^2 + (y'(t))^2} \\\\
+\text{Acceleration at } t:\\
+\vec{a}(t) &= \vec{v'}(t) = \begin{pmatrix}x''(t)\\y''(t)\end{pmatrix}
+\end{align}
+$$
+
+It is important to note that the acceleration vector describes the rate of change of the speed of an object, and any change in direction. And it is possible for an object to move at constant speed with non-zero acceleration!? An example is a swing chair ride. During the ride, chairs have a constant speed. However, ropes pull the chairs inward - there is an effective horizontal force on the chairs. This means the chairs are accelerating, even though the speed is constant!
 
 # Exercises
 
@@ -758,4 +813,19 @@ $$
     \text{with } -\pi \le t \le 0
     $$
 
-35. x
+35. Suppose path of object is given as:
+
+    $$
+    \left\{ \begin{array}{} x(t)&=&t^3 - 9t\\ y(t)&=&5 - t^2\end{array}\right.\
+    \text{with } -\infty \le t \le \infty
+    $$
+
+    1.  Find velocity $\vec{v} = \begin{pmatrix} v_x\\ v_y \end{pmatrix}$ and the speed at $t = 2$
+
+    2.  Find point $P$ at which the object moves vertically up
+
+    3.  Find the minimal value that the norm of acceleration attains
+
+    4.  The path intersects itself at $(0, -4)$. What is the angle of incidence?
+
+36. Suppose an object moves along a circle, and at time $t$, its position is given by $P = (3 + cos(5t), 7 + sin(5t))$. Let $C$ be the center of the circle, and $\vec{v}$ the velocity vector at time $t$. Find the vectors $\vec{CP}$ and $\vec{v}$, and the angle between them.
