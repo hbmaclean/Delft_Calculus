@@ -326,6 +326,24 @@ $$
 
 It is important to note that the acceleration vector describes the rate of change of the speed of an object, and any change in direction. And it is possible for an object to move at constant speed with non-zero acceleration!? An example is a swing chair ride. During the ride, chairs have a constant speed. However, ropes pull the chairs inward - there is an effective horizontal force on the chairs. This means the chairs are accelerating, even though the speed is constant!
 
+## Tangent Lines and Normal Lines
+
+Using parameterizations we can define the concept of a tangent line. With an object moving along a curve, at any point $P$ the velocity vector $\vec{v_P}$ points in the direction of motion and hence must be tangent to the curve. The line through $P$ in the direction of $\vec{v_P}$ is the tangent line to the curve at point $P$.
+
+With this information, we can give a parameterization of the tangent line at $P$: If $P$ has coordinates $(P_x, P_y)$ and $\vec{v_P} = \begin{pmatrix}\vec{v_x}\\\vec{v_y}\end{pmatrix}$, the tangent line is given by:
+
+$$
+\left\{\begin{array}{} x(t) &=& P_x+v_x\cdot t\\ y(t) &=& P_y+v_y\cdot t\end{array}\right. \text{with } -\infty \le t \le \infty
+$$
+
+This can also be described as an equation of the form $ax + by = c$. The coefficients $a$ and $b$ must be such that $\begin{pmatrix}a\\b\end{pmatrix}$ is orthogonal to $\vec{v_P}$. Then $c$ is fixed by the fact that $P$ must be on the line.
+
+Sometimes we also use the line through $P$ orthogonal to the tangent line. This is called the normal line of the curve at point $P$. Parameterization and an equation for this line can be found similar to above.
+
+|  |  |
+|------------------------------------|------------------------------------|
+| ![](images/clipboard-72022641.png){width="221"} | ![](images/clipboard-327993947.png){width="203"} |
+
 # Exercises
 
 1.  Consider a rectangle with vertices $A$, $B$, $C$, and $D$, where we know coordinates $A = (-2, -1)$, $B = (5, -1)$, and $C = (5,3)$. What are the coordinates of $D$?
@@ -744,7 +762,7 @@ It is important to note that the acceleration vector describes the rate of chang
     ii. $$
         \left\{\begin{array}{rcl} x(t)&=& -3\cos(t)\\y(t)&=& 3\sin(t)\end{array}\right.,\text{with } 0\leq t\leq \pi.
         $$\
-        Yes, but wrong?!
+        Yes, but wrong?! (Nope, see $iv$!)
 
     iii. $$
          \left\{\begin{array}{rcl} x(t)&=& 3\sin(t)\\y(t)&=& 3\cos(t)\end{array}\right.,\text{with } 0\leq t\leq \pi.
@@ -820,12 +838,81 @@ It is important to note that the acceleration vector describes the rate of chang
     \text{with } -\infty \le t \le \infty
     $$
 
-    1.  Find velocity $\vec{v} = \begin{pmatrix} v_x\\ v_y \end{pmatrix}$ and the speed at $t = 2$
+    i.  Find velocity $\vec{v} = \begin{pmatrix} v_x\\v_y\end{pmatrix}$ and speed at $t=2$.
 
-    2.  Find point $P$ at which the object moves vertically up
+        $$
+        \begin{align}\vec{v} &= \begin{pmatrix}\frac{d}{dt}t^3 - 9t\\ \frac{d}{dt}5 -t^2\end{pmatrix}\\&= \begin{pmatrix}3t^2 - 9\\-2t\end{pmatrix} \\&= \begin{pmatrix}3\\-4\end{pmatrix} \\\\s &= \sqrt{3^2 + -4^2} = \sqrt{25} = 5\end{align}
+        $$
 
-    3.  Find the minimal value that the norm of acceleration attains
+        Note, made two sloppy mistakes here: Though I had $2t$, I dumbly had $2*2=6$... And prior to that, it should have been $-2t$, not positive, thus $-4$.
 
-    4.  The path intersects itself at $(0, -4)$. What is the angle of incidence?
+    ii. Find point $P$ at which the object moves vertically UP
 
-36. Suppose an object moves along a circle, and at time $t$, its position is given by $P = (3 + cos(5t), 7 + sin(5t))$. Let $C$ be the center of the circle, and $\vec{v}$ the velocity vector at time $t$. Find the vectors $\vec{CP}$ and $\vec{v}$, and the angle between them.
+        First question I thought of was, When is $x=0$? But that's wrong. When is tangent zero? Which is, When is average velocity vector zero? Through experimentation, I honed in on $\pm1.73$-something, then aha, $\pm\sqrt{3}$. I then noted that we have $(0,5)$ (the high point) at $t=0$; and $(-0.009, 4.999)$ at $t=.001$, so the object is traveling left at the start, and so DOWN at $t = \sqrt{3}$ and UP at $t = -\sqrt{3}$.
+
+        Correct, but simpler solution: Knowing $\vec{v} = \begin{pmatrix}3t^2-9\\-2t\end{pmatrix}$, the vector is zero when $t = \pm\sqrt{3}$ (obviously, three times that squared, minus nine is zero.) Then, "moving up" is determined by $y = -2*\pm\sqrt{3} > 0$, which occurs for $-\sqrt{3}$.
+
+    iii. Find the minimal value that the norm of acceleration attains.
+
+         $$
+         \begin{align}
+         x' &= 3t^2 - 9 \\
+         x'' &= 6t \\
+         y' &= -2t \\
+         y'' &= -2 \\
+         ||a|| &= \begin{pmatrix}\\6t\\-2\end{pmatrix}
+         \end{align}
+         $$
+
+    iv. Path intersects itself at $(0,-4)$. What is the angle of incidence?
+
+        Note: After awhile, I guessed $90^\circ$ after plotting and inspecting (WRONG). Well, by plotting, direction is clearly counter-clockwise.
+
+        Next, again by eye, the slopes appear to be about $(3,2),(3,-2)$, which leads to $\frac{5}{13}$, and $\approx 53^\circ$. (WRONG)
+
+        Again, $(0,-4)$ occurs for $t = \pm 3$. What are $(x,y)$ just fore/aft?
+
+        $$
+        \text{Lower left side, both coordinates increase with } t:\\
+        -3 + .1 \Rightarrow (-1.891, -4.61) \\
+        \text{Tangent to this?}\\
+        \begin{pmatrix}0 - 0.017991\\-4 + 3.994001\end{pmatrix} \Rightarrow \begin{pmatrix}-0.017991\\-0.005999\end{pmatrix} \perp
+        \begin{pmatrix}0.005999\\-0.017991\end{pmatrix} \\
+        \text{Lower right side, } x \text{ increases, } y \text{ decreases with } t:\\
+        3 + .001 \Rightarrow (1.891, -4.61) \\
+        \text{Tangent to this?}\\
+        \begin{pmatrix}0 - 0.018009\\-4 + 4.006001\end{pmatrix} \Rightarrow \begin{pmatrix}-0.018009\\0.006001\end{pmatrix} \perp
+        \begin{pmatrix}0.006001\\0.018009\end{pmatrix} \\
+        \text{Angle between formula:}\\
+        cos(\alpha) = \frac{\vec{v}\cdot\vec{w}}{||\vec{v}||*||\vec{w}||} = \frac{-0.018009*0.006001+0.006001*0.018009}{\sqrt{-0.018009^2 + 0.006001^2}*\sqrt{0.006001^2 + 0.018009^2}}
+        $$
+
+36. Suppose an object moves along a circle, with position $P$ for time $t$ given by $(3+cos(5t), 7+sin(5t))$. Let $C$ be the center of the circle and $\vec{v}$ the velocity vector at this time $t$. Find the vector $\vec{CP}$ and $v$, and the angle between them.
+
+    By inspection, center is $(3,7)$:
+
+    ```{r}
+    data.frame(t = seq(-10,10,.01)) |> ggplot(aes(x = 3 + cos(5*t), y = 7 + sin(5*t))) + geom_point()
+    ```
+
+37. Consider curve parameterized by the following:
+
+    $$
+    \left\{ \begin{array}{} x(t)&=& 4t-t^3 \\ y(t)&=& 4t-2t^3\end{array}\right. \text{ where } -\infty \le t \le \infty
+    $$
+
+    ```{r}
+    data.frame(t = seq(-2,2,.01)) |> ggplot(aes(x = 4*t - t^3, y = 4*t - 2*t^3)) + geom_point() + scale_x_continuous(breaks = seq(-5,10,1)) + scale_y_continuous(breaks = seq(-10,10,1))
+    ```
+
+    Let $P$ be the point corresponding to $t = 1$, i.e. $(x(1), y(1)) = (3,2)$.
+
+    1.  What are the coordinates for the tangent line at $P$?
+
+    2.  Find $ax + by + c$ that describes the tangent line at $P$. Seen earlier, $a$, $b$, and $c$ are not unique, but the ratios $\frac{a}{c}$ and $\frac{b}{c}$ are.
+
+    3.  Find $ax + by + c$ that describes the normal line of the curve at $P$. Again, ratios.
+
+38. 
+
+39. 
