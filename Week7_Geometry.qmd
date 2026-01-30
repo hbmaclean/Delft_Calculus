@@ -4,6 +4,10 @@ format: html
 editor: visual
 ---
 
+```{r}
+library(ggplot2)
+```
+
 # Cartesian Coordinates
 
 From Rene Descartes, we have the cartesian coordinate system in a plane, with perpendicular coordinate axes ($x$, $y$), point of origin at their intersection, and positive and negative coordinate points. The system is flexible in terms of orientation, units, and sign - all of which can be used advantageously. For example, while GPS coordinate axes run north-south and east-west, we might prefer orienting to a street plan - one axis parallel to streets and one to avenues.
@@ -148,24 +152,36 @@ $$
 
 Here is a visual example - trying to best position a TV in a room:
 
-|  |  |
-|--------------------------------------|----------------------------------|
-| ![](images/clipboard-2193332596.png){width="426"} | $$
-\begin{align}
-\vec{v} \cdot \vec{w} &= (-1.5*-0.5) + (1.5*1.5) = 3 \\\\
-||\vec{v}|| &= \sqrt{(-1.5)^2 + 1.5^2} \Rightarrow \sqrt{4.5} \\\\
-||\vec{w}|| &= \sqrt{(-0.5)^2 + 1.5^2} \Rightarrow \sqrt{2.5} \\\\
-cos(\alpha) &= \frac{3}{\sqrt{4.5}\sqrt{2.5}}
-= \frac{3}{\sqrt{4.5*2.5}}
-= \frac{3}{\sqrt{11.25}} \\
-&= \frac{3}{\sqrt{\frac{45}{4}}}
-= \frac{3}{\frac{\sqrt{45}}{\sqrt{4}}}
-= \frac{3}{\frac{\sqrt{45}}{2}}
-= \frac{6}{\sqrt{45}}
-= \frac{6}{3\sqrt{5}}
-= \frac{2}{\sqrt{5}}
-\end{align}
-$$ |
++---------------------------------------------------+--------------------------------------------------------------------+
+| ![](images/clipboard-2193332596.png){width="426"} | $$                                                                 |
+|                                                   | \begin{align}                                                      |
+|                                                   | \vec{v} \cdot \vec{w} &= (-1.5*-0.5) + (1.5*1.5) = 3 \\\\          |
+|                                                   | ||\vec{v}|| &= \sqrt{(-1.5)^2 + 1.5^2} \Rightarrow \sqrt{4.5} \\\\ |
+|                                                   | ||\vec{w}|| &= \sqrt{(-0.5)^2 + 1.5^2} \Rightarrow \sqrt{2.5} \\\\ |
+|                                                   | cos(\alpha) &= \frac{3}{\sqrt{4.5}\sqrt{2.5}}                      |
+|                                                   | = \frac{3}{\sqrt{4.5*2.5}}                                         |
+|                                                   | = \frac{3}{\sqrt{11.25}} \\                                        |
+|                                                   | &= \frac{3}{\sqrt{\frac{45}{4}}}                                   |
+|                                                   | = \frac{3}{\frac{\sqrt{45}}{\sqrt{4}}}                             |
+|                                                   | = \frac{3}{\frac{\sqrt{45}}{2}}                                    |
+|                                                   | = \frac{6}{\sqrt{45}}                                              |
+|                                                   | = \frac{6}{3\sqrt{5}}                                              |
+|                                                   | = \frac{2}{\sqrt{5}}                                               |
+|                                                   | \end{align}                                                        |
+|                                                   | $$                                                                 |
++---------------------------------------------------+--------------------------------------------------------------------+
+
+## Rotating a Vector
+
+To rotate a vector by an angle $\alpha$, create a rotation matrix:
+
+$R(\alpha) = \begin{pmatrix}cos(\alpha) & -sin(\alpha)\\sin(alpha) & cos(alpha)\end{pmatrix}$
+
+Then multiply the original matrix, $\vec{v} = \begin{pmatrix}x\\y\end{pmatrix}$ by it. Here, we rotate counterclockwise by $45^\circ$, whose sin/cos are both $\frac{1}{\sqrt{2}}$:
+
+$\begin{pmatrix}v'\\y'\end{pmatrix} = \begin{pmatrix}x\\y\end{pmatrix} * \begin{pmatrix}\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}}\\\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}\end{pmatrix} = \begin{pmatrix}\frac{x-y}{\sqrt{2}}\\\frac{x+y}{\sqrt{2}}\end{pmatrix}$
+
+Rotating clockwise would have the $\pm$ signs flipped in the sine components of the matrix.
 
 # Curves and Equations
 
@@ -223,11 +239,19 @@ $$
 \end{align}
 $$
 
+Given a line $ax + by = c$, there is a vector $\begin{pmatrix}a\\b\end{pmatrix}$ that is perpendicular to the line; and $c$ is determined by any point $(p,q)$ on the line, as $ap + bq$.
+
+![](images/clipboard-174084790.png)
+
 ## Circles and their Tangents
 
 A line is tangent to a circle if it intersects in exactly one point.
 
 Further, for any point $P$ on a circle with center $C$, the line tangent to $P$ is orthogonal to vector $\vec{CP}$.
+
+## Circle of Appolonius
+
+Appolonius of Perga discovered some 2200 years ago that a set of points whose distance to one point is a multiple (other than 1) of the distance to another point always forms a circle.
 
 # Parameterization
 
@@ -340,9 +364,51 @@ This can also be described as an equation of the form $ax + by = c$. The coeffic
 
 Sometimes we also use the line through $P$ orthogonal to the tangent line. This is called the normal line of the curve at point $P$. Parameterization and an equation for this line can be found similar to above.
 
-|  |  |
-|------------------------------------|------------------------------------|
++-------------------------------------------------+--------------------------------------------------+
 | ![](images/clipboard-72022641.png){width="221"} | ![](images/clipboard-327993947.png){width="203"} |
++-------------------------------------------------+--------------------------------------------------+
+
+# Geometry in Space
+
+In three dimensions, we add a third axis $z$. Then given a point $(2,4,3)$ (i.e. $x=2$, $y=4$, $z=3$), the vector from the origin to this point is the vector $(2,4,3)$.
+
+As before, the norm of the vector is the length of the arrow.
+
+In the first image below, $\vec{v}$ is the hypotenuse of the right triangle $OBC$. Therefore we have $||\vec{v}||^2 = ||\vec{OC}||^2 + ||\vec{BC}||^2$. The length of $\vec{BC}$ is simply the distance from origin on the $z$ axis, or $3$.
+
++--------------------------------------------------+--------------------------------------------------+
+| ![](images/clipboard-360750029.png){width="168"} | ![](images/clipboard-909959063.png){width="166"} |
++--------------------------------------------------+--------------------------------------------------+
+
+In the second image, we look at triangle $OCD$ in the $xy$ plane, where we know the length of $OD$ is $2$ and the length of $DC$ is $4$.
+
+So, we have $||\vec{v}||^2 = 2^2 + 4^2 + 3^3$. And in general we have:
+
+$$
+\left|\left|\begin{pmatrix}a\\b\\c\end{pmatrix}\right|\right| = \sqrt{a^2 + b^2 + c^2}
+$$
+
+Multiplying three dimensional vectors by a scalar $k$ is the same as in two dimensions: A positive $k$ gives a vector in the same direction with $k$ times the length. If $k$ is negative, the direction is reversed. The calculation is the same, multiplying each component by $k$.
+
+$$
+k\begin{pmatrix}a\\b\\c\end{pmatrix} = \begin{pmatrix}ka\\kb\\kc\end{pmatrix}
+$$
+
+Addition of three dimensional vectors is the same as for two dimensional vectors, putting them head to toe. The calculation is the same, summing them componentwise.
+
+$$
+\begin{pmatrix}a\\b\\c\end{pmatrix} + \begin{pmatrix}d\\e\\f\end{pmatrix} = \begin{pmatrix}a+d\\b+e\\c+f\end{pmatrix}
+$$
+
+The angle formula is also the same for three dimensions: $cos(\alpha) = \frac{\vec{v} \cdot \vec{w}}{||\vec{v}||||\vec{w}||}$
+
+Here for example we look at a methane molecule, with four hydrogen atoms attached to one carbon atom:
+
+![](images/clipboard-2520265302.png){width="184"}
+
+We can use the angle formula to calculate the bond angle, here $\alpha$ between $\vec{v}$ and $\vec{w}$.
+
+With $\vec{v} = \begin{pmatrix}1\\-1\\-1\end{pmatrix}$ and $\vec{w} = \begin{pmatrix}-1\\1\\-1\end{pmatrix}$, we have: $cos(\alpha) = \frac{(1*-1)+(-1*1)+(-1*-1)}{\sqrt{3}*\sqrt{3}} = -\frac{1}{3} \approx 109^\circ$
 
 # Exercises
 
@@ -907,12 +973,274 @@ Sometimes we also use the line through $P$ orthogonal to the tangent line. This 
 
     Let $P$ be the point corresponding to $t = 1$, i.e. $(x(1), y(1)) = (3,2)$.
 
-    1.  What are the coordinates for the tangent line at $P$?
+    1.  What are the coordinate functions for the tangent line at $P$, i.e. $x(t)$ and $y(t)$?
 
     2.  Find $ax + by + c$ that describes the tangent line at $P$. Seen earlier, $a$, $b$, and $c$ are not unique, but the ratios $\frac{a}{c}$ and $\frac{b}{c}$ are.
 
     3.  Find $ax + by + c$ that describes the normal line of the curve at $P$. Again, ratios.
 
-38. 
+38. Vector $\vec{v}$ starts at $(1,0,2)$ and ends at $(-1,3,4)$. What are the $x$, $y$, and $z$ coordinates?
 
-39. 
+    $\begin{pmatrix}-2\\3\\2\end{pmatrix}$
+
+39. Calculate length of $\vec{v} = \begin{pmatrix}4\\-2\\1\end{pmatrix}$.
+
+    $\sqrt{4^2 + (-2)^2 + 1^2} = \sqrt{21}$
+
+40. Given $\vec{u} = \begin{pmatrix}1\\2\\5\end{pmatrix}$ and $\vec{v} = \begin{pmatrix}2\\1\\-1\end{pmatrix}$, calculate $\vec{w} = 2u - 4v$.
+
+    $2\vec{u} = \begin{pmatrix}2\\4\\10\end{pmatrix}$
+
+    $-4\vec{v} = \begin{pmatrix}-8\\-4\\4\end{pmatrix}$
+
+    $2\vec{u} - 4\vec{v} = \begin{pmatrix}-6\\0\\14\end{pmatrix}$
+
+41. Given $\vec{v} = \begin{pmatrix}-1\\3\\5\end{pmatrix}$ and $\vec{w} = \begin{pmatrix}4\\0\\3\end{pmatrix}$, what is the angle between the two?
+
+    $cos(\alpha) = \frac{(-1*4)+(3*0)+(5*3)}{\sqrt{-1^2 + 3^2 + 5^2}*\sqrt{4^2 + 0^2 + 3^2}} = \frac{11}{\sqrt{35}*\sqrt{25}} \approx 68^\circ$
+
+    ```{r}
+    acos(11/(sqrt(35)*5))*(180/pi)
+    ```
+
+# Training Sequence
+
+1.  Consider circle with center $(-3,0)$ and radius $3$, and a line formula $x + by = 2$. What are the two values of $b$ for which the resulting line is tangent to the circle?
+
+    $$
+    \left\{ \begin{array}{rcl} x(t)&=&-3+3\cos(t)\\ y(t)&=&0+3\sin(t)\end{array}\right.\
+    \text{with } 0 \le t \le 2\pi
+    $$
+
+2.  Given the hexagon below, express all vectors in terms of $a$ and $c$:
+
+    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | ![](images/clipboard-1376643404.png){width="167"} | $\vec{b} = a + c$                                                                                                                                                                              |
+    |                                                   |                                                                                                                                                                                                |
+    |                                                   | $\vec{d} = -1*a + 0*c$                                                                                                                                                                         |
+    |                                                   |                                                                                                                                                                                                |
+    |                                                   | $\vec{e} = -1 * (a+c)$                                                                                                                                                                         |
+    |                                                   |                                                                                                                                                                                                |
+    |                                                   | $\vec{f} = -1*c + 0*a$                                                                                                                                                                         |
+    |                                                   |                                                                                                                                                                                                |
+    |                                                   | Note: For $b$, I tried $.5*(a+c)$, $a-c$, $.5*(a-c)$; and for $e$, the same multiplied by $-1$. Finally I just made up plausible $a=(4,0)$ and $c=(-2,4)$ and simple addition seemed apparent. |
+    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+3.  Consider two points, $P=(1,3)$ and $Q=(-2,5)$. Determine equation $y = f(x)$ such that distances to $P$ and $Q$ are equal.
+
+    $$
+    \begin{align}
+    (x-1)^2 + (y-3)^2 &= (x+2)^2 + (y-5)^2 \\
+    0 &= (x-1)^2 + (y-3)^2 - (x+2)^2 - (y-5)^2 \\
+    0 &= x^2 -2x + 1 + y^2 -6y + 9 - x^2 -4x -4 - y^2 + 10y - 25 \\
+    0 &= x^2-x^2 -2x-4x + 1+9-4-25 + y^2-y^2 -6y+10y \\
+    0 &= -6x -19 + 4y \\
+    y &= \frac{6x + 19}{4} \\
+    \end{align}
+    $$
+
+4.  From #3, determine the angle between $\vec{PQ}$ and the line of equidistant points.
+
+    ```{r}
+    data.frame(x = seq(-5,5,.1)) |> ggplot(aes(x, y=(6*x+19)/4)) + geom_point() + annotate(geom='point', x=c(1,-2), y=c(3,5))
+    ```
+
+    ```{r}
+    90*(pi/180)
+    ```
+
+    Answer was obvious visually. Given explanation:
+
+    $\vec{PQ} = \begin{pmatrix}-2\\5\end{pmatrix} - \begin{pmatrix}1\\3\end{pmatrix} = \begin{pmatrix}-3\\2\end{pmatrix}$. From the formula for the line, it is a vector $\begin{pmatrix}-6\\4\end{pmatrix}$ - which equals $2*\vec{PQ}$, therefore the angle is $\frac{\pi}{2}$.
+
+    Alternatively, $y$ increases $\frac{3}{2}$ for every increase of $x$ by 1; thus the direction of the vector is $\begin{pmatrix}1\\ \frac{3}{2}\end{pmatrix}$. Taking the dot product of that with $\vec{PQ}$ gives 0, so the angle is $\frac{\pi}{2}$.
+
+5.  Now consider the set of points $(x,y)$ whose distance to $P$ is twice the distance to $Q$.
+
+    $$
+    \begin{align}
+    (x-1)^2 + (y-3)^2 &= 2((x+2)^2 + (y-5)^2) \\
+    0 &= (x-1)^2 + (y-3)^2 - 2((x+2)^2 + (y-5)^2) \\
+    0 &= x^2 -2x + 1 + y^2 -6y + 9 - 2(x^2 +4x +4 + y^2 - 10y + 25) \\
+    0 &= x^2 - 2x + 1 + y^2 - 6y + 9 - 2x^2 -8x -8 -2y^2 + 20y - 50 \\
+    0 &= x^2 - 2x^2 - 2x -8x + 1 + 9 -8 - 50 + y^2 - 2y^2 - 6y + 20y \\
+    0 &= -x^2 -10x -48 - y^2 + 14y \\
+    ???
+    \end{align}
+    $$
+
+6.  Find an equation for all points $P$ for which the distance to $(0,1)$ equals the distance to the x-axis.
+
+    $$
+    (x-0)^2 + (y-1)^2 = y^2 \\
+    x^2 + y^2 -2y + 1 = y^2 \\
+    x^2 + y^2 -y^2 -2y + 1 = 0 \\
+    x^2 + 1 = 2y \\
+    y = \frac{x^2 + 1}{2}
+    $$
+
+    ```{r}
+    data.frame(x = seq(-2,2,.1)) |> ggplot(aes(x, y=(x^2+1)/2)) + geom_point() + annotate(geom='point', x=0, y=1)
+    ```
+
+# Homework
+
+1.  Consider points $A = (-5,0)$, $B=(-1,2)$, and $C=(1,-2)$.
+
+    A.  Which are true?
+
+        -   $ABC$ is isosceles; $AB$ and $AC$ have equal length
+
+        -   $ABC$ is isosceles; $AB$ and $BC$ have equal length
+
+        -   $ABC$ is isosceles; $AC$ and $BC$ have equal length
+
+        -   $ABC$ is equilateral
+
+        -   $ABC$ is a right triangle, with right angle at $A$
+
+        -   $ABC$ is a right triangle, with right angle at $B$
+
+        -   $ABC$ is a right triangle, with right angle at $C$
+
+        -   None of the above
+
+            $$
+            ||AB|| = \sqrt{(-1--5)^2 + (2-0)^2} = \sqrt{20}\\
+            ||AC|| = \sqrt{(1--5)^2 + (-2-0)^2} = \sqrt{40}\\
+            ||BC|| = \sqrt{(1--1)^2 + (-2-2)^2} = \sqrt{20}\\
+            \vec{B} \cdot \vec{C} = \begin{pmatrix}-1\\2\end{pmatrix} \cdot \begin{pmatrix}1\\-2\end{pmatrix} = 0
+            $$
+
+    B.  Find $x>0$ and $y>0$ such that $(x,y)$, $B$, and $C$ form an equilateral triangle.
+
+        $$
+        (1-x)^2 + (-2-y)^2 = (-1-x)^2 + (2-y)^2 \\
+        1 -2x + x^2 + 4 + 4y + y^2 = 1 + 2x + x^2 + 4 -4y + y^2 \\
+        (x^2 - x^2) -4x + (y^2 - y^2) + 8y = 0 \\
+        -4x + 8y = 0 \\
+        y = \frac{x}{2}
+        $$
+
+        Through trial and error, knowing(?) that $y$ is half of $x$, I honed in on 3.46-something, which looked suspiciously like $\sqrt{3}$ - bingo. But oops, first I went with negatives. Correct answer is $(2*\sqrt{3}, \sqrt{3})$. And, the final trick: Once solving for $y$ (or $x$), plug it in to one of the formulas.
+
+2.  With $O = (0,0)$, $A = (1,2)$, and $B = (4,3)$,
+
+    A.  Find the angle between $\vec{OA}$ and $\vec{OB}$
+
+        $$
+        \begin{align}
+        cos(\alpha) &= \frac{\vec{OA} \cdot \vec{OB}}{||\vec{OA}||*||\vec{OB}||} \\
+        &= \frac{\begin{pmatrix}1\\2\end{pmatrix}\cdot\begin{pmatrix}4\\3\end{pmatrix}}{\sqrt{1^2 + 2^2}*\sqrt{4^2 + 3^2}} \\
+        &= \frac{10}{\sqrt{5}*\sqrt{25}} \\
+        &= \frac{2}{\sqrt{5}} \approx 27^\circ
+        \end{align}
+        $$
+
+        ```{r}
+        acos(2/sqrt(5))*(180/pi)
+        ```
+
+    B.  The line $L$ through $A$ and $B$ can be parameterized as $x(t) = 1 + 3t$ and $y(t) = ?$
+
+        $$
+        \begin{align}
+        \vec{AB} &= \begin{pmatrix}3\\1\end{pmatrix} \Rightarrow
+        \vec{N} = \begin{pmatrix}-1\\3\end{pmatrix} \\
+        L &= -1x + 3y = c \\
+        c &= -1*4 + 3*3 = 5 \\
+        L &= -1x + 3y - 5 \\
+        y &= \frac{x+5}{3} \\
+        &= \frac{1 + 3t + 5}{3} \\
+        &= \frac{3t+6}{3} \\
+        &= t + 2
+        \end{align}
+        $$
+
+        ```{r}
+        data.frame(t = seq(-5,5,.1)) |> ggplot(aes(x = 1 + 3*t, y = (3*t+6)/3)) + geom_line() + annotate(geom='point', x=c(1,4), y=c(2,3))
+        ```
+
+    C.  Find the point $P$ on $L$ such that $\vec{OP}$ is orthogonal to $\vec{OB}$
+
+        I muscled through this knowing that $\vec{OB} = \begin{pmatrix}4\\3\end{pmatrix}$, and thus tangent to that is $\begin{pmatrix}-3\\4\end{pmatrix}$. I then plotted and noted that the intersection with $L$ is at $x=-1$, then worked back to get $t = -\frac{2}{3}$\$, leading to $y=\frac{4}{3}$.
+
+        ```{r}
+        data.frame(t = seq(-4,4,.1)) |> ggplot(aes(x = 1 + 3*t, y = (3*t+6)/3)) + geom_line() + annotate(geom='point', x=c(4,0), y=c(3,0)) + annotate(geom='line', x = c(0,-3), y = c(0,4)) + annotate(geom='line', x=c(0,4), y=c(0,3)) + scale_x_continuous(breaks = seq(-10,10,1)) + scale_y_continuous(breaks = seq(-2,6,1)) + annotate(geom='point', x = c(-1), y=c(4/3))
+        ```
+
+        Given explanation: Since $P$ is on $L$, we know $P_x = 1+3t$ and $P_y = t + 2$. And $\vec{OP} \perp \vec{OB}$ implies the following:
+
+        $\vec{OP} \cdot \vec{OB} = \begin{pmatrix}1+3t\\2+t\end{pmatrix}\cdot\begin{pmatrix}4\\3\end{pmatrix} = 10 + 15t = 0$
+
+        So we find that $t=-\frac{2}{3}$, and $P=\left(-1, \frac{4}{3}\right)$
+
+    D.  Find the point $Q$ on $L$ such that the angle between $\vec{OQ}$ and $\vec{OB}$ is $\frac{\pi}{4}$
+
+        $$
+        \begin{align}
+        \begin{pmatrix}4\\3\end{pmatrix}\cdot\begin{pmatrix}\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}}\\\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}\end{pmatrix} &= \begin{pmatrix}\frac{1}{\sqrt{2}}\\\frac{7}{\sqrt{2}}\end{pmatrix}
+        \end{align}
+        $$
+
+        Plotting a line between $\left(\frac{1}{\sqrt{2}}, \frac{7}{\sqrt{2}}\right)$ does indeed look correct, $45^\circ$ and splitting the earlier $\vec{OB}$ and $\vec{OP}$ lines. Now to find the intersection with $L$...
+
+        For $L$, $y = \frac{x+5}{3}$. For the $45^\circ$ line, $y = 7x$. So, $7x = \frac{x+5}{3} \Rightarrow x = \frac{1}{4}$. Plugging that back in gives $y=\frac{7}{4}$.
+
+        ```{r}
+        data.frame(t = seq(-1,1,.1)) |> ggplot(aes(x = 1 + 3*t, y = (3*t+6)/3)) + geom_line() + annotate(geom='point', x=c(4,0), y=c(3,0)) + annotate(geom='line', x = c(0,-3), y = c(0,4)) + annotate(geom='line', x=c(0,4), y=c(0,3)) + scale_x_continuous(breaks = seq(-10,10,1)) + scale_y_continuous(breaks = seq(-6,6,1)) + annotate(geom='point', x = c(-1), y=c(4/3)) + annotate(geom='line', x=c(0,1/sqrt(2)), y=c(0,7/sqrt(2))) + annotate(geom='point', x=(1/sqrt(2))/2.84, y=(7/sqrt(2))/2.84) + annotate(geom='label', x = 1, y = 2, label = 'A') + annotate(geom='label', x=4, y=3, label='B') + annotate(geom = 'label', x=-1, y=4/3, label = 'P\n90º') + geom_line(aes(x=t, y=7*t)) + annotate(geom='point', x=1/4, y=7/4) + annotate(geom='label', x=1/4, y=7/4, label='Q \n45º')
+        ```
+
+3.  Match functions to graphs
+
+    +--------------------------------------+-----------------------------------------------------------------------------------------+
+    | ![](images/clipboard-3422052792.png) | 1)  $\left\{\begin{array}{} x(t) &=& 1-2t\\y(t) &=&-3+t\end{array}\right.$              |
+    |                                      |                                                                                         |
+    |                                      | 2)  $-2x + y = 5$                                                                       |
+    |                                      |                                                                                         |
+    |                                      | 3)  $\left\{\begin{array}{} x(t) &=& 4 + 2cos(t)\\y(t) &=& 3-2sin(t)\end{array}\right.$ |
+    |                                      |                                                                                         |
+    |                                      | 4)  $x^2 + y^2 + 8x - 6y + 21 = 0$                                                      |
+    +--------------------------------------+-----------------------------------------------------------------------------------------+
+
+    1)  Linear, passing through $(1,-3)$, with direction $\begin{pmatrix}-2\\1\end{pmatrix}$. Plotting confirms the point, but direction is $\begin{pmatrix}2\\-1\end{pmatrix}$...?
+    2)  Clearly linear; $y = 2x + 5$, and includes $(-2.5,0)$ and $(0,5)$
+    3)  Surely circular, with center $(4,3)$ and radius $2$
+    4)  Can be refactored as $(x+4)^2 + (y-3)^2 = 4$, thus center is $(-4,3)$ and radius is $\sqrt{4} = 2$
+
+4.  Consider $A = (1,0)$, $B = (3,4)$, and $C = (7,0)$
+
+    A.  Find equation for perpendicular bisector of $AB$ - i.e., orthogonal to $AB$ and passing through its midpoint
+
+        $$
+        \begin{align}
+        \vec{AB} &= \begin{pmatrix}2\\4\end{pmatrix} \\
+        \vec{n} &= \begin{pmatrix}-4\\2\end{pmatrix} \\
+        AB &= -4x + 2y = c \\
+        c &= -4*3 + 2*4 = -4 \\
+        y &= \frac{4x - 4}{2} = 2x - 2 \\
+        \end{align}
+        $$
+
+        x
+
+        ```{r}
+        data.frame(x = seq(-2,10,.1)) |> ggplot(aes(x)) + geom_line(aes(y=2*x-2)) + annotate(geom='point', x=c(1,3), y=c(0,4)) + scale_x_continuous(breaks = seq(1,7,1)) + scale_y_continuous(breaks = seq(0,4,1)) + geom_line(aes(y= -2*x + 6))
+        ```
+
+    B.  Do the same for $AC$
+
+        $$
+        \begin{align}
+        \vec{AC} &= \begin{pmatrix}6\\0\end{pmatrix} \\
+        \vec{n} &= \begin{pmatrix}0\\-6\end{pmatrix} \\
+        AC &= 0x - 6y = c \\
+        c &= 0*7 - 6*0 = 0 \\
+        \end{align}
+        $$
+
+    C.  Find the point of intersection $M$ of these two bisectors
+
+    D.  Point $M$ is the center of a circle that passes through $A$, $B$, and $C$, and can be described as $(x-a)^2 + (y-b)^2 = c$
+
+5.  x
