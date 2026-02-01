@@ -175,7 +175,7 @@ Here is a visual example - trying to best position a TV in a room:
 
 To rotate a vector by an angle $\alpha$, create a rotation matrix:
 
-$R(\alpha) = \begin{pmatrix}cos(\alpha) & -sin(\alpha)\\sin(alpha) & cos(alpha)\end{pmatrix}$
+$R(\alpha) = \begin{pmatrix}cos(\alpha) & -sin(\alpha)\\sin(\alpha) & cos(\alpha)\end{pmatrix}$
 
 Then multiply the original matrix, $\vec{v} = \begin{pmatrix}x\\y\end{pmatrix}$ by it. Here, we rotate counterclockwise by $45^\circ$, whose sin/cos are both $\frac{1}{\sqrt{2}}$:
 
@@ -410,6 +410,37 @@ We can use the angle formula to calculate the bond angle, here $\alpha$ between 
 
 With $\vec{v} = \begin{pmatrix}1\\-1\\-1\end{pmatrix}$ and $\vec{w} = \begin{pmatrix}-1\\1\\-1\end{pmatrix}$, we have: $cos(\alpha) = \frac{(1*-1)+(-1*1)+(-1*-1)}{\sqrt{3}*\sqrt{3}} = -\frac{1}{3} \approx 109^\circ$
 
+# Regression
+
+The definition of the dot product can be easily extended to vectors with more than two components. While we cannot visualize more than three dimensions, there are many situations where vectors of more components occur.
+
++---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ![](images/clipboard-3435885295.png)              | Seen earlier, imagine a cart attached to a wall by a spring. By Hooke's law, displacing the cart by a distance of $u$ causes the spring to exert a proportional force $F = ku$, where $k$ is the spring constant. By Hooke's law, the results should be linear.   |
++---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ![](images/clipboard-1173775763.png)              | But what if, due to measurement error, the points are not linear? We'd like to draw a line through the points with minimal distances.                                                                                                                             |
+|                                                   |                                                                                                                                                                                                                                                                   |
+|                                                   | First we encode the measurements as vectors:                                                                                                                                                                                                                      |
+|                                                   |                                                                                                                                                                                                                                                                   |
+|                                                   | +-------------------------------------------------+-----------------------------------------------------------------+                                                                                                                                             |
+|                                                   | | Displacements                                   | Observed Forces                                                 |                                                                                                                                             |
+|                                                   | +=================================================+=================================================================+                                                                                                                                             |
+|                                                   | | $x = \begin{pmatrix}1\\2\\3\\4\\5\end{pmatrix}$ | $y_{obs} = \begin{pmatrix}1.5\\1.2\\2.0\\3.9\\4.1\end{pmatrix}$ |                                                                                                                                             |
+|                                                   | +-------------------------------------------------+-----------------------------------------------------------------+                                                                                                                                             |
++---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ![](images/clipboard-591082956.png){width="208"}  | We have seen this problem before! The distance is minimal precisely when the line drawn from $y_{obs}$ is orthogonal to $y_k = kx$. We calculate that as:                                                                                                         |
+|                                                   |                                                                                                                                                                                                                                                                   |
+|                                                   | $$                                                                                                                                                                                                                                                                |
+|                                                   | \begin{align}                                                                                                                                                                                                                                                     |
+|                                                   | k &= \frac{\vec{y_{obs}} \cdot \vec{x}}{\vec{x}*\vec{x}} \\\\                                                                                                                                                                                                     |
+|                                                   | &= \frac{46}{55} \approx 0.84                                                                                                                                                                                                                                     |
+|                                                   | \end{align}                                                                                                                                                                                                                                                       |
+|                                                   | $$                                                                                                                                                                                                                                                                |
++---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ![](images/clipboard-3187270480.png){width="210"} | Indeed, the line with slope $0.84$ matches the measurements well.                                                                                                                                                                                                 |
+|                                                   |                                                                                                                                                                                                                                                                   |
+|                                                   | This principle, of finding a best fitting line to a set of measurements, is called regression. It is essential in all experimental sciences.                                                                                                                      |
++---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
 # Exercises
 
 1.  Consider a rectangle with vertices $A$, $B$, $C$, and $D$, where we know coordinates $A = (-2, -1)$, $B = (5, -1)$, and $C = (5,3)$. What are the coordinates of $D$?
@@ -485,19 +516,19 @@ With $\vec{v} = \begin{pmatrix}1\\-1\\-1\end{pmatrix}$ and $\vec{w} = \begin{pma
 
 9.  Which can be described as vectors?
 
-    i.  Cash in wallet \[ NO - no direction. No? Income, expenditures? \]
-    ii. Electric field \[ YES \]
-    iii. Temperature \[ NO - no direction. No? Up, down? \]
-    iv. Slope of a mountain \[ YES...\]
+    -   Cash in wallet \[ NO - no direction. No? Income, expenditures? \]
+    -   Electric field \[ YES \]
+    -   Temperature \[ NO - no direction. No? Up, down? \]
+    -   Slope of a mountain \[ YES...\]
 
 10. Let $\hat{v}$ and $\hat{w}$ be two arbitrary vectors. Draw $\vec{v}$, $\vec{w}$, and their sum $\vec{v} + \vec{w}$ with their starting points at the origin. Consider the quadrilateral with the endpoints of these three vectors and the origin as vertices. What kind of quadrilateral is this?
 
-    i.  square
-    ii. rectangle
-    iii. rhombus \[ Tried second, wrong (only true if $\hat{v}$ and $\hat{w}$ have same length \]
-    iv. parallelogram \[ Tried third, correct \]
-    v.  kite \[ Tried first, wrong \]
-    vi. trapezoid
+    -   square
+    -   rectangle
+    -   rhombus \[ Tried second, wrong (only true if $\hat{v}$ and $\hat{w}$ have same length \]
+    -   parallelogram \[ Tried third, correct \]
+    -   kite \[ Tried first, wrong \]
+    -   trapezoid
 
     Does it NOT matter how the vectors are drawn? What if all are drawn on the y-axis, say - then it's just a line? Or if two are drawn in opposite directions?
 
@@ -544,10 +575,10 @@ With $\vec{v} = \begin{pmatrix}1\\-1\\-1\end{pmatrix}$ and $\vec{w} = \begin{pma
 
 16. Consider triangle with $A = (1,1)$, $B = (4,2)$, and $C = (-1, 7)$. Which is true?
 
-    i.  $ABC$ is a right triangle, with right angle at $A$
-    ii. $ABC$ is a right triangle, with right angle at $B$
-    iii. $ABC$ is a right triangle, with right angle at $C$
-    iv. $ABC$ is not a right triangle
+    -   $ABC$ is a right triangle, with right angle at $A$
+    -   $ABC$ is a right triangle, with right angle at $B$
+    -   $ABC$ is a right triangle, with right angle at $C$
+    -   $ABC$ is not a right triangle
 
     $$
     \begin{align}
@@ -561,7 +592,7 @@ With $\vec{v} = \begin{pmatrix}1\\-1\\-1\end{pmatrix}$ and $\vec{w} = \begin{pma
 
 17. Suppose $||\vec{v}|| = 1$, $||\vec{w}|| = 4$, and $\vec{v} \cdot \vec{w} = 2$.
 
-    i.  Find $\vec{w} \cdot (-3\vec{v} + \vec{w})$
+    A.  Find $\vec{w} \cdot (-3\vec{v} + \vec{w})$
 
         $$
         \begin{align}
@@ -572,7 +603,7 @@ With $\vec{v} = \begin{pmatrix}1\\-1\\-1\end{pmatrix}$ and $\vec{w} = \begin{pma
         \end{align}
         $$
 
-    ii. Find $||\vec{v} - \vec{w}||$
+    B.  Find $||\vec{v} - \vec{w}||$
 
         $$
         \begin{align}
@@ -904,7 +935,11 @@ With $\vec{v} = \begin{pmatrix}1\\-1\\-1\end{pmatrix}$ and $\vec{w} = \begin{pma
     \text{with } -\infty \le t \le \infty
     $$
 
-    i.  Find velocity $\vec{v} = \begin{pmatrix} v_x\\v_y\end{pmatrix}$ and speed at $t=2$.
+    ```{r}
+    data.frame(t = seq(-3.1,3.1,.01)) |> ggplot() + geom_point(size=.1, aes(x=t^3 - 9*t, y = 5 - t^2)) + coord_fixed() + scale_y_continuous(breaks = seq(-5,5,1)) + scale_x_continuous(breaks = seq(-10,10,1))
+    ```
+
+    A.  Find velocity $\vec{v} = \begin{pmatrix} v_x\\v_y\end{pmatrix}$ and speed at $t=2$.
 
         $$
         \begin{align}\vec{v} &= \begin{pmatrix}\frac{d}{dt}t^3 - 9t\\ \frac{d}{dt}5 -t^2\end{pmatrix}\\&= \begin{pmatrix}3t^2 - 9\\-2t\end{pmatrix} \\&= \begin{pmatrix}3\\-4\end{pmatrix} \\\\s &= \sqrt{3^2 + -4^2} = \sqrt{25} = 5\end{align}
@@ -912,54 +947,62 @@ With $\vec{v} = \begin{pmatrix}1\\-1\\-1\end{pmatrix}$ and $\vec{w} = \begin{pma
 
         Note, made two sloppy mistakes here: Though I had $2t$, I dumbly had $2*2=6$... And prior to that, it should have been $-2t$, not positive, thus $-4$.
 
-    ii. Find point $P$ at which the object moves vertically UP
+    B.  Find point $P$ at which the object moves vertically UP
 
         First question I thought of was, When is $x=0$? But that's wrong. When is tangent zero? Which is, When is average velocity vector zero? Through experimentation, I honed in on $\pm1.73$-something, then aha, $\pm\sqrt{3}$. I then noted that we have $(0,5)$ (the high point) at $t=0$; and $(-0.009, 4.999)$ at $t=.001$, so the object is traveling left at the start, and so DOWN at $t = \sqrt{3}$ and UP at $t = -\sqrt{3}$.
 
+        Thus, $\left((-\sqrt{3})^3 - 9*-\sqrt{3}, 5 - (-\sqrt{3})^2\right) = (10.3923, 2)$
+
         Correct, but simpler solution: Knowing $\vec{v} = \begin{pmatrix}3t^2-9\\-2t\end{pmatrix}$, the vector is zero when $t = \pm\sqrt{3}$ (obviously, three times that squared, minus nine is zero.) Then, "moving up" is determined by $y = -2*\pm\sqrt{3} > 0$, which occurs for $-\sqrt{3}$.
 
-    iii. Find the minimal value that the norm of acceleration attains.
-
-         $$
-         \begin{align}
-         x' &= 3t^2 - 9 \\
-         x'' &= 6t \\
-         y' &= -2t \\
-         y'' &= -2 \\
-         ||a|| &= \begin{pmatrix}\\6t\\-2\end{pmatrix}
-         \end{align}
-         $$
-
-    iv. Path intersects itself at $(0,-4)$. What is the angle of incidence?
-
-        Note: After awhile, I guessed $90^\circ$ after plotting and inspecting (WRONG). Well, by plotting, direction is clearly counter-clockwise.
-
-        Next, again by eye, the slopes appear to be about $(3,2),(3,-2)$, which leads to $\frac{5}{13}$, and $\approx 53^\circ$. (WRONG)
-
-        Again, $(0,-4)$ occurs for $t = \pm 3$. What are $(x,y)$ just fore/aft?
+    C.  Find the minimal value that the norm of acceleration attains.
 
         $$
-        \text{Lower left side, both coordinates increase with } t:\\
-        -3 + .1 \Rightarrow (-1.891, -4.61) \\
-        \text{Tangent to this?}\\
-        \begin{pmatrix}0 - 0.017991\\-4 + 3.994001\end{pmatrix} \Rightarrow \begin{pmatrix}-0.017991\\-0.005999\end{pmatrix} \perp
-        \begin{pmatrix}0.005999\\-0.017991\end{pmatrix} \\
-        \text{Lower right side, } x \text{ increases, } y \text{ decreases with } t:\\
-        3 + .001 \Rightarrow (1.891, -4.61) \\
-        \text{Tangent to this?}\\
-        \begin{pmatrix}0 - 0.018009\\-4 + 4.006001\end{pmatrix} \Rightarrow \begin{pmatrix}-0.018009\\0.006001\end{pmatrix} \perp
-        \begin{pmatrix}0.006001\\0.018009\end{pmatrix} \\
-        \text{Angle between formula:}\\
-        cos(\alpha) = \frac{\vec{v}\cdot\vec{w}}{||\vec{v}||*||\vec{w}||} = \frac{-0.018009*0.006001+0.006001*0.018009}{\sqrt{-0.018009^2 + 0.006001^2}*\sqrt{0.006001^2 + 0.018009^2}}
+        \begin{align}
+        x' &= 3t^2 - 9 \\
+        x'' &= 6t \\
+        y' &= -2t \\
+        y'' &= -2 \\
+        ||a|| &= \sqrt{(6t)^2 + (-2)^2} \\
+        \text{Thus, minimum } &= \sqrt{(6*0)^2 + (-2)^2} = 2
+        \end{align}
         $$
+
+    D.  Path intersects itself at $(0,-4)$. What is the angle of incidence?
+
+        Hmm. Can I find two tangents through $(0,-4)$, one going up on the inside of the angle and the other down on the outside?
+
+        First, zooming in:
+
+        ```{r}
+        data.frame(t = c(seq(-3.1,-2.9,.003), seq(2.9,3.1,.003))) |> ggplot() + geom_point(size=.1, aes(x=t^3 - 9*t, y = 5 - t^2)) + scale_y_continuous(breaks = seq(-5,5,1)) + scale_x_continuous(breaks = seq(-10,10,1)) + coord_fixed()
+        ```
+
+        Again, $t= \pm 3$ leads to $(0, -4)$. Nudging $3$ a hair, we get $t = 3.01 \Rightarrow (0.180901, -4.0601)$ and $t=-2.99 \Rightarrow (0.179101, -3.9401)$. Assuming I can do some rounding, vectors/slopes versus $(0,-4)$ are then $\begin{pmatrix}0.18\\-0.06\end{pmatrix}$ and $\begin{pmatrix}0.18\\0.06\end{pmatrix}$. Angle between: $cos(\alpha) = \frac{\vec{a} \cdot \vec{b}}{||\vec{a}||*||\vec{b}||} = \frac{.18*.18 + -.06*.06}{(\sqrt{.18^2 + .06^2})^2} = \frac{0.028}{0.036} = .8 \approx 37^\circ$
+
+        ```{r}
+        acos(.8)*(180/pi)
+        ```
+
+        Explanation:
+
+        Object passes $(0,-4)$ at $t=\pm 3$. Calculate velocity at both points:
+
+        $v_1 = \begin{pmatrix}x'(-3)\\y'(-3)\end{pmatrix} = \begin{pmatrix}18\\6\end{pmatrix}$
+
+        $v_2 = \begin{pmatrix}x'(3)\\y'(3)\end{pmatrix} = \begin{pmatrix}18\\-6\end{pmatrix}$
+
+        Then the angle formula: $cos(\alpha) = \frac{\vec{v_1} \cdot \vec{v_2}}{||\vec{v_1}||*\vec{v_2}||} = \frac{18^2-6^2}{18^2+6^2} = \frac{4}{5}$
 
 36. Suppose an object moves along a circle, with position $P$ for time $t$ given by $(3+cos(5t), 7+sin(5t))$. Let $C$ be the center of the circle and $\vec{v}$ the velocity vector at this time $t$. Find the vector $\vec{CP}$ and $v$, and the angle between them.
 
-    By inspection, center is $(3,7)$:
+    Center is $(3,7)$. Velocity is $\vec{v} = \begin{pmatrix}x'(t)\\y'(t)\end{pmatrix} = \begin{pmatrix}-5sin(5t)\\5cos(5t)\end{pmatrix}$
 
-    ```{r}
-    data.frame(t = seq(-10,10,.01)) |> ggplot(aes(x = 3 + cos(5*t), y = 7 + sin(5*t))) + geom_point()
-    ```
+    Perhaps $\vec{CP}$ is $\begin{pmatrix}-5sin(5t)-3\\5cos(5t)-7\end{pmatrix}$. After several tries, I guessed correctly that $\vec{CP} = \begin{pmatrix}cos(5t)\\sin(5t)\end{pmatrix}$.
+
+    Angle between: $cos(\alpha) = \frac{\vec{v} \cdot \vec{CP}}{||\vec{v}||*||\vec{CP}||} = \frac{cos(5t)*-5sin(5t) + sin(5t)*5cos(5t)}{\sqrt{-5sin(5t)^2 + 5cos(5t)^2}*\sqrt{cos(5t)^2 + sin(5t)^2}}$
+
+    Given the relation between $sin$ and $cos$, the denominator is always $\sqrt{25} = 5$, and evidently the numerator always $0$. Thus, $cos(\alpha) = 0$, and thus $\alpha = 90^\circ$, which equals $\frac{90*pi}{180} \approx 1.57$ radians.
 
 37. Consider curve parameterized by the following:
 
@@ -973,11 +1016,15 @@ With $\vec{v} = \begin{pmatrix}1\\-1\\-1\end{pmatrix}$ and $\vec{w} = \begin{pma
 
     Let $P$ be the point corresponding to $t = 1$, i.e. $(x(1), y(1)) = (3,2)$.
 
-    1.  What are the coordinate functions for the tangent line at $P$, i.e. $x(t)$ and $y(t)$?
+    A.  What are the coordinate functions for the tangent line at $P$, i.e. $x(t)$ and $y(t)$?
 
-    2.  Find $ax + by + c$ that describes the tangent line at $P$. Seen earlier, $a$, $b$, and $c$ are not unique, but the ratios $\frac{a}{c}$ and $\frac{b}{c}$ are.
+        $\vec{v} = \begin{pmatrix}x'(t)\\y'(t)\end{pmatrix} = \begin{pmatrix}4-3t^2\\4-6t^2\end{pmatrix}$
 
-    3.  Find $ax + by + c$ that describes the normal line of the curve at $P$. Again, ratios.
+        $\left\{\begin{array}{} x(t) &=& P_x + v_x \cdot t &=& 3 + (4 - 3t^2 ) * t \\ y(t) &=& P_y + v_y \cdot t &=& 2 + (4-6t^2) * t\end{array}\right.$
+
+    B.  Find $ax + by + c$ that describes the tangent line at $P$. Seen earlier, $a$, $b$, and $c$ are not unique, but the ratios $\frac{a}{c}$ and $\frac{b}{c}$ are.
+
+    C.  Find $ax + by + c$ that describes the normal line of the curve at $P$. Again, ratios.
 
 38. Vector $\vec{v}$ starts at $(1,0,2)$ and ends at $(-1,3,4)$. What are the $x$, $y$, and $z$ coordinates?
 
@@ -1008,7 +1055,7 @@ With $\vec{v} = \begin{pmatrix}1\\-1\\-1\end{pmatrix}$ and $\vec{w} = \begin{pma
 1.  Consider circle with center $(-3,0)$ and radius $3$, and a line formula $x + by = 2$. What are the two values of $b$ for which the resulting line is tangent to the circle?
 
     $$
-    \left\{ \begin{array}{rcl} x(t)&=&-3+3\cos(t)\\ y(t)&=&0+3\sin(t)\end{array}\right.\
+    \left\{ \begin{array}{} x(t)&=&-3+3\cos(t)\\ y(t)&=&0+3\sin(t)\end{array}\right.\
     \text{with } 0 \le t \le 2\pi
     $$
 
@@ -1163,7 +1210,7 @@ With $\vec{v} = \begin{pmatrix}1\\-1\\-1\end{pmatrix}$ and $\vec{w} = \begin{pma
 
     C.  Find the point $P$ on $L$ such that $\vec{OP}$ is orthogonal to $\vec{OB}$
 
-        I muscled through this knowing that $\vec{OB} = \begin{pmatrix}4\\3\end{pmatrix}$, and thus tangent to that is $\begin{pmatrix}-3\\4\end{pmatrix}$. I then plotted and noted that the intersection with $L$ is at $x=-1$, then worked back to get $t = -\frac{2}{3}$\$, leading to $y=\frac{4}{3}$.
+        I muscled through this knowing that $\vec{OB} = \begin{pmatrix}4\\3\end{pmatrix}$, and thus tangent to that is $\begin{pmatrix}-3\\4\end{pmatrix}$. I then plotted and noted that the intersection with $L$ is at $x=-1$, then worked back to get $t = -\frac{2}{3}$, leading to $y=\frac{4}{3}$
 
         ```{r}
         data.frame(t = seq(-4,4,.1)) |> ggplot(aes(x = 1 + 3*t, y = (3*t+6)/3)) + geom_line() + annotate(geom='point', x=c(4,0), y=c(3,0)) + annotate(geom='line', x = c(0,-3), y = c(0,4)) + annotate(geom='line', x=c(0,4), y=c(0,3)) + scale_x_continuous(breaks = seq(-10,10,1)) + scale_y_continuous(breaks = seq(-2,6,1)) + annotate(geom='point', x = c(-1), y=c(4/3))
@@ -1222,25 +1269,120 @@ With $\vec{v} = \begin{pmatrix}1\\-1\\-1\end{pmatrix}$ and $\vec{w} = \begin{pma
         \end{align}
         $$
 
-        x
+        I thought I found the perpendicular bisector via experimentation as $y = -2x + 6$, giving $\frac{a}{c} = \frac{2}{6}$ and $\frac{b}{c} = \frac{1}{6}$ (wrong). The underlying grid fooled me. It is $y = -.5x + 3 \Rightarrow .5x + y = 3$, giving $\frac{.5}{3}, \frac{1}{3}$.
 
         ```{r}
-        data.frame(x = seq(-2,10,.1)) |> ggplot(aes(x)) + geom_line(aes(y=2*x-2)) + annotate(geom='point', x=c(1,3), y=c(0,4)) + scale_x_continuous(breaks = seq(1,7,1)) + scale_y_continuous(breaks = seq(0,4,1)) + geom_line(aes(y= -2*x + 6))
+        data.frame(x = seq(-2,10,.1)) |> ggplot(aes(x)) + geom_line(aes(y=2*x-2)) + annotate(geom='point', x=c(1,3), y=c(0,4)) + scale_x_continuous(breaks = seq(1,7,1)) + scale_y_continuous(breaks = seq(0,4,1)) + geom_line(aes(y= -.5*x + 3)) + coord_fixed()
         ```
+
+        Given explanation:
+
+        $\vec{AB} = \begin{pmatrix}2\\4\end{pmatrix}$ is orthogonal to the line, so we can take $a=2$ and $b=4$. And knowing the midpoint of $AB$ $(2,2)$ is on the line, we find $c = 2*2 + 4*2 = 12$. Hence, $\frac{a}{c} = \frac{1}{6}$ and $\frac{b}{c} = \frac{1}{3}$.
 
     B.  Do the same for $AC$
 
-        $$
-        \begin{align}
-        \vec{AC} &= \begin{pmatrix}6\\0\end{pmatrix} \\
-        \vec{n} &= \begin{pmatrix}0\\-6\end{pmatrix} \\
-        AC &= 0x - 6y = c \\
-        c &= 0*7 - 6*0 = 0 \\
-        \end{align}
-        $$
+        $\vec{AC} = \begin{pmatrix}6\\0\end{pmatrix}$, so $a=6$ and $b=0$. Knowing $(4,0)$ is on the line, we have $c = 6*4 + 0*0 = 24$. Hence, $\frac{a}{c} = \frac{1}{4}$ and $\frac{b}{c} = 0$.
 
     C.  Find the point of intersection $M$ of these two bisectors
 
-    D.  Point $M$ is the center of a circle that passes through $A$, $B$, and $C$, and can be described as $(x-a)^2 + (y-b)^2 = c$
+        $$
+        \begin{align}
+        6x + 0y - 24 &= 2x + 4y - 12 \\
+        4x -12 &= 4y \\
+        y &= x - 3 \\
+        \text{Plugging in from midpoint:}\\
+        x &= 4 \\
+        2*4 + 4*(4-3) &= 12 \Rightarrow y=1 \\
+        \end{align}
+        $$
 
-5.  x
+        ```{r}
+        data.frame(x = seq(0,5,.1)) |> ggplot(aes(x)) + scale_x_continuous(breaks = seq(1,7,1)) + scale_y_continuous(breaks = seq(0,4,1)) + geom_line(aes(y= -.5*x + 3)) + coord_fixed() + geom_line(aes(x=4, y=x))
+        ```
+
+    D.  Point $M$, $(4,1)$, is the center of a circle that passes through $A$, $B$, and $C$, and can be described as $(x-a)^2 + (y-b)^2 = c$
+
+        I believe we know it is $(x-4)^2 + (y-1)^2 = c$, where $c$ is radius. The radius can be calculated from one of the points: $c = \sqrt{(3-4)^2 + (4-1)^2} = \sqrt{10}$. Double-check another point: $c = \sqrt{(7-4)^2 + (0-1)^2} = \sqrt{10}$. ($a=4$ and $b=1$ are correct; $c=\sqrt{10}$ is wrong?!) Ugh, duh, it is $10$.
+
+5.  Consider:
+
+    +-------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+    | Curve $C$ parameterized as $\left\{ \begin{array}{} x(t) &=& \frac{1}{2}\cos(t)\\ y(t) &=& cos(t-\frac{2}{3}\pi)\end{array}\right.$ | ![](images/clipboard-2402565205.png){width="116"} |
+    |                                                                                                                                     |                                                   |
+    | with $0 \le t \le 2\pi$                                                                                                             |                                                   |
+    |                                                                                                                                     |                                                   |
+    | And $L$ the line defined as $y = 2x$.                                                                                               |                                                   |
+    +-------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+
+    A.  $C$ and $L$ intersect in two points, one of which is $P$ in the diagram. What are its coordinates?
+
+        $L$ has $y=2x$ and $C$ has $y = cos(t-\frac{2}{3}\pi)$.
+
+        $$
+        2(\frac{1}{2}cos(t)) = cos(t-\frac{2}{3}\pi) \\
+        cos(t) = cos(t-\frac{2}{3}\pi) \\
+        $$
+
+        I stalled there, other than to note that $cos$ repeats every $2\pi$. Plotting revealed the points, $(.25, .5)$
+
+    B.  The tangent to the curve at $P$ can be parameterized as $x(t) = \frac{1}{4}-t$ and $y(t) = ?$
+
+        Through experimentation, $y(t) = 2t + \frac{1}{2}$? Looks good plotted...
+
+        ```{r}
+        data.frame(t = seq(0,2*pi,.1)) |> ggplot(aes(x = .5*cos(t), y = cos(t-(2/3)*pi))) + geom_point() + coord_fixed() + geom_line(aes(x = .5*cos(t), y = cos(t))) + geom_line(data = data.frame(t=seq(-1,1,.1)), aes(x = (1/4) - t, y = 2*t + .5)) + xlim(c(-1,1)) + ylim(c(-1.5,1.5))
+        ```
+
+        Given explanation:
+
+        The general parameterization of a line is:
+
+        $$
+        \left\{\begin{array}{} x(t)&=& P_x+v_x\cdot t\\ y(t)&=& P_y+v_y\cdot t\end{array}\right.
+        $$
+
+        We can use the known point $P = \left(\frac{1}{4}, \frac{1}{2}\right)$. A direction vector is given(?) by:
+
+        $$
+        \begin{pmatrix}x'\left(\frac{\pi}{3}\right)\\y'\left(\frac{\pi}{3}\right)\end{pmatrix} = \left(-\frac{1}{2}sin\left(\frac{1}{3}\pi\right), -sin\left(\frac{1}{3}\pi - \frac{2}{3}\pi\right)\right) = \begin{pmatrix}-\frac{1}{4}\sqrt{3}\\\frac{1}{2}\sqrt{3}\end{pmatrix}
+        $$
+
+        Since we can rescale (multiply by $4$ and divide by $\sqrt{3}$?) we can also take $v = \begin{pmatrix}-1\\2\end{pmatrix}$. This gives the parameterization:
+
+        $$
+        \left\{\begin{array}{rcl} x(t)&=& \frac14- t\\ y(t)&=& \frac12+2\cdot t\end{array}\right.
+        $$
+
+    C.  What is the angle $\alpha$ between $C$ and $L$ at $P$?
+
+        $L = \begin{pmatrix}1\\2\end{pmatrix}$, $T = \begin{pmatrix}-1\\2\end{pmatrix}$
+
+        $cos(\alpha) = \frac{L \cdot T}{||L||*||T||} = \frac{3}{\sqrt{5}*\sqrt{5}} = \frac{3}{5} \approx 53 ^\circ$
+
+        ```{r}
+        acos(3/5)*(180/pi)
+        ```
+
+6.  Consider an object moving with this parameterization:
+
+    $$
+    \left\{\begin{array}{rcl} x(t) & = & \sin(t)\\ y(t) &=& \sin(2t)\end{array}\right.
+    $$
+
+    A.  At what two points $P_1$ and $P_2$ does the object moves parallel to the x-axis?
+
+        $\left(sin\left(\frac{\pi}{4}\right), -sin\left(\frac{\pi}{2}\right)\right), \left(sin\left(\frac{\pi}{4}\right), sin\left(\frac{\pi}{2}\right)\right)$ - visually...
+
+    B.  At what point $Q$ does the object move parallel to the y-axis?
+
+        $(1,0)$ - visually, from plotting...
+
+    C.  What is the speed of the object at $\left(\frac{1}{2}, \frac{\sqrt{3}}{2}\right)$?
+
+        Speed formula (note, derivatives!): $||\vec{v}(t)|| = \sqrt{(x'(t))^2 + (y'(t))^2}$
+
+        $t$ must be $\frac{\pi}{6}$, as $sin(\pi/6) = .5$ and $sin(2*\pi/6) = \frac{\sqrt{3}}{2}$.
+
+        $s = \sqrt{cos(\pi/6)^2 + 2cos(2*\pi/6)^2} = \sqrt{.75 + 1} = 1.322876$
+
+7.  x
