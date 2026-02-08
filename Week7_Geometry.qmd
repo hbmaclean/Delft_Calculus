@@ -152,24 +152,24 @@ $$
 
 Here is a visual example - trying to best position a TV in a room:
 
-+---------------------------------------------------+--------------------------------------------------------------------+
-| ![](images/clipboard-2193332596.png){width="426"} | $$                                                                 |
-|                                                   | \begin{align}                                                      |
-|                                                   | \vec{v} \cdot \vec{w} &= (-1.5*-0.5) + (1.5*1.5) = 3 \\\\          |
-|                                                   | ||\vec{v}|| &= \sqrt{(-1.5)^2 + 1.5^2} \Rightarrow \sqrt{4.5} \\\\ |
-|                                                   | ||\vec{w}|| &= \sqrt{(-0.5)^2 + 1.5^2} \Rightarrow \sqrt{2.5} \\\\ |
-|                                                   | cos(\alpha) &= \frac{3}{\sqrt{4.5}\sqrt{2.5}}                      |
-|                                                   | = \frac{3}{\sqrt{4.5*2.5}}                                         |
-|                                                   | = \frac{3}{\sqrt{11.25}} \\                                        |
-|                                                   | &= \frac{3}{\sqrt{\frac{45}{4}}}                                   |
-|                                                   | = \frac{3}{\frac{\sqrt{45}}{\sqrt{4}}}                             |
-|                                                   | = \frac{3}{\frac{\sqrt{45}}{2}}                                    |
-|                                                   | = \frac{6}{\sqrt{45}}                                              |
-|                                                   | = \frac{6}{3\sqrt{5}}                                              |
-|                                                   | = \frac{2}{\sqrt{5}}                                               |
-|                                                   | \end{align}                                                        |
-|                                                   | $$                                                                 |
-+---------------------------------------------------+--------------------------------------------------------------------+
+|  |  |
+|----|----|
+| ![](images/clipboard-2193332596.png){width="426"} | $$
+\begin{align}
+\vec{v} \cdot \vec{w} &= (-1.5*-0.5) + (1.5*1.5) = 3 \\\\
+||\vec{v}|| &= \sqrt{(-1.5)^2 + 1.5^2} \Rightarrow \sqrt{4.5} \\\\
+||\vec{w}|| &= \sqrt{(-0.5)^2 + 1.5^2} \Rightarrow \sqrt{2.5} \\\\
+cos(\alpha) &= \frac{3}{\sqrt{4.5}\sqrt{2.5}}
+= \frac{3}{\sqrt{4.5*2.5}}
+= \frac{3}{\sqrt{11.25}} \\
+&= \frac{3}{\sqrt{\frac{45}{4}}}
+= \frac{3}{\frac{\sqrt{45}}{\sqrt{4}}}
+= \frac{3}{\frac{\sqrt{45}}{2}}
+= \frac{6}{\sqrt{45}}
+= \frac{6}{3\sqrt{5}}
+= \frac{2}{\sqrt{5}}
+\end{align}
+$$ |
 
 ## Rotating a Vector
 
@@ -364,9 +364,9 @@ This can also be described as an equation of the form $ax + by = c$. The coeffic
 
 Sometimes we also use the line through $P$ orthogonal to the tangent line. This is called the normal line of the curve at point $P$. Parameterization and an equation for this line can be found similar to above.
 
-+-------------------------------------------------+--------------------------------------------------+
+|  |  |
+|----|----|
 | ![](images/clipboard-72022641.png){width="221"} | ![](images/clipboard-327993947.png){width="203"} |
-+-------------------------------------------------+--------------------------------------------------+
 
 # Geometry in Space
 
@@ -376,9 +376,9 @@ As before, the norm of the vector is the length of the arrow.
 
 In the first image below, $\vec{v}$ is the hypotenuse of the right triangle $OBC$. Therefore we have $||\vec{v}||^2 = ||\vec{OC}||^2 + ||\vec{BC}||^2$. The length of $\vec{BC}$ is simply the distance from origin on the $z$ axis, or $3$.
 
-+--------------------------------------------------+--------------------------------------------------+
+|  |  |
+|----|----|
 | ![](images/clipboard-360750029.png){width="168"} | ![](images/clipboard-909959063.png){width="166"} |
-+--------------------------------------------------+--------------------------------------------------+
 
 In the second image, we look at triangle $OCD$ in the $xy$ plane, where we know the length of $OD$ is $2$ and the length of $DC$ is $4$.
 
@@ -414,32 +414,30 @@ With $\vec{v} = \begin{pmatrix}1\\-1\\-1\end{pmatrix}$ and $\vec{w} = \begin{pma
 
 The definition of the dot product can be easily extended to vectors with more than two components. While we cannot visualize more than three dimensions, there are many situations where vectors of more components occur.
 
-+---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ![](images/clipboard-3435885295.png)              | Seen earlier, imagine a cart attached to a wall by a spring. By Hooke's law, displacing the cart by a distance of $u$ causes the spring to exert a proportional force $F = ku$, where $k$ is the spring constant. By Hooke's law, the results should be linear.   |
-+---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ![](images/clipboard-1173775763.png)              | But what if, due to measurement error, the points are not linear? We'd like to draw a line through the points with minimal distances.                                                                                                                             |
-|                                                   |                                                                                                                                                                                                                                                                   |
-|                                                   | First we encode the measurements as vectors:                                                                                                                                                                                                                      |
-|                                                   |                                                                                                                                                                                                                                                                   |
-|                                                   | +-------------------------------------------------+-----------------------------------------------------------------+                                                                                                                                             |
-|                                                   | | Displacements                                   | Observed Forces                                                 |                                                                                                                                             |
-|                                                   | +=================================================+=================================================================+                                                                                                                                             |
-|                                                   | | $x = \begin{pmatrix}1\\2\\3\\4\\5\end{pmatrix}$ | $y_{obs} = \begin{pmatrix}1.5\\1.2\\2.0\\3.9\\4.1\end{pmatrix}$ |                                                                                                                                             |
-|                                                   | +-------------------------------------------------+-----------------------------------------------------------------+                                                                                                                                             |
-+---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ![](images/clipboard-591082956.png){width="208"}  | We have seen this problem before! The distance is minimal precisely when the line drawn from $y_{obs}$ is orthogonal to $y_k = kx$. We calculate that as:                                                                                                         |
-|                                                   |                                                                                                                                                                                                                                                                   |
-|                                                   | $$                                                                                                                                                                                                                                                                |
-|                                                   | \begin{align}                                                                                                                                                                                                                                                     |
-|                                                   | k &= \frac{\vec{y_{obs}} \cdot \vec{x}}{\vec{x}*\vec{x}} \\\\                                                                                                                                                                                                     |
-|                                                   | &= \frac{46}{55} \approx 0.84                                                                                                                                                                                                                                     |
-|                                                   | \end{align}                                                                                                                                                                                                                                                       |
-|                                                   | $$                                                                                                                                                                                                                                                                |
-+---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ![](images/clipboard-3187270480.png){width="210"} | Indeed, the line with slope $0.84$ matches the measurements well.                                                                                                                                                                                                 |
-|                                                   |                                                                                                                                                                                                                                                                   |
-|                                                   | This principle, of finding a best fitting line to a set of measurements, is called regression. It is essential in all experimental sciences.                                                                                                                      |
-+---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ![](images/clipboard-3435885295.png)              | Seen earlier, imagine a cart attached to a wall by a spring. By Hooke's law, displacing the cart by a distance of $u$ causes the spring to exert a proportional force $F = ku$, where $k$ is the spring constant. By Hooke's law, the results should be linear. |
++---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ![](images/clipboard-1173775763.png)              | But what if, due to measurement error, the points are not linear? We'd like to draw a line through the points with minimal distances.                                                                                                                           |
+|                                                   |                                                                                                                                                                                                                                                                 |
+|                                                   | First we encode the measurements as vectors:                                                                                                                                                                                                                    |
+|                                                   |                                                                                                                                                                                                                                                                 |
+|                                                   | | Displacements | Observed Forces |                                                                                                                                                                                                                             |
+|                                                   | |----|----|                                                                                                                                                                                                                                                     |
+|                                                   | | $x = \begin{pmatrix}1\\2\\3\\4\\5\end{pmatrix}$ | $y_{obs} = \begin{pmatrix}1.5\\1.2\\2.0\\3.9\\4.1\end{pmatrix}$ |                                                                                                                                           |
++---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ![](images/clipboard-591082956.png){width="208"}  | We have seen this problem before! The distance is minimal precisely when the line drawn from $y_{obs}$ is orthogonal to $y_k = kx$. We calculate that as:                                                                                                       |
+|                                                   |                                                                                                                                                                                                                                                                 |
+|                                                   | $$                                                                                                                                                                                                                                                              |
+|                                                   | \begin{align}                                                                                                                                                                                                                                                   |
+|                                                   | k &= \frac{\vec{y_{obs}} \cdot \vec{x}}{\vec{x}*\vec{x}} \\\\                                                                                                                                                                                                   |
+|                                                   | &= \frac{46}{55} \approx 0.84                                                                                                                                                                                                                                   |
+|                                                   | \end{align}                                                                                                                                                                                                                                                     |
+|                                                   | $$                                                                                                                                                                                                                                                              |
++---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ![](images/clipboard-3187270480.png){width="210"} | Indeed, the line with slope $0.84$ matches the measurements well.                                                                                                                                                                                               |
+|                                                   |                                                                                                                                                                                                                                                                 |
+|                                                   | This principle, of finding a best fitting line to a set of measurements, is called regression. It is essential in all experimental sciences.                                                                                                                    |
++---------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 # Exercises
 
@@ -687,7 +685,7 @@ The definition of the dot product can be easily extended to vectors with more th
     ||\vec{w}|| &= \sqrt{3^2 + 2^2} = \sqrt{13} \\
     \vec{v}\cdot\vec{w} &= (-1*3) + (2*2) = 1 \\
     cos(\alpha) &= \frac{\vec{v}\cdot\vec{w}}{||v||*||w||} = \frac{1}{\sqrt{5}\sqrt{13}} \\
-    \alpha &= arccos(\frac{1}{\sqrt{65}}) * (180/pi) \approx 82.875^\circ
+    \alpha &= arccos(\frac{1}{\sqrt{65}}) * (180/\pi) \approx 82.875^\circ
     \end{align}
     $$
 
@@ -1020,11 +1018,41 @@ The definition of the dot product can be easily extended to vectors with more th
 
         $\vec{v} = \begin{pmatrix}x'(t)\\y'(t)\end{pmatrix} = \begin{pmatrix}4-3t^2\\4-6t^2\end{pmatrix}$
 
-        $\left\{\begin{array}{} x(t) &=& P_x + v_x \cdot t &=& 3 + (4 - 3t^2 ) * t \\ y(t) &=& P_y + v_y \cdot t &=& 2 + (4-6t^2) * t\end{array}\right.$
+        $\left\{\begin{array}{} x(t) &=& P_x + v_x \cdot t &=& 3 + (4 - 3t^2 ) \cdot t \\ y(t) &=& P_y + v_y \cdot t &=& 2 + (4-6t^2) \cdot t\end{array}\right.$ (Wait, dot product of derivative and scalar?!)
+
+        Slope is clearly $-2$, or $\begin{pmatrix}1\\-2\end{pmatrix}$.
+
+        $t=-2 \Rightarrow (0,8)$
+
+        $t = -1 \Rightarrow (-3,-2)$
+
+        $t = 0 \Rightarrow (0,0)$
+
+        $t = 1 \Rightarrow (3,2)$
+
+        $t = 2 \Rightarrow (0,-8)$
 
     B.  Find $ax + by + c$ that describes the tangent line at $P$. Seen earlier, $a$, $b$, and $c$ are not unique, but the ratios $\frac{a}{c}$ and $\frac{b}{c}$ are.
 
+        Tangent line slope is clearly $-2$. Line formula for point $(3,2)$ and slope $-2$ is $y-2 = -2(x-3) \Rightarrow 2x + y = 8$.
+
+        Thus, $\frac{a}{c} = \frac{2}{8}$ and $\frac{b}{c} = \frac{1}{8}$.
+
+        ```{r}
+        data.frame(t = seq(-2.1,2.1,.01)) |> ggplot(aes(x = 4*t - t^3, y = 4*t - 2*t^3)) + geom_point(size=.01) + scale_x_continuous(breaks = seq(-5,10,1)) + scale_y_continuous(breaks = seq(-10,10,1)) + geom_line(data = data.frame(t=seq(-1,4,.1)), aes(x = t, y = -2*t + 8))
+        ```
+
     C.  Find $ax + by + c$ that describes the normal line of the curve at $P$. Again, ratios.
+
+        Now slope'll be $2$, so $y - 2 = 2(x-3) \Rightarrow -2x + y = -4$.
+
+        Thus, $\frac{a}{c} = \frac{-2}{-4}$ and $\frac{b}{c} = \frac{1}{-4}$. (Wrong)
+
+        Perpendicular to $\vec{t} = \begin{pmatrix}1\\-2\end{pmatrix}$ is $\begin{pmatrix}2\\1\end{pmatrix}$. So, $2x + y = c$, and plugging in $(3,2)$ gives $6 + 2 = 8$, so $2x + y = 8$. Gah, that is the same as the tangent line...
+
+        Maybe $x - 2y = c \Rightarrow 3 - 4 = -1$, so $x - 2y = -1$ and $y = (x+1)/2$.
+
+        Thus, $\frac{a}{c} = \frac{1}{-1}$ and $\frac{b}{c} = \frac{-2}{-1}$.
 
 38. Vector $\vec{v}$ starts at $(1,0,2)$ and ends at $(-1,3,4)$. What are the $x$, $y$, and $z$ coordinates?
 
@@ -1054,10 +1082,33 @@ The definition of the dot product can be easily extended to vectors with more th
 
 1.  Consider circle with center $(-3,0)$ and radius $3$, and a line formula $x + by = 2$. What are the two values of $b$ for which the resulting line is tangent to the circle?
 
+    Circle:
+
     $$
     \left\{ \begin{array}{} x(t)&=&-3+3\cos(t)\\ y(t)&=&0+3\sin(t)\end{array}\right.\
     \text{with } 0 \le t \le 2\pi
     $$
+
+    Line? $-3 + 3cos(t) + by = 2 \Rightarrow y = \frac{5 - 3cos(t)}{b}$
+
+    Thus, when does $3sin(t) = \frac{5-3cos(t)}{b}$?
+
+    $$
+    b*3sin(t) = 5-3cos(t) \\
+    b*3sin(t) + 3cos(t) = 5
+    $$
+
+    Somehow I arrived at $\frac{5}{3}$ but plotting was off. Experimentally, I found $\frac{4}{5}$.
+
+    ```{r}
+    data.frame(t = seq(0,2*pi,.05)) |> ggplot() + geom_point(size=.01, aes(x = -3 + 3*cos(t), y = 3*sin(t))) + coord_fixed() + geom_line(aes(x = -3 + 3*cos(t), y = (5-3*cos(t))/(4/3))) + geom_line(aes(x = -3 + 3*cos(t), y = (5-3*cos(t))/(-4/3)))
+    ```
+
+    Explanation:
+
+    Circle function is $(x+3)^2 + y^2 = 9$. So we want to equate that with $x + by = 2$. Rewrite the latter as $x = 2 - by$ and plug into the former: $(5-by)^2 - y^2 = 9 \Rightarrow (1+b^2)y^2 - 10by + 16 = 0$
+
+    This quadratic equation should have only one solution (and thus there is also one corresponding x-value), so the descriminant should be 0: $D = (-10b)^2 - 4 * (1+b^2) * 16 = 0 \Rightarrow 36b^2 = 64 \Rightarrow b = \pm \frac{4}{3}$
 
 2.  Given the hexagon below, express all vectors in terms of $a$ and $c$:
 
@@ -1112,7 +1163,18 @@ The definition of the dot product can be easily extended to vectors with more th
     0 &= x^2 - 2x + 1 + y^2 - 6y + 9 - 2x^2 -8x -8 -2y^2 + 20y - 50 \\
     0 &= x^2 - 2x^2 - 2x -8x + 1 + 9 -8 - 50 + y^2 - 2y^2 - 6y + 20y \\
     0 &= -x^2 -10x -48 - y^2 + 14y \\
-    ???
+    0 &= x^2 + 10x -48 + y^2 - 14y \\
+    0 &= (x+5)^2 -25 -48 + (y-7)^2 - 49 \\
+    (x+5)^2 + (y-7)^2 = 122
+    \end{align}
+    $$
+
+    $$
+    \begin{align}
+    P &= (1,3) \\
+    Q &= (-2,5) \\
+    \sqrt{(x-1)^2 + (y-3)^2} &= 2\sqrt{(x+2)^2 + (y-5)^2} \\
+    (x-1)^2 + (y-3)^2 &= 4(x+2)^2 + 4(y-5)^2 \\
     \end{align}
     $$
 
@@ -1384,5 +1446,3 @@ The definition of the dot product can be easily extended to vectors with more th
         $t$ must be $\frac{\pi}{6}$, as $sin(\pi/6) = .5$ and $sin(2*\pi/6) = \frac{\sqrt{3}}{2}$.
 
         $s = \sqrt{cos(\pi/6)^2 + 2cos(2*\pi/6)^2} = \sqrt{.75 + 1} = 1.322876$
-
-7.  x

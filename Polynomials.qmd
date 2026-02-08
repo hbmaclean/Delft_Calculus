@@ -1102,16 +1102,16 @@ For $a>0$, the graph increases for positive $x$, and more sharply for larger $a$
 
 For integer $a$, graphs are symmetric in the y-axis if $a$ is even and symmetric in the origin if $a$ is odd.
 
-| Calculation Rules                                                    |
-|----------------------------------------------------------------------|
-| $$                                                                   
-                                     \begin{align}                     
-                                     x^{a}x^{b} &= x ^{a+b} \\         
-                                     \frac{x^a}{x ^b} &= x ^{a-b}\\    
-                                     (x^a)^b &= x^{a*b}\\              
-                                     (xy)^a &= x^a y^a                 
-                                     \end{align}                       
-                                     $$                                |
+| Calculation Rules |
+|----|
+| $$                                                                      
+                                      \begin{align}                       
+                                      x^{a}x^{b} &= x ^{a+b} \\           
+                                      \frac{x^a}{x ^b} &= x ^{a-b}\\      
+                                      (x^a)^b &= x^{a*b}\\                
+                                      (xy)^a &= x^a y^a                   
+                                      \end{align}                         
+                                      $$ |
 
 These rules hold for all $a$ and $b$ if $x$ and $y$ are positive - otherwise be careful!
 

@@ -18,7 +18,7 @@ The same works for cosine. The method is to find one solution, via table or calc
 
 ## Simplifying with Substitution
 
-One method for simplification is substitution. For example, given $cos(x)^2 - cos(x) = \frac{3}{4}$, we can replace $cos(x)$ with $p$, simplifying to $p^2 - p = \frac{3}{4}$ , which can be factored as $(x + \frac{1}{2})(x - \frac{3}{2})$, giving possible solutions $(-\frac{1}{2}, \frac{3}{2})$, only the first of which is valid as cosine is always between -1 and 1.
+One method for simplification is substitution. For example, given $cos(x)^2 - cos(x) = \frac{3}{4}$, we can replace $cos(x)$ with $p$, simplifying to $p^2 - p = \frac{3}{4}$ , which can be factored as $(p + \frac{1}{2})(p - \frac{3}{2})$, giving possible solutions $(-\frac{1}{2}, \frac{3}{2})$, only the first of which is valid as cosine is always between -1 and 1.
 
 We can look up $cos(\frac{\pi}{3}) = \frac{1}{2}$, implying that $cos(\pi - \frac{\pi}{3}) = -\frac{1}{2}$, giving our first solution.
 
@@ -233,7 +233,7 @@ Imagine a circle with radius 5, centered at the origin; with a line $y = x+1$ cr
 
 Knowing the radius, we know that for any point $(x,y)$ on the circle, we have $x^2 + y^2 = 5^2$.
 
-Therefore, we know that the two intersecting points of the line have $y = y + 1$ and $x^2 + y^2 = 25$.
+Therefore, we know that the two intersecting points of the line have $y = x + 1$ and $x^2 + y^2 = 25$.
 
 ![](images/clipboard-314698352.png){width="448"}
 
@@ -1079,10 +1079,10 @@ For inequalities, identify equalities and undefined situations. These points the
     --) -2 + x -2x - 3 = 5 \Longleftrightarrow -x - 5 = 5 => x = -10\\
     \text{First two check, latter two do not...} \\
     -\infty ... -2 ... 0 ... \infty \\
-    -3 fails \\
-    -2 holds \\
-    0 holds \\
-    1 fails \\
+    -3 \text{ fails} \\
+    -2 \text{ holds} \\
+    0 \text{ holds} \\
+    1 \text{ fails} \\
     \text{Thus, }\\
     [-2, 0]
     $$

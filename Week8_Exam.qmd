@@ -1,0 +1,580 @@
+---
+title: "Week8_Exam"
+format: html
+editor: visual
+---
+
+```{r}
+library(ggplot2)
+```
+
+## Week 8 - Exam
+
+1.  Consider $f(x) = x^3 - 6x^2 + 12$
+
+    A.  Which graph best represents?
+
+        ![](images/clipboard-2513150375.png){width="126"}
+
+        Certainly includes point $(0,12)$, which eliminates all but C and E. And clearly, as $x$ gets increasingly negative, $y$ will too, faster. And as $x$ increases positively, there is an intermittent dip while $-6x^2$ exceeds $x^3 + 12$. So, **(E)** (Correct)
+
+    B.  For what $x$ does the inequality $f(x) \ge 12$ hold?
+
+        $$
+        \begin{align}
+        x^3 - 6x^2 + 12 &= 12 \\
+        x^3 - 6x^2 &= 0 \Rightarrow (0,6) \\
+        \end{align}
+        $$
+
+        $[0] \cup [6,\infty]$ (Correct)
+
+    C.  If $f$ is restricted to $[-1,6]$, what are the local minima and maxima?
+
+        $f'(x) = 3x^2 - 12x$
+
+        Maxima: $x=0, y=12$, $x=-1, y=5$
+
+        Minima: $x=4, y = 0$, $x = 6, y=12$
+
+    D.  Find all points in $[-1,6]$ at which $f$ has a global min/max
+
+        Guessed none (wrong). Then min at $x=4$ and max at $x = (0,6)$ - BUT, I selected the wrong radio button for min, and so got partial credit...
+
+    E.  What is the range of $y$ for:
+
+        -   The maximal domain of $f$: $\mathbb{R}$
+        -   The domain $[-1,6]$: $(-20,12)$
+
+2.  Rewrite expressions in different forms
+
+    A.  Find coefficients $A$, $B$, $C$, $D$, and $E$ such that $(sin(2x))^2 = A(cos(x))^4 + B(cos(x))^3 + C(cos(x))^2 + Dcos(x) + E$
+
+        $$
+        \begin{align}
+        sin(2*x)^2 &= 4*sin(x)^2*cos(x)^2 \\
+        &= 4*(1-cos(x)^2) * cos(x)^2 \\
+        &= (4 - 4*cos(x)^2) * cos(x)^2 \\
+        &= 4*cos(x)^2 - 4*cos(x)^4 \\
+        \text{Thus, } \\
+        A &= -4 \\
+        B &= 0 \\
+        C &= 4 \\
+        D &= 0 \\
+        E &= 0
+        \end{align}
+        $$
+
+    B.  Consider $f(x) = ln\left(1 + \frac{1}{x}\right) + ln\left(\frac{x-1}{x+2}\right)$. On its maximal domain, it can be rewritten as $f(x) = ln(P(x)) - ln(Q(x))$, where $P(x)$ and $Q(x)$ are polynomials such that $P(x)$ is of degree 2 and has a constant term of $-1$.
+
+        As a rule, $ln(A) - ln(B) = ln(\frac{A}{B})$ and $ln(A) + ln(B) = ln(AB)$.
+
+        And maximal domain means, $x \notin (-2,0)$.
+
+        $$
+        \begin{align}
+        ln(1 + \frac{1}{x}) + ln(\frac{x-1}{x+2}) \\
+        &= ln(\frac{x+1}{x}) + ln(\frac{x-1}{x+2}) \\
+        &= ln(\frac{x+1}{x} * \frac{x-1}{x+2}) \\
+        &= ln(\frac{(x+1)(x-1)}{x^2 + 2x}) \\
+        &= ln(\frac{x^2 - 1}{x^2 + 2x}) \\
+        P(x) &= x^2 - 1 \\
+        Q(x) &= x^2 + 2x \\
+        \end{align}
+        $$
+
+    C.  Rewrite $\sqrt{\frac{x^22^x}{(2x)^33^{2x}}} = ax^bc^x$
+
+        $$
+        \begin{align}
+        \sqrt{\frac{x^22^x}{(2x)^33^{2x}}} &= \sqrt{\frac{x^22^x}{8x^33^{2x}}} \\
+        &= \sqrt{\frac{2^x}{8x9^x}} \\
+        &= \frac{\sqrt{2^x8x9^x}}{8x9^x} \\
+        &= \frac{\sqrt{18^x8x}}{8x9^x} \\
+        &= \frac{\sqrt{18^x2x}}{9^x4x} \\
+        &= \frac{\sqrt{18^x}\sqrt{2}\sqrt{x}}{9^x4x} \\
+        &= \frac{(3\sqrt{2})^x*\sqrt{2}*x^{\frac{1}{2}}}{9^x4x} \\
+        &= \frac{(3\sqrt{2})^x}{9x} * \frac{\sqrt{2}}{4} * \frac{x^{\frac{1}{2}}}{x} \Longleftarrow \text{ Nice, fraction to product of fractions}\\
+        \text{Note, } \frac{x^m}{x^n} &= x^{m-n} \text{, hence } \frac{x^{\frac{1}{2}}}{x} = x^{-\frac{1}{2}}\\
+        \text{And, } \frac{(3\sqrt{2})^x}{9^x} &= \left(\frac{3\sqrt{2}}{9}\right)^x = \left(\frac{\sqrt{2}}{3}\right)^x \\
+        &= \frac{\sqrt{2}}{4}*x^{-\frac{1}{2}}*\left(\frac{\sqrt{2}}{3}\right)^x
+        \end{align}
+        $$
+
+        Thus, $a = \frac{\sqrt{2}}{4}$, $b = -\frac{1}{2}$, and $c = \frac{\sqrt{2}}{3}$. Confession, I did need help breaking this down, particularly as noted above; and did test along the way, to validate continuing equality:
+
+        ```{r}
+        x <- pi; sqrt(2^x/(8*x*9^x)); sqrt(2^x * 8*x * 9^x)/(8*x*9^x) ; sqrt(18^x*8*x)/(8*x*9^x) ; sqrt(18^x*2*x)/(4*x*9^x); (sqrt(2)/4)*x^(-1/2)*(sqrt(2)/3)^x; ((3*sqrt(2))^x)/(9^x) * (sqrt(2)/4) * (x^(1/2)/x)
+        ```
+
+3.  Consider $f(x) = ln(3x) - ln(x-4)$ and $g(x) = ln(x+3)$
+
+    A.  Find maximal domain of $f$
+
+        When can either log component be $\le 0$?
+
+        $3x \Rightarrow x \le 0$
+
+        $x-4 \Rightarrow x \le 4$
+
+        $(4,\infty]$
+
+    B.  Find maximal domain of $g$
+
+        Similarly, when is $x+3 \le 0$?
+
+        $x \le -3$
+
+        $(-3,\infty]$
+
+    C.  Solve $f(x) = g(x)$
+
+        Relevant log rule: $ln(A) - ln(B) = ln(\frac{A}{B})$
+
+        $$
+        \begin{align}
+        ln(3x) - ln(x-4) &= ln(x+3) \\
+        ln\left(\frac{3x}{x-4}\right) &= ln(x+3) \\
+        ln\left(\frac{3x}{x-4}\right) - ln(x+3) &= 0 \\
+        ln\left(\frac{3x}{(x-4)(x+3)}\right) &= 0 \\
+        \frac{3x}{(x-4)(x+3)} &= 1 \\
+        3x &= (x-4)(x+3) \\
+        3x &= x^2 -x -12 \\
+        x^2 -4x -12 &= 0 \\
+        (x-6)(x+2) &= 0 \Rightarrow (-2,6) \Rightarrow (6)
+        \end{align}
+        $$
+
+    D.  For which values of $x$ is $f(x) \ge g(x)$?
+
+        $(4,6]$ - gah, I submitted only $6]$, and first $[6$.
+
+    E.  Derivative of $f(x) = ln(3x) - ln(x-4)$
+
+        Relevant log derivative: $\frac{d}{dx}ln(x) = \frac{1}{x}*\frac{d}{x}x = \frac{1}{x}$
+
+        Relevant quotient derivative: $\frac{d}{dx}\frac{hi}{lo} = \frac{lo*'hi - hi*'lo}{lo^2}$
+
+        Relevant: $\frac{d}{dx}(f+g) = \frac{d}{dx}(f) + \frac{d}{dx}(g)$
+
+        $$
+        \begin{align}
+        f'(x) &= \frac{d}{dx}ln(3x) - \frac{d}{dx}ln(x-4) \\
+        &= \frac{1}{3x}*3 - \frac{1}{x-4}*1 \\
+        &= \frac{3}{3x} - \frac{1}{x-4} \\
+        &= \frac{1}{x} - \frac{1}{x-4}
+        \end{align}
+        $$
+
+    F.  Inverse of $g(x) = ln(x+3)$
+
+        $$
+        \begin{align}
+        u &= x+3 \\
+        \int ln(x+3)dx &= \int ln(u)du \\
+        &= \int ln(u)* 1du \\
+        &= ln(u)*u - \int u*\frac{1}{u}du \\
+        &= ln(u)*u - \int 1du \\
+        &= ln(u) * u - u \\
+        &= ln(x+3)*(x+3)-(x+3) \\
+        &= ln(x+3)*(x+3)-x + C
+        \end{align}
+        $$
+
+        Wrong. I solved for anti-derivative. I forgot about Inverse Functions in Trigonometry.
+
+        Answer is $e(x)-3$. External explanation:
+
+        i.  Rewrite as $y = ln(x+3)$.
+        ii. Swap $x$ and $y$ for $x = ln(y + 3)$.
+        iii. Exponentiate both sides with base $e$: $e^x = e^{ln(y+3)}$
+        iv. $e$ and $ln$ cancel on the right side: $e^x = y + 3$
+        v.  Solve for $y$: $y = e^x - 3$
+
+4.  Consider a mountain whose height is a function of horizontal distance $x$, with domain $[0,\infty)$ given by $f(x) = x^2e^{-x}$. A cyclist starts at $x=0$ and moves in the positive x-direction.
+
+    ```{r}
+    data.frame(x = seq(0, 10, .1)) |> ggplot() + geom_point(aes(x, y=x^2*exp(1)^(-x))) + scale_x_continuous(breaks = seq(0,10,1)) + scale_y_continuous(breaks = seq(0,1,.1)) + geom_hline(yintercept = exp(1)^(-1))
+    ```
+
+    A.  Determine x-coordinate of the mountaintop, and the height
+
+        $x=2$, height = $0.5413411$
+
+    B.  At what $x$ is ascent steepest?
+
+        I think max value of derivative, $f'(x) = 2xe^{-x}$, which experimentally seems to max out at $1$ ($0.7357589$) (Wrong)
+
+        Whoop, derivative was wrong: $f'(x) = 2x * -\frac{1}{e^x} = -\frac{2x}{e^x}$
+
+        Uggh, I pumped numbers through and was off by some thousandths. First iteration gave $.59$, correct is $2-\sqrt{2} = 0.5857864$.
+
+        ```{r}
+        data.frame(x=seq(.02,2,.0001)) |> mutate(a = x-.0001, b = x+.0001, a = a^2 * exp(1)^(-a), b = b^2 * exp(1)^(-b), m = b-a) |> slice_max(m, n=5)
+        ```
+
+    C.  What angle does the side of the mountain make with a horizontal line at $(1, f(1))$?
+
+        Nearish $x=1$, we have $(1.001, .3682471)$ and $(0.999, .3675114)$, for a slope of $\begin{pmatrix}0.002\\0.0007357\end{pmatrix}$. Angle between that and horizontal:
+
+        ```{r}
+        atan(.002/.0007357) * (180/pi)
+        ```
+
+        That gives $69.8^\circ$, but that must be the opposite angle (the interior of the mountain), so $\approx 110^\circ$? (Wrong)
+
+        Darn. When $69.8$ seemed wrong, I flipped the slope and got $20.19605$ - which is correct. The other way of getting that is $90-69.8$, where I subtracted from $180$. But $20^\circ$? That does not look right; no matter which of the four angles, it would seem to be close to $90^\circ$.
+
+    D.  Suppose horizontal position of cyclist is given by $x(t) = t - t^2$. Determine the vertical speed $v_y(t) = \frac{d}{dt}f(x(t))$ as a function of time $t$
+
+        I think this is analogous to the diver example, which had $[f(g(x))]' = f'(g(x)) * g'(x)$, with a cautionary reminder to take the derivative of $f$ at $g(x)$, not simply $x$. Assuming so:
+
+        $$
+        \begin{align}
+        f(x(t)) &= (t-t^2)^2 * e^{-(t-t^2)} \\
+        &= (t^4 - 2t^3 + t^2) * e^{t^2-t} \\
+        f'(x(t)) &= (t^4 - 2t^3 + t^2)*\frac{d}{dt}e^{t^2-t} + \frac{d}{dt}(t^4 - 2t^3 + t^2)*e^{t^2-t} \\
+        &= (t^4 - 2t^3 + t^2)*(-e^{t^2-t} + 2e^{t^2-t}t) + (4t^3 - 6t^2 + 2t)*e^{t^2-t} \\
+        &= (t^4 - 2t^3 + t^2)*(-e^{t^2-t} + 2e^{t^2-t}t) + (4t^3e^{t^2-t} - 6t^2e^{t^2-t} + 2te^{t^2-t}) \\
+        &= t^2*(t^2 -2t + 1) * e^{t^2-t}*(2t -1) + 2te^{t^2-t}*(2t^2 -3t + 1) \\
+        &= t^2e^{t^2-t}(2t^3 -5t^2 + 4t - 1) + 2te^{t^2-t}(2t^2 - 3t + 1) \\
+        &= e^{t^2-t}*(4*t^3 - 6*t^2 + 2*t + 2*t^5 - 5*t^4 + 4*t^3 - t^2) \\
+        &= e^{t^2-t}*(2*t^5 - 5*t^4 + 8*t^3 - 7*t^2 + 2*t)
+        \end{align}
+        $$
+
+5.  Consider $f(x) = \frac{-1}{x-3} + \frac{1}{x+2} + \frac{1}{6}$
+
+    ```{r}
+    data.frame(x=seq(-10,10,.01)) |> ggplot() + geom_point(size=.01, aes(x, y=-1/(x-3) + 1/(x+2) + 1/6)) + geom_hline(yintercept = 1/6, color='red', linetype = 2) + geom_vline(xintercept = c(-2,3), color='red', linetype = 2)
+    ```
+
+    A.  Rewrite $f(x)$ as $\frac{p(x)}{q(x)}$, where polynomial in numerator equals $-36$ at $x=0$
+
+        $$
+        \begin{align}
+        \frac{-1}{x-3}*\frac{x+2}{x+2}*\frac{6}{6} &+ \\
+        \frac{1}{x+2}*\frac{x-3}{x-3}*\frac{6}{6} &+ \\
+        \frac{1}{6}*\frac{x-3}{x-3}*\frac{x+2}{x+2} &=
+        \frac{-6(x+2) + 6(x-3) + (x-3)(x+2)}{(x-3)(x+2)6} \\\\
+        &= \frac{-6x -12 + 6x - 18 + x^2 + 2x -3x -6}{6x^2 -18x + 12x - 36} \\\\
+        &= \frac{x^2 -x -36}{6x^2 -6x -36}
+        \end{align}
+        $$
+
+    B.  Does $f(x)$ have any vertical asymptotes?
+
+        $(-2,3)$
+
+    C.  Horizontal asymptotes?
+
+        $\frac{\frac{x^2}{x^2}-\frac{x}{x^2}-\frac{36}{x^2}}{\frac{6x^2}{x^2}-\frac{6x}{x^2}-\frac{36}{x^2}}$
+
+        As $x$ increases, everything approaches zero except $\frac{1}{6}$
+
+    D.  Maximal domain: $[-\infty, -2)\cup(-2,3)\cup(3,\infty]$, i.e. $x \ne (-2,3)$
+
+    E.  Location of local minimum?
+
+        $f(x) = \frac{x^2 - x - 36}{6x^2 - 6x - 36}$
+
+        $$
+        \begin{align}
+        f'(x) &= \frac{lo*hi' - hi*lo'}{lo^2} \\
+        &= \frac{(6x^2 - 6x - 36)(2x-1) - (x^2 - x -36)(12x -6)}{(6x^2 - 6x - 36)^2} \\
+        &= \frac{360x - 180}{(6x^2 - 6x - 36)^2}
+        \end{align}
+        $$
+
+        Derivative is zero at $x=.5$. It IS a local minimum, neighboring values are larger on both sides.
+
+    F.  Is the local minimum also global?
+
+        No, values are much lower approaching $x=-2$ or $x=3$
+
+    G.  Find $\int_{-1}^2f(x)dx$
+
+        Well, I have two versions of the function; the original looks easier: $f(x) = \frac{-1}{x-3}+\frac{1}{x+2}+\frac{1}{6}$
+
+        $$
+        \int_{-1}^2 ln(x+2) - ln(x-3) + \frac{1}{6}x = 
+        \left[ln(|x+2|) - ln(|x-3|) + \frac{1}{6}x\right]_{-1}^2
+        $$
+
+        Evaluate:
+
+        ```{r}
+        F <- function(x) { log(abs(x+2)) - log(abs(x-3)) + x/6 }
+        F(2) - F(-1)
+        ```
+
+6.  Suppose height of a water wave in a canal (in meters from bottom) is given by $f(x) = \frac{1}{4}sin(2x) + 3$
+
+    A.  What is amplitude? $\frac{1}{4}$\
+        And wavelength? $\pi$
+
+    B.  Evaluate $\int_0^{2\pi} f(x)dx$
+
+        $$
+        \int_0^{2\pi} \frac{1}{4}sin(2x)+3 dx = \left[-\frac{1}{8}cos(2x) + 3x\right]_0^{2*\pi}
+        $$
+
+        ```{r}
+        F <- function(x) { (-1/8)*cos(2*x) + 3*x }
+        F(2*pi) - F(0)
+        ```
+
+    C.  At certain intervals, waves exceed $\frac{25}{8}$ meters. What is the length of each such interval?
+
+        $1.0471$
+
+        I gleaned this from plotting, then confirmed:
+
+        ```{r}
+        y <- function(x) { (1/4)*sin(2*x)+3 }
+        y(.2618)
+        y(1.309)
+        y(pi+.2618)
+        y(pi+1.309)
+        ```
+
+    D.  After a little time has passed, height of the wave is given by $g(x) = \frac{1}{4}cos(2x) + 3$. What is the smallest possible solution?
+
+        After several reads, I don't understand the question. The graph measures height. I guess we are to consider the waves objects moving to the right? Not, say, within a stretch of canal between closed locks?
+
+        Educated guess: Minimum of $\frac{1}{4}cos(2x)+3$ is when $cos(2x) = -1$, which is for $x = \frac{\pi}{2}$ and thus $g(x) = 2.75$. (WRONG)
+
+        Whoop, that's the (minimum?) height. And $f(2\frac{\pi}{2}) = 3$. After testing numerous other values, it seems there is always a difference of $.25$ - in height. (Notably, that equals amplitude.) So how does that translate to horizontal distance?
+
+        Plotting and zooming in, I find that $\frac{1}{4}sin(2*.785)+3 = 3.25$, and already knew that $\frac{1}{4}sin(2*0)+3 = 3$, so a vertical movement of $.25$ implies horizontal movement of $.7854$.
+
+        Perhaps confirming, this gives $0.39270$ as the $x$ value to minimize the difference between $f(x)$ and $g(x)$:
+
+        ```{r}
+        data.frame(x=seq(0,pi,.00001)) |> mutate( d =  abs( ((1/4)*sin(2*x) + 3) - ((1/4)*cos(2*x) + 3)) ) |> slice_min(d, n=3)
+        ```
+
+        And notably, $2*0.39270 = 0.7854$...
+
+        ```{r}
+        data.frame(x = seq(0,2*pi,.01)) |> ggplot() + geom_line(aes(x, y = (1/4)*sin(2*x) + 3)) + geom_line(color='red', linetype = 2, aes(x, y = (1/4)*cos(2*x)+3)) + scale_x_continuous(breaks = seq(0,2*pi,1))
+        ```
+
+    Shrug. I provided $((1/4)sin(2*0.39270) + 3) - ((1/4)cos(2*0.3927)+3)$ but the correct answer is $\frac{3\pi}{4}$. R console doesn't have enough precision; online calculator gives $-0.24654966567$ for mine and $-0.2286164141$.
+
+7.  Comparing expressions
+
+    A.  Which of the following are equal to $log_2(x)$ for $x>0$?
+
+        -   $log_2(x^2+x) - log_2(x+1)$ \<---------
+
+        -   $2log_4(x)$ \<---------
+
+        -   $log_2(3x) + log_2(3)$
+
+        -   $3log_2(x^3)$
+
+    B.  Which are equal to $4ab$ for all real values of $a$ and $b$?
+
+        -   $\frac{2a^\frac{5}{2}b^\frac{3}{2}}{  \frac{1}{2} (\frac{a}{b})^{-\frac{1}{2}}}$
+
+        -   $\sqrt{16a^2b^2}$
+
+        -   $(a+b)^2 - (a-b)^2$ \<---------
+
+        -   $(a+b)^2 + (a-b)^2$
+
+    C.  Which of the following are equal to $e^{2x}$ for all real values of $x$?
+
+        -   $(e^2)^x$ \<---------
+
+        -   $\frac{e^{3x}}{e^{-x}}$
+
+        -   $((\sqrt{e})^x)^4$ \<---------
+
+        -   $2^{2xln(2)}$
+
+8.  Here we consider $f(x) = \frac{1}{2x-1}$ for domain $x \ne \frac{1}{2}$. For every $p > \frac{1}{2}$, there is a rectangle with vertices $(0,0)$, $(p,0)$, $(p, f(p))$, and $(0, f(p))$, created by $A(p) = \frac{p}{2p-1}$
+
+    ![](images/clipboard-262764584.png){width="184"}
+
+    A.  For what values of $a$ and $b$ can $A(p)$ be written as $A(p) = a + b * f(p)$?
+
+        Picking $p=2$, we have $f(p) = \frac{1}{3}$ and $A(p) = \frac{2}{3}$. Thus, $\frac{2}{3} = a + b * \frac{1}{3} \Rightarrow 3a + b = 2$
+
+        For $p=3$, we have $f(p) = \frac{1}{5}$ and $A(p) = \frac{3}{5}$. Thus, $\frac{3}{5} = a + b * \frac{1}{5} \Rightarrow 5a + b = 3$
+
+        $2 - 3a = 3 - 5a \Rightarrow 2a = 1 \Rightarrow a = .5$. Plugging that in, $b$ is also $.5$.
+
+        Validate:
+
+        $A(2) = .5 + .5 * \frac{1}{3} = \frac{3}{6} + \frac{1}{6} = \frac{2}{3}$
+
+        $A(3) = .5 + .5 * \frac{1}{5} = \frac{5}{10} + \frac{1}{10} = \frac{3}{5}$
+
+    B.  Consider the portion of the rectangle to the right of the vertical asymptote, which we'll call $B(p)$. As $p > \frac{1}{2}$ increases, does $B(p)$ increase, decrease, or stay constant?
+
+        ![](images/clipboard-1145994021.png){width="119"}
+
+        Looking at the whole rectangle, the area for $p=2$ is $2-.5*\frac{1}{2x-1} = \frac{1.5}{3}$. For $p=3$, area is $\frac{2.5}{5}$. How about that, for $p=10$, area is $\frac{9.5}{19}$. And sure, $.5 = \frac{p-.5}{2p-1} \Rightarrow .5(2p-1) = p-.5 \Rightarrow p-.5 = p-.5$
+
+    C.  What values of $a$, $b$, and $c$ allow for the inverse of $f$ to be written as $f^{inv}(x) = \frac{ax+1}{bx+c}$?
+
+        $f(x) = \frac{1}{2x-1}$, therefore $y = \frac{1}{2x-1}$ and $2xy -y = 1 \Rightarrow 2xy = y + 1 \Rightarrow x = \frac{y+1}{2y} \Rightarrow f^{inv} = \frac{x+1}{2x}$
+
+        Validate: $f(2) = \frac{1}{3}$ and $f^{inv}(2) = \frac{\frac{4}{3}}{\frac{2}{3}} = 2$
+
+        So, how can $\frac{x+1}{2x} = \frac{ax+1}{bx+c}$? Evidently, $a=1$, $b=2$, $c=0$?
+
+    D.  The graphs of $f$ and $f^{inv}$ intersect at $P$ and $Q$, where $P_x < Q_x$. Find their coordinates.
+
+        |  |  |
+        |------------------|------------------------------------------------------|
+        | ![](images/clipboard-1855340250.png){width="137"} | $$
+        \frac{1}{2x-1} = \frac{x+1}{2x} \\
+        2x = 2x^2 + 2x -x - 1 \\
+        x + 1 = 2x^2 \Rightarrow (-.5,1)
+        $$ |
+
+9.  Here we consider $f(x) = x^2 + 1$ and $g(x) = x + 3$
+
+    A.  Find the area enclosed by $f(x)$, $g(x)$, and the line $x=3$
+
+        $f$ and $g$ intersect at $-1$ and $2$, so the integral for $f$ beneath $g$ is $\int_{-1}^2$.
+
+        Then the wedge between $f$, $g$, and $x=3$ is $\int_2^3$.
+
+        ```{r}
+        data.frame(x = seq(-3,4,.01)) |> ggplot() + geom_line(aes(x, y = x^2 + 1)) + geom_line(color='red', aes(x, y = x+3)) + geom_vline(xintercept = 3, linetype = 2) + ylim(y=c(1,11))
+        ```
+
+        STILL TO-DO
+
+    B.  Find equation for tangent to $f(x)$ at $x=3$
+
+        Two neighboring points are $(3.001, 10.006)$ and $(2.999, 9.994001)$, so slope $\approx \begin{pmatrix}0.002\\0.012\end{pmatrix} \approx \begin{pmatrix}1\\6\end{pmatrix}$
+
+        Thus, $6x - 1y = c \Rightarrow 18 - 10 = 8 \Rightarrow y = 6x-8$
+
+        ```{r}
+        data.frame(x = seq(-3,4,.01)) |> ggplot() + geom_line(aes(x, y = x^2 + 1)) + geom_line(color='red', aes(x, y = x+3)) + geom_vline(xintercept = 3, linetype = 2) + ylim(y=c(0,11)) + scale_x_continuous(breaks=seq(-2,4,1)) + coord_fixed() + geom_line(linetype = 2, color = 'blue', aes(x, y = 6*x - 8 ))
+        ```
+
+    C.  Find all values for $p$ such that $y = px$ is tangent to $f(x)$ at some point $(a, f(a))$
+
+        Through experimentation, $(-2,2)$. Cannot explain though; that should mean $x^2 + 1 = 2x$?
+
+        ```{r}
+        data.frame(x = seq(-3,4,.01)) |> ggplot() + geom_line(aes(x, y = x^2 + 1)) + geom_line(color='red', aes(x, y = x+3)) + geom_vline(xintercept = 3, linetype = 2) + ylim(y=c(0,11)) + scale_x_continuous(breaks=seq(-2,4,1)) + coord_fixed() + geom_line(linetype = 2, color = 'blue', aes(x, y = -2*x ))  + geom_line(linetype = 2, color = 'blue', aes(x, y = 2*x ))
+        ```
+
+    D.  The line $x=q$ with $-1 < q < 2$ intersects $f(x)$ and $g(x)$ at points $P$ and $Q$. Find the value of $q$ that maximizes the length of $PQ$
+
+        ```{r}
+        data.frame(x = seq(-1,2,.01)) |> mutate(fy=x^2+1, gy=x+3, d = gy - fy) |> slice_max(d, n=5)
+        ```
+
+        $f(.5) = 1.25$, $g(.5) = 3.50$
+
+10. Let $C$ be a circle parameterized as:
+
+    $\left\{ \begin{array}{} x(t) &=& 3cos(t) \\ y(t) &=& 3 + 3sin(t)\end{array}\right. \text{ , with } 0 \le t \le \pi$
+
+    A.  $C$ can be represented as $x^2 + y^2 + ax + by = c$. Find $a$, $b$, and $c$.
+
+        Center is $(0,3)$ and radius is $3$, so we can start with $x^2 + (y-3)^2 = 3^2$, expanding to $x^2 + y^2 -6y + 9 = 9 \Rightarrow x^2 + y^2 + 0x -6y = 0$.
+
+        Thus, $a=0$, $b=-6$, $c=0$ (Correct!)
+
+    B.  There are two points on $C$ where a tangent line crosses $(9,0)$. One is $(0,0)$; identify the other.
+
+        Tangent will form right angle against radius ($3$) and length from center to $(9,0)$ is $\sqrt{(9-0)^2 + (0-3)^2} = \sqrt{90}$. Thus we have $3^2 + b^2 = 90 \Rightarrow b=9$. So, $(9-x)^2 + y^2 = 90 \Rightarrow 81 -18x + x^2 + y^2 = 90 \Rightarrow x^2 -18x + y^2 - 9 = 0$
+
+        Slope of $(9,0)$ to center is $\begin{pmatrix}3\\-1\end{pmatrix}$, and slope of mystery line appears to be $\begin{pmatrix}4\\-3\end{pmatrix}$.
+
+        Zooming in, I think $x=1.389214$. If so, $sqrt(90-(9-1.389214)^2) = 5.663562$ gives $y$.
+
+        Zooming in closer, I think $(1.3867532, 5.6602472)$. Those work in the (A) $x^2 + y^2 - 6*y$; and $1.3867532^2 + (5.6602472-3)^2 = 9$, radius of smaller circle.
+
+        Here I plot another circle using $(9,0)$ as center and the length from it to original center as radius; and it should thus intersect the first circle at the mystery point:
+
+        ```{r}
+        data.frame(t = seq(0,2*pi,.001)) |> ggplot() + geom_point(color='blue', size=.01, aes(x = 3*cos(t), y = 3 + 3*sin(t))) + coord_fixed() + annotate(geom='line', x = c(9,-3), y=c(0,0)) + annotate(geom='line', x=c(9,1), y=c(0,6)) + scale_x_continuous(breaks = seq(0,10,1)) + annotate(geom='point', x=0, y=3) + annotate(geom='line', linetype = 2, x=c(0,9), y=c(3,0)) + geom_point(size=.01, color='red', aes(x = 9 + sqrt(90)*cos(t), y = 0 + sqrt(90)*sin(t))) + geom_vline(xintercept = sqrt(2)-.025)
+        ```
+
+        So, when does $3*cos(t) = 9+sqrt(90)*cos(t)$ ($x$) and $3 + 3*sin(t) = sqrt(90)*sin(t)$ ($y$)?
+
+        I'm convinced $x=\sqrt{2}$, for which $t=1.07991$, and $y= 5.645746$. (Wrong!)
+
+        Original circle: $x^2 + (y-3)^2 = 9$. Outside point, $(9,0)$. Mystery point, $(x_2, y_2)$. Certainly, $x_2^2 + (y_2 -3)^2 = 9$.
+
+        $$
+        C_1: x^2 + (y-3)^2 -9 = 0 \Rightarrow x^2 + y^2 -6y \\
+        C_2: x^2 − 18x + y^2 + 72 = 0 \\
+        x^2 + y^2 - 6y = x^2 - 18x + y^2 + 72 \\
+        x^2-x^2 + y^2-y^2 -6y = 72 - 18x \\
+        -6y = 72 - 18x \\
+        y = \frac{72 - 18x}{-6} = 3x - 12
+        $$
+
+        Correct answers: $x=\frac{9}{5}$, $y = \frac{27}{5}$. That agrees well enough with the tangent line I created, but not the larger circle that should have landed on it... TO-DO - Revisit
+
+11. Suppose the motion of an object is described as:
+
+    $$
+    \left\{ \begin{array}{}x(t)&=& 5t-t^2\\ y(t)&=&t^2-3t\end{array}\right. \text{, with } -1 \le t \le 5
+    $$
+
+    ```{r}
+    data.frame(t = seq(-1,5,.05)) |> ggplot() + geom_point(size=.01, aes(x = 5*t - t^2, y=t^2 -3*t)) + coord_fixed()
+    ```
+
+    A.  The curve intersects the x-axis at the origin and a point $P$. The line tangent to the curve at $P$ can be parameterized as:
+
+        $$
+        \left\{ \begin{array}{}x(t)&=& a + bt\\ y(t)&=& t\end{array}\right. \text{ , where } -\infty \le t \le \infty
+        $$
+
+        What are $a$ and $b$?
+
+        $P = (6,0)$, for $t = 3$. At $t=3.01$, we have $(5.9899, 0.0301)$. I'll round to two and call slope $\begin{pmatrix}-1\\3\end{pmatrix}$. Orthogonal to that, $\begin{pmatrix}3\\1\end{pmatrix}$. Then tangent formula is $y-0 = 3(x-6) \Rightarrow y + 3x = 18$.
+
+        Now if $y=t$, solving for $x$ gives $\frac{18-t}{3}$, or $6 - \frac{1}{3}t$. So, $a=6$ and $b = -\frac{1}{3}$.
+
+        ```{r}
+        data.frame(t = seq(-1,5,.05)) |> ggplot() + geom_point(size=.01, aes(x = 5*t - t^2, y=t^2 -3*t)) + coord_fixed() + scale_x_continuous(breaks = seq(-6,6,1)) + ylim(c(-5,10)) + geom_line(aes(y=t, x=6-t/3))
+        ```
+
+    B.  The object passes the line $L$ described by $y=x$ at two points - the origin and $Q$. What is the angle $\alpha$ between $L$ and the object's path at $Q$?
+
+        Two neighboring points: $t = 4 + .001 \Rightarrow (3.996999, 4.005001)$, $t = 4 - .001 \Rightarrow (4.002999, 3.995001)$. Thus, slope $\approx \begin{pmatrix}0.006\\-0.01\end{pmatrix} \approx \begin{pmatrix}6\\-10\end{pmatrix}$. Thus, $10x + 6y = c \Rightarrow 10*4 + 6*4 = 64 \Rightarrow 10x + 6y = 64 \Rightarrow y = \frac{64 -10x}{6}$
+
+        Angle between: $cos(\alpha) = \frac{\vec{L}\cdot\vec{T}}{||\vec{L}||*||\vec{T}||} = \frac{\begin{pmatrix}1\\1\end{pmatrix}\cdot\begin{pmatrix}6\\-10\end{pmatrix}}{\sqrt{1^2+1^2}*\sqrt{6^2 + 10^2}} = \frac{-4}{\sqrt{2}*\sqrt{136}} = -0.2425356 \approx 104^\circ$
+
+        But evidently, that is the larger angle... Changing the sign of the numerator gives the complement, $76^\circ$. In thinking about it, the slope is better described as $\begin{pmatrix}-6\\10\end{pmatrix}$ - as $t$ increases, $x$ decreases and $y$ increases.
+
+        Double-checking: If $L$ is $y=x$ and tangent is $y = \frac{64-10x}{6}$, when do they equal? $x = \frac{64-10x}{6} \Rightarrow  6x = 64-10x \Rightarrow 16x = 64 \Rightarrow x=4$
+
+        For good measure, $x = y$ and $x = \frac{64-6y}{10}$:
+
+        $y = \frac{64-6y}{10} \Rightarrow 10y = 64-6y \Rightarrow 16y = 64 \Rightarrow y=4$
+
+        ```{r}
+        data.frame(t = seq(-1,5,.01)) |> ggplot() + geom_point(size=.01, aes(x = 5*t - t^2, y=t^2 -3*t)) + geom_line(aes(x=t, y=t)) + coord_cartesian(xlim=c(-2,7), ylim=c(-2.5,5)) + annotate(geom='point', x=4, y=4) + annotate(geom='label', x=0.8,y=0,label='O') + annotate(geom='label', x=6.8,y=0,label='P') + annotate(geom='label', x=4.8,y=4, label='Q') + annotate(geom='point', x=0,y=0) + annotate(geom='point', x=6,y=0) + geom_line(color='red', aes(t, y = (64-10*t)/6)) + scale_x_continuous(breaks = seq(-5,5,1)) + scale_y_continuous(breaks = seq(-2,12,1)) + coord_fixed()
+        ```
+
+    C.  What are the minimal and maximal speeds of the object?
+
+        $\vec{v} = \begin{pmatrix}x'(t)\\y'(t)\end{pmatrix} = \begin{pmatrix}5-2t\\2t-3\end{pmatrix}$
+
+        Speed formula (note, derivatives!): $||\vec{v}(t)|| = \sqrt{(x'(t))^2 + (y'(t))^2} = \sqrt{(5-2t)^2 + (2t-3)^2}$
+
+        Derivative, set to zero: $f(t) = s(t)^2 = (5-2t)^2 + (2t-3)^2 = 25 -20t + 4t^2 + 4t^2 -12t + 9 = 8t^2 -32t + 34$
+
+        $f'(t) = 16t - 32 \Rightarrow t=2$
+
+        $\sqrt{(5-2*2)^2 + (2*2-3)^2} = \sqrt{2}$
+
+        I suspect max is $8.602325$ at $t = (-1, 5)$ and min is $1.414214$ at $t=2$. (Correct!)
+
+        And I note that visually, plotting the curve with `geom_point()`, the points are densest at the point of minimum speed, and sparsest at the points of maximum speed.

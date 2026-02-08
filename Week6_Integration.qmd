@@ -634,7 +634,7 @@ The problem is that $\frac{1}{x^2}$ is NOT continuous for $[-1,1]$, as $\frac{1}
     \frac{du}{dx}u^5 = \frac{1}{6}u^6 = \frac{1}{6}ln(x)^6
     $$
 
-13. Find antiderivative $F(x) = \int \frac{cos(\sqrt{x})}{\sqrt{x})}dx$
+13. Find antiderivative $F(x) = \int \frac{cos(\sqrt{x})}{\sqrt{x}}dx$
 
     $$
     \begin{align}
